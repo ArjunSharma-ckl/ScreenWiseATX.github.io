@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Breast Cancer — ScreenWise ATX</title>
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
 
 <nav>
   <div class="container nav-inner">
-    <div class="nav-brand">ScreenWise ATX</div>
+    <div class="brand"><span class="brand-badge"></span>ScreenWise ATX</div>
     <div class="nav-links">
       <a href="../index.html">Home</a>
-      <a href="breast.html">Breast</a>
+      <a class="active" href="breast.html">Breast</a>
       <a href="lung.html">Lung</a>
       <a href="leukemia.html">Leukemia</a>
       <a href="brain.html">Brain</a>
@@ -21,38 +21,90 @@
   </div>
 </nav>
 
-<div class="container hero">
-  <h1>Breast Cancer</h1>
-  <p>
-    Educational overview intended to support general awareness and
-    understanding, not diagnosis or treatment.
-  </p>
-</div>
+<header class="hero">
+  <div class="container stack">
+    <div class="kicker reveal">Cancer awareness</div>
+    <div class="h1 reveal">Breast Cancer</div>
+    <div class="sub reveal">
+      Placeholder educational overview designed for calm, responsible awareness. Not medical advice.
+    </div>
 
-<section>
-  <div class="container block">
-    <p>
-      Placeholder text explaining the condition at a high level, using
-      calm and neutral language appropriate for educational purposes.
-    </p>
+    <div class="row mt-24 reveal">
+      <a class="btn primary" href="#overview">Start overview</a>
+      <a class="btn" href="#learn">Key sections</a>
+    </div>
+  </div>
+</header>
 
-    <p>
-      Placeholder text emphasizing awareness, early understanding, and
-      the importance of informed conversations.
-    </p>
+<section id="overview">
+  <div class="container">
+    <div class="section-title mb-24">
+      <h2 class="reveal">Overview</h2>
+      <div class="note reveal">Clean, high-level explanations. No graphic content. No diagnosis guidance.</div>
+    </div>
 
-    <p>
-      Placeholder summary reinforcing responsible learning and
-      non-alarmist education.
-    </p>
+    <div class="grid two">
+      <div class="card reveal">
+        <h3>What it is</h3>
+        <p>Placeholder text describing the condition at a general level, focused on understanding and awareness.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Why it matters</h3>
+        <p>Placeholder text about education, early conversations, and the value of awareness initiatives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="learn">
+  <div class="container">
+    <div class="section-title mb-24">
+      <h2 class="reveal">Key Sections</h2>
+      <div class="note reveal">Structured like a modern product page: clear categories, short blocks.</div>
+    </div>
+
+    <div class="grid three">
+      <div class="card reveal">
+        <h3>Common signs (general)</h3>
+        <ul>
+          <li>Placeholder sign</li>
+          <li>Placeholder sign</li>
+          <li>Placeholder sign</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3>Risk & prevention (general)</h3>
+        <ul>
+          <li>Placeholder factor</li>
+          <li>Placeholder factor</li>
+          <li>Placeholder prevention idea</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3>Support & next steps</h3>
+        <ul>
+          <li>Placeholder: talk to trusted adults</li>
+          <li>Placeholder: verified resources</li>
+          <li>Placeholder: community support</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel panel-inner panel-glow mt-32 reveal">
+      <div class="stack">
+        <h3 style="letter-spacing:-0.02em;">Disclaimer</h3>
+        <p style="color:var(--muted);">
+          Placeholder disclaimer: educational awareness only. If someone has health concerns, consult a qualified clinician.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    © ScreenWise ATX — Educational awareness project
-  </div>
+  <div class="container">© ScreenWise ATX — Educational awareness project</div>
 </footer>
 
+<script type="module" src="../script.js"></script>
 </body>
 </html>
