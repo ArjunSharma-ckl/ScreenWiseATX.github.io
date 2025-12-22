@@ -1,61 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>ScreenWise ATX</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
 <nav>
   <div class="container nav-inner">
-    <div class="nav-brand">ScreenWise ATX</div>
+    <div class="brand"><span class="dot"></span>ScreenWise ATX</div>
     <div class="nav-links">
       <a class="active" href="index.html">Home</a>
       <a href="cancers/breast.html">Breast</a>
+      <a href="cancers/cervical.html">Cervical</a>
       <a href="cancers/lung.html">Lung</a>
-      <a href="cancers/leukemia.html">Leukemia</a>
-      <a href="cancers/brain.html">Brain</a>
-      <a href="cancers/skin.html">Skin</a>
+      <a href="cancers/colon.html">Colon</a>
+      <a href="cancers/prostate.html">Prostate</a>
     </div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="container">
-    <h1>Awareness without fear.</h1>
+    <div class="kicker">Student-led awareness initiative</div>
+    <h1>Awareness, built on clarity.</h1>
     <p>
-      ScreenWise ATX is a student-led initiative focused on clean,
-      responsible cancer awareness through education and conversation.
+      ScreenWise ATX shares clear, structured information about screening, symptoms,
+      risk factors, and access options. Content on cancer pages is based on the provided
+      ScreenWise flyer data. This site is educational—NOT medical advice.
     </p>
+
+    <div class="row mt-24">
+      <a class="btn primary" href="cancers/breast.html">Explore the guide</a>
+      <a class="btn" href="#who">Meet the team</a>
+    </div>
   </div>
 </header>
 
-<section>
+<section class="section">
   <div class="container">
-    <div class="section-title">Who We Are</div>
-    <div class="people">
-      <div class="person">
-        <img src="people/AARYA.png">
-        <div>
-          <strong>Aarya</strong>
-          <p>Placeholder description focused on education and advocacy.</p>
-        </div>
+    <div class="section-title">
+      <h2>What you’ll find</h2>
+      <div class="note">Each cancer page includes: overview, who it affects, risk factors, symptoms, screening, frequency, cost, insurance, and clinic notes when listed.</div>
+    </div>
+
+    <div class="grid three">
+      <div class="card">
+        <h3>Screening</h3>
+        <p>Method + recommended frequency in a clean, scannable layout.</p>
       </div>
-      <div class="person">
-        <img src="people/KIARA.png">
-        <div>
-          <strong>Kiara</strong>
-          <p>Placeholder description focused on design and outreach.</p>
-        </div>
+      <div class="card">
+        <h3>Access</h3>
+        <p>Cost + insurance coverage details where provided.</p>
+      </div>
+      <div class="card">
+        <h3>Local options</h3>
+        <p>Clinic accommodations appear on pages where they’re listed.</p>
+      </div>
+    </div>
+
+    <div class="panel panel-inner panel-glow mt-32">
+      <h3 style="letter-spacing:-0.02em;">Start here</h3>
+      <p style="color:var(--muted); margin-top:10px;">
+        Pick a cancer type below to view the full, structured page.
+      </p>
+      <div class="row mt-18">
+        <a class="btn primary" href="cancers/breast.html">Breast</a>
+        <a class="btn" href="cancers/cervical.html">Cervical</a>
+        <a class="btn" href="cancers/lung.html">Lung</a>
+        <a class="btn" href="cancers/colon.html">Colon</a>
+        <a class="btn" href="cancers/prostate.html">Prostate</a>
       </div>
     </div>
   </div>
 </section>
 
+<section class="section" id="who">
+  <div class="container">
+    <div class="section-title">
+      <h2>Who we are</h2>
+      <div class="note">Replace these blurbs with your real bios whenever you’re ready.</div>
+    </div>
+
+    <div class="people">
+      <div class="card">
+        <div class="person">
+          <img src="people/AARYA.png" alt="Aarya">
+          <div>
+            <div class="name">Aarya</div>
+            <div class="desc">Founder / Outreach — focused on education and awareness resources.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="person">
+          <img src="people/KIARA.png" alt="Kiara">
+          <div>
+            <div class="name">Kiara</div>
+            <div class="desc">Design / Research — focused on clarity, structure, and accessibility.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <footer>
   <div class="container">
-    © ScreenWise ATX — Educational awareness project
+    © ScreenWise ATX — Educational awareness project. If someone has health concerns, they should consult a qualified clinician.
   </div>
 </footer>
 

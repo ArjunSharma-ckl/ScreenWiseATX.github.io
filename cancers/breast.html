@@ -1,85 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Breast Cancer — ScreenWise ATX</title>
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
 
 <nav>
   <div class="container nav-inner">
-    <div class="nav-brand">ScreenWise ATX</div>
+    <div class="brand"><span class="dot"></span>ScreenWise ATX</div>
     <div class="nav-links">
       <a href="../index.html">Home</a>
       <a class="active" href="breast.html">Breast</a>
+      <a href="cervical.html">Cervical</a>
       <a href="lung.html">Lung</a>
-      <a href="leukemia.html">Leukemia</a>
-      <a href="brain.html">Brain</a>
-      <a href="skin.html">Skin</a>
+      <a href="colon.html">Colon</a>
+      <a href="prostate.html">Prostate</a>
     </div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="container">
+    <div class="kicker">Cancer awareness</div>
     <h1>Breast Cancer</h1>
-    <p>Educational awareness overview. Not medical advice.</p>
+    <p>Educational overview based on the provided ScreenWise flyer data. Not medical advice.</p>
+    <div class="row mt-24">
+      <a class="btn primary" href="#screening">Screening info</a>
+      <a class="btn" href="#symptoms">Symptoms</a>
+    </div>
   </div>
 </header>
 
-<section>
+<section class="section">
   <div class="container">
-    <div class="section-title">Overview</div>
+    <div class="section-title">
+      <h2>What it is</h2>
+      <div class="note">High-level definition (educational).</div>
+    </div>
+    <div class="panel panel-inner panel-glow">
+      <p style="color:var(--muted2);">
+        Tumor growth of mutated cells in the breast tissue
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Who could have it</h2>
+      <div class="note">Age, demographics, habits (as listed).</div>
+    </div>
     <div class="grid two">
       <div class="card">
-        <h3>What it is</h3>
-        <p>Placeholder educational explanation.</p>
+        <h3>Who</h3>
+        <ul>
+          <li>Above the age of 50</li>
+          <li>Any family history of breast cancer</li>
+          <li>More common in women</li>
+        </ul>
       </div>
       <div class="card">
-        <h3>Why awareness matters</h3>
-        <p>Placeholder text focused on early conversations and education.</p>
+        <h3>Notes</h3>
+        <p>Risk can vary by genetics and lifestyle. Use this page as an awareness guide.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<section class="section" id="symptoms">
   <div class="container">
-    <div class="section-title">Key Areas</div>
-    <div class="grid three">
+    <div class="section-title">
+      <h2>Risk factors & symptoms</h2>
+      <div class="note">Lists below reflect flyer content.</div>
+    </div>
+    <div class="grid two">
       <div class="card">
-        <h3>General signs</h3>
+        <h3>Risk factors</h3>
         <ul>
-          <li>Placeholder</li>
-          <li>Placeholder</li>
-          <li>Placeholder</li>
+          <li>Overweight/Obese (BMI above 25) and being physically inactive</li>
+          <li>Family history of breast cancer</li>
+          <li>Smoking</li>
+          <li>Heavy alcohol intake</li>
         </ul>
       </div>
       <div class="card">
-        <h3>Risk & prevention</h3>
+        <h3>Symptoms</h3>
         <ul>
-          <li>Placeholder</li>
-          <li>Placeholder</li>
-          <li>Placeholder</li>
+          <li>New lump in breast or underarm (armpit)</li>
+          <li>Thickening or swelling of part of the breast</li>
+          <li>Irritation or dimpling of breast skin</li>
+          <li>Redness or flaky skin in the nipple area or the breast</li>
+          <li>Pain in any area of the breast</li>
+          <li>Nipple discharge other than breast milk</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="screening">
+  <div class="container">
+    <div class="section-title">
+      <h2>Screening & access</h2>
+      <div class="note">Method, frequency, cost, insurance.</div>
+    </div>
+
+    <div class="grid two">
+      <div class="card">
+        <h3>Screening method</h3>
+        <p>- Mammogram (stand in front of the X-ray machine and lie on the table so that your breast is placed between two plates)</p>
+        <p class="mt-12" style="color:var(--muted2);"><strong>Frequency:</strong> Every 2 years for women age 50-74</p>
       </div>
       <div class="card">
-        <h3>Support</h3>
-        <ul>
-          <li>Placeholder</li>
-          <li>Placeholder</li>
-          <li>Placeholder</li>
-        </ul>
+        <h3>Cost & insurance</h3>
+        <p><strong>Cost:</strong> Mammogram: $100 - $250 and may exceed $1,000 in some cases</p>
+        <p class="mt-12"><strong>Insurance:</strong> Covered by most insurances</p>
       </div>
+    </div>
+
+    <div class="panel panel-inner mt-32">
+      <h3 style="letter-spacing:-0.02em;">Clinics that accommodate</h3>
+      <p style="color:var(--muted); margin-top:10px;">Not listed in the flyer for this cancer type.</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    © ScreenWise ATX — Educational awareness project
-  </div>
+  <div class="container">© ScreenWise ATX — Educational awareness project</div>
 </footer>
 
 <script type="module" src="../script.js"></script>
