@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Lung Cancer — ScreenWise ATX</title>
-  <link rel="stylesheet" href="../styles.css" />
+<meta charset="UTF-8">
+<title>Lung Cancer — ScreenWise ATX</title>
+<link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
 <nav>
   <div class="container nav-inner">
-    <div class="brand"><span class="dot"></span>ScreenWise ATX</div>
+    <div class="brand">ScreenWise ATX</div>
     <div class="nav-links">
       <a href="../index.html">Home</a>
       <a href="breast.html">Breast</a>
@@ -23,115 +23,70 @@
 
 <header class="hero">
   <div class="container">
-    <div class="kicker">Cancer awareness</div>
     <h1>Lung Cancer</h1>
-    <p>Educational overview based on the provided ScreenWise flyer data. Not medical advice.</p>
-    <div class="row mt-24">
-      <a class="btn primary" href="#screening">Screening info</a>
-      <a class="btn" href="#symptoms">Symptoms</a>
-    </div>
+    <p>Educational awareness content based on the ScreenWise flyer.</p>
   </div>
 </header>
 
-<section class="section">
-  <div class="container">
-    <div class="section-title">
-      <h2>What it is</h2>
-      <div class="note">High-level definition (educational).</div>
-    </div>
-    <div class="panel panel-inner panel-glow">
-      <p style="color:var(--muted2);">
-        Tumor growth of cancer cells on the lung tissue
-      </p>
-    </div>
+<section class="section"><div class="container">
+
+<details class="panel" open>
+  <summary>What it is</summary>
+  <div class="panel-inner">
+    <p>Tumor growth of cancer cells on lung tissue.</p>
   </div>
-</section>
+</details>
 
-<section class="section">
-  <div class="container">
-    <div class="section-title">
-      <h2>Who could have it</h2>
-      <div class="note">Age, demographics, habits (as listed).</div>
-    </div>
-    <div class="grid two">
-      <div class="card">
-        <h3>Who</h3>
-        <ul>
-          <li>Recommended yearly lung cancer screening with low-dose CT scan for adults 50-80 yrs old who have a 20 pack-year smoking history and currently smoke or have quit within the past 15 years</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Notes</h3>
-        <p>This page emphasizes screening access and clarity on recommended eligibility.</p>
-      </div>
-    </div>
+<details class="panel">
+  <summary>Who could have it</summary>
+  <div class="panel-inner">
+    <ul>
+      <li>Adults aged 50–80</li>
+      <li>20 pack-year smoking history</li>
+      <li>Current smokers or quit within last 15 years</li>
+    </ul>
   </div>
-</section>
+</details>
 
-<section class="section" id="symptoms">
-  <div class="container">
-    <div class="section-title">
-      <h2>Risk factors & symptoms</h2>
-      <div class="note">Lists below reflect flyer content.</div>
-    </div>
-    <div class="grid two">
-      <div class="card">
-        <h3>Risk factors</h3>
-        <ul>
-          <li>Smoking and tobacco exposure</li>
-          <li>Secondhand smoke exposure</li>
-          <li>Radon exposure</li>
-          <li>Exposure to asbestos and other carcinogens</li>
-          <li>Family history of lung cancer</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Symptoms</h3>
-        <ul>
-          <li>Persistent cough</li>
-          <li>Coughing up blood</li>
-          <li>Shortness of breath</li>
-          <li>Chest pain</li>
-          <li>Unexplained weight loss</li>
-        </ul>
-      </div>
-    </div>
+<details class="panel">
+  <summary>Risk factors</summary>
+  <div class="panel-inner">
+    <ul>
+      <li>Smoking and tobacco exposure</li>
+      <li>Secondhand smoke</li>
+      <li>Radon exposure</li>
+      <li>Asbestos and carcinogens</li>
+      <li>Family history</li>
+    </ul>
   </div>
-</section>
+</details>
 
-<section class="section" id="screening">
-  <div class="container">
-    <div class="section-title">
-      <h2>Screening & access</h2>
-      <div class="note">Method, frequency, cost, insurance.</div>
-    </div>
-
-    <div class="grid two">
-      <div class="card">
-        <h3>Screening method</h3>
-        <p><strong>Low-dose CT scan</strong> (LDCT)</p>
-        <p class="mt-12" style="color:var(--muted2);"><strong>Frequency:</strong> Yearly for eligible adults (see “Who could have it”).</p>
-      </div>
-      <div class="card">
-        <h3>Cost & insurance</h3>
-        <p><strong>Cost:</strong> $300–$400 (approx.)</p>
-        <p class="mt-12"><strong>Insurance:</strong> Medicare and many private insurers cover LDCT screening for eligible adults.</p>
-      </div>
-    </div>
-
-    <div class="panel panel-inner mt-32">
-      <h3 style="letter-spacing:-0.02em;">Clinics that accommodate</h3>
-      <ul class="mt-12">
-        <li>Volunteer Healthcare Clinic and CommUnityCare offer LDCT screenings for low-income individuals</li>
-      </ul>
-    </div>
+<details class="panel">
+  <summary>Symptoms</summary>
+  <div class="panel-inner">
+    <ul>
+      <li>Persistent cough</li>
+      <li>Coughing up blood</li>
+      <li>Shortness of breath</li>
+      <li>Chest pain</li>
+      <li>Unexplained weight loss</li>
+    </ul>
   </div>
-</section>
+</details>
 
-<footer>
-  <div class="container">© ScreenWise ATX — Educational awareness project</div>
-</footer>
+<details class="panel">
+  <summary>Screening, frequency & cost</summary>
+  <div class="panel-inner">
+    <p>Low-dose CT scan (LDCT) yearly.</p>
+    <p>Cost: $300–$400.</p>
+    <p>Covered by Medicare and many insurers.</p>
+    <p>Volunteer Healthcare Clinic and CommUnityCare accommodate low-income patients.</p>
+  </div>
+</details>
 
+</div></section>
+
+<footer><div class="container">© ScreenWise ATX</div></footer>
 <script type="module" src="../script.js"></script>
 </body>
 </html>

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Prostate Cancer — ScreenWise ATX</title>
-  <link rel="stylesheet" href="../styles.css" />
+<meta charset="UTF-8">
+<title>Prostate Cancer — ScreenWise ATX</title>
+<link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
 <nav>
   <div class="container nav-inner">
-    <div class="brand"><span class="dot"></span>ScreenWise ATX</div>
+    <div class="brand">ScreenWise ATX</div>
     <div class="nav-links">
       <a href="../index.html">Home</a>
       <a href="breast.html">Breast</a>
@@ -23,113 +23,68 @@
 
 <header class="hero">
   <div class="container">
-    <div class="kicker">Cancer awareness</div>
     <h1>Prostate Cancer</h1>
-    <p>Educational overview based on the provided ScreenWise flyer data. Not medical advice.</p>
-    <div class="row mt-24">
-      <a class="btn primary" href="#screening">Screening info</a>
-      <a class="btn" href="#symptoms">Symptoms</a>
-    </div>
+    <p>Educational awareness content based on the ScreenWise flyer.</p>
   </div>
 </header>
 
-<section class="section">
-  <div class="container">
-    <div class="section-title">
-      <h2>What it is</h2>
-      <div class="note">High-level definition (educational).</div>
-    </div>
-    <div class="panel panel-inner panel-glow">
-      <p style="color:var(--muted2);">
-        A tumor that forms in the prostate gland, right below the bladder
-      </p>
-    </div>
+<section class="section"><div class="container">
+
+<details class="panel" open>
+  <summary>What it is</summary>
+  <div class="panel-inner">
+    <p>A tumor that forms in the prostate gland below the bladder.</p>
   </div>
-</section>
+</details>
 
-<section class="section">
-  <div class="container">
-    <div class="section-title">
-      <h2>Who could have it</h2>
-      <div class="note">Age, demographics, habits (as listed).</div>
-    </div>
-    <div class="grid two">
-      <div class="card">
-        <h3>Who</h3>
-        <ul>
-          <li>Common amongst older men above the age of 65</li>
-          <li>Higher risk in African American men</li>
-          <li>Family history</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Notes</h3>
-        <p>This page focuses on awareness + screening access information.</p>
-      </div>
-    </div>
+<details class="panel">
+  <summary>Who could have it</summary>
+  <div class="panel-inner">
+    <ul>
+      <li>Men over age 65</li>
+      <li>Higher risk in African American men</li>
+      <li>Family history</li>
+    </ul>
   </div>
-</section>
+</details>
 
-<section class="section" id="symptoms">
-  <div class="container">
-    <div class="section-title">
-      <h2>Risk factors & symptoms</h2>
-      <div class="note">Lists below reflect flyer content.</div>
-    </div>
-    <div class="grid two">
-      <div class="card">
-        <h3>Risk factors</h3>
-        <ul>
-          <li>Age</li>
-          <li>Family history</li>
-          <li>Race (higher risk in African American men)</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Symptoms</h3>
-        <ul>
-          <li>Difficulty urinating</li>
-          <li>Frequent urination, especially at night</li>
-          <li>Blood in urine or semen</li>
-          <li>Painful urination or ejaculation</li>
-          <li>Pain in lower back, hips, or thighs</li>
-        </ul>
-      </div>
-    </div>
+<details class="panel">
+  <summary>Risk factors</summary>
+  <div class="panel-inner">
+    <ul>
+      <li>Age</li>
+      <li>Family history</li>
+      <li>Race (African American men)</li>
+    </ul>
   </div>
-</section>
+</details>
 
-<section class="section" id="screening">
-  <div class="container">
-    <div class="section-title">
-      <h2>Screening & access</h2>
-      <div class="note">Method, frequency, cost, insurance.</div>
-    </div>
-
-    <div class="grid two">
-      <div class="card">
-        <h3>Screening method</h3>
-        <p><strong>PSA blood test</strong> (looks for elevated prostate-specific antigen)</p>
-        <p class="mt-12" style="color:var(--muted2);"><strong>Frequency:</strong> Discuss screening with a doctor starting around age 50 (earlier for higher risk)</p>
-      </div>
-      <div class="card">
-        <h3>Cost & insurance</h3>
-        <p><strong>Cost:</strong> $30–$50 (varies by lab/clinic)</p>
-        <p class="mt-12"><strong>Insurance:</strong> Often covered, especially for higher-risk patients (varies by plan)</p>
-      </div>
-    </div>
-
-    <div class="panel panel-inner mt-32">
-      <h3 style="letter-spacing:-0.02em;">Clinics that accommodate</h3>
-      <p style="color:var(--muted); margin-top:10px;">Not listed in the flyer for this cancer type.</p>
-    </div>
+<details class="panel">
+  <summary>Symptoms</summary>
+  <div class="panel-inner">
+    <ul>
+      <li>Difficulty urinating</li>
+      <li>Frequent urination at night</li>
+      <li>Blood in urine or semen</li>
+      <li>Painful urination or ejaculation</li>
+      <li>Pain in lower back, hips, or thighs</li>
+    </ul>
   </div>
-</section>
+</details>
 
-<footer>
-  <div class="container">© ScreenWise ATX — Educational awareness project</div>
-</footer>
+<details class="panel">
+  <summary>Screening, frequency & cost</summary>
+  <div class="panel-inner">
+    <p>PSA blood test.</p>
+    <p>Discuss screening starting around age 50.</p>
+    <p>Cost: $30–$50.</p>
+    <p>Often covered by insurance.</p>
+  </div>
+</details>
 
+</div></section>
+
+<footer><div class="container">© ScreenWise ATX</div></footer>
 <script type="module" src="../script.js"></script>
 </body>
 </html>
