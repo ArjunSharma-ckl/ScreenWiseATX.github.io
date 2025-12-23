@@ -1,6 +1,6 @@
 :root{
   --bg:#fafbfc;
-  --glass:rgba(59,130,246,.08);
+  --glass:rgba(255,255,255,.06);
   --border:rgba(59,130,246,.15);
   --text:#1e293b;
   --muted:#64748b;
@@ -103,15 +103,14 @@ nav{
 .panel{
   background:linear-gradient(
     180deg,
-    rgba(255,255,255,.95),
-    rgba(249,250,251,.90)
+    rgba(255,255,255,.10),
+    rgba(255,255,255,.04)
   );
   border:1px solid var(--border);
   border-radius:var(--radius);
   backdrop-filter:blur(18px);
   margin-bottom:14px;
   will-change:transform,opacity;
-  box-shadow:0 2px 8px rgba(59,130,246,.04);
 }
 .panel summary{
   list-style:none;
