@@ -1,51 +1,12 @@
 
-body{
-  font-family: -apple-system, BlinkMacSystemFont, Inter, sans-serif;
-  background:#f8fafc;
-  color:#0f172a;
-  margin:0;
-}
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-}
-.cta{
-  margin-top:20px;
-  padding:14px 26px;
-  background:#93c5fd;
-  color:#0f172a;
-  text-decoration:none;
-  border-radius:999px;
-  font-weight:600;
-}
-form{
-  max-width:800px;
-  margin:40px auto;
-  background:white;
-  padding:30px;
-  border-radius:20px;
-}
+body{font-family:Inter,system-ui;background:#f8fafc;color:#0f172a;margin:0}
+.hero{text-align:center;padding:80px}
+.actions a{display:inline-block;margin:10px;padding:14px 26px;background:#bfdbfe;border-radius:999px;text-decoration:none;color:#0f172a;font-weight:600}
+.section{padding:40px;max-width:900px;margin:auto}
+form{max-width:900px;margin:auto;padding:40px}
 label{font-weight:600}
-input,select{
-  width:100%;
-  padding:10px;
-  margin:8px 0 20px;
-}
-button{
-  padding:12px 24px;
-  border:none;
-  background:#60a5fa;
-  border-radius:999px;
-  font-weight:600;
-}
-.output{
-  max-width:800px;
-  margin:20px auto;
-  background:#e0f2fe;
-  padding:20px;
-  border-radius:16px;
-}
+input,select{width:100%;padding:10px;margin:6px 0 16px}
+button{padding:12px 24px;background:#60a5fa;border:none;border-radius:999px;font-weight:600}
+.output{background:#e0f2fe;padding:20px;border-radius:16px;margin-top:20px}
+.small{font-size:.85rem;color:#475569}
+.grey{color:#64748b;font-size:.85rem}
