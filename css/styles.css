@@ -111,3 +111,33 @@ body.dark .tab {
 body.dark .tab2-wrap > .tab {
   background:rgba(255,255,255,.12);
 }
+
+/* ===== HEADER ALIGNMENT (MATCH IMAGE) ===== */
+.nav {
+  display:grid !important;
+  grid-template-columns: 1fr auto 1fr;
+}
+.tabs {
+  justify-content:center !important;
+  gap:14px;
+}
+.tab {
+  min-width:72px;
+  text-align:center;
+}
+
+/* ===== DARK MODE HEADER + DROPDOWN ===== */
+body.dark header {
+  background:#0b1220 !important;
+}
+body.dark .tab {
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.25);
+}
+body.dark .cancer-menu {
+  background:#0f172a !important;
+}
+body.dark .cancer-menu a {
+  color:#ffffff !important;
+  border-color:rgba(255,255,255,.35);
+}
