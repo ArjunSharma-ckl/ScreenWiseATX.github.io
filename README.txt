@@ -1,22 +1,25 @@
-# ScreenWiseATX Website (Static)
+# ScreenWiseATX Website — FINAL BUILD
 
-## What you get
-- Clean off-white / baby blue / light green / orange palette
-- Sticky header with 3 centered tabs
-- Scroll-reveal animations (IntersectionObserver)
-- Simple SVG logo (top-left) + SVG favicon (browser tab icon)
-- Placeholder pages for tabs + cancer pages
+This is the FINAL complete build with:
+- Clean off‑white / baby blue / green / orange UI
+- Custom logo + favicon
+- Scroll‑reveal animations everywhere
+- Tabs in TWO places linking to SAME pages
+- Separate pages for each cancer
+- Dedicated routing map page
 
-## How to run
-Option A (simple): double-click `index.html`
+## Navigation summary
+See: routing.html
 
-Option B (recommended local server):
-- Python 3:
-  python -m http.server 8000
-Then open: http://localhost:8000
+## Pages included
+- index.html (main landing)
+- tab1.html, tab2.html, tab3.html
+- breast.html, cervical.html, colon.html, lung.html, prostate.html
+- routing.html (site map)
 
-## Customize
-- Edit text in `index.html`
-- Colors + styles in `css/styles.css`
-- Scroll animations in `js/app.js`
-- Replace logo in `assets/logo.svg`
+## Run
+Double‑click index.html
+OR
+python -m http.server 8000
+
+No build tools. No errors.
