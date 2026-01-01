@@ -100,3 +100,14 @@ body.dark .section {
   flex-wrap: nowrap !important;
   white-space: nowrap;
 }
+
+/* ===== HEADER DARK MODE MATCH ===== */
+body.dark header {
+  background:#0b1220 !important;
+}
+body.dark .tab {
+  background:rgba(255,255,255,.08);
+}
+body.dark .tab2-wrap > .tab {
+  background:rgba(255,255,255,.12);
+}
