@@ -249,3 +249,26 @@ body.dark .cancer-menu a{
   color:#e5e7eb;
   border-color:rgba(255,255,255,.3);
 }
+
+/* ===== HARD VISIBILITY FIX ===== */
+html, body{
+  background:#f8fafc;
+  color:#0f172a;
+}
+
+section, header, footer, div, p, h1, h2, h3{
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Dark mode override */
+body.dark{
+  background:#0f172a !important;
+  color:#e5e7eb !important;
+}
+body.dark section{
+  background:transparent;
+}
+body.dark p{
+  color:#cbd5f5 !important;
+}

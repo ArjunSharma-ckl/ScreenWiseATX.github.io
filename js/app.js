@@ -3,15 +3,15 @@
   const darkToggle = document.getElementById('darkToggle');
   const langToggle = document.getElementById('langToggle');
 
-  // Dark mode toggle
   if(darkToggle){
+    darkToggle.checked = false;
     darkToggle.addEventListener('change', () => {
       document.body.classList.toggle('dark', darkToggle.checked);
     });
   }
 
-  // Language toggle
   if(langToggle){
+    langToggle.checked = false;
     langToggle.addEventListener('change', () => {
       const lang = langToggle.checked ? 'es' : 'en';
       document.querySelectorAll('[data-en]').forEach(el => {
