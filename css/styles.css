@@ -272,3 +272,24 @@ body.dark section{
 body.dark p{
   color:#cbd5f5 !important;
 }
+
+/* ===== SECTION DIVIDERS ===== */
+.section{
+  border-top: 6px solid #e5eef6;
+}
+body.dark .section{
+  border-top: 6px solid #1e293b;
+}
+
+/* ===== WHY TABS FORCE 3 COL ===== */
+.why-tabs{
+  display:grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+/* ===== HEADER ALIGNMENT ===== */
+.tabs{
+  display:flex;
+  flex-wrap:nowrap;
+  align-items:center;
+}
