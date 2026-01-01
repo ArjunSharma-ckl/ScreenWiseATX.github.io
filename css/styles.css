@@ -28,13 +28,13 @@ html,body{height:100%}
 body{
   margin:0;
   background: linear-gradient(120deg,
-    rgba(142,197,255,.55),
+    rgba(142,197,255,.50),
     rgba(167,243,208,.45),
-    rgba(253,186,116,.35),
-    rgba(142,197,255,.55)
+    rgba(253,186,116,.28),
+    rgba(142,197,255,.50)
   );
-  background-size: 400% 400%;
-  animation: bgFlow 140s ease-in-out infinite;
+  background-size: 500% 500%;
+  animation: bgFlow 180s ease-in-out infinite;
   color:var(--text);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
   overflow-x:hidden;
@@ -335,106 +335,197 @@ body.dark{
   transform: rotate(20deg) scale(1.1);
 }
 
-@keyframes bgFlow {
-  0%   { background-position: 30% 40%; }
-  33%  { background-position: 55% 50%; }
-  66%  { background-position: 45% 60%; }
-  100% { background-position: 30% 40%; }
-}
-
-/* ===== Big full-width tabs (Why It Matters) ===== */
-.big-tabs {
-  display: grid;
+.big-tabs{
+  display:grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin: 60px 0;
+  gap: 28px;
+  margin-top: 26px;
+}
+.big-tab{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  padding: 44px 18px;
+  border-radius: 26px;
+  font-weight: 850;
+  font-size: 1.25rem;
+  border: 1px solid rgba(11,42,74,.14);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.45), transparent 45%),
+    linear-gradient(135deg, rgba(142,197,255,.60), rgba(167,243,208,.50));
+  box-shadow: 0 18px 38px rgba(11,42,74,.10);
+  transition: transform .22s ease, box-shadow .22s ease;
+  position:relative;
+  overflow:hidden;
+}
+.big-tab::after{
+  content:"";
+  position:absolute;
+  inset:-40px -40px auto auto;
+  width:160px;height:160px;
+  background: radial-gradient(circle at 30% 30%, rgba(253,186,116,.45), transparent 60%);
+  transform: rotate(18deg);
+  opacity:.8;
+}
+.big-tab > span{position:relative; z-index:1}
+.big-tab:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 26px 60px rgba(11,42,74,.16);
+}
+@media (max-width: 860px){
+  .big-tabs{grid-template-columns:1fr; gap:16px}
+  .big-tab{padding: 26px 16px}
 }
 
-.big-tab {
-  padding: 56px 20px;
-  text-align: center;
-  font-size: 1.35rem;
-  font-weight: 800;
-  border-radius: 28px;
-  background: linear-gradient(135deg, rgba(142,197,255,.55), rgba(167,243,208,.55));
-  border: 1px solid rgba(11,42,74,.15);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.big-tab:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 28px 60px rgba(11,42,74,.18);
-}
-
-/* Hover cancer menu for Tab 2 */
-.big-tab.tab2 {
-  position: relative;
-}
-
-.cancer-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
+.tab2-wrap{position:relative}
+.tab2-wrap .tab-hover{
+  display:none;
+  position:absolute;
+  top: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%);
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 30px 70px rgba(0,0,0,.18);
-  margin-top: 14px;
-  z-index: 10;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(11,42,74,.12);
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 26px 60px rgba(11,42,74,.18);
+  z-index: 50;
+  min-width: 320px;
+}
+.tab2-wrap:hover .tab-hover{display:grid}
+.tab-hover{
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.tab-hover a{
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(11,42,74,.10);
+  background: rgba(249,250,247,.75);
+  font-weight: 650;
+  text-align:center;
+}
+.tab-hover a:hover{
+  border-color: rgba(11,42,74,.22);
+  transform: translateY(-1px);
+}
+@media (max-width: 860px){
+  .tab2-wrap .tab-hover{position:static; transform:none; min-width: unset; margin-top: 10px}
 }
 
-.big-tab.tab2:hover .cancer-menu {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+/* ===== Dark mode (deep, not gray) ===== */
+body.dark{
+  --bg:#070B14;
+  --surface:#0B1220;
+  --text:#EAF0FF;
+  --muted:#A9B4CC;
+  --border:rgba(255,255,255,.12);
 }
 
-/* ===== Toggles ===== */
-.toggle-wrap {
-  display: flex;
-  align-items: center;
+body.dark{
+  background: linear-gradient(120deg,
+    rgba(30,58,138,.55),
+    rgba(6,95,70,.38),
+    rgba(124,45,18,.34),
+    rgba(30,58,138,.55)
+  );
+  background-size: 500% 500%;
+  animation: bgFlow 220s ease-in-out infinite;
+}
+
+body.dark header{
+  background: rgba(7,11,20,.65);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+body.dark .header-divider{
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+}
+
+body.dark .tab{
+  background: rgba(11,18,32,.65);
+  border-color: rgba(255,255,255,.10);
+  box-shadow: 0 10px 18px rgba(0,0,0,.35);
+}
+
+body.dark .tab.is-active{
+  background: linear-gradient(135deg, rgba(30,58,138,.75), rgba(6,95,70,.55));
+  border-color: rgba(255,255,255,.12);
+}
+
+body.dark .card,
+body.dark .hero-card,
+body.dark .stats-card{
+  background: rgba(11,18,32,.72);
+  border-color: rgba(255,255,255,.10);
+}
+
+body.dark .subtle-btn{
+  background: rgba(11,18,32,.70);
+  border-color: rgba(255,255,255,.10);
+}
+
+body.dark .tab2-wrap .tab-hover{
+  background: rgba(11,18,32,.92);
+  border-color: rgba(255,255,255,.10);
+}
+
+body.dark .tab2-wrap .tab-hover a{
+  background: rgba(7,11,20,.65);
+  border-color: rgba(255,255,255,.10);
+}
+
+.toggle-wrap{
+  display:flex;
+  align-items:center;
   gap: 14px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
 }
-
-.toggle {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+.toggle-label{
   font-size: .9rem;
+  color: var(--muted);
+  font-weight: 650;
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
-
-.toggle input {
-  appearance: none;
-  width: 44px;
-  height: 24px;
-  background: #cbd5e1;
-  border-radius: 999px;
-  position: relative;
-  cursor: pointer;
+.switch{
+  position:relative;
+  width:44px;
+  height:24px;
 }
-
-.toggle input::before {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  top: 3px;
-  left: 3px;
-  background: white;
-  border-radius: 50%;
-  transition: transform .25s ease;
+.switch input{
+  opacity:0;
+  width:0;height:0;
 }
-
-.toggle input:checked::before {
-  transform: translateX(20px);
+.slider{
+  position:absolute; inset:0;
+  background:#CBD5E1;
+  border-radius:999px;
+  transition: .25s;
+  border: 1px solid rgba(11,42,74,.18);
 }
-
-/* Dark mode colors */
-body.dark {
-  --bg: #0b1220;
-  --surface: #0f172a;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
+.slider:before{
+  content:"";
+  position:absolute;
+  height:18px;width:18px;
+  left:3px;top:2.5px;
+  background:white;
+  border-radius:50%;
+  transition:.25s;
+}
+.switch input:checked + .slider{
+  background: rgba(142,197,255,.75);
+}
+.switch input:checked + .slider:before{
+  transform: translateX(19px);
+}
+body.dark .slider{
+  background: rgba(255,255,255,.16);
+  border-color: rgba(255,255,255,.12);
+}
+body.dark .switch input:checked + .slider{
+  background: rgba(30,58,138,.75);
 }

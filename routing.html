@@ -18,17 +18,29 @@
           <div class="tag">Navigation map</div>
         </div>
       </a>
-      <nav class="tabs"><a class="tab" href="index.html">Home</a>>
-        <a class="tab" href="tab1.html">Tab 1</a>
-        <a class="tab" href="tab2.html">Tab 2</a>
-        <a class="tab" href="tab3.html">Tab 3</a>
-      
-            </nav>
-            <div class="toggle-wrap">
-              <label class="toggle">Dark mode <input id="darkToggle" type="checkbox"></label>
-              <label class="toggle">Español <input id="langToggle" type="checkbox"></label>
-            </div>
-            
+      <nav class="tabs">
+        <a class="tab" href="tab1.html" data-en="Tab 1" data-es="Pestaña 1">Tab 1</a>
+        <a class="tab" href="tab2.html" data-en="Tab 2" data-es="Pestaña 2">Tab 2</a>
+        <a class="tab" href="tab3.html" data-en="Tab 3" data-es="Pestaña 3">Tab 3</a>
+      </nav>
+        <div class="toggle-wrap" aria-label="Preferences">
+          <span class="toggle-label" data-en="Dark mode" data-es="Modo oscuro">
+            <span>Dark mode</span>
+            <label class="switch">
+              <input id="darkToggle" type="checkbox" />
+              <span class="slider"></span>
+            </label>
+          </span>
+
+          <span class="toggle-label" data-en="Español" data-es="Español">
+            <span>Español</span>
+            <label class="switch">
+              <input id="langToggle" type="checkbox" />
+              <span class="slider"></span>
+            </label>
+          </span>
+        </div>
+
     </div>
   </div>
 </header>
