@@ -563,3 +563,43 @@ body.dark .tab{
   background: rgba(11,18,32,.75);
   border-color: rgba(255,255,255,.22);
 }
+
+/* ===== Header action buttons (Dark mode / Español) ===== */
+.header-actions{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.action-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:700;
+  cursor:pointer;
+  border:1.5px solid rgba(11,42,74,.28);
+  background: rgba(255,255,255,.85);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.action-btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(11,42,74,.18);
+}
+
+.action-btn.active{
+  background: linear-gradient(135deg, rgba(142,197,255,.85), rgba(167,243,208,.65));
+  border-color: rgba(11,42,74,.35);
+}
+
+body.dark .action-btn{
+  background: rgba(11,18,32,.85);
+  border-color: rgba(255,255,255,.22);
+  color: var(--text);
+}
+
+body.dark .action-btn.active{
+  background: linear-gradient(135deg, rgba(30,58,138,.75), rgba(6,95,70,.55));
+}

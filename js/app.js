@@ -1,59 +1,58 @@
 
 (() => {
-  // Scroll reveal
-  const els = Array.from(document.querySelectorAll('.reveal'));
+  /* ---------- Scroll reveal ---------- */
+  const els = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
+    entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('show');
         io.unobserve(e.target);
       }
-    }
-  }, { threshold: 0.12, rootMargin: "0px 0px -10% 0px" });
+    });
+  }, { threshold: 0.12 });
   els.forEach(el => io.observe(el));
 
-  // Active tab highlight
-  const path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-  document.querySelectorAll('.tab[data-href]').forEach(a => {
-    const href = (a.getAttribute('data-href') || '').toLowerCase();
-    if (href === path) a.classList.add('is-active');
+  /* ---------- Home tab always animated ---------- */
+  document.querySelectorAll('.tab[data-href="index.html"]').forEach(tab => {
+    tab.classList.add('is-active');
   });
 
-  // Dark mode (persist)
-  const darkToggle = document.getElementById('darkToggle');
-  const savedDark = localStorage.getItem('darkMode') === 'true';
-  if (savedDark) document.body.classList.add('dark');
-  if (darkToggle) darkToggle.checked = savedDark;
+  /* ---------- Dark mode button ---------- */
+  const darkBtn = document.getElementById('darkBtn');
+  const darkSaved = localStorage.getItem('darkMode') === 'true';
 
-  if (darkToggle) {
-    darkToggle.addEventListener('change', () => {
-      const enabled = darkToggle.checked;
+  if (darkSaved) document.body.classList.add('dark');
+  if (darkBtn) darkBtn.classList.toggle('active', darkSaved);
+
+  if (darkBtn) {
+    darkBtn.addEventListener('click', () => {
+      const enabled = !document.body.classList.contains('dark');
       document.body.classList.toggle('dark', enabled);
-      localStorage.setItem('darkMode', String(enabled));
+      localStorage.setItem('darkMode', enabled);
+      darkBtn.classList.toggle('active', enabled);
     });
   }
 
-  // Language (persist) using data-en/data-es attributes
-  const langToggle = document.getElementById('langToggle');
+  /* ---------- Language button ---------- */
+  const langBtn = document.getElementById('langBtn');
   const savedLang = localStorage.getItem('lang') || 'en';
 
   const applyLang = (lang) => {
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-en]').forEach(el => {
-      const en = el.getAttribute('data-en') || '';
-      const es = el.getAttribute('data-es') || en;
-      el.textContent = (lang === 'es') ? es : en;
+      el.textContent = lang === 'es' ? el.dataset.es : el.dataset.en;
     });
   };
 
   applyLang(savedLang);
-  if (langToggle) langToggle.checked = savedLang === 'es';
+  if (langBtn) langBtn.classList.toggle('active', savedLang === 'es');
 
-  if (langToggle) {
-    langToggle.addEventListener('change', () => {
-      const lang = langToggle.checked ? 'es' : 'en';
-      localStorage.setItem('lang', lang);
-      applyLang(lang);
+  if (langBtn) {
+    langBtn.addEventListener('click', () => {
+      const nextLang = document.documentElement.lang === 'en' ? 'es' : 'en';
+      localStorage.setItem('lang', nextLang);
+      applyLang(nextLang);
+      langBtn.classList.toggle('active', nextLang === 'es');
     });
   }
 })();
