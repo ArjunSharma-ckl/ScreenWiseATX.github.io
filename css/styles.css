@@ -529,3 +529,37 @@ body.dark .slider{
 body.dark .switch input:checked + .slider{
   background: rgba(30,58,138,.75);
 }
+
+/* ===== Stronger header toggles ===== */
+.toggle-wrap{
+  background: rgba(255,255,255,.65);
+  border: 1px solid rgba(11,42,74,.18);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.toggle-label{
+  color: var(--text);
+  font-weight: 700;
+}
+
+body.dark .toggle-wrap{
+  background: rgba(11,18,32,.75);
+  border-color: rgba(255,255,255,.18);
+}
+
+/* ===== Stronger top tabs ===== */
+.tab{
+  background: rgba(255,255,255,.9);
+  border: 1.5px solid rgba(11,42,74,.25);
+  font-weight: 750;
+}
+
+.tab:hover{
+  border-color: rgba(11,42,74,.45);
+}
+
+body.dark .tab{
+  background: rgba(11,18,32,.75);
+  border-color: rgba(255,255,255,.22);
+}
