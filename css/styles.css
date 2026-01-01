@@ -77,3 +77,26 @@ footer{text-align:center;padding:40px 20px;color:var(--muted)}
   padding:8px 12px;border-radius:999px;border:1px solid rgba(0,0,0,.2);
   text-decoration:none;font-weight:700;color:inherit;text-align:center
 }
+
+/* ===== DARK MODE TEXT COLOR FIX ===== */
+body.dark,
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark p,
+body.dark a,
+body.dark span,
+body.dark div {
+  color: #ffffff !important;
+}
+
+/* Remove section divider lines in dark mode */
+body.dark .section {
+  border-top: none !important;
+}
+
+/* ===== FORCE HEADER TABS SINGLE LINE ===== */
+.tabs {
+  flex-wrap: nowrap !important;
+  white-space: nowrap;
+}
