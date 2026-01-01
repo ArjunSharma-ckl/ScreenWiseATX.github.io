@@ -1,198 +1,73 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ScreenWiseATX</title>
-
-  <!-- Browser tab icon -->
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-
-  <link rel="stylesheet" href="css/styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScreenWiseATX</title>
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="floater f1"></div>
-  <div class="floater f2"></div>
-  <div class="floater f3"></div>
 
-  <header>
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="index.html" aria-label="ScreenWiseATX Home">
-          <img src="assets/logo.svg" alt="ScreenWiseATX logo" />
-          <div>
-            <div class="name">ScreenWiseATX</div>
-            <div class="tag" data-en="Screening awareness • Austin, TX" data-es="Concientización sobre detección • Austin, TX" data-en="Screening awareness • Austin, TX" data-es="Concientización sobre detección • Austin, TX">Screening awareness • Austin, TX</div>
-          </div>
-        </a>
-
-        <nav class="tabs" aria-label="Primary">
-          <a class="tab" data-href="index.html" data-href="index.html" href="index.html" data-en="Home" data-es="Inicio" data-en="Home" data-es="Inicio">Home</a>
-          <a class="tab" data-href="tab1.html" href="tab1.html" data-en="Tab 1" data-es="Pestaña 1" data-en="Tab 1" data-es="Pestaña 1">Tab 1</a>
-          <span class="tab2-wrap">
-              <a class="tab" data-href="tab2.html" href="tab2.html" data-en="Tab 2" data-es="Pestaña 2" data-en="Tab 2" data-es="Pestaña 2">Tab 2</a>
-              <div class="tab-hover" aria-label="Cancer pages">
-                <a href="breast.html" data-en="Breast Cancer" data-es="Cáncer de Mama" data-en="Breast Cancer" data-es="Cáncer de Mama">Breast Cancer</a>
-                <a href="cervical.html" data-en="Cervical Cancer" data-es="Cáncer Cervical" data-en="Cervical Cancer" data-es="Cáncer Cervical">Cervical Cancer</a>
-                <a href="colon.html" data-en="Colon Cancer" data-es="Cáncer de Colon" data-en="Colon Cancer" data-es="Cáncer de Colon">Colon Cancer</a>
-                <a href="lung.html" data-en="Lung Cancer" data-es="Cáncer de Pulmón" data-en="Lung Cancer" data-es="Cáncer de Pulmón">Lung Cancer</a>
-                <a href="prostate.html" data-en="Prostate Cancer" data-es="Cáncer de Próstata" data-en="Prostate Cancer" data-es="Cáncer de Próstata">Prostate Cancer</a>
-              </div>
-            </span>
-          <a class="tab" data-href="tab3.html" href="tab3.html" data-en="Tab 3" data-es="Pestaña 3" data-en="Tab 3" data-es="Pestaña 3">Tab 3</a>
-        
-        </nav>
-        <div class="header-actions">
-          <button id="darkBtn" class="action-btn" data-en="Dark mode" data-es="Modo oscuro">Dark mode</button>
-          <button id="langBtn" class="action-btn" data-en="Español" data-es="Español">Español</button>
-        </div>
-        
-        
-
-        <button id="themeToggle" aria-label="Toggle dark mode"></button>
-      </div>
-    </div>
-    <div class="header-divider"></div>
-  </header>
-
-  <main>
-    
-<section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-card reveal">
-                
-      </div>
-
-      
+<header>
+  <div class="nav">
+    <div class="brand">ScreenWiseATX</div>
+    <nav class="tabs">
+      <a class="tab" href="index.html">Home</a>
+      <a class="tab" href="tab1.html">Tab 1</a>
+      <a class="tab" href="tab2.html">Tab 2</a>
+      <a class="tab" href="tab3.html">Tab 3</a>
+    </nav>
+    <div class="header-actions">
+      <button id="darkBtn" class="action-btn active">Dark mode</button>
+      <button id="langBtn" class="action-btn">Español</button>
     </div>
   </div>
-</section>
+</header>
 
-<section id="mission" class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <h2 data-en="Our Mission" data-es="Nuestra Misión" data-en="Our Mission" data-es="Nuestra Misión">Our Mission</h2>
-        <p>Awareness + education + access to screening resources across Austin.</p>
-      </div>
+<main>
+  <section class="hero">
+    <h1>Early detection saves lives.</h1>
+    <p>
+      Lung cancer screening with low‑dose CT scans can detect cancer earlier,
+      when treatment is more effective. ScreenWiseATX helps people understand
+      when screening is right for them and where to go next.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Why screening matters</h2>
+    <p>
+      Lung cancer is often diagnosed late because symptoms may not appear early.
+      Screening can identify cancer before it spreads, improving outcomes and
+      expanding treatment options.
+    </p>
+
+    <div class="big-tabs">
+      <a class="big-tab" href="tab1.html">Who should get screened</a>
+      <a class="big-tab" href="tab2.html">How screening works</a>
+      <a class="big-tab" href="tab3.html">Next steps & resources</a>
     </div>
+  </section>
 
-    <div class="card reveal">
-      <p>
-        (Replace this paragraph with your final mission statement.)
-        You can keep it short: who you serve, what you provide, and how people can take action.
-      </p>
+  <section class="section">
+    <h2>Our mission</h2>
+    <p>
+      ScreenWiseATX is a community‑focused initiative dedicated to improving
+      awareness, access, and understanding of cancer screening across Austin.
+    </p>
+  </section>
 
-      <div class="button-grid">
-        <a class="subtle-btn" href="breast.html"><span data-en="Breast Cancer" data-es="Cáncer de Mama" data-en="Breast Cancer" data-es="Cáncer de Mama">Breast Cancer</span><span class="badge" data-en="Learn" data-es="Ver" data-en="Learn" data-es="Ver">Learn</span></a>
-        <a class="subtle-btn" href="cervical.html"><span data-en="Cervical Cancer" data-es="Cáncer Cervical" data-en="Cervical Cancer" data-es="Cáncer Cervical">Cervical Cancer</span><span class="badge" data-en="Learn" data-es="Ver" data-en="Learn" data-es="Ver">Learn</span></a>
-        <a class="subtle-btn" href="colon.html"><span data-en="Colon Cancer" data-es="Cáncer de Colon" data-en="Colon Cancer" data-es="Cáncer de Colon">Colon Cancer</span><span class="badge" data-en="Learn" data-es="Ver" data-en="Learn" data-es="Ver">Learn</span></a>
-        <a class="subtle-btn" href="lung.html"><span data-en="Lung Cancer" data-es="Cáncer de Pulmón" data-en="Lung Cancer" data-es="Cáncer de Pulmón">Lung Cancer</span><span class="badge" data-en="Learn" data-es="Ver" data-en="Learn" data-es="Ver">Learn</span></a>
-        <a class="subtle-btn" href="prostate.html"><span data-en="Prostate Cancer" data-es="Cáncer de Próstata" data-en="Prostate Cancer" data-es="Cáncer de Próstata">Prostate Cancer</span><span class="badge" data-en="Learn" data-es="Ver" data-en="Learn" data-es="Ver">Learn</span></a>
-      </div>
-    </div>
-  </div>
-</section>
+  <section class="section">
+    <h2>Contact</h2>
+    <p>Email: screenwiseatx@gmail.com</p>
+  </section>
+</main>
 
-<section id="why" class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <h2 data-en="Why It Matters" data-es="Por Qué Importa" data-en="Why It Matters" data-es="Por Qué Importa">Why It Matters</h2>
-        <p>(Replace this with your “why” message. Keep it human and simple.)</p>
-      </div>
-    </div>
+<footer>
+  © 2026 ScreenWiseATX · Austin, Texas
+</footer>
 
-    <div class="grid">
-      <div class="col-7">
-        <div class="card reveal">
-          <h3 data-en="What we’re building" data-es="Lo que estamos construyendo" data-en="What we’re building" data-es="Lo que estamos construyendo">What we’re building</h3>
-          <div class="spacer"></div>
-          <p>
-            This is the “backbone” site: clean UI, scroll-in animations, and consistent styles.
-            You can later add real content, eligibility logic, clinic links, and a screening quiz.
-          </p>
-          <div class="spacer"></div>
-          <div class="cta-tabs" style="display:none">
-            <a class="cta" href="tab1.html" data-en="Tab 1" data-es="Pestaña 1" data-en="Tab 1" data-es="Pestaña 1">Tab 1</a>
-            <a class="cta" href="tab2.html" data-en="Tab 2" data-es="Pestaña 2" data-en="Tab 2" data-es="Pestaña 2">Tab 2</a>
-            <a class="cta" href="tab3.html" data-en="Tab 3" data-es="Pestaña 3" data-en="Tab 3" data-es="Pestaña 3">Tab 3</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-5">
-        
-          
-        </div>
-      </div>
-    </div>
-  </div>
-
-<div class="big-tabs reveal" aria-label="Big tabs">
-  <a class="big-tab reveal" href="tab1.html"><span data-en="Tab 1" data-es="Pestaña 1">Tab 1</span></a>
-  <a class="big-tab reveal" href="tab2.html"><span data-en="Tab 2" data-es="Pestaña 2">Tab 2</span></a>
-  <a class="big-tab reveal" href="tab3.html"><span data-en="Tab 3" data-es="Pestaña 3">Tab 3</span></a>
-</div>
-
-</section>
-
-<section id="who" class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <h2 data-en="Who We Are" data-es="Quiénes Somos" data-en="Who We Are" data-es="Quiénes Somos">Who We Are</h2>
-        <p>(Replace with your story: student-led, community partners, what you do.)</p>
-      </div>
-    </div>
-
-    <div class="card reveal">
-      <p>
-        Add team photos, partners, and your booth/event schedule here later.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <h2 data-en="Contact Us" data-es="Contáctanos" data-en="Contact Us" data-es="Contáctanos">Contact Us</h2>
-        <p>(Replace with your email + socials + volunteer form link.)</p>
-      </div>
-    </div>
-
-    <div class="card reveal">
-      <p><strong>Email:</strong> screenwiseatx@gmail.com</p>
-      <div class="spacer"></div>
-      <p class="small">
-        Add an embedded form later (Google Form / Typeform) or a simple contact form with a backend.
-      </p>
-    </div>
-  </div>
-</section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <strong>© 2026 ScreenWiseATX</strong>
-          <div class="small" data-en="Education, access, and early detection." data-es="Educación, acceso y detección temprana." data-en="Education, access, and early detection." data-es="Educación, acceso y detección temprana.">Education, access, and early detection.</div>
-        </div>
-        <div class="footer-links">
-          <a href="index.html#mission" data-en="Mission" data-es="Misión" data-en="Mission" data-es="Misión">Mission</a>
-          <a href="index.html#why">Why it matters</a>
-          <a href="index.html#who">Who we are</a>
-          <a href="index.html#contact" data-en="Contact" data-es="Contacto" data-en="Contact" data-es="Contacto">Contact</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/app.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
