@@ -15,13 +15,36 @@
     <nav class="tabs">
       <a class="tab" href="#">Home</a>
       <a class="tab" href="#">Tab 1</a>
-      <a class="tab" href="#">Tab 2</a>
+      
+<span class="tab2-wrap">
+  <a class="tab" href="#">Tab 2</a>
+  <div class="cancer-menu">
+    <a href="breast.html">Breast</a>
+    <a href="cervical.html">Cervical</a>
+    <a href="colon.html">Colon</a>
+    <a href="lung.html">Lung</a>
+    <a href="prostate.html">Prostate</a>
+  </div>
+</span>
+
       <a class="tab" href="#">Tab 3</a>
     </nav>
-    <div class="actions">
-      <button id="darkBtn" class="action-btn">Dark mode</button>
-      <button id="langBtn" class="action-btn">Español</button>
-    </div>
+    
+<div class="toggle-group">
+  <label class="toggle">Dark mode
+    <span class="switch">
+      <input id="darkToggle" type="checkbox">
+      <span class="slider"></span>
+    </span>
+  </label>
+  <label class="toggle">Español
+    <span class="switch">
+      <input id="langToggle" type="checkbox">
+      <span class="slider"></span>
+    </span>
+  </label>
+</div>
+
   </div>
 </header>
 
