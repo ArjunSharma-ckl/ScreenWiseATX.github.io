@@ -1,91 +1,213 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>ScreenWise ATX</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect rx='20' width='100' height='100' fill='%239ec5fe'/%3E%3Ctext x='50' y='62' font-size='48' text-anchor='middle' fill='white'%3ES%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScreenWiseATX</title>
+
+  <!-- Browser tab icon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <div class="floater f1"></div>
+  <div class="floater f2"></div>
+  <div class="floater f3"></div>
 
-<nav>
-  <div class="inner">
-    <div class="brand">
-      <div class="logo"></div>
-      ScreenWise ATX
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html" aria-label="ScreenWiseATX Home">
+          <img src="assets/logo.svg" alt="ScreenWiseATX logo" />
+          <div>
+            <div class="name">ScreenWiseATX</div>
+            <div class="tag">Screening awareness • Austin, TX</div>
+          </div>
+        </a>
+
+        <nav class="tabs" aria-label="Primary">
+          <a class="tab" data-href="tab1.html" href="tab1.html">Tab 1</a>
+          <a class="tab" data-href="tab2.html" href="tab2.html">Tab 2</a>
+          <a class="tab" data-href="tab3.html" href="tab3.html">Tab 3</a>
+        </nav>
+      </div>
     </div>
-    <div class="tabs">
-      <a href="#mission">tab1</a>
-      <a href="#why">tab2</a>
-      <a href="#who">tab3</a>
+  </header>
+
+  <main>
+    
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-card reveal">
+        <div class="pill">✨ Simple. Friendly. Actionable.</div>
+        <div class="spacer"></div>
+        <h1>Help Austin get screened—<br/>earlier, easier, and informed.</h1>
+        <p class="hero-sub">
+          ScreenWiseATX is a community initiative focused on awareness and guidance around cancer screening.
+          This site is a clean backbone you can expand with real resources, event info, and clinic partners.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#mission">Explore screening topics</a>
+          <a class="btn btn-ghost" href="#contact">Get involved</a>
+        </div>
+      </div>
+
+      <aside class="stats-card reveal">
+        <h3>Quick highlights</h3>
+        <div class="stat">
+          <div class="dot"></div>
+          <div>
+            <strong>Early detection matters</strong>
+            <div class="small">Screening can catch issues earlier when treatment is often easier.</div>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="dot" style="background: linear-gradient(135deg, var(--green), var(--orange));"></div>
+          <div>
+            <strong>Clear next steps</strong>
+            <div class="small">We’ll turn “what should I do?” into simple actions.</div>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="dot" style="background: linear-gradient(135deg, var(--orange), var(--blue));"></div>
+          <div>
+            <strong>Built for outreach</strong>
+            <div class="small">Perfect for booths, flyers, and QR codes.</div>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
-</nav>
+</section>
 
-<section class="container hero fade">
-  <h1>ScreenWise ATX</h1>
-  <p>
-    BLAHBLAH placeholder copy describing the purpose of this project.
-    This text is intentionally generic and will be replaced later.
-  </p>
-  <div class="actions">
-    <a class="btn" href="#">Find the Right Screening For Me</a>
-    <a class="btn green" href="#">Learn About Different Cancer Types</a>
-    <a class="btn orange" href="#">Free and Low Cost Screening</a>
+<section id="mission" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <h2>Our Mission</h2>
+        <p>Awareness + education + access to screening resources across Austin.</p>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <p>
+        (Replace this paragraph with your final mission statement.)
+        You can keep it short: who you serve, what you provide, and how people can take action.
+      </p>
+
+      <div class="button-grid">
+        <a class="subtle-btn" href="breast.html"><span>Breast Cancer</span><span class="badge">Learn</span></a>
+        <a class="subtle-btn" href="cervical.html"><span>Cervical Cancer</span><span class="badge">Learn</span></a>
+        <a class="subtle-btn" href="colon.html"><span>Colon Cancer</span><span class="badge">Learn</span></a>
+        <a class="subtle-btn" href="lung.html"><span>Lung Cancer</span><span class="badge">Learn</span></a>
+        <a class="subtle-btn" href="prostate.html"><span>Prostate Cancer</span><span class="badge">Learn</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="mission" class="container section fade">
-  <h2>Our Mission</h2>
-  <p>
-    BLAHBLAH BLAHBLAH BLAHBLAH. This section explains the mission in a
-    professional but temporary way using placeholder language.
-  </p>
+<section id="why" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <h2>Why It Matters</h2>
+        <p>(Replace this with your “why” message. Keep it human and simple.)</p>
+      </div>
+    </div>
 
-  <div class="subtabs">
-    <a href="#">Breast Cancer</a>
-    <a href="#">Cervical Cancer</a>
-    <a href="#">Colon Cancer</a>
-    <a href="#">Lung Cancer</a>
-    <a href="#">Prostate Cancer</a>
+    <div class="grid">
+      <div class="col-7">
+        <div class="card reveal">
+          <h3>What we’re building</h3>
+          <div class="spacer"></div>
+          <p>
+            This is the “backbone” site: clean UI, scroll-in animations, and consistent styles.
+            You can later add real content, eligibility logic, clinic links, and a screening quiz.
+          </p>
+          <div class="spacer"></div>
+          <div class="cta-tabs">
+            <a class="cta" href="tab1.html">Tab 1</a>
+            <a class="cta" href="tab2.html">Tab 2</a>
+            <a class="cta" href="tab3.html">Tab 3</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-5">
+        <div class="card reveal">
+          <h3>Outreach-ready</h3>
+          <div class="spacer"></div>
+          <p>
+            Works great on mobile. Make a QR code that points to this site for booths at the library or events.
+          </p>
+          <div class="spacer"></div>
+          <p class="small">
+            Tip: keep pages short, use icons, and add a “Where to get screened in Austin” card later.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="why" class="container section fade">
-  <h2>Why It Matters</h2>
-  <p>
-    BLAHBLAH BLAHBLAH. Early detection, prevention, awareness, and access
-    are described here in a clean, neutral placeholder style.
-  </p>
+<section id="who" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <h2>Who We Are</h2>
+        <p>(Replace with your story: student-led, community partners, what you do.)</p>
+      </div>
+    </div>
 
-  <div class="subtabs">
-    <a href="#">tab1</a>
-    <a href="#">tab2</a>
-    <a href="#">tab3</a>
+    <div class="card reveal">
+      <p>
+        Add team photos, partners, and your booth/event schedule here later.
+      </p>
+    </div>
   </div>
 </section>
 
-<section id="who" class="container section fade">
-  <h2>Who We Are</h2>
-  <div class="grid grid-3">
-    <div class="card">BLAHBLAH Person<br><strong>Role</strong></div>
-    <div class="card">BLAHBLAH Person<br><strong>Role</strong></div>
-    <div class="card">BLAHBLAH Person<br><strong>Role</strong></div>
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <h2>Contact Us</h2>
+        <p>(Replace with your email + socials + volunteer form link.)</p>
+      </div>
+    </div>
+
+    <div class="card reveal">
+      <p><strong>Email:</strong> screenwiseatx@gmail.com</p>
+      <div class="spacer"></div>
+      <p class="small">
+        Add an embedded form later (Google Form / Typeform) or a simple contact form with a backend.
+      </p>
+    </div>
   </div>
 </section>
 
-<section class="container section fade">
-  <h2>Contact Us</h2>
-  <p>
-    BLAHBLAH contact information goes here. This is placeholder content.
-  </p>
-</section>
+  </main>
 
-<footer>
-  Educational placeholder site — content intentionally fake.
-</footer>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong>© 2026 ScreenWiseATX</strong>
+          <div class="small">Education, access, and early detection.</div>
+        </div>
+        <div class="footer-links">
+          <a href="index.html#mission">Mission</a>
+          <a href="index.html#why">Why it matters</a>
+          <a href="index.html#who">Who we are</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<script src="script.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
