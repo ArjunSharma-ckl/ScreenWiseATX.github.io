@@ -163,3 +163,35 @@ footer{
   text-align:center;
   color:var(--muted);
 }
+
+/* ===== WHY IT MATTERS TAB CARDS ===== */
+.why-tabs{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:28px;
+  margin-top:40px;
+}
+
+.why-card{
+  background:#ffffff;
+  border-radius:14px;
+  padding:32px 26px;
+  text-align:center;
+  box-shadow:0 18px 40px rgba(0,0,0,.12);
+}
+
+.why-card h3{
+  margin-top:0;
+  font-size:1.4rem;
+  font-weight:800;
+}
+
+.why-card p{
+  margin:14px 0 0;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+@media(max-width:900px){
+  .why-tabs{grid-template-columns:1fr}
+}
