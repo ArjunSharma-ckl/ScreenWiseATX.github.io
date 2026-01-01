@@ -195,3 +195,57 @@ footer{
 @media(max-width:900px){
   .why-tabs{grid-template-columns:1fr}
 }
+
+/* ===== DARK MODE ===== */
+body.dark{
+  background:#0f172a;
+  color:#e5e7eb;
+}
+body.dark header{
+  background:rgba(15,23,42,.9);
+}
+body.dark .tab{
+  color:#e5e7eb;
+  border-color:rgba(255,255,255,.3);
+}
+body.dark .why-card{
+  background:#1e293b;
+  color:#e5e7eb;
+}
+body.dark p{color:#cbd5f5}
+
+/* ===== TAB 2 HOVER MENU ===== */
+.tab2-wrap{position:relative}
+.cancer-menu{
+  display:none;
+  position:absolute;
+  top:120%;
+  left:50%;
+  transform:translateX(-50%);
+  background:#ffffff;
+  padding:16px;
+  border-radius:14px;
+  box-shadow:0 20px 45px rgba(0,0,0,.25);
+  z-index:50;
+  gap:10px;
+}
+.tab2-wrap:hover .cancer-menu{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+}
+.cancer-menu a{
+  padding:8px 14px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,.2);
+  text-decoration:none;
+  font-weight:700;
+  color:#0f172a;
+  text-align:center;
+}
+body.dark .cancer-menu{
+  background:#1e293b;
+}
+body.dark .cancer-menu a{
+  color:#e5e7eb;
+  border-color:rgba(255,255,255,.3);
+}
