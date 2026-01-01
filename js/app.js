@@ -1,21 +1,19 @@
 
 (() => {
-  const darkToggle = document.getElementById('darkToggle');
-  const langToggle = document.getElementById('langToggle');
+  const dark=document.getElementById('darkToggle');
+  const lang=document.getElementById('langToggle');
 
-  if(darkToggle){
-    darkToggle.addEventListener('change', () => {
-      document.body.classList.toggle('dark', darkToggle.checked);
+  if(dark){
+    dark.addEventListener('change',()=>{
+      document.body.classList.toggle('dark',dark.checked);
     });
   }
 
-  if(langToggle){
-    langToggle.addEventListener('change', () => {
-      const lang = langToggle.checked ? 'es' : 'en';
-      document.querySelectorAll('[data-en]').forEach(el => {
-        el.textContent = lang === 'es'
-          ? el.getAttribute('data-es')
-          : el.getAttribute('data-en');
+  if(lang){
+    lang.addEventListener('change',()=>{
+      const es=lang.checked;
+      document.querySelectorAll('[data-en]').forEach(el=>{
+        el.textContent = es ? el.dataset.es : el.dataset.en;
       });
     });
   }

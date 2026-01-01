@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Prostate Cancer • ScreenWiseATX</title>
+<title>Prostate • ScreenWiseATX</title>
 <link rel="icon" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/styles.css">
@@ -10,20 +10,38 @@
 <body>
 <header>
   <div class="nav">
-    <div class="brand"><img src="logo.svg" width="36">ScreenWiseATX</div>
-    <nav class="tabs"><a class="tab" href="index.html">Home</a>
-      <a class="tab" href="tab1.html">Tab 1</a>
-      <a class="tab" href="tab2.html">Tab 2</a>
-      <a class="tab" href="tab3.html">Tab 3</a>
+    <div class="brand">ScreenWiseATX</div>
+    <nav class="tabs">
+      <a class="tab" href="index.html" data-en="Home" data-es="Inicio">Home</a>
+      <a class="tab" href="tab1.html" data-en="Tab 1" data-es="Pestaña 1">Tab 1</a>
+      <span class="tab2-wrap">
+        <a class="tab" href="tab2.html" data-en="Tab 2" data-es="Pestaña 2">Tab 2</a>
+        <div class="cancer-menu">
+          <a href="breast.html">Breast</a><a href="cervical.html">Cervical</a>
+          <a href="colon.html">Colon</a><a href="lung.html">Lung</a><a href="prostate.html">Prostate</a>
+        </div>
+      </span>
+      <a class="tab" href="tab3.html" data-en="Tab 3" data-es="Pestaña 3">Tab 3</a>
     </nav>
+    <div class="actions">
+      <label class="toggle">Dark mode
+        <span class="switch"><input id="darkToggle" type="checkbox"><span class="slider"></span></span>
+      </label>
+      <label class="toggle">Español
+        <span class="switch"><input id="langToggle" type="checkbox"><span class="slider"></span></span>
+      </label>
+    </div>
   </div>
 </header>
-<section class="section">
-  <div class="container reveal">
-    <h1>Prostate Cancer</h1>
+
+<section class="section hero">
+  <div class="container">
+    <h1>Prostate</h1>
     <p>STUFF HERE</p>
   </div>
 </section>
+
+<footer>© ScreenWiseATX</footer>
 <script src="js/app.js"></script>
 </body>
 </html>

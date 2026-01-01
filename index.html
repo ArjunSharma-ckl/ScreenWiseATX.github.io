@@ -1,36 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>ScreenWiseATX</title>
+<title>Home • ScreenWiseATX</title>
 <link rel="icon" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
 <header>
   <div class="nav">
-    <div class="brand">
-      <img src="logo.svg" width="36">
-      ScreenWiseATX
-    </div>
+    <div class="brand">ScreenWiseATX</div>
     <nav class="tabs">
-      <a class="tab" href="tab1.html">Tab 1</a>
       
-<span class="tab2-wrap">
-  <a class="tab" href="tab2.html">Tab 2</a>
-  <div class="cancer-menu">
-    <a href="breast.html">Breast</a>
-    <a href="cervical.html">Cervical</a>
-    <a href="colon.html">Colon</a>
-    <a href="lung.html">Lung</a>
-    <a href="prostate.html">Prostate</a>
-  </div>
-</span>
-
-      <a class="tab" href="tab3.html">Tab 3</a>
+      <a class="tab" href="tab1.html" data-en="Tab 1" data-es="Pestaña 1">Tab 1</a>
+      <span class="tab2-wrap">
+        <a class="tab" href="tab2.html" data-en="Tab 2" data-es="Pestaña 2">Tab 2</a>
+        <div class="cancer-menu">
+          <a href="breast.html">Breast</a><a href="cervical.html">Cervical</a>
+          <a href="colon.html">Colon</a><a href="lung.html">Lung</a><a href="prostate.html">Prostate</a>
+        </div>
+      </span>
+      <a class="tab" href="tab3.html" data-en="Tab 3" data-es="Pestaña 3">Tab 3</a>
     </nav>
     <div class="actions">
       <label class="toggle">Dark mode
@@ -44,15 +35,9 @@
 </header>
 
 <section class="section hero">
-  <div class="container reveal">
-    
-  </div>
-</section>
-
-<section class="section">
-  <div class="container reveal">
-    <h2>OUR MISSION</h2>
-    <p>STUFF HERE</p>
+  <div class="container">
+    <h1 data-en="OUR MISSION" data-es="NUESTRA MISIÓN">OUR MISSION</h1>
+    <p data-en="STUFF HERE" data-es="CONTENIDO AQUÍ">STUFF HERE</p>
     <div class="cancer-buttons">
       <a href="breast.html">Breast Cancer</a>
       <a href="cervical.html">Cervical Cancer</a>
@@ -64,73 +49,32 @@
 </section>
 
 <section class="section">
-  <div class="container reveal">
-    <h2>WHY IT MATTERS</h2>
-    <p>STUFF HERE</p>
-    
-
-
-<div class="why-tabs">
-  <a class="why-card reveal" href="tab1.html" data-en="Tab 1" data-es="Pestaña 1">
-    <h3 data-en="Tab 1" data-es="Pestaña 1">Tab 1</h3>
-    <p data-en="Information related to Tab 1." data-es="Información relacionada con la pestaña 1.">
-      Information related to Tab 1.
-    </p>
-  </a>
-  <a class="why-card reveal" href="tab2.html" data-en="Tab 2" data-es="Pestaña 2">
-    <h3 data-en="Tab 2" data-es="Pestaña 2">Tab 2</h3>
-    <p data-en="Information related to Tab 2." data-es="Información relacionada con la pestaña 2.">
-      Information related to Tab 2.
-    </p>
-  </a>
-  <a class="why-card reveal" href="tab3.html" data-en="Tab 3" data-es="Pestaña 3">
-    <h3 data-en="Tab 3" data-es="Pestaña 3">Tab 3</h3>
-    <p data-en="Information related to Tab 3." data-es="Información relacionada con la pestaña 3.">
-      Information related to Tab 3.
-    </p>
-  </a>
-</div>
-
-
-
-  <div class="why-card reveal">
-    <h3>Insurance Coverage</h3>
-    <p>
-      Explains how screening is covered, what plans typically include, and what
-      eligibility rules may apply.
-    </p>
-  </div>
-
-  <div class="why-card reveal">
-    <h3>Facilities Finder</h3>
-    <p>
-      Guides you toward finding screening locations and understanding what to
-      look for when choosing a facility.
-    </p>
-  </div>
-</div>
-
+  <div class="container">
+    <h2 data-en="WHY IT MATTERS" data-es="POR QUÉ IMPORTA">WHY IT MATTERS</h2>
+    <p data-en="STUFF HERE" data-es="CONTENIDO AQUÍ">STUFF HERE</p>
+    <div class="why-tabs">
+      <a class="why-card" href="tab1.html"><h3>Tab 1</h3><p>STUFF HERE</p></a>
+      <a class="why-card" href="tab2.html"><h3>Tab 2</h3><p>STUFF HERE</p></a>
+      <a class="why-card" href="tab3.html"><h3>Tab 3</h3><p>STUFF HERE</p></a>
+    </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container reveal">
-    <h2>WHO WE ARE</h2>
-    <p>STUFF HERE</p>
+  <div class="container">
+    <h2 data-en="WHO WE ARE" data-es="QUIÉNES SOMOS">WHO WE ARE</h2>
+    <p data-en="STUFF HERE" data-es="CONTENIDO AQUÍ">STUFF HERE</p>
   </div>
 </section>
 
 <section class="section">
-  <div class="container reveal">
-    <h2>CONTACT US</h2>
-    <p>STUFF HERE</p>
+  <div class="container">
+    <h2 data-en="CONTACT US" data-es="CONTÁCTANOS">CONTACT US</h2>
+    <p data-en="STUFF HERE" data-es="CONTENIDO AQUÍ">STUFF HERE</p>
   </div>
 </section>
 
-<footer>
-  © ScreenWiseATX
-</footer>
-
+<footer>© ScreenWiseATX</footer>
 <script src="js/app.js"></script>
 </body>
 </html>
