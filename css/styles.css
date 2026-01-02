@@ -126,6 +126,16 @@ header.hide-on-scroll{
   position:relative;
 }
 
+.tab2-wrap::before{
+  content:"";
+  position:absolute;
+  top:100%;
+  left:0;
+  right:0;
+  height:15px;
+  z-index:99;
+}
+
 .cancer-menu{
   display:none;
   position:absolute;
@@ -142,7 +152,8 @@ header.hide-on-scroll{
   white-space:nowrap;
 }
 
-.tab2-wrap:hover .cancer-menu{
+.tab2-wrap:hover .cancer-menu,
+.cancer-menu:hover{
   display:grid;
 }
 
@@ -324,6 +335,11 @@ footer{
   .why-tabs{
     grid-template-columns:1fr;
     gap:20px;
+  }
+  
+  .why-card{
+    min-width:200%;
+    margin:0 -50%;
   }
   
   .cancer-buttons{
