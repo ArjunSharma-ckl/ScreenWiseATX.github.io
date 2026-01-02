@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Load saved language
+  // Apply saved language on EVERY page
   const savedLang = localStorage.getItem('lang') || 'en';
   applyLang(savedLang);
+  if (langToggle) langToggle.checked = savedLang === 'es';
 
   if (langToggle) {
-    langToggle.checked = savedLang === 'es';
     langToggle.addEventListener('change', () => {
       const lang = langToggle.checked ? 'es' : 'en';
       localStorage.setItem('lang', lang);
@@ -23,21 +23,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Dropdown behavior (stable hover)
+  // Desktop hover behavior
   if (wrap && menu) {
     wrap.addEventListener('mouseenter', () => {
-      menu.style.display = 'grid';
+      if (window.innerWidth > 900) menu.style.display = 'grid';
     });
     wrap.addEventListener('mouseleave', (e) => {
-      if (!menu.contains(e.relatedTarget)) {
+      if (window.innerWidth > 900 && !menu.contains(e.relatedTarget)) {
         menu.style.display = 'none';
       }
     });
-    menu.addEventListener('mouseenter', () => {
-      menu.style.display = 'grid';
+
+    // Mobile tap-to-open
+    wrap.addEventListener('click', (e) => {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        menu.style.display = menu.style.display === 'grid' ? 'none' : 'grid';
+      }
     });
-    menu.addEventListener('mouseleave', (e) => {
-      if (!wrap.contains(e.relatedTarget)) {
+
+    // Close menu when clicking outside (mobile)
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 900 && !wrap.contains(e.target)) {
         menu.style.display = 'none';
       }
     });

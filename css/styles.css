@@ -297,3 +297,20 @@ header {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ===== POR QUÉ IMPORTA: BIGGER CARDS ===== */
+.why-tabs {
+  grid-template-columns: repeat(3, minmax(380px, 1fr)) !important;
+  gap: 64px !important;
+}
+.why-card {
+  padding: 56px !important;
+  min-height: 220px;
+}
+
+/* Mobile stacking */
+@media (max-width: 900px) {
+  .why-tabs {
+    grid-template-columns: 1fr !important;
+  }
+}
