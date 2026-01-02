@@ -231,6 +231,7 @@ header {
 }
 
 /* ===== FULL-WIDTH BOTTOM EDGE FOR WHO WE ARE ===== */
+/* moved divider */
 .section.who-we-are::after {
   content: "";
   display: block;
@@ -238,4 +239,24 @@ header {
   height: 1px;
   background: rgba(0,0,0,0.06);
   margin-left: calc(50% - 50vw);
+}
+
+/* ===== WHO WE ARE BOTTOM BORDER AT COLOR EDGE ===== */
+.section.who-we-are {
+  position: relative;
+}
+.section.who-we-are::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 1px;
+  background: rgba(0,0,0,0.12);
+}
+
+/* ===== TAB 2 DROPDOWN SPACING ===== */
+.cancer-menu {
+  margin-top: 10px;
 }
