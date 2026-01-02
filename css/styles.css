@@ -327,3 +327,20 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div {
 .why-card {
   min-height: 260px;
 }
+
+/* FORCE CENTER WHY IT MATTERS */
+.why-it-matters,
+.why-it-matters .cards,
+.why-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.why-it-matters .card,
+.why-card {
+  width: 420px !important;
+  max-width: 90%;
+  text-align: center;
+}
+
