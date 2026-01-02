@@ -314,3 +314,16 @@ header {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ===== GLOBAL TEXT CENTERING ===== */
+body, h1, h2, h3, h4, h5, h6, p, a, span, div {
+  text-align: center !important;
+}
+
+/* ===== WHY IT MATTERS CARDS WIDER ===== */
+.why-tabs {
+  grid-template-columns: repeat(3, minmax(420px, 1fr)) !important;
+}
+.why-card {
+  min-height: 260px;
+}
