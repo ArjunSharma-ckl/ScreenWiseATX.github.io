@@ -1,12 +1,23 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const wrap = document.querySelector('.tab2-wrap');
+  const menu = document.querySelector('.cancer-menu');
+  if (!wrap || !menu) return;
 
-(() => {
-  const lang = document.getElementById('langToggle');
-  if(lang){
-    lang.addEventListener('change',()=>{
-      const es = lang.checked;
-      document.querySelectorAll('[data-en]').forEach(el=>{
-        el.textContent = es ? el.dataset.es : el.dataset.en;
-      });
-    });
-  }
-})();
+  let timeout;
+
+  const openMenu = () => {
+    clearTimeout(timeout);
+    menu.style.display = 'grid';
+  };
+
+  const closeMenu = () => {
+    timeout = setTimeout(() => {
+      menu.style.display = 'none';
+    }, 5000);
+  };
+
+  wrap.addEventListener('mouseenter', openMenu);
+  wrap.addEventListener('mouseleave', closeMenu);
+  menu.addEventListener('mouseenter', openMenu);
+  menu.addEventListener('mouseleave', closeMenu);
+});
