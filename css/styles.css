@@ -124,55 +124,62 @@ header.hide-on-scroll{
   transform:translateX(20px);
 }
 
-/* TAB 2 DROPDOWN */
-.tab2-wrap{
-  position:relative;
+/* TAB 2 DROPDOWN - FIXED */
+.tab2-wrap {
+  position: relative;
 }
 
-.tab2-wrap::before{
-  content:"";
-  position:absolute;
-  top:100%;
-  left:0;
-  right:0;
-  height:15px;
-  z-index:99;
+/* Invisible bridge to keep menu open while moving mouse down */
+.tab2-wrap::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 15px;
+  z-index: 99;
 }
 
-.cancer-menu{
-  display:none;
-  position:absolute;
-  top:calc(100% + 10px);
-  left:50%;
-  transform:translateX(-50%);
-  background:#fff;
-  padding:12px;
-  border-radius:12px;
-  box-shadow:0 20px 40px rgba(0,0,0,.2);
-  z-index:100;
-  grid-template-columns:repeat(5,auto);
-  gap:8px;
-  white-space:nowrap;
+.cancer-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px); /* Positioned just below the tab */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  z-index: 100;
+  
+  /* THE CORE FIX: */
+  display: none; 
+  grid-template-columns: 1fr; /* Stacks buttons vertically */
+  width: max-content;         /* Box expands to fit the text exactly */
+  gap: 6px;
 }
 
+/* Shows menu on hover */
 .tab2-wrap:hover .cancer-menu,
-.cancer-menu:hover{
-  display:grid;
+.cancer-menu:hover {
+  display: grid;
 }
 
-.cancer-menu a{
-  padding:8px 14px;
-  border-radius:999px;
-  border:1px solid rgba(0,0,0,.15);
-  text-decoration:none;
-  font-weight:700;
-  color:inherit;
-  text-align:center;
-  font-size:0.9rem;
+.cancer-menu a {
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,.1);
+  text-decoration: none;
+  font-weight: 700;
+  color: #333;
+  text-align: left; /* Aligns list text to the left */
+  font-size: 0.9rem;
+  white-space: nowrap; /* Keeps text on one line */
+  transition: background 0.2s;
 }
 
-.cancer-menu a:hover{
-  background:rgba(0,0,0,.05);
+.cancer-menu a:hover {
+  background: rgba(0,0,0,.05);
 }
 
 /* SECTIONS */
