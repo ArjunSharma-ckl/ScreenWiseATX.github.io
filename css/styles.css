@@ -339,8 +339,8 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div {
 
 .why-it-matters .card,
 .why-card {
-  width: 700px !important;
-  max-width: 700px;
+  width: 420px !important;
+  max-width: 90%;
   text-align: center;
 }
 
@@ -461,5 +461,34 @@ footer, .footer {
   .why-card, .card {
     width: min(90vw, 720px) !important;
     max-width: min(90vw, 720px) !important;
+  }
+}
+
+
+/* ===== v39 FINAL OVERRIDE — FORCE WHY IT MATTERS SIZE ===== */
+section#why-it-matters .why-cards,
+section#why-it-matters .cards {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  gap: 48px !important;
+  max-width: none !important;
+}
+
+section#why-it-matters .why-card,
+section#why-it-matters .card {
+  width: 800px !important;
+  max-width: 800px !important;
+  min-width: 800px !important;
+  text-align: center !important;
+}
+
+/* Responsive safety */
+@media (max-width: 1600px) {
+  section#why-it-matters .why-card,
+  section#why-it-matters .card {
+    width: min(90vw, 820px) !important;
+    max-width: min(90vw, 820px) !important;
+    min-width: unset !important;
   }
 }
