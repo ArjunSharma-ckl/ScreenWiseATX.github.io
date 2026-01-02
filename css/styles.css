@@ -37,6 +37,7 @@ header.hide-on-scroll { transform: translateY(-100%); }
   justify-content: space-between;
   padding: 20px 40px;
   gap: 40px;
+  overflow: visible;
 }
 
 .brand { font-weight: 900; font-size: 1.2rem; }
@@ -101,8 +102,29 @@ header.hide-on-scroll { transform: translateY(-100%); }
 .cancer-menu a:hover { background: rgba(0,0,0,.05); }
 
 /* TOGGLE SWITCH */
-.actions { display: flex; gap: 12px; }
-.toggle { display: flex; gap: 6px; align-items: center; font-weight: 700; }
+.actions { 
+  display: flex !important; 
+  gap: 12px; 
+  flex-shrink: 0; 
+  z-index: 100; 
+  position: relative; 
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.toggle { 
+  display: flex !important; 
+  gap: 6px; 
+  align-items: center; 
+  font-weight: 700; 
+  cursor: pointer; 
+  white-space: nowrap; 
+  visibility: visible !important; 
+  opacity: 1 !important; 
+  color: var(--text) !important;
+  margin: 0;
+  padding: 0;
+}
+.toggle:hover { opacity: 0.8; }
 .switch { position: relative; width: 42px; height: 22px; }
 .switch input { display: none; }
 .slider {
@@ -190,4 +212,20 @@ footer { text-align: center; padding: 40px; color: var(--muted); font-size: 0.9r
   }
   
   .why-tabs { grid-template-columns: 1fr; }
+  
+  /* Ensure toggle is visible on mobile */
+  .actions { width: 100%; justify-content: center; }
+  .toggle { font-size: 0.9rem; }
+}
+
+/* Responsive styles for breast cancer page image layouts */
+@media (max-width: 968px) {
+  .breast-content-flex {
+    flex-direction: column !important;
+  }
+  .breast-image-placeholder {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 1 auto !important;
+  }
 }
