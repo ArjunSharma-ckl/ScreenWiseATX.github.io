@@ -40,7 +40,7 @@ header.hide-on-scroll { transform: translateY(-100%); }
 
 .brand { font-weight: 900; font-size: 1.2rem; }
 
-.tabs { display: flex; gap: 20px; align-items: center; }
+.tabs { display: flex; gap: 28px; align-items: center; }
 
 .tab {
   padding: 10px 20px;
