@@ -217,3 +217,10 @@ header {
 .section.who-we-are {
   background: linear-gradient(120deg, #cfe9ff, #dff5ea) !important;
 }
+
+/* ===== WHO WE ARE FULL-WIDTH BACKGROUND ===== */
+.section.who-we-are {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
