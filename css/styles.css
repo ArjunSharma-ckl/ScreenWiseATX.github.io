@@ -339,8 +339,8 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div {
 
 .why-it-matters .card,
 .why-card {
-  width: 420px !important;
-  max-width: 90%;
+  width: 700px !important;
+  max-width: 700px;
   text-align: center;
 }
 
