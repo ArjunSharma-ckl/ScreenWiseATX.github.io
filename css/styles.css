@@ -124,77 +124,7 @@ header.hide-on-scroll{
   transform:translateX(20px);
 }
 
-/* ===== TAB 2 DROPDOWN SPACING ===== */
-.cancer-menu {
-  margin-top: 22px;
-}
 
-/* ===== TAB 2 HOVER BRIDGE (NO GAP CLOSE) ===== */
-.tab2-wrap {
-  position: relative;
-}
-.tab2-wrap::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 28px; /* bridge gap */
-}
-
-/* Bridge to keep menu open when moving mouse from tab to menu */
-.tab2-wrap::before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: 15px;
-  z-index: 99;
-}
-
-.cancer-menu {
-  display: none;
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: #fff;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0,0,0,.2);
-  z-index: 100;
-
-  /* THE FIX FOR HORIZONTAL ALIGNMENT */
-  display: none; 
-  grid-template-columns: repeat(5, max-content); /* Ensures each item gets full width */
-  width: max-content;                            /* Box expands to fit all 5 items */
-  gap: 12px;                                     /* Space between buttons */
-  white-space: nowrap;
-}
-
-.tab2-wrap:hover .cancer-menu,
-.cancer-menu:hover {
-  display: grid;
-}
-
-.cancer-menu a {
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,.15);
-  text-decoration: none;
-  font-weight: 700;
-  color: inherit;
-  text-align: center;
-  font-size: 0.9rem;
-  display: inline-block;
-  transition: all 0.2s ease;
-}
-
-.cancer-menu a:hover {
-  background: rgba(0,0,0,.05);
-  transform: translateY(-1px);
-}
 
 /* SECTIONS */
 .section{
