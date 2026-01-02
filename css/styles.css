@@ -492,3 +492,54 @@ section#why-it-matters .card {
     min-width: unset !important;
   }
 }
+
+
+/* ===== v40 ABSOLUTE OVERRIDES ===== */
+
+/* Center ALL section headings and text */
+section h1,
+section h2,
+section h3,
+section p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Force WHY IT MATTERS card row centering */
+section .cards,
+section .why-cards,
+section .card-row {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  gap: 48px !important;
+  width: 100% !important;
+}
+
+/* FORCE cards to be very wide */
+section .card {
+  width: 900px !important;
+  max-width: 900px !important;
+  min-width: 900px !important;
+}
+
+/* WHO WE ARE + CONTACT US center blocks */
+section#who-we-are,
+section#contact,
+section .who-we-are,
+section .contact {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+/* Responsive fallback */
+@media (max-width: 1600px) {
+  section .card {
+    width: min(92vw, 920px) !important;
+    max-width: min(92vw, 920px) !important;
+    min-width: unset !important;
+  }
+}
