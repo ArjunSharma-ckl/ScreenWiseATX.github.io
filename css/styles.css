@@ -14,17 +14,14 @@ body{
   background:var(--offwhite);
   color:var(--text);
 }
-body.dark{
-  background:#0f172a;
-  color:#e5e7eb;
-}
+
 header{
   position:sticky;top:0;z-index:10;
   background:rgba(248,250,252,.9);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--border);
 }
-body.dark header{background:rgba(15,23,42,.95)}
+
 .nav{
   max-width:1100px;margin:auto;
   display:flex;align-items:center;justify-content:space-between;
@@ -63,7 +60,7 @@ body.dark header{background:rgba(15,23,42,.95)}
   background:#fff;border-radius:14px;padding:26px;text-decoration:none;color:inherit;
   box-shadow:0 14px 30px rgba(0,0,0,.1)
 }
-body.dark .why-card{background:#1e293b}
+
 footer{text-align:center;padding:40px 20px;color:var(--muted)}
 .tab2-wrap{position:relative}
 .cancer-menu{
@@ -79,21 +76,10 @@ footer{text-align:center;padding:40px 20px;color:var(--muted)}
 }
 
 /* ===== DARK MODE TEXT COLOR FIX ===== */
-body.dark,
-body.dark h1,
-body.dark h2,
-body.dark h3,
-body.dark p,
-body.dark a,
-body.dark span,
-body.dark div {
-  color: #ffffff !important;
-}
+
 
 /* Remove section divider lines in dark mode */
-body.dark .section {
-  border-top: none !important;
-}
+
 
 /* ===== FORCE HEADER TABS SINGLE LINE ===== */
 .tabs {
@@ -102,15 +88,9 @@ body.dark .section {
 }
 
 /* ===== HEADER DARK MODE MATCH ===== */
-body.dark header {
-  background:#0b1220 !important;
-}
-body.dark .tab {
-  background:rgba(255,255,255,.08);
-}
-body.dark .tab2-wrap > .tab {
-  background:rgba(255,255,255,.12);
-}
+
+
+
 
 /* ===== HEADER ALIGNMENT (MATCH IMAGE) ===== */
 .nav {
@@ -127,17 +107,61 @@ body.dark .tab2-wrap > .tab {
 }
 
 /* ===== DARK MODE HEADER + DROPDOWN ===== */
-body.dark header {
-  background:#0b1220 !important;
+
+
+
+
+
+/* ===== DARK MODE: OUR MISSION BACKGROUND ===== */
+
+
+/* ===== HEADER SPACING + CENTERING ===== */
+.nav {
+  padding: 22px 36px !important;
 }
-body.dark .tab {
-  background:rgba(255,255,255,.08);
-  border-color:rgba(255,255,255,.25);
+
+.tabs {
+  gap: 28px !important;
 }
-body.dark .cancer-menu {
-  background:#0f172a !important;
+
+.actions {
+  gap: 22px !important;
 }
-body.dark .cancer-menu a {
-  color:#ffffff !important;
-  border-color:rgba(255,255,255,.35);
+
+/* Ensure tabs stay centered */
+.nav {
+  grid-template-columns: 1fr auto 1fr !important;
+}
+
+/* ===== HEADER SIZE & NAV ITEMS ===== */
+header {
+  height: 96px;
+}
+.nav {
+  padding: 26px 48px !important;
+}
+.tab {
+  font-size: 1.05rem;
+  padding: 12px 22px;
+}
+.actions {
+  font-size: 1.05rem;
+}
+
+/* ===== ALTERNATING SECTION BACKGROUNDS ===== */
+.hero {
+  background: linear-gradient(120deg, #cfe9ff, #dff5ea);
+}
+.section.alt {
+  background: #f1f7fb;
+}
+
+/* ===== TAB 2 HOVER MENU: ONE ROW ===== */
+.cancer-menu {
+  display: none;
+  grid-template-columns: repeat(5, auto) !important;
+  white-space: nowrap;
+}
+.tab2-wrap:hover .cancer-menu {
+  display: grid;
 }
