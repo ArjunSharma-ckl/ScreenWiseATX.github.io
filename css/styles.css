@@ -36,11 +36,12 @@ header.hide-on-scroll { transform: translateY(-100%); }
   align-items: center;
   justify-content: space-between;
   padding: 20px 40px;
+  gap: 40px;
 }
 
 .brand { font-weight: 900; font-size: 1.2rem; }
 
-.tabs { display: flex; gap: 28px; align-items: center; }
+.tabs { display: flex; gap: 32px; align-items: center; }
 
 .tab {
   padding: 10px 20px;
