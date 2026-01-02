@@ -36,13 +36,16 @@ header.hide-on-scroll { transform: translateY(-100%); }
   align-items: center;
   justify-content: space-between;
   padding: 20px 40px;
-  gap: 40px;
+  gap: 20px;
   overflow: visible;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.brand { font-weight: 900; font-size: 1.2rem; }
+.brand { font-weight: 900; font-size: 1.2rem; flex-shrink: 0; }
 
-.tabs { display: flex; gap: 32px; align-items: center; }
+.tabs { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; flex: 1; min-width: 0; max-width: calc(100% - 200px); }
 
 .tab {
   padding: 10px 20px;
@@ -53,6 +56,8 @@ header.hide-on-scroll { transform: translateY(-100%); }
   color: inherit;
   white-space: nowrap;
   display: inline-block;
+  flex-shrink: 1;
+  font-size: 0.9rem;
 }
 
 .tab:hover { background: rgba(0, 0, 0, .05); }
@@ -105,15 +110,19 @@ header.hide-on-scroll { transform: translateY(-100%); }
 .actions { 
   display: flex !important; 
   gap: 12px; 
-  flex-shrink: 0; 
+  flex-shrink: 0 !important; 
   z-index: 100; 
   position: relative; 
   visibility: visible !important;
   opacity: 1 !important;
+  min-width: fit-content;
+  width: auto !important;
+  height: auto !important;
+  order: 999;
 }
 .toggle { 
   display: flex !important; 
-  gap: 6px; 
+  gap: 8px; 
   align-items: center; 
   font-weight: 700; 
   cursor: pointer; 
@@ -121,10 +130,23 @@ header.hide-on-scroll { transform: translateY(-100%); }
   visibility: visible !important; 
   opacity: 1 !important; 
   color: var(--text) !important;
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 8px 12px !important;
+  user-select: none;
+  width: auto !important;
+  height: auto !important;
+  background: transparent;
+  border: none;
 }
 .toggle:hover { opacity: 0.8; }
+.toggle span.switch {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 42px !important;
+  height: 22px !important;
+  flex-shrink: 0;
+}
 .switch { position: relative; width: 42px; height: 22px; }
 .switch input { display: none; }
 .slider {
@@ -214,8 +236,18 @@ footer { text-align: center; padding: 40px; color: var(--muted); font-size: 0.9r
   .why-tabs { grid-template-columns: 1fr; }
   
   /* Ensure toggle is visible on mobile */
-  .actions { width: 100%; justify-content: center; }
-  .toggle { font-size: 0.9rem; }
+  .actions { 
+    width: 100%; 
+    justify-content: center; 
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .toggle { 
+    font-size: 0.9rem; 
+    display: flex !important;
+    visibility: visible !important;
+  }
 }
 
 /* Responsive styles for breast cancer page image layouts */
