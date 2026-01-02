@@ -1,24 +1,24 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-  const wrap = document.querySelector('.tab2-wrap');
-  const menu = document.querySelector('.cancer-menu');
-  if (!wrap || !menu) return;
+  const langToggle = document.getElementById('langToggle');
 
-  const show = () => {
-    menu.style.display = 'grid';
-  };
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(el => {
+      el.textContent = lang === 'es' ? el.dataset.es : el.dataset.en;
+    });
+  }
 
-  const hide = () => {
-    menu.style.display = 'none';
-  };
+  // Load saved language
+  const savedLang = localStorage.getItem('lang') || 'en';
+  applyLang(savedLang);
 
-  wrap.addEventListener('mouseenter', show);
-  wrap.addEventListener('mouseleave', (e) => {
-    if (!menu.contains(e.relatedTarget)) hide();
-  });
+  if (langToggle) {
+    langToggle.checked = savedLang === 'es';
 
-  menu.addEventListener('mouseenter', show);
-  menu.addEventListener('mouseleave', (e) => {
-    if (!wrap.contains(e.relatedTarget)) hide();
-  });
+    langToggle.addEventListener('change', () => {
+      const lang = langToggle.checked ? 'es' : 'en';
+      localStorage.setItem('lang', lang);
+      applyLang(lang);
+    });
+  }
 });
