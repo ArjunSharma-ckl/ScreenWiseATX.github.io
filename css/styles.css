@@ -443,3 +443,23 @@ footer, .footer {
     max-width: 94vw !important;
   }
 }
+
+/* ===== v38: EXTRA-WIDE WHY IT MATTERS CARDS (2x WIDTH) ===== */
+.why-tabs, .why-cards, .cards, .card-row {
+  max-width: 2000px !important;
+  justify-content: center !important;
+}
+
+.why-card, .card {
+  width: 700px !important;   /* ~2x previous */
+  max-width: 700px !important;
+  text-align: center !important;
+}
+
+/* Responsive: stack cleanly */
+@media (max-width: 1500px) {
+  .why-card, .card {
+    width: min(90vw, 720px) !important;
+    max-width: min(90vw, 720px) !important;
+  }
+}
