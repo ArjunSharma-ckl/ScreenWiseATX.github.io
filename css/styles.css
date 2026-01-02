@@ -224,3 +224,18 @@ header {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 }
+
+/* ===== REMOVE STRAY DIVIDER LINES ===== */
+.section + .section {
+  border-top: none !important;
+}
+
+/* ===== FULL-WIDTH BOTTOM EDGE FOR WHO WE ARE ===== */
+.section.who-we-are::after {
+  content: "";
+  display: block;
+  width: 100vw;
+  height: 1px;
+  background: rgba(0,0,0,0.06);
+  margin-left: calc(50% - 50vw);
+}
