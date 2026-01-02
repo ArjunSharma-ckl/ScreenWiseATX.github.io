@@ -430,3 +430,16 @@ footer, .footer {
     gap: 14px !important;
   }
 }
+
+/* ===== v37: WIDER WHY IT MATTERS TILES ===== */
+.why-card, .card {
+  width: 520px !important;
+  max-width: calc(33.33% - 48px) !important;
+}
+
+@media (max-width: 1200px) {
+  .why-card, .card {
+    width: min(620px, 94vw) !important;
+    max-width: 94vw !important;
+  }
+}
