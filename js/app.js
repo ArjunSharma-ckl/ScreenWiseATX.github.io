@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   function applyLang(lang) {
     document.querySelectorAll('[data-en]').forEach(el => {
@@ -18,4 +17,22 @@ document.addEventListener('DOMContentLoaded', () => {
       applyLang(newLang);
     });
   }
+
+  // Hide header on scroll down (mobile only)
+  let lastScroll = 0;
+  const header = document.querySelector('header');
+  
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768) {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        header.classList.add('hide-on-scroll');
+      } else {
+        header.classList.remove('hide-on-scroll');
+      }
+      
+      lastScroll = currentScroll;
+    }
+  });
 });
