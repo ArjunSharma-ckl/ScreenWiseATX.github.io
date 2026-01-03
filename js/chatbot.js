@@ -155,9 +155,9 @@ class Chatbot {
   async getGroqResponse(message) {
     // Add context about ScreenWiseATX
     const context = this.getLocalizedString('assistant_context');
-    const prompt = `${context}\n\nUser: ${message}\nAssistant:`;
     
     try {
+      console.log('Sending request to Groq API...');
       const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {
@@ -177,23 +177,34 @@ class Chatbot {
             }
           ],
           temperature: 0.7,
-          max_tokens: 1000,
+          max_tokens: 500,
           top_p: 1,
           frequency_penalty: 0,
-          presence_penalty: 0,
-          stop: ['User:', 'Assistant:']
+          presence_penalty: 0
         })
       });
       
+      console.log('Received response status:', response.status);
+      
       if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        console.error('API Error:', errorData);
         throw new Error(`API request failed with status ${response.status}`);
       }
       
       const data = await response.json();
-      return data.choices[0]?.message?.content.trim() || this.getLocalizedString('no_response');
+      console.log('API Response:', data);
+      
+      if (!data.choices?.[0]?.message?.content) {
+        console.error('Unexpected response format:', data);
+        throw new Error('Invalid response format from API');
+      }
+      
+      return data.choices[0].message.content.trim();
+      
     } catch (error) {
-      console.error('Groq API error:', error);
-      throw error;
+      console.error('Error in getGroqResponse:', error);
+      return this.getLocalizedString('error');
     }
   }
   
