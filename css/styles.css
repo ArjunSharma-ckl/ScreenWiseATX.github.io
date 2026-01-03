@@ -177,6 +177,19 @@ input:checked + .slider:before {
   align-items: center;
 }
 
+.hero-home {
+  background: linear-gradient(135deg, #0f172a, #1d4ed8);
+  color: #e0f2fe;
+}
+
+.hero-home h1 {
+  color: #e0f2fe;
+}
+
+.hero-home p {
+  color: #cbd5f5;
+}
+
 .hero-alt {
   background: linear-gradient(120deg, #fce7f3, #fbcfe8);
   padding: 3rem 2rem;
@@ -186,6 +199,11 @@ input:checked + .slider:before {
 .hero-breast {
   background: linear-gradient(120deg, #fce7f3, #fbcfe8);
   padding: 3rem 2rem;
+}
+
+.hero-breast.alt-dark {
+  background: #be185d;
+  color: white;
 }
 
 .hero-cervical {
@@ -243,6 +261,25 @@ input:checked + .slider:before {
   font-size: 3rem;
   color: #0284c7;
   margin-bottom: 2rem;
+}
+
+.section-alt-dark {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.section-alt-dark h2,
+.section-alt-dark p,
+.section-alt-dark li {
+  color: inherit;
+}
+
+.section-alt-pink {
+  background: #fdf2f8;
+}
+
+.section-alt-blue {
+  background: #eef2ff;
 }
 
 /* Cancer Buttons - HORIZONTAL LAYOUT */
@@ -309,11 +346,29 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: center;
   min-height: 120px;
+  position: relative;
+}
+
+.why-card::after {
+  content: "";
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: center;
 }
 
 .why-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.why-card:hover::after {
+  transform: scaleX(1);
 }
 
 .why-card h3 {
@@ -343,6 +398,135 @@ footer {
   color: white;
   text-align: center;
   padding: 2rem;
+}
+
+/* ChatGPT helper */
+.chatgpt-section {
+  background: #f9fafb;
+  padding-top: 2rem;
+}
+
+.chatgpt-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.chatgpt-card h3 {
+  margin-bottom: 0.5rem;
+  color: #0f172a;
+}
+
+.chatgpt-card p {
+  color: #475569;
+  margin: 0;
+}
+
+.chatgpt-btn {
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  background: #1e40af;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(30,64,175,0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.chatgpt-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(30,64,175,0.35);
+}
+
+/* Info blocks shared by cancer pages */
+.info-block {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.info-block p {
+  margin-bottom: 0.5rem;
+}
+
+.info-visual {
+  flex: 0 0 280px;
+  min-width: 240px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.info-card {
+  padding: 1rem;
+  border-radius: 12px;
+  border-left: 4px solid transparent;
+  background: #f8fafc;
+}
+
+.info-card.info-card--blue {
+  border-color: #2563eb;
+  background: rgba(37,99,235,0.08);
+}
+
+.info-card.info-card--pink {
+  border-color: #be185d;
+  background: rgba(190,24,93,0.12);
+}
+
+.info-card.info-card--green {
+  border-color: #10b981;
+  background: rgba(16,185,129,0.12);
+}
+
+/* Rotating logo marquee */
+.logo-marquee {
+  overflow: hidden;
+  position: relative;
+  margin-top: 2.5rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.logo-track {
+  display: flex;
+  gap: 3rem;
+  padding: 1.5rem;
+  animation: marquee 20s linear infinite;
+}
+
+.logo-track a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.logo-track img {
+  height: 40px;
+  width: auto;
+  filter: grayscale(1);
+  transition: filter 0.3s;
+}
+
+.logo-track a:hover img {
+  filter: grayscale(0);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Responsive */
