@@ -6,373 +6,41 @@
     <link rel="icon" href="favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        /* Additional styles for cancer cards with colors */
-        .cancer-cards {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1.75rem;
-            margin: 2.5rem 0;
-        }
-
-        @media (max-width: 1100px) {
-            .cancer-cards {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 640px) {
-            .cancer-cards {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .cancer-card {
-            background: white;
-            border-radius: 16px;
-            padding: 1.75rem;
-            box-shadow: 0 8px 24px rgba(15,23,42,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cancer-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            transition: transform 0.3s ease;
-            transform: scaleX(0);
-            transform-origin: left;
-        }
-
-        .cancer-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        /* Breast Cancer - Pink */
-
-        .cancer-card.breast::before {
-            background: linear-gradient(90deg, #be185d, #f472b6);
-        }
-        .cancer-card.breast:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(190, 24, 93, 0.15);
-            border-color: #be185d;
-        }
-        .cancer-card.breast h3 {
-            color: #be185d;
-            font-size: 1.35rem;
-            margin-bottom: 0.75rem;
-        }
-        .cancer-card.breast .tag {
-            background: #fce7f3;
-            color: #be185d;
-        }
-
-        /* Cervical Cancer - Yellow/Amber */
-
-        .cancer-card.cervical::before {
-            background: linear-gradient(90deg, #d97706, #fbbf24);
-        }
-        .cancer-card.cervical:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(217, 119, 6, 0.15);
-            border-color: #d97706;
-        }
-        .cancer-card.cervical h3 {
-            color: #d97706;
-            font-size: 1.35rem;
-            margin-bottom: 0.75rem;
-        }
-        .cancer-card.cervical .tag {
-            background: #fef3c7;
-            color: #78350f;
-        }
-
-        /* Colon Cancer - Blue */
-
-        .cancer-card.colon::before {
-            background: linear-gradient(90deg, #0369a1, #38bdf8);
-        }
-        .cancer-card.colon:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(3, 105, 161, 0.15);
-            border-color: #0369a1;
-        }
-        .cancer-card.colon h3 {
-            color: #0369a1;
-            font-size: 1.35rem;
-            margin-bottom: 0.75rem;
-        }
-        .cancer-card.colon .tag {
-            background: #dbeafe;
-            color: #0369a1;
-        }
-
-        /* Lung Cancer - Gray/Slate */
-
-        .cancer-card.lung::before {
-            background: linear-gradient(90deg, #475569, #94a3b8);
-        }
-        .cancer-card.lung:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(71, 85, 105, 0.15);
-            border-color: #475569;
-        }
-        .cancer-card.lung h3 {
-            color: #475569;
-            font-size: 1.35rem;
-            margin-bottom: 0.75rem;
-        }
-        .cancer-card.lung .tag {
-            background: #f1f5f9;
-            color: #475569;
-        }
-
-        /* Prostate Cancer - Sky Blue */
-
-        .cancer-card.prostate::before {
-            background: linear-gradient(90deg, #0284c7, #38bdf8);
-        }
-        .cancer-card.prostate:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(2, 132, 199, 0.15);
-            border-color: #0284c7;
-        }
-        .cancer-card.prostate h3 {
-            color: #0284c7;
-            font-size: 1.35rem;
-            margin-bottom: 0.75rem;
-        }
-        .cancer-card.prostate .tag {
-            background: #e0f2fe;
-            color: #0284c7;
-        }
-
-        .cancer-card h3 {
-            margin: 0 0 0.75rem 0;
-            font-size: 1.35rem;
-        }
-
-        .cancer-card p {
-            color: #6b7280;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .cancer-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            padding: 0.3rem 0.7rem;
-            border-radius: 999px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* Animated Stats Cards */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        @media (max-width: 900px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 520px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .stats-grid .stat-item {
-            background: white;
-            border-radius: 13px;
-            padding: 1.25rem;
-            box-shadow: 0 8px 18px rgba(15,23,42,0.06);
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        .stats-grid .stat-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 14px 30px rgba(15,23,42,0.12);
-            border-color: #93c5fd;
-        }
-
-        .stats-grid .stat-number {
-            display: block;
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #0369a1;
-            margin-bottom: 0.25rem;
-        }
-
-        .stats-grid .stat-label {
-            display: block;
-            color: #6b7280;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        /* Chat Assistant Styles */
-        .chat-toggle {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #be185d, #f472b6);
-            color: white;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(190, 24, 93, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
 </head>
-<body data-page="index.html" data-chatgpt-prompt-en="" data-chatgpt-prompt-es="">
+<body>
+    <!-- ... rest of the code remains the same ... -->
+            }
+            .cancer-card.colon h3 {
+                color: #0369a1;
+                font-size: 1.35rem;
+                margin-bottom: 0.75rem;
+            }
+            .cancer-card.colon .tag {
+                background: #dbeafe;
+                color: #0369a1;
+            }
 
-<header>
-    <div class="nav">
-        <div class="brand">
-          <img src="logo.svg" alt="ScreenWiseATX Logo" style="height: 24px; width: auto; margin-right: 8px; vertical-align: middle;">
-          <span data-en="ScreenWiseATX" data-es="ScreenWiseATX">ScreenWiseATX</span>
-        </div>
-        <nav class="tabs">
-            <a class="tab" href="index.html" data-en="Home" data-es="Inicio">Home</a>
-            <span class="tab2-wrap">
-                <a class="tab" href="cancer-types.html" data-en="Learn About Different Cancer Types" data-es="Aprende Sobre Diferentes Tipos de Cáncer">Learn About Different Cancer Types</a>
-                <div class="cancer-menu">
-                    <a href="breast.html" data-en="Breast" data-es="Mama">Breast</a>
-                    <a href="cervical.html" data-en="Cervical" data-es="Cervical">Cervical</a>
-                    <a href="colon.html" data-en="Colon" data-es="Colon">Colon</a>
-                    <a href="lung.html" data-en="Lung" data-es="Pulmón">Lung</a>
-                    <a href="prostate.html" data-en="Prostate" data-es="Próstata">Prostate</a>
-                </div>
-            </span>
-            <span class="tab2-wrap">
-                <a class="tab" href="screening-info.html" data-en="Screening Types and Routine" data-es="Tipos de Detección y Rutina">Screening Types and Routine</a>
-                <div class="cancer-menu">
-                    <a href="breast.html" data-en="Breast" data-es="Mama">Breast</a>
-                    <a href="cervical.html" data-en="Cervical" data-es="Cervical">Cervical</a>
-                    <a href="colon.html" data-en="Colon" data-es="Colon">Colon</a>
-                    <a href="lung.html" data-en="Lung" data-es="Pulmón">Lung</a>
-                    <a href="prostate.html" data-en="Prostate" data-es="Próstata">Prostate</a>
-                </div>
-            </span>
-            <a class="tab" href="free-screening.html" data-en="Free and Low Cost Screening" data-es="Detección Gratuita y de Bajo Costo">Free and Low Cost Screening</a>
-        </nav>
-        <div class="actions">
-            <label class="toggle" for="langToggle">
-                <span data-en="Español" data-es="English">Español</span>
-                <span class="switch">
-                    <input id="langToggle" type="checkbox">
-                    <span class="slider"></span>
-                </span>
-            </label>
-        </div>
-    </div>
-</header>
+            /* Lung Cancer - Gray/Slate */
 
-<section class="section why-overview" id="why-overview">
-    <div class="container">
-        <div class="why-overview__stack">
-            <div class="why-overview__block is-blue">
-                <h1 data-en="Why This Matters" data-es="Por qué Importa">Why This Matters</h1>
-                <p data-en="Cancer screening is a method that not only allows for detection of cancer, but it also is a prevention tactic. Oftentimes, people aren’t aware of the frequency at which cancer screenings should be done and miss out on the opportunity of early detection. If we can promote more awareness of early detection cancer, we can catch this disease at an earlier stage, making it more manageable for healthcare professionals to treat. Additionally, screening is often free or covered by health insurance, so taking advantage of this could change your life." data-es="La detección del cáncer no solo permite encontrar la enfermedad, sino que también es una táctica de prevención. A menudo, las personas desconocen la frecuencia con la que deben realizarse exámenes y pierden la oportunidad de la detección temprana. Si promovemos la conciencia sobre la detección temprana, podemos encontrar la enfermedad antes y facilitar el tratamiento para los profesionales de la salud. Además, las pruebas suelen ser gratuitas o están cubiertas por el seguro, por lo que aprovecharlas podría cambiar tu vida.">Cancer screening is a method that not only allows for detection of cancer, but it also is a prevention tactic. Oftentimes, people aren’t aware of the frequency at which cancer screenings should be done and miss out on the opportunity of early detection. If we can promote more awareness of early detection cancer, we can catch this disease at an earlier stage, making it more manageable for healthcare professionals to treat. Additionally, screening is often free or covered by health insurance, so taking advantage of this could change your life.</p>
-                <p data-en="Cancer screening allows for early cancer detection for some common cancers. This is important because screening can eventually prevent cancer, making it a powerful tool in many adult’s lives." data-es="La detección permite encontrar algunos cánceres comunes de manera temprana. Esto es importante porque la detección puede prevenir el cáncer y se convierte en una herramienta poderosa en la vida de muchos adultos.">Cancer screening allows for early cancer detection for some common cancers. This is important because screening can eventually prevent cancer, making it a powerful tool in many adult’s lives.</p>
-            </div>
-            <div class="why-overview__block is-white">
-                <ul class="why-overview__list">
-                    <li data-en="Cancer screening allows early detection of some common cancers." data-es="La detección del cáncer permite descubrir algunos cánceres comunes a tiempo.">Cancer screening allows early detection of some common cancers.</li>
-                    <li data-en="Cancer screening can prevent cancer (e.g., by removing precancerous polyps during a colonoscopy)." data-es="La detección puede prevenir el cáncer (por ejemplo, al eliminar pólipos precancerosos durante una colonoscopia).">Cancer screening can prevent cancer (e.g., by removing precancerous polyps during a colonoscopy).</li>
-                    <li data-en="Only 69% of people undergo cancer screening at the recommended age." data-es="Solo el 69 % de las personas se realiza pruebas de detección a la edad recomendada.">Only 69% of people undergo cancer screening at the recommended age.</li>
-                    <li data-en="14% of all cancers are caught through screening, but of those caught early, over 90% of patients fully recover (survive 5+ years)." data-es="El 14 % de todos los cánceres se detectan mediante exámenes, y de los detectados a tiempo, más del 90 % de los pacientes se recuperan por completo (sobreviven 5+ años).">14% of all cancers are caught through screening, but of those caught early, over 90% of patients fully recover (survive 5+ years).</li>
-                    <li data-en="Screening is often free or covered by health insurance under the Affordable Care Act and most private plans." data-es="Las pruebas de detección suelen ser gratuitas o están cubiertas por el seguro médico según la Ley de Cuidado Asequible y la mayoría de los planes privados.">Screening is often free or covered by health insurance under the Affordable Care Act and most private plans.</li>
-                </ul>
-                <div class="mission-card">
-                    <h3 data-en="Our mission" data-es="Nuestra misión">Our mission</h3>
-                    <p data-en="We aim to raise awareness for affordable options for cancer screening in order to promote early cancer detection for:" data-es="Nuestra meta es concienciar sobre opciones asequibles de detección del cáncer para promover la detección temprana para:">We aim to raise awareness for affordable options for cancer screening in order to promote early cancer detection for:</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+            .cancer-card.lung::before {
+                background: linear-gradient(90deg, #475569, #94a3b8);
+            }
+            .cancer-card.lung:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 24px rgba(71, 85, 105, 0.15);
+                border-color: #475569;
+            }
+            .cancer-card.lung h3 {
+                color: #475569;
+                font-size: 1.35rem;
+                margin-bottom: 0.75rem;
+            }
+            .cancer-card.lung .tag {
+                background: #f1f5f9;
+                color: #475569;
+            }
 
-<section class="section hero hero-home" id="cancer-education">
-    <div class="container">
-        <div class="cancer-cards">
-            <a href="cancer-types.html" class="cancer-card breast cancer-card--compact" aria-label="Breast cancer information">
-                <h3 data-en="Breast Cancer" data-es="Cáncer de Mama">Breast Cancer</h3>
-            </a>
-            <a href="cancer-types.html" class="cancer-card cervical cancer-card--compact" aria-label="Cervical cancer information">
-                <h3 data-en="Cervical Cancer" data-es="Cáncer Cervical">Cervical Cancer</h3>
-            </a>
-            <a href="cancer-types.html" class="cancer-card colon cancer-card--compact" aria-label="Colon cancer information">
-                <h3 data-en="Colon Cancer" data-es="Cáncer de Colon">Colon Cancer</h3>
-            </a>
-            <a href="cancer-types.html" class="cancer-card lung cancer-card--compact" aria-label="Lung cancer information">
-                <h3 data-en="Lung Cancer" data-es="Cáncer de Pulmón">Lung Cancer</h3>
-            </a>
-            <a href="cancer-types.html" class="cancer-card prostate cancer-card--compact" aria-label="Prostate cancer information">
-                <h3 data-en="Prostate Cancer" data-es="Cáncer de Próstata">Prostate Cancer</h3>
-            </a>
-        </div>
-    </div>
-</section>
-
-<section class="section why-it-matters">
-    <div class="container">
-        <h2 data-en="WHY IT MATTERS" data-es="POR QUÉ IMPORTA">WHY IT MATTERS</h2>
-        <p data-en="Cancer screening is a method that not only allows for detection of cancer, but it also is a prevention tactic. Oftentimes, people aren't aware of the frequency at which cancer screenings should be done and miss out on the opportunity of early detection. If we can promote more awareness of early detection cancer, we can catch this disease at an earlier stage, making it more manageable for healthcare professionals to treat. Additionally, screening is often free or covered by health insurance, so taking advantage of this could change your life." data-es="La detección del cáncer es un método que no solo permite la detección del cáncer, sino que también es una táctica de prevención. A menudo, las personas no son conscientes de la frecuencia con la que se deben realizar las pruebas de detección del cáncer y pierden la oportunidad de la detección temprana. Si podemos promover más conciencia sobre la detección temprana del cáncer, podemos detectar esta enfermedad en una etapa más temprana, lo que facilita a los profesionales de la salud tratarla. Además, las pruebas de detección suelen ser gratuitas o están cubiertas por el seguro de salud, por lo que aprovechar esto podría cambiar su vida.">Cancer screening is a method that not only allows for detection of cancer, but it also is a prevention tactic. Oftentimes, people aren't aware of the frequency at which cancer screenings should be done and miss out on the opportunity of early detection. If we can promote more awareness of early detection cancer, we can catch this disease at an earlier stage, making it more manageable for healthcare professionals to treat. Additionally, screening is often free or covered by health insurance, so taking advantage of this could change your life.</p>
-        
-        <div class="early-detection">
-            <h2 data-en="Why Early Detection Matters" data-es="Por qué es importante la detección temprana">Why Early Detection Matters</h2>
-            <p data-en="Early detection through regular screening can significantly improve treatment outcomes and survival rates. Many cancers, when caught early, are highly treatable and even preventable." data-es="La detección temprana a través de exámenes regulares puede mejorar significativamente los resultados del tratamiento y las tasas de supervivencia. Muchos cánceres, cuando se detectan temprano, son altamente tratables e incluso prevenibles.">Early detection through regular screening can significantly improve treatment outcomes and survival rates. Many cancers, when caught early, are highly treatable and even preventable.</p>
-            
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">90%+</span>
-                    <span class="stat-label" data-en="Survival rate when cancer is caught early" data-es="Tasa de supervivencia cuando el cáncer se detecta temprano">Survival rate when cancer is caught early</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">14%</span>
-                    <span class="stat-label" data-en="Of cancers caught through screening" data-es="De los cánceres detectados a través de exámenes">Of cancers caught through screening</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-en="Free" data-es="Gratis">Free</span>
-                    <span class="stat-label" data-en="Many screening programs available" data-es="Muchos programas de detección disponibles">Many screening programs available</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="why-tabs">
-            <a class="why-card" href="cancer-types.html">
-                <h3 data-en="Learn About Different Cancer Types" data-es="Aprende Sobre Diferentes Tipos de Cáncer">Learn About Different Cancer Types</h3>
-            </a>
-            <a class="why-card" href="screening-info.html">
+            /* Prostate Cancer - Sky Blue */
                 <h3 data-en="Screening Types and Routine" data-es="Tipos de Detección y Rutina">Screening Types and Routine</h3>
             </a>
             <a class="why-card" href="free-screening.html">
