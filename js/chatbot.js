@@ -1,21 +1,30 @@
-class Chatbot {
-  constructor() {
-    this.lang = document.documentElement.lang || 'en';
-    this.isOpen = false;
-    this.isMinimized = false;
-    this.isTyping = false;
-    this.conversation = [];
-    
-    // Initialize the chat UI
-    this.initChatUI();
-    this.setupEventListeners();
-    
-    // Add welcome message
-    this.addBotMessage(this.getLocalizedString('welcome'));
-  }
+// Prevent multiple instances
+if (window.__SCREENWISE_CHATBOT_LOADED__) {
+  console.warn("Chatbot already loaded");
+} else {
+  window.__SCREENWISE_CHATBOT_LOADED__ = true;
+
+  class Chatbot {
+    constructor() {
+      this.lang = document.documentElement.lang || 'en';
+      this.isOpen = false;
+      this.isTyping = false;
+      this.isMinimized = false;
+      this.conversation = [];
+      
+      // Initialize the chat UI
+      this.initChatUI();
+      this.setupEventListeners();
+      
+      // Add welcome message
+      this.addBotMessage(this.getLocalizedString('welcome'));
+      
+      // Initialize UI state
+      this.updateUI();
+    }
   
   initChatUI() {
-    // Create chat container
+    // Create chat container with safe DOM insertion
     this.chatContainer = document.createElement('div');
     this.chatContainer.className = 'chatbot-container';
     this.chatContainer.innerHTML = `
@@ -43,7 +52,7 @@ class Chatbot {
     this.sendButton = this.chatContainer.querySelector('.chatbot-send');
     this.closeButton = this.chatContainer.querySelector('.chatbot-close');
     
-    // Create toggle button
+    // Create toggle button with safe DOM insertion
     this.toggleButton = document.createElement('button');
     this.toggleButton.className = 'chatbot-toggle';
     this.toggleButton.innerHTML = `
@@ -52,9 +61,10 @@ class Chatbot {
       </svg>
     `;
     
-    // Add to DOM
-    document.body.appendChild(this.chatContainer);
-    document.body.appendChild(this.toggleButton);
+    // Safe DOM insertion that works with any page structure
+    const mount = document.body || document.documentElement;
+    mount.appendChild(this.chatContainer);
+    mount.appendChild(this.toggleButton);
     
     // Update language
     this.updateLanguage();
@@ -179,141 +189,47 @@ class Chatbot {
       // Filter out any messages with empty content
       const filteredMessages = messages.filter(msg => msg.content && msg.content.trim() !== '');
       
-      const requestBody = {
-        model: 'mixtral-8x7b-32768', // Try with the recommended model from Groq
-        messages: filteredMessages,
-        temperature: 0.7,
-        max_tokens: 500,
-        top_p: 1,
-        frequency_penalty: 0,
-        presence_penalty: 0,
-        stream: false
-      };
-      
-      console.log('Sending request body:', JSON.stringify(requestBody, null, 2));
-      
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer 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',
-          'Accept': 'application/json'
         },
-        body: JSON.stringify(requestBody)
+        body: JSON.stringify({
+          message: message,
+          conversation: filteredMessages,
+          lang: this.lang
+        })
       });
       
       console.log('Received response status:', response.status);
       
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error('API Error Response:', errorText);
-        throw new Error(`API request failed with status ${response.status}: ${errorText}`);
+        const errorData = await response.json().catch(() => ({}));
+        console.error('API Error:', errorData);
+        throw new Error(`API request failed with status ${response.status}`);
       }
       
       const data = await response.json();
-      console.log('API Response:', data);
-      
-      if (!data.choices?.[0]?.message?.content) {
-        console.error('Unexpected response format:', data);
-        throw new Error('Invalid response format from API');
-      }
-      
-      return data.choices[0].message.content.trim();
-      
+      return data.reply || data.choices?.[0]?.message?.content || this.getLocalizedString('error');
     } catch (error) {
       console.error('Error in getGroqResponse:', error);
       return this.getLocalizedString('error');
     }
   }
-  
-  addMessage(text, sender) {
-    if (!text) return;
-    
-    // Create message element
-    const messageEl = document.createElement('div');
-    messageEl.className = `message message-${sender}`;
-    
-    // Add links to any URLs in the message
-    const textWithLinks = text.replace(
-      /(https?:\/\/[^\s]+)/g, 
-      url => `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`
-    );
-    
-    messageEl.innerHTML = textWithLinks;
-    
-    // Add to messages container
-    this.messagesContainer.appendChild(messageEl);
-    
-    // Scroll to bottom
-    this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
-    
-    // Add to conversation history
-    this.conversation.push({ role: sender, content: text });
-  }
-  
-  showTypingIndicator() {
-    this.isTyping = true;
-    this.sendButton.disabled = true;
-    
-    const typingEl = document.createElement('div');
-    typingEl.className = 'message-typing';
-    typingEl.id = 'typing-indicator';
-    typingEl.innerHTML = `
-      <span class="typing-dot"></span>
-      <span class="typing-dot"></span>
-      <span class="typing-dot"></span>
-    `;
-    
-    this.messagesContainer.appendChild(typingEl);
-    this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
-  }
-  
-  hideTypingIndicator() {
-    this.isTyping = false;
-    this.sendButton.disabled = false;
-    
-    const typingEl = document.getElementById('typing-indicator');
-    if (typingEl) {
-      typingEl.remove();
-    }
-  }
-  
-  addBotMessage(text) {
-    this.addMessage(text, 'bot');
-  }
-  
-  getLocalizedString(key) {
-    const strings = {
-      'welcome': {
-        'en': 'Hello! I\'m your ScreenWiseATX assistant. How can I help you with cancer screening today?',
-        'es': '¡Hola! Soy tu asistente de ScreenWiseATX. ¿Cómo puedo ayudarte con la detección de cáncer hoy?'
-      },
-      'error': {
-        'en': 'Sorry, I\'m having trouble connecting to the server. Please try again later.',
-        'es': 'Lo siento, estoy teniendo problemas para conectarme al servidor. Por favor, inténtalo de nuevo más tarde.'
-      },
-      'no_response': {
-        'en': 'I\'m sorry, I couldn\'t generate a response. Could you please rephrase your question?',
-        'es': 'Lo siento, no pude generar una respuesta. ¿Podrías reformular tu pregunta?'
-      },
-      'system_prompt': {
-        'en': 'You are a helpful assistant for ScreenWiseATX, providing information about cancer screening. Be concise, accurate, and supportive. Focus on early detection, screening methods, and prevention. If you don\'t know something, say so. Keep responses under 3-4 sentences when possible.',
-        'es': 'Eres un asistente útil de ScreenWiseATX que brinda información sobre detección de cáncer. Sé conciso, preciso y de apoyo. Enfócate en la detección temprana, métodos de detección y prevención. Si no sabes algo, dilo. Mantén las respuestas en 3-4 oraciones cuando sea posible.'
-      },
-      'assistant_context': {
-        'en': 'You are speaking with a user of ScreenWiseATX, a platform dedicated to raising awareness about cancer screening and early detection. The user may ask about different types of cancer screening, recommendations, or general information about cancer prevention.',
-        'es': 'Estás hablando con un usuario de ScreenWiseATX, una plataforma dedicada a crear conciencia sobre la detección temprana del cáncer. El usuario puede preguntar sobre diferentes tipos de detección de cáncer, recomendaciones o información general sobre la prevención del cáncer.'
-      }
-    };
-    
-    return strings[key]?.[this.lang] || strings[key]?.['en'] || key;
-  }
 }
 
-// Initialize the chatbot when the page loads
-window.addEventListener('DOMContentLoaded', () => {
-  // Small delay to ensure everything is loaded
-  setTimeout(() => {
+// Initialize the chatbot when the DOM is fully loaded
+const initChatbot = () => {
+  if (!window.chatbot) {
     window.chatbot = new Chatbot();
-  }, 1000);
-});
+  }
+};
+
+// Handle both DOMContentLoaded and load events for maximum compatibility
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initChatbot);
+} else {
+  // DOMContentLoaded has already fired
+  setTimeout(initChatbot, 0);
+}
+}
