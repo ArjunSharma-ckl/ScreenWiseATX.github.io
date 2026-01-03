@@ -1,3 +1,45 @@
+// Build page summaries for the chatbot
+function buildPageSummaries() {
+  return {
+    'index.html': {
+      en: 'Home page with information about cancer screening and prevention.',
+      es: 'Página de inicio con información sobre detección y prevención del cáncer.'
+    },
+    'breast-learn.html': {
+      en: 'Information about breast cancer, including risk factors and screening recommendations.',
+      es: 'Información sobre el cáncer de mama, incluyendo factores de riesgo y recomendaciones de detección.'
+    },
+    'cervical-learn.html': {
+      en: 'Information about cervical cancer, including risk factors and screening recommendations.',
+      es: 'Información sobre el cáncer de cuello uterino, incluyendo factores de riesgo y recomendaciones de detección.'
+    },
+    'colon-learn.html': {
+      en: 'Information about colon cancer, including risk factors and screening recommendations.',
+      es: 'Información sobre el cáncer de colon, incluyendo factores de riesgo y recomendaciones de detección.'
+    },
+    'lung-learn.html': {
+      en: 'Information about lung cancer, including risk factors and screening recommendations.',
+      es: 'Información sobre el cáncer de pulmón, incluyendo factores de riesgo y recomendaciones de detección.'
+    },
+    'prostate-learn.html': {
+      en: 'Information about prostate cancer, including risk factors and screening recommendations.',
+      es: 'Información sobre el cáncer de próstata, incluyendo factores de riesgo y recomendaciones de detección.'
+    },
+    'screening-info.html': {
+      en: 'Information about different types of cancer screening methods and routines.',
+      es: 'Información sobre diferentes tipos de métodos y rutinas de detección de cáncer.'
+    },
+    'free-screening.html': {
+      en: 'Information about free and low-cost cancer screening options.',
+      es: 'Información sobre opciones de detección de cáncer gratuitas y de bajo costo.'
+    },
+    'default': {
+      en: 'General information about cancer screening and prevention.',
+      es: 'Información general sobre detección y prevención del cáncer.'
+    }
+  };
+}
+
 const pageSummaries = buildPageSummaries();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -251,13 +293,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const parent = container.parentElement || document.body;
     parent.insertBefore(card, document.querySelector('footer'));
   }
-});
 
-// Chatbot functionality is now in chatbot.js
-
-// Initialize the chatbot when the page loads
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const chatbot = new Chatbot();
-  }, 1500);
+  // Make buildPageSummaries available globally
+  if (!window.buildPageSummaries) {
+    window.buildPageSummaries = buildPageSummaries;
+  }
+  
+  // Initialize the chatbot when the page loads
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if (window.Chatbot) {
+        window.chatbot = new Chatbot();
+      }
+    }, 1000);
+  });
 });
