@@ -477,15 +477,43 @@ class Chatbot {
     this.addMessage(message, true);
     input.value = '';
     const highlighted = this.getHighlightedText();
-    const response = this.getResponse(message.toLowerCase(), highlighted);
+    const lower = message.toLowerCase();
+    const immediate = this.getResponse(lower, highlighted);
     
-    setTimeout(() => {
+    // Post a quick typing delay then answer; if cross-page info is relevant, augment
+    setTimeout(async () => {
       if (highlighted) {
         const snippet = highlighted.length > 200 ? `${highlighted.slice(0, 200)}…` : highlighted;
         this.addBotMessage(this.getLocalizedString('contextNote', snippet));
       }
-      this.addBotMessage(response);
+      let answer = immediate;
+      const needsClinics = /(clinic|clinics|near me|resources|recursos|centros|centro)/i.test(lower);
+      if (needsClinics) {
+        const extra = await this.crossPageClinics();
+        if (extra) {
+          answer += `\n\n${extra}`;
+        }
+      }
+      this.addBotMessage(answer);
     }, 600);
+  }
+
+  async crossPageClinics() {
+    try {
+      const resp = await fetch('free-screening.html', { credentials: 'same-origin' });
+      const html = await resp.text();
+      const names = [];
+      // Simple extraction of known programs/domains
+      if (/communitycaretx\.org/i.test(html)) names.push(this.lang === 'es' ? 'CommUnityCare (communitycaretx.org)' : 'CommUnityCare (communitycaretx.org)');
+      if (/austinpcc\.org/i.test(html)) names.push(this.lang === 'es' ? 'People’s Community Clinic (austinpcc.org)' : 'People’s Community Clinic (austinpcc.org)');
+      if (/hhs\.texas\.gov/i.test(html)) names.push(this.lang === 'es' ? 'Texas HHS (hhs.texas.gov)' : 'Texas HHS (hhs.texas.gov)');
+      if (/cancer\.org/i.test(html)) names.push(this.lang === 'es' ? 'American Cancer Society (cancer.org)' : 'American Cancer Society (cancer.org)');
+      const intro = this.lang === 'es' ? 'Opciones cercanas y recursos:' : 'Nearby options and resources:';
+      const tail = this.lang === 'es' ? 'También puedes marcar 211 para recursos comunitarios.' : 'You can also dial 211 for community resources.';
+      return names.length ? `${intro} ${names.join(' • ')}. ${tail}` : '';
+    } catch (_) {
+      return '';
+    }
   }
 
   getResponse(message, highlighted) {
