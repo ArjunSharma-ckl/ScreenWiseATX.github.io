@@ -6,6 +6,209 @@
     <link rel="icon" href="favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Additional styles for cancer cards with colors */
+        .cancer-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .cancer-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cancer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transition: transform 0.3s ease;
+            transform: scaleX(0);
+        }
+
+        .cancer-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Breast Cancer - Pink */
+        .cancer-card.breast::before {
+            background: linear-gradient(90deg, #be185d, #f472b6);
+        }
+        .cancer-card.breast:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(190, 24, 93, 0.15);
+            border-color: #be185d;
+        }
+        .cancer-card.breast h3 {
+            color: #be185d;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .cancer-card.breast .tag {
+            background: #fce7f3;
+            color: #be185d;
+        }
+
+        /* Cervical Cancer - Yellow/Amber */
+        .cancer-card.cervical::before {
+            background: linear-gradient(90deg, #d97706, #fbbf24);
+        }
+        .cancer-card.cervical:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(217, 119, 6, 0.15);
+            border-color: #d97706;
+        }
+        .cancer-card.cervical h3 {
+            color: #d97706;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .cancer-card.cervical .tag {
+            background: #fef3c7;
+            color: #78350f;
+        }
+
+        /* Colon Cancer - Blue */
+        .cancer-card.colon::before {
+            background: linear-gradient(90deg, #0369a1, #38bdf8);
+        }
+        .cancer-card.colon:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(3, 105, 161, 0.15);
+            border-color: #0369a1;
+        }
+        .cancer-card.colon h3 {
+            color: #0369a1;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .cancer-card.colon .tag {
+            background: #dbeafe;
+            color: #0369a1;
+        }
+
+        /* Lung Cancer - Gray/Slate */
+        .cancer-card.lung::before {
+            background: linear-gradient(90deg, #475569, #94a3b8);
+        }
+        .cancer-card.lung:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(71, 85, 105, 0.15);
+            border-color: #475569;
+        }
+        .cancer-card.lung h3 {
+            color: #475569;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .cancer-card.lung .tag {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        /* Prostate Cancer - Sky Blue */
+        .cancer-card.prostate::before {
+            background: linear-gradient(90deg, #0284c7, #38bdf8);
+        }
+        .cancer-card.prostate:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(2, 132, 199, 0.15);
+            border-color: #0284c7;
+        }
+        .cancer-card.prostate h3 {
+            color: #0284c7;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .cancer-card.prostate .tag {
+            background: #e0f2fe;
+            color: #0284c7;
+        }
+
+        .cancer-card p {
+            color: #6b7280;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .cancer-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Animated Stats Cards */
+        .stats-grid .stat-item {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .stats-grid .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            border-color: #0369a1;
+        }
+
+        .stats-grid .stat-number {
+            display: block;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-grid .stat-label {
+            display: block;
+            color: #6b7280;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Chat Assistant Styles */
+        .chat-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #be185d, #f472b6);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(190, 24, 93, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body data-page="index.html" data-chatgpt-prompt-en="Explain the ScreenWiseATX homepage mission, cancer-type cards, early detection stats, and contact information." data-chatgpt-prompt-es="Explica la misión de la página principal de ScreenWiseATX, las tarjetas de tipos de cáncer, las estadísticas de detección temprana y la información de contacto.">
 
@@ -46,8 +249,8 @@
     <div class="container">
         <h1 data-en="Cancer Types We Cover" data-es="Tipos de Cáncer Que Cubrimos">Cancer Types We Cover</h1>
         <p data-en="Click on any cancer type below to learn more about screening options, risk factors, and prevention strategies." data-es="Haz clic en cualquier tipo de cáncer para conocer opciones de detección, factores de riesgo y estrategias de prevención.">Click on any cancer type below to learn more about screening options, risk factors, and prevention strategies.</p>
-        <div class="cancer-type-cards">
-            <a href="cancer-types.html" class="cancer-card" aria-label="Breast cancer information">
+        <div class="cancer-cards">
+            <a href="cancer-types.html" class="cancer-card breast" aria-label="Breast cancer information">
                 <h3 data-en="Breast Cancer" data-es="Cáncer de Mama">Breast Cancer</h3>
                 <p data-en="Learn about mammograms, breast MRI, and clinical breast exams." data-es="Aprende sobre mamografías, resonancia magnética de mama y exámenes clínicos de senos.">Learn about mammograms, breast MRI, and clinical breast exams.</p>
                 <div class="cancer-tags">
@@ -56,7 +259,7 @@
                     <span class="tag" data-en="Clinical Exam" data-es="Examen Clínico">Clinical Exam</span>
                 </div>
             </a>
-            <a href="cancer-types.html" class="cancer-card" aria-label="Cervical cancer information">
+            <a href="cancer-types.html" class="cancer-card cervical" aria-label="Cervical cancer information">
                 <h3 data-en="Cervical Cancer" data-es="Cáncer Cervical">Cervical Cancer</h3>
                 <p data-en="Information about Pap smears and HPV testing for early detection." data-es="Información sobre pruebas de Papanicolaou y pruebas de VPH para la detección temprana.">Information about Pap smears and HPV testing for early detection.</p>
                 <div class="cancer-tags">
@@ -64,7 +267,7 @@
                     <span class="tag" data-en="HPV Test" data-es="Prueba de VPH">HPV Test</span>
                 </div>
             </a>
-            <a href="cancer-types.html" class="cancer-card" aria-label="Colon cancer information">
+            <a href="cancer-types.html" class="cancer-card colon" aria-label="Colon cancer information">
                 <h3 data-en="Colon Cancer" data-es="Cáncer de Colon">Colon Cancer</h3>
                 <p data-en="Learn about colonoscopy and other colorectal screening methods." data-es="Aprende sobre la colonoscopía y otros métodos de detección colorrectal.">Learn about colonoscopy and other colorectal screening methods.</p>
                 <div class="cancer-tags">
@@ -72,14 +275,14 @@
                     <span class="tag" data-en="FIT Test" data-es="Prueba FIT">FIT Test</span>
                 </div>
             </a>
-            <a href="cancer-types.html" class="cancer-card" aria-label="Lung cancer information">
+            <a href="cancer-types.html" class="cancer-card lung" aria-label="Lung cancer information">
                 <h3 data-en="Lung Cancer" data-es="Cáncer de Pulmón">Lung Cancer</h3>
                 <p data-en="Information about low-dose CT scans for lung cancer screening." data-es="Información sobre tomografías computarizadas de dosis baja para la detección de cáncer de pulmón.">Information about low-dose CT scans for lung cancer screening.</p>
                 <div class="cancer-tags">
                     <span class="tag" data-en="LDCT Scan" data-es="Tomografía TCBD">LDCT Scan</span>
                 </div>
             </a>
-            <a href="cancer-types.html" class="cancer-card" aria-label="Prostate cancer information">
+            <a href="cancer-types.html" class="cancer-card prostate" aria-label="Prostate cancer information">
                 <h3 data-en="Prostate Cancer" data-es="Cáncer de Próstata">Prostate Cancer</h3>
                 <p data-en="Learn about PSA testing and digital rectal exams." data-es="Aprende sobre las pruebas de PSA y los exámenes rectales digitales.">Learn about PSA testing and digital rectal exams.</p>
                 <div class="cancer-tags">
@@ -167,10 +370,11 @@
             </p>
         </div>
         <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-            <span data-en="© 2023 ScreenWiseATX. All rights reserved." data-es="© 2023 ScreenWiseATX. Todos los derechos reservados.">© 2023 ScreenWiseATX. All rights reserved.</span>
+            <span data-en=" 2023 ScreenWiseATX. All rights reserved." data-es=" 2023 ScreenWiseATX. Todos los derechos reservados."> 2023 ScreenWiseATX. All rights reserved.</span>
         </div>
     </div>
 </footer>
+<button class="chat-toggle">Chat</button>
 <script src="js/app.js"></script>
 </body>
 </html>
