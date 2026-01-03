@@ -164,19 +164,24 @@ class Chatbot {
                    Keep responses concise and focused on the user's question. 
                    Current language: ${this.lang === 'es' ? 'Spanish' : 'English'}`
         },
-        ...this.conversation.map(msg => ({
-          role: msg.sender === 'user' ? 'user' : 'assistant',
-          content: msg.text
-        })),
+        ...this.conversation
+          .filter(msg => msg.text && msg.text.trim() !== '') // Filter out empty messages
+          .map(msg => ({
+            role: msg.sender === 'user' ? 'user' : 'assistant',
+            content: msg.text
+          })),
         {
           role: 'user',
           content: message
         }
       ];
       
+      // Filter out any messages with empty content
+      const filteredMessages = messages.filter(msg => msg.content && msg.content.trim() !== '');
+      
       const requestBody = {
-        model: 'mixtral-8x7b-32768',
-        messages: messages,
+        model: 'mixtral-8x7b-32768', // Try with the recommended model from Groq
+        messages: filteredMessages,
         temperature: 0.7,
         max_tokens: 500,
         top_p: 1,
