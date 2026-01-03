@@ -417,8 +417,30 @@ input:checked + .slider:before {
 }
 
 .cancer-cards--row {
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  display: flex;
+  flex-wrap: nowrap;
   gap: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  justify-content: space-between;
+}
+
+.cancer-cards--row .cancer-card {
+  flex: 0 0 200px;
+}
+
+@media (max-width: 1024px) {
+  .cancer-cards--row {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
+  }
+}
+
+@media (max-width: 640px) {
+  .cancer-cards--row .cancer-card {
+    flex-basis: 160px;
+  }
 }
 
 .cancer-card {
