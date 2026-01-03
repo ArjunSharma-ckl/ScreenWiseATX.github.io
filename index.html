@@ -10,17 +10,29 @@
         /* Additional styles for cancer cards with colors */
         .cancer-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.75rem;
+            margin: 2.5rem 0;
+        }
+
+        @media (max-width: 1100px) {
+            .cancer-cards {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .cancer-cards {
+                grid-template-columns: 1fr;
+            }
         }
 
         .cancer-card {
             background: white;
             border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-            transition: all 0.3s ease;
+            padding: 1.75rem;
+            box-shadow: 0 8px 24px rgba(15,23,42,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             cursor: pointer;
             border: 2px solid transparent;
             text-decoration: none;
@@ -39,6 +51,7 @@
             height: 4px;
             transition: transform 0.3s ease;
             transform: scaleX(0);
+            transform-origin: left;
         }
 
         .cancer-card:hover::before {
@@ -46,6 +59,7 @@
         }
 
         /* Breast Cancer - Pink */
+
         .cancer-card.breast::before {
             background: linear-gradient(90deg, #be185d, #f472b6);
         }
@@ -56,7 +70,7 @@
         }
         .cancer-card.breast h3 {
             color: #be185d;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             margin-bottom: 0.75rem;
         }
         .cancer-card.breast .tag {
@@ -65,6 +79,7 @@
         }
 
         /* Cervical Cancer - Yellow/Amber */
+
         .cancer-card.cervical::before {
             background: linear-gradient(90deg, #d97706, #fbbf24);
         }
@@ -75,7 +90,7 @@
         }
         .cancer-card.cervical h3 {
             color: #d97706;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             margin-bottom: 0.75rem;
         }
         .cancer-card.cervical .tag {
@@ -84,6 +99,7 @@
         }
 
         /* Colon Cancer - Blue */
+
         .cancer-card.colon::before {
             background: linear-gradient(90deg, #0369a1, #38bdf8);
         }
@@ -94,7 +110,7 @@
         }
         .cancer-card.colon h3 {
             color: #0369a1;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             margin-bottom: 0.75rem;
         }
         .cancer-card.colon .tag {
@@ -103,6 +119,7 @@
         }
 
         /* Lung Cancer - Gray/Slate */
+
         .cancer-card.lung::before {
             background: linear-gradient(90deg, #475569, #94a3b8);
         }
@@ -113,7 +130,7 @@
         }
         .cancer-card.lung h3 {
             color: #475569;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             margin-bottom: 0.75rem;
         }
         .cancer-card.lung .tag {
@@ -122,6 +139,7 @@
         }
 
         /* Prostate Cancer - Sky Blue */
+
         .cancer-card.prostate::before {
             background: linear-gradient(90deg, #0284c7, #38bdf8);
         }
@@ -132,12 +150,17 @@
         }
         .cancer-card.prostate h3 {
             color: #0284c7;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             margin-bottom: 0.75rem;
         }
         .cancer-card.prostate .tag {
             background: #e0f2fe;
             color: #0284c7;
+        }
+
+        .cancer-card h3 {
+            margin: 0 0 0.75rem 0;
+            font-size: 1.35rem;
         }
 
         .cancer-card p {
@@ -153,42 +176,61 @@
         }
 
         .tag {
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
             font-weight: 500;
         }
 
         /* Animated Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 520px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .stats-grid .stat-item {
             background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            border-radius: 13px;
+            padding: 1.25rem;
+            box-shadow: 0 8px 18px rgba(15,23,42,0.06);
             text-align: center;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: 1px solid transparent;
         }
 
         .stats-grid .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-            border-color: #0369a1;
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(15,23,42,0.12);
+            border-color: #93c5fd;
         }
 
         .stats-grid .stat-number {
             display: block;
-            font-size: 3rem;
+            font-size: 1.75rem;
             font-weight: 700;
             color: #0369a1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
         .stats-grid .stat-label {
             display: block;
             color: #6b7280;
-            font-size: 1rem;
-            line-height: 1.5;
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
         /* Chat Assistant Styles */
@@ -210,7 +252,7 @@
         }
     </style>
 </head>
-<body data-page="index.html" data-chatgpt-prompt-en="Explain the ScreenWiseATX homepage mission, cancer-type cards, early detection stats, and contact information." data-chatgpt-prompt-es="Explica la misión de la página principal de ScreenWiseATX, las tarjetas de tipos de cáncer, las estadísticas de detección temprana y la información de contacto.">
+<body data-page="index.html" data-chatgpt-prompt-en="" data-chatgpt-prompt-es="">
 
 <header>
     <div class="nav">
@@ -370,11 +412,11 @@
             </p>
         </div>
         <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-            <span data-en=" 2023 ScreenWiseATX. All rights reserved." data-es=" 2023 ScreenWiseATX. Todos los derechos reservados."> 2023 ScreenWiseATX. All rights reserved.</span>
+            <span data-en=" 2026 ScreenWiseATX. All rights reserved." data-es=" 2026 ScreenWiseATX. Todos los derechos reservados."> 2026 ScreenWiseATX. All rights reserved.</span>
         </div>
     </div>
 </footer>
-<button class="chat-toggle">Chat</button>
+<button class="chat-toggle">ChatWise</button>
 <script src="js/app.js"></script>
 </body>
 </html>
