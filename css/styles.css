@@ -162,7 +162,7 @@ input:checked + .slider:before {
 
 /* Section Styles */
 .section {
-  padding: 4rem 2rem;
+  padding: 4.5rem 2rem;
 }
 
 .container {
@@ -266,17 +266,17 @@ input:checked + .slider:before {
 
 .stats-grid .stat-number {
   display: block;
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #0369a1;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
 }
 
 .stats-grid .stat-label {
   display: block;
   color: #6b7280;
-  font-size: 0.8rem;
-  line-height: 1.4;
+  font-size: 0.7rem;
+  line-height: 1.3;
 }
 
 .section-alt-dark {
@@ -389,7 +389,7 @@ input:checked + .slider:before {
 
 .why-card h3 {
   color: #0369a1;
-  font-size: 1.45rem;
+  font-size: 1.75rem;
 }
 
 /* Who We Are Section - White background */
@@ -413,6 +413,11 @@ input:checked + .slider:before {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.75rem;
+}
+
+.cancer-cards--row {
+  grid-template-columns: repeat(5, minmax(160px, 1fr));
+  gap: 1.25rem;
 }
 
 .cancer-card {
@@ -544,18 +549,29 @@ input:checked + .slider:before {
   line-height: 1.7;
 }
 
-.mission-card {
-  margin-top: 1.5rem;
-  padding: 1.5rem;
-  border-radius: 16px;
-  background: #0f172a;
+/* Mission hero */
+.mission-hero {
+  background: linear-gradient(120deg, #0f172a, #1e3a8a);
   color: #f8fafc;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+  padding: 4rem 2rem 3.5rem;
 }
 
-.mission-card h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+.mission-hero .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mission-hero h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #fff;
+}
+
+.mission-hero p {
+  margin: 0;
+  max-width: 900px;
+  color: rgba(248,250,252,0.9);
 }
 
 /* Footer */
