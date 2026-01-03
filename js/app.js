@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleLabel) {
       toggleLabel.textContent = lang === 'es' ? 'English' : 'Español';
     }
+
+    document.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
   }
 
   // Initialize language from localStorage or browser language
@@ -159,6 +161,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // Chatbot functionality
 class Chatbot {
   constructor() {
+    this.lang = document.documentElement.lang || 'en';
+    this.pageKey = document.body.dataset.page || (location.pathname.split('/').pop() || 'index.html');
+    this.pageSummaries = this.buildPageSummaries();
+    this.summarySent = false;
+
     this.chatContainer = document.createElement('div');
     this.chatContainer.className = 'chatbot-container';
     this.chatContainer.innerHTML = `
@@ -202,8 +209,16 @@ class Chatbot {
       if (e.key === 'Enter') this.sendMessage();
     });
     
-    // Initial message
-    this.addBotMessage('Hello! I\'m here to help you with information about cancer screening. How can I assist you today?');
+    document.addEventListener('langchange', (event) => {
+      this.lang = event.detail.lang;
+      if (this.isOpen) {
+        this.summarySent = false;
+        this.sharePageSummary();
+      }
+    });
+    
+    // Initial message placeholder
+    this.addBotMessage(this.getLocalizedString('intro'));
   }
   
   toggleChat() {
@@ -213,6 +228,7 @@ class Chatbot {
     
     if (this.isOpen) {
       this.chatContainer.querySelector('input').focus();
+      this.sharePageSummary();
     }
   }
   
@@ -251,6 +267,94 @@ class Chatbot {
     setTimeout(typeWriter, 500); // Small delay before starting to type
   }
   
+  getHighlightedText() {
+    const selection = window.getSelection();
+    if (!selection) return '';
+    return selection.toString().trim();
+  }
+
+  sharePageSummary() {
+    if (this.summarySent) return;
+    this.summarySent = true;
+    this.addBotMessage(this.getLocalizedSummary());
+  }
+
+  getLocalizedSummary() {
+    const summary = this.pageSummaries[this.pageKey] || this.pageSummaries.default;
+    const text = summary?.[this.lang] || summary?.en;
+    return `${text}\n\n${this.getLocalizedString('highlightTip')}`;
+  }
+
+  getLocalizedString(key, interpolation) {
+    const strings = {
+      intro: {
+        en: 'Hello! I\'m your Cancer Screening Assistant. Ask me anything about screenings, resources, or the content on this page.',
+        es: '¡Hola! Soy tu Asistente de Detección de Cáncer. Pregúntame cualquier cosa sobre exámenes, recursos o el contenido de esta página.'
+      },
+      highlightTip: {
+        en: 'Tip: highlight any text on this page before asking and I\'ll include it in my answer.',
+        es: 'Consejo: resalta cualquier texto de esta página antes de preguntar y lo incluiré en mi respuesta.'
+      },
+      contextNote: {
+        en: (snippet) => `I noticed you highlighted: "${snippet}". Here\'s a quick explanation:`,
+        es: (snippet) => `Noté que seleccionaste: "${snippet}". Aquí tienes una explicación rápida:`
+      },
+      fallback: {
+        en: 'I\'m here to help with cancer screening questions. Could you share a bit more detail?',
+        es: 'Estoy aquí para ayudarte con preguntas sobre detección de cáncer. ¿Puedes compartir un poco más de detalle?'
+      }
+    };
+    const value = strings[key];
+    if (!value) return '';
+    const localized = value[this.lang] || value.en;
+    return typeof localized === 'function' ? localized(interpolation) : localized;
+  }
+
+  buildPageSummaries() {
+    return {
+      'index.html': {
+        en: 'You are on the ScreenWiseATX homepage where we outline our mission, key statistics about early detection, and links to every major section.',
+        es: 'Estás en la página principal de ScreenWiseATX donde describimos nuestra misión, estadísticas clave sobre la detección temprana y enlaces a cada sección principal.'
+      },
+      'cancer-types.html': {
+        en: 'This page points you to the full set of cancer education cards now hosted on the homepage.',
+        es: 'Esta página te dirige al conjunto completo de tarjetas educativas sobre el cáncer ahora alojadas en la página principal.'
+      },
+      'breast.html': {
+        en: 'You are reviewing breast cancer screening options like mammograms, breast MRI, and clinical exams.',
+        es: 'Estás revisando las opciones de detección del cáncer de mama como mamografías, resonancias magnéticas y exámenes clínicos.'
+      },
+      'cervical.html': {
+        en: 'This page covers cervical cancer screenings such as Pap smears and HPV tests.',
+        es: 'Esta página cubre los exámenes de cáncer cervical como las pruebas de Papanicolaou y de VPH.'
+      },
+      'colon.html': {
+        en: 'You are looking at colon cancer screening information including colonoscopies and FIT tests.',
+        es: 'Estás viendo información sobre detección de cáncer de colon, incluidas las colonoscopías y las pruebas FIT.'
+      },
+      'lung.html': {
+        en: 'This section explains low-dose CT scans and eligibility for lung cancer screening.',
+        es: 'Esta sección explica las tomografías computarizadas de baja dosis y la elegibilidad para la detección del cáncer de pulmón.'
+      },
+      'prostate.html': {
+        en: 'You are reading about prostate cancer screening, PSA tests, and digital rectal exams.',
+        es: 'Estás leyendo sobre la detección del cáncer de próstata, las pruebas de PSA y los exámenes rectales digitales.'
+      },
+      'free-screening.html': {
+        en: 'This page lists free and low-cost screening programs along with state and local resources.',
+        es: 'Esta página enumera programas de detección gratuitos o de bajo costo junto con recursos estatales y locales.'
+      },
+      'screening-info.html': {
+        en: 'You are viewing general information about screening types, recommended routines, and timelines.',
+        es: 'Estás viendo información general sobre los tipos de detección, rutinas recomendadas y cronogramas.'
+      },
+      default: {
+        en: 'You are browsing a ScreenWiseATX education page with detailed screening information.',
+        es: 'Estás explorando una página educativa de ScreenWiseATX con información detallada sobre detección.'
+      }
+    };
+  }
+
   async sendMessage() {
     const input = this.chatContainer.querySelector('input');
     const message = input.value.trim();
@@ -260,39 +364,108 @@ class Chatbot {
     // Add user message
     this.addMessage(message, true);
     input.value = '';
+    const highlighted = this.getHighlightedText();
+    const response = this.getResponse(message.toLowerCase(), highlighted);
     
-    // Simple response logic (in a real app, this would call an API)
-    const responses = {
-      'hello': 'Hello! How can I help you with cancer screening today?',
-      'hi': 'Hi there! What would you like to know about cancer screening?',
-      'breast cancer': 'Breast cancer screening typically involves mammograms, clinical breast exams, and self-exams. Women aged 40-44 should have the choice to start annual screenings, 45-54 should get mammograms every year, and 55+ can switch to every 2 years or continue yearly.',
-      'colon cancer': 'Colon cancer screening is recommended starting at age 45 for most adults. Common screening methods include colonoscopy (every 10 years), FIT test (annually), and stool DNA test (every 3 years).',
-      'lung cancer': 'Lung cancer screening with low-dose CT scan is recommended for adults aged 50-80 who have a 20 pack-year smoking history and currently smoke or have quit within the past 15 years.',
-      'prostate cancer': 'The decision to be screened for prostate cancer with a PSA test should be an individual one. Men should discuss the potential benefits and risks with their doctor starting at age 50, or earlier for those at higher risk.',
-      'cervical cancer': 'Cervical cancer screening includes Pap tests and HPV tests. Women should start at age 21 with Pap tests every 3 years. From 30-65, you can continue with Pap tests every 3 years or switch to co-testing (Pap + HPV) every 5 years.'
-    };
-    
-    // Find a matching response or provide a default
-    let response = 'I\'m here to help with cancer screening information. Could you be more specific about what you\'d like to know?';
-    
-    for (const [key, value] of Object.entries(responses)) {
-      if (message.toLowerCase().includes(key.toLowerCase())) {
-        response = value;
-        break;
-      }
-    }
-    
-    // Add a small delay before the bot responds
     setTimeout(() => {
+      if (highlighted) {
+        const snippet = highlighted.length > 200 ? `${highlighted.slice(0, 200)}…` : highlighted;
+        this.addBotMessage(this.getLocalizedString('contextNote', snippet));
+      }
       this.addBotMessage(response);
-    }, 1000);
+    }, 600);
+  }
+
+  getResponse(message, highlighted) {
+    const knowledgeBase = [
+      {
+        keywords: ['hello', 'hola', 'hi'],
+        responses: {
+          en: 'Hi there! I can explain screenings, scheduling tips, or connect you to programs. What would you like to know?',
+          es: '¡Hola! Puedo explicar exámenes, dar consejos de programación o conectarte con programas. ¿Qué te gustaría saber?'
+        }
+      },
+      {
+        keywords: ['mammogram', 'mamografía'],
+        responses: {
+          en: 'A mammogram is an X-ray of the breast. For average-risk patients, annual screenings are recommended starting at 40. High-risk patients may start earlier and pair mammograms with MRI.',
+          es: 'Una mamografía es una radiografía del seno. Para pacientes de riesgo promedio se recomienda un examen anual a partir de los 40 años. Los pacientes de alto riesgo pueden comenzar antes y combinarla con una resonancia magnética.'
+        }
+      },
+      {
+        keywords: ['mri', 'resonancia'],
+        responses: {
+          en: 'Breast MRI provides 3D images and is reserved for higher-risk patients, usually alongside a mammogram starting around age 30.',
+          es: 'La resonancia magnética de mama ofrece imágenes en 3D y se reserva para pacientes de mayor riesgo, normalmente junto con una mamografía a partir de los 30 años.'
+        }
+      },
+      {
+        keywords: ['clinical', 'examen clínico'],
+        responses: {
+          en: 'A clinical breast exam is a physical exam performed by a healthcare professional when symptoms or changes are noticed.',
+          es: 'Un examen clínico de los senos es un examen físico realizado por un profesional de la salud cuando se notan síntomas o cambios.'
+        }
+      },
+      {
+        keywords: ['pap', 'hpv'],
+        responses: {
+          en: 'Cervical screening generally starts at age 21 with Pap tests every 3 years. HPV testing can be combined starting at age 30 for a 5-year interval.',
+          es: 'La detección cervical generalmente comienza a los 21 años con pruebas de Papanicolaou cada 3 años. A partir de los 30 años se puede combinar con la prueba de VPH para un intervalo de 5 años.'
+        }
+      },
+      {
+        keywords: ['colonoscopy', 'colonoscopía', 'fit'],
+        responses: {
+          en: 'Colonoscopies are typically done every 10 years starting at age 45 for average-risk adults. FIT stool tests are a yearly, non-invasive option.',
+          es: 'Las colonoscopías se realizan generalmente cada 10 años a partir de los 45 años para adultos de riesgo promedio. Las pruebas FIT de heces son una opción anual no invasiva.'
+        }
+      },
+      {
+        keywords: ['lung', 'pulmón', 'ldct'],
+        responses: {
+          en: 'Low-dose CT (LDCT) scans are recommended for adults 50-80 with a 20 pack-year smoking history who currently smoke or quit within 15 years.',
+          es: 'Las tomografías computarizadas de baja dosis (LDCT) se recomiendan para adultos de 50 a 80 años con un historial de 20 paquetes-año que aún fuman o dejaron de fumar en los últimos 15 años.'
+        }
+      },
+      {
+        keywords: ['cost', 'free', 'gratuito', 'program'],
+        responses: {
+          en: 'Check our Free and Low Cost Screening page for CommUnityCare, People’s Community Clinic, Texas HHS, and American Cancer Society resources.',
+          es: 'Consulta nuestra página de Detección Gratuita y de Bajo Costo para recursos de CommUnityCare, People’s Community Clinic, Texas HHS y la American Cancer Society.'
+        }
+      },
+      {
+        keywords: ['schedule', 'when', 'cuándo', 'how often', 'frecuencia'],
+        responses: {
+          en: 'Screening frequency depends on cancer type and risk. Use the page you are on for the exact timelines or let me know which test you are curious about.',
+          es: 'La frecuencia de los exámenes depende del tipo de cáncer y del riesgo. Usa la página en la que estás para ver los cronogramas exactos o dime qué prueba te interesa.'
+        }
+      }
+    ];
+
+    const match = knowledgeBase.find(item => item.keywords.some(kw => message.includes(kw)));
+    if (match) {
+      return match.responses[this.lang] || match.responses.en;
+    }
+
+    if (highlighted) {
+      return this.lang === 'es'
+        ? 'Aquí tienes algunos detalles adicionales basados en el texto que seleccionaste. Si necesitas más contexto, dime qué parte no está clara.'
+        : 'Here are some extra details based on what you highlighted. Let me know if a specific part is unclear.';
+    }
+
+    const summary = this.pageSummaries[this.pageKey]?.[this.lang];
+    if (summary) {
+      return `${summary} ${this.lang === 'es' ? '¿Hay algo específico que quieras profundizar?' : 'Is there anything specific you want to dive into?'}`;
+    }
+
+    return this.getLocalizedString('fallback');
   }
 }
 
 // Initialize the chatbot when the page loads
 window.addEventListener('load', () => {
-  // Small delay before showing the chatbot button
   setTimeout(() => {
     const chatbot = new Chatbot();
-  }, 3000);
+  }, 1500);
 });

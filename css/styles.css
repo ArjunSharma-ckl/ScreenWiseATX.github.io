@@ -178,16 +178,16 @@ input:checked + .slider:before {
 }
 
 .hero-home {
-  background: linear-gradient(135deg, #0f172a, #1d4ed8);
-  color: #e0f2fe;
+  background: linear-gradient(180deg, #e0f2ff 0%, #e8eefc 100%);
+  color: #0f172a;
 }
 
 .hero-home h1 {
-  color: #e0f2fe;
+  color: #0f172a;
 }
 
 .hero-home p {
-  color: #cbd5f5;
+  color: #1e293b;
 }
 
 .hero-alt {
@@ -485,6 +485,39 @@ footer {
 .info-card.info-card--green {
   border-color: #10b981;
   background: rgba(16,185,129,0.12);
+}
+
+.info-panel {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid #f1f5f9;
+}
+
+.info-panel + .info-panel {
+  margin-top: 2.5rem;
+}
+
+.info-panel h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.info-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.info-list {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+  line-height: 1.7;
+}
+
+.info-list li {
+  margin-bottom: 0.35rem;
 }
 
 /* Rotating logo marquee */
