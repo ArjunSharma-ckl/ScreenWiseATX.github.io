@@ -411,33 +411,36 @@ input:checked + .slider:before {
 
 /* Site-wide cancer tiles */
 .cancer-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.75rem;
-}
-
-.cancer-cards--row {
   display: flex;
   flex-wrap: nowrap;
-  gap: 1.25rem;
+  gap: 1.5rem;
   overflow-x: auto;
-  padding-bottom: 0.5rem;
-  justify-content: space-between;
+  padding-bottom: 0.75rem;
+}
+
+.cancer-cards .cancer-card {
+  flex: 0 0 280px;
 }
 
 .cancer-cards--row .cancer-card {
-  flex: 0 0 200px;
+  flex-basis: 200px;
 }
 
-@media (max-width: 1024px) {
-  .cancer-cards--row {
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow-x: visible;
+@media (max-width: 768px) {
+  .cancer-cards .cancer-card {
+    flex-basis: 240px;
+  }
+
+  .cancer-cards--row .cancer-card {
+    flex-basis: 180px;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 480px) {
+  .cancer-cards .cancer-card {
+    flex-basis: 210px;
+  }
+
   .cancer-cards--row .cancer-card {
     flex-basis: 160px;
   }

@@ -96,9 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
   mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
   
   const header = document.querySelector('header');
-  const nav = document.querySelector('.tabs');
+  const nav = header ? header.querySelector('.tabs') : null;
   
-  if (nav) {
+  if (header && nav) {
     header.insertBefore(mobileMenuToggle, nav);
     
     mobileMenuToggle.addEventListener('click', () => {
