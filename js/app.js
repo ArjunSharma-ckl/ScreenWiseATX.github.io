@@ -156,6 +156,118 @@ document.addEventListener('DOMContentLoaded', () => {
       loadingOverlay.style.display = 'none';
     }, 300);
   });
+
+  // Page-level UI enhancements (DOM-based so we don't need to edit HTML/CSS files directly)
+  const page = document.body.dataset.page || (location.pathname.split('/').pop() || '');
+  try { if (page === 'index.html') { injectHomeStyles(); relocateCardsUnderWhy(); } } catch (e) {}
+  try { if (page === 'free-screening.html') { enhanceFreeScreening(); } } catch (e) {}
+  try { renderMiniSummaryCard(); } catch (e) {}
+
+  function injectHomeStyles() {
+    if (document.getElementById('home-scoped-styles')) return;
+    const style = document.createElement('style');
+    style.id = 'home-scoped-styles';
+    style.textContent = `
+      .cancer-type-cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:1.5rem}
+      .cancer-card{display:block;padding:1.25rem 1.25rem 1rem;background:linear-gradient(180deg,#fff 0%,#f8fafc 100%);border-radius:16px;border:1px solid #e5e7eb;box-shadow:0 8px 20px rgba(15,23,42,.06);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+      .cancer-card h3{margin:0 0 .25rem 0;color:#0f172a}
+      .cancer-card p{margin:0 0 .75rem 0;color:#475569}
+      .cancer-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(15,23,42,.12)}
+      .cancer-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+      .tag{display:inline-block;padding:.35rem .6rem;font-size:.8rem;background:#eef2ff;color:#1e40af;border-radius:999px;border:1px solid #e5e7eb}
+      .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:1.25rem}
+      .stat-item{background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.55));backdrop-filter:blur(6px);border:1px solid rgba(226,232,240,.9);border-radius:16px;padding:1rem 1.25rem;box-shadow:0 8px 20px rgba(15,23,42,.08)}
+      .stat-number{display:block;font-size:2rem;font-weight:800;color:#0f172a}
+      .stat-label{display:block;margin-top:.35rem;color:#334155}
+    `;
+    document.head.appendChild(style);
+  }
+
+  function relocateCardsUnderWhy() {
+    const hero = document.querySelector('.hero.hero-home');
+    if (!hero) return;
+    const container = hero.querySelector('.container');
+    if (!container) return;
+    const title = container.querySelector('h1');
+    const intro = container.querySelector('p');
+    const cardGrid = container.querySelector('.cancer-type-cards');
+
+    // Remove hero title
+    if (title) title.remove();
+    // Keep intro text to show near the grid under Why It Matters
+    const why = document.querySelector('.why-it-matters .container');
+    if (!why || !cardGrid) return;
+
+    if (intro) {
+      const introClone = intro.cloneNode(true);
+      why.appendChild(introClone);
+      intro.remove();
+    }
+    why.appendChild(cardGrid);
+  }
+
+  function enhanceFreeScreening() {
+    // Linkify key resources
+    document.querySelectorAll('p').forEach(p => {
+      let html = p.innerHTML;
+      html = html.replace(/\bcommunitycaretx\.org\b/g, '<a href="https://communitycaretx.org" target="_blank" rel="noopener">communitycaretx.org<\/a>');
+      html = html.replace(/\baustinpcc\.org\b/g, '<a href="https://austinpcc.org" target="_blank" rel="noopener">austinpcc.org<\/a>');
+      html = html.replace(/\bhhs\.texas\.gov\b/g, '<a href="https://www.hhs.texas.gov" target="_blank" rel="noopener">hhs.texas.gov<\/a>');
+      html = html.replace(/\bcancer\.org\b/g, '<a href="https://www.cancer.org" target="_blank" rel="noopener">cancer.org<\/a>');
+      p.innerHTML = html;
+    });
+
+    // Inject rotating logo marquee after the resources grid if present
+    if (!document.querySelector('.logo-marquee')) {
+      const container = document.querySelector('.who-we-are .container') || document.querySelector('.section .container:last-child');
+      if (container) {
+        const marquee = document.createElement('div');
+        marquee.className = 'logo-marquee';
+        marquee.innerHTML = `
+          <div class="logo-track">
+            <a href="https://communitycaretx.org" target="_blank" rel="noopener"><img src="https://www.communitycaretx.org/wp-content/uploads/2023/05/CommunityCare-Logo.svg" alt="CommUnityCare">CommUnityCare</a>
+            <a href="https://austinpcc.org" target="_blank" rel="noopener"><img src="https://austinpcc.org/wp-content/uploads/2021/04/PCC-logo.svg" alt="People's Community Clinic">People’s CC</a>
+            <a href="https://www.hhs.texas.gov" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Texas_Health_and_Human_Services_logo.svg" alt="Texas HHS">Texas HHS</a>
+            <a href="https://www.cancer.org" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/American_Cancer_Society_Logo.svg" alt="ACS">American Cancer Society</a>
+            <a href="https://www.cdc.gov/cancer/nbccedp" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/US_CDC_logo.svg" alt="CDC NBCCEDP">CDC NBCCEDP</a>
+          </div>`;
+        container.appendChild(marquee);
+      }
+    }
+  }
+
+  function renderMiniSummaryCard() {
+    // Create a lightweight summary card (no external ChatGPT)
+    const container = document.querySelector('.chatgpt-section .container') || document.querySelector('footer')?.previousElementSibling || document.body;
+    const summary = (document.body.dataset.page && (new Chatbot()).pageSummaries[document.body.dataset.page]) || (new Chatbot()).pageSummaries.default;
+    const lang = document.documentElement.lang || 'en';
+    const text = summary?.[lang] || summary?.en || '';
+    if (!container || !text) return;
+
+    // If an existing helper card is present, skip
+    if (document.querySelector('.mini-summary-card')) return;
+
+    const card = document.createElement('div');
+    card.className = 'chatgpt-card mini-summary-card';
+    card.style.marginTop = '1.5rem';
+    card.innerHTML = `
+      <div>
+        <h3>${lang === 'es' ? 'Resumen rápido' : 'Quick Summary'}</h3>
+        <p>${text}</p>
+      </div>
+      <button class="chatgpt-btn" type="button">${lang === 'es' ? 'Ampliar en el chat' : 'Open Assistant'}</button>
+    `;
+
+    // Button toggles chatbot open
+    card.querySelector('.chatgpt-btn').addEventListener('click', () => {
+      const evt = new Event('click');
+      document.querySelector('.chatbot-toggle')?.dispatchEvent(evt);
+    });
+
+    // Insert before footer if possible
+    const parent = container.parentElement || document.body;
+    parent.insertBefore(card, document.querySelector('footer'));
+  }
 });
 
 // Chatbot functionality
@@ -442,6 +554,13 @@ class Chatbot {
         }
       },
       {
+        keywords: ['clinic', 'clinics', 'near me', 'cerca de mi', 'cerca de mí', 'resources', 'recursos'],
+        responses: {
+          en: 'Find local options on our Free and Low Cost Screening page: free-screening.html. You can also dial 211 for community resources.',
+          es: 'Encuentra opciones locales en nuestra página de Detección Gratuita y de Bajo Costo: free-screening.html. También puedes marcar 211 para recursos comunitarios.'
+        }
+      },
+      {
         keywords: ['schedule', 'when', 'cuándo', 'how often', 'frecuencia'],
         responses: {
           en: 'Screening frequency depends on cancer type and risk. Use the page you are on for the exact timelines or let me know which test you are curious about.',
@@ -471,6 +590,13 @@ class Chatbot {
       return this.lang === 'es'
         ? 'Aquí tienes algunos detalles adicionales basados en lo que seleccionaste. Si necesitas más contexto, dime qué parte no está clara.'
         : 'Here are some extra details based on what you highlighted. If you need more context, tell me which part is unclear.';
+    }
+
+    // Off-topic fallback (e.g., moon question)
+    if (/(moon|luna)/i.test(message)) {
+      return this.lang === 'es'
+        ? 'Puedo ayudar con detección de cáncer, programas y próximos pasos. ¿Quieres información sobre pruebas, elegibilidad o clínicas locales?'
+        : 'I can help with cancer screening, programs, and next steps. Want info on tests, eligibility, or local clinics?';
     }
 
     const summary = this.pageSummaries[this.pageKey]?.[this.lang];
