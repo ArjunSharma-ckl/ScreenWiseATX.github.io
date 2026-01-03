@@ -1,365 +1,256 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* Add these styles to your existing styles.css file */
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #f9fafb;
-  color: #111827;
-  line-height: 1.6;
-}
-
-/* Header Styles */
-header {
-  background: white;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.nav {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  gap: 2rem;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #db2777;
-  white-space: nowrap;
-}
-
-.tabs {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 1;
-  justify-content: center;
-}
-
-.tab {
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  color: #374151;
-  font-weight: 500;
-  border-radius: 6px;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-
-.tab:hover {
-  background: #f3f4f6;
-  color: #db2777;
-}
-
-/* Dropdown menu for cancer types - HORIZONTAL LAYOUT */
-.tab2-wrap {
-  position: relative;
-}
-
-.tab2-wrap:hover .cancer-menu {
-  display: flex;
-}
-
-.cancer-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  margin-top: 0.25rem;
-  white-space: nowrap;
-  gap: 0.5rem;
-}
-
-.cancer-menu a {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  color: #374151;
-  text-decoration: none;
-  transition: all 0.2s;
-  border-radius: 6px;
-}
-
-.cancer-menu a:hover {
-  background: #f3f4f6;
-  color: #db2777;
-}
-
-/* Language Toggle */
-.actions {
-  display: flex;
-  align-items: center;
-}
-
-.toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  user-select: none;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 44px;
-  height: 24px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
+/* Loading Overlay */
+.loading-overlay {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #cbd5e1;
-  transition: 0.3s;
-  border-radius: 24px;
+  background: #1e40af;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  transition: 0.3s;
+/* Language Change Animation */
+.lang-change {
+  animation: langFade 0.3s ease;
+}
+
+@keyframes langFade {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Chatbot Styles */
+.chatbot-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #db2777;
-}
-
-input:checked + .slider:before {
-  transform: translateX(20px);
-}
-
-/* Section Styles */
-.section {
-  padding: 4rem 2rem;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Hero sections */
-.hero {
-  background: white;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-}
-
-.hero-alt {
-  background: linear-gradient(120deg, #fce7f3, #fbcfe8);
-  padding: 3rem 2rem;
-}
-
-/* Color themes for different pages */
-.hero-breast {
-  background: linear-gradient(120deg, #fce7f3, #fbcfe8);
-  padding: 3rem 2rem;
-}
-
-.hero-cervical {
-  background: linear-gradient(120deg, #fef3c7, #fde68a);
-  padding: 3rem 2rem;
-}
-
-.hero-colon {
-  background: linear-gradient(120deg, #dbeafe, #bfdbfe);
-  padding: 3rem 2rem;
-}
-
-.hero-lung {
-  background: linear-gradient(120deg, #e0e7ff, #c7d2fe);
-  padding: 3rem 2rem;
-}
-
-.hero-prostate {
-  background: linear-gradient(120deg, #e0f2fe, #bae6fd);
-  padding: 3rem 2rem;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  color: #0369a1;
-  margin-bottom: 1rem;
-}
-
-.hero-alt h1,
-.hero-breast h1 {
-  font-size: 3rem;
-  color: #be185d;
-  margin-bottom: 2rem;
-}
-
-.hero-cervical h1 {
-  font-size: 3rem;
-  color: #d97706;
-  margin-bottom: 2rem;
-}
-
-.hero-colon h1 {
-  font-size: 3rem;
-  color: #0369a1;
-  margin-bottom: 2rem;
-}
-
-.hero-lung h1 {
-  font-size: 3rem;
-  color: #4f46e5;
-  margin-bottom: 2rem;
-}
-
-.hero-prostate h1 {
-  font-size: 3rem;
-  color: #0284c7;
-  margin-bottom: 2rem;
-}
-
-/* Cancer Buttons - HORIZONTAL LAYOUT */
-.cancer-buttons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.cancer-buttons a {
-  padding: 1rem 1.5rem;
-  background: white;
-  color: #db2777;
-  text-decoration: none;
-  border-radius: 12px;
-  font-weight: 600;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: all 0.3s;
-  white-space: nowrap;
-}
-
-.cancer-buttons a:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 12px rgba(0,0,0,0.15);
-  background: #db2777;
+  background: #1e40af;
   color: white;
-}
-
-/* Why It Matters Section - Blue gradient */
-.why-it-matters {
-  background: linear-gradient(90deg, #dbeafe, #e0f2fe);
-  padding: 4rem 2rem;
-}
-
-.why-it-matters h2 {
-  font-size: 2.5rem;
-  color: #0369a1;
-  margin-bottom: 1.5rem;
-}
-
-.why-it-matters p,
-.why-it-matters li {
-  color: #374151;
-}
-
-.why-tabs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.why-card {
-  padding: 2rem;
-  background: white;
-  border-radius: 12px;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: all 0.3s;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 120px;
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
 
-.why-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+.chatbot-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-.why-card h3 {
-  color: #0369a1;
-  font-size: 1.25rem;
-}
-
-/* Who We Are Section - White background */
-.who-we-are {
+.chatbot-container {
+  position: fixed;
+  bottom: 0;
+  right: 2rem;
+  width: 380px;
+  height: 600px;
   background: white;
-  padding: 4rem 2rem;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(calc(100% - 50px));
+  transition: transform 0.3s ease;
+  z-index: 1001;
+  overflow: hidden;
 }
 
-.who-we-are h2 {
-  font-size: 2.5rem;
-  color: #0369a1;
-  margin-bottom: 1.5rem;
+.chatbot-header {
+  background: #1e40af;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.who-we-are h3 {
-  color: #0369a1;
+.chatbot-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 1;
 }
 
-/* Footer */
-footer {
-  background: #1f2937;
+.chatbot-messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background: #f9fafb;
+}
+
+.chat-message {
+  max-width: 80%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 18px;
+  line-height: 1.4;
+  position: relative;
+  animation: messageIn 0.3s ease-out;
+}
+
+@keyframes messageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-message.user {
+  background: #1e40af;
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-message.bot {
+  background: #e5e7eb;
+  color: #111827;
+  margin-right: auto;
+  border-bottom-left-radius: 4px;
+}
+
+.chatbot-input {
+  display: flex;
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+  background: white;
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.chatbot-input input:focus {
+  border-color: #1e40af;
+}
+
+.chatbot-send {
+  background: #1e40af;
+  color: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chatbot-send:hover {
+  background: #1e3a8a;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Tooltip */
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 200px;
+  background: #1e40af;
   color: white;
   text-align: center;
-  padding: 2rem;
+  border-radius: 6px;
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.875rem;
+  line-height: 1.4;
 }
 
-/* Responsive */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #1e40af transparent transparent transparent;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .chatbot-container {
+    width: 100%;
+    right: 0;
+    height: 80vh;
+  }
+}
+
 @media (max-width: 768px) {
-  .nav {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
+  .mobile-menu-toggle {
+    display: block;
   }
 
   .tabs {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
     flex-direction: column;
-    align-items: stretch;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    z-index: 99;
+  }
+
+  .tabs.active {
+    transform: translateY(0);
   }
 
   .tab {
-    text-align: center;
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem 1rem;
   }
 
   .cancer-menu {
@@ -372,26 +263,99 @@ footer {
     left: auto;
   }
 
-  .cancer-buttons {
-    flex-direction: column;
+  .cancer-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Animation for cancer cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cancer-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Add delay to each card */
+.cancer-card:nth-child(1) { animation-delay: 0.1s; }
+.cancer-card:nth-child(2) { animation-delay: 0.2s; }
+.cancer-card:nth-child(3) { animation-delay: 0.3s; }
+.cancer-card:nth-child(4) { animation-delay: 0.4s; }
+.cancer-card:nth-child(5) { animation-delay: 0.5s; }
+
+/* Hover effects */
+.cancer-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Stats grid animation */
+.stat-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.stat-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Team member cards */
+.team-member {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.team-member.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Loading spinner */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Print styles */
+@media print {
+  .chatbot-toggle,
+  .chatbot-container,
+  .mobile-menu-toggle {
+    display: none !important;
   }
 
-  .cancer-buttons a {
-    width: 100%;
+  body {
+    background: white;
+    color: black;
   }
 
-  .hero h1,
-  .hero-alt h1,
-  .hero-breast h1,
-  .hero-cervical h1,
-  .hero-colon h1,
-  .hero-lung h1,
-  .hero-prostate h1 {
-    font-size: 2rem;
+  .section {
+    padding: 1rem 0;
   }
 
-  .why-it-matters h2,
-  .who-we-are h2 {
-    font-size: 2rem;
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 }
