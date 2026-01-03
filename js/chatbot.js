@@ -359,7 +359,7 @@ Pautas:
         'Authorization': `Bearer ${this.apiKey}`
       },
       body: JSON.stringify({
-        model: 'llama-3.1-70b-versatile',
+        model: 'llama-3.3-70b-versatile',
         messages: [
           { role: 'system', content: systemPrompt },
           ...conversationHistory,
@@ -372,17 +372,40 @@ Pautas:
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Groq API error:', errorText);
-      throw new Error(`API request failed: ${response.status}`);
+      let errorText = '';
+      try {
+        const errorData = await response.json();
+        errorText = errorData.error?.message || JSON.stringify(errorData);
+        console.error('Groq API error:', errorData);
+      } catch (e) {
+        errorText = await response.text();
+        console.error('Groq API error (text):', errorText);
+      }
+      
+      // Provide user-friendly error message
+      const errorMsg = this.lang === 'es'
+        ? 'Lo siento, hubo un error al procesar tu solicitud. Por favor intenta de nuevo.'
+        : 'Sorry, there was an error processing your request. Please try again.';
+      throw new Error(errorMsg);
     }
 
     const data = await response.json();
     if (!data || !data.choices || !data.choices[0] || !data.choices[0].message) {
-      throw new Error('Invalid response from API');
+      const errorMsg = this.lang === 'es'
+        ? 'La respuesta del servidor no es válida. Por favor intenta de nuevo.'
+        : 'Invalid response from server. Please try again.';
+      throw new Error(errorMsg);
     }
     
-    return data.choices[0].message.content.trim();
+    const content = data.choices[0].message.content;
+    if (!content || !content.trim()) {
+      const errorMsg = this.lang === 'es'
+        ? 'No se pudo generar una respuesta. Por favor reformula tu pregunta.'
+        : 'Could not generate a response. Please rephrase your question.';
+      throw new Error(errorMsg);
+    }
+    
+    return content.trim();
   }
 }
 

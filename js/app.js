@@ -146,8 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
     menuContainer.className = 'mobile-menu-container';
     menuContainer.appendChild(mobileMenuToggle);
     
-    // Insert the container before the nav
-    header.insertBefore(menuContainer, nav);
+    // Insert the container before the nav (safely check if nav is a child)
+    if (nav && nav.parentNode === header) {
+      header.insertBefore(menuContainer, nav);
+    } else if (header) {
+      // Fallback: append to header if nav doesn't exist or isn't a child
+      header.appendChild(menuContainer);
+    }
     
     mobileMenuToggle.addEventListener('click', (e) => {
       e.stopPropagation();
