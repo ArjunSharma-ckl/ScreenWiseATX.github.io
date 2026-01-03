@@ -376,50 +376,6 @@ input:checked + .slider:before {
   font-size: 1.25rem;
 }
 
-/* Logo slider carousel */
-.logo-slider {
-  overflow: hidden;
-  padding: 40px 0;
-  background: #fdfdfd;
-  white-space: nowrap;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  margin-top: 1.5rem;
-}
-
-.logo-track {
-  display: inline-block;
-  animation: logo-scroll 60s linear infinite;
-}
-
-.logo-track:hover {
-  animation-play-state: paused;
-}
-
-.logo-track img {
-  height: 48px;
-  margin: 0 50px;
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.logo-track img:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-  transform: scale(1.2);
-}
-
-@keyframes logo-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 /* Who We Are Section - White background */
 .who-we-are {
   background: white;
