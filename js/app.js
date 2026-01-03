@@ -386,6 +386,13 @@ class Chatbot {
         }
       },
       {
+        keywords: ['what is cancer', 'que es el cancer', 'qué es el cáncer', 'cancer definition', 'definición de cáncer'],
+        responses: {
+          en: 'Cancer is a group of diseases where cells grow and divide abnormally, forming tumors or spreading (metastasis). Screening looks for cancer before symptoms appear so treatment can be more effective.',
+          es: 'El cáncer es un grupo de enfermedades en el que las células crecen y se dividen de forma anormal, formando tumores o propagándose (metástasis). La detección busca el cáncer antes de que haya síntomas para que el tratamiento sea más eficaz.'
+        }
+      },
+      {
         keywords: ['mammogram', 'mamografía'],
         responses: {
           en: 'A mammogram is an X-ray of the breast. For average-risk patients, annual screenings are recommended starting at 40. High-risk patients may start earlier and pair mammograms with MRI.',
@@ -448,10 +455,22 @@ class Chatbot {
       return match.responses[this.lang] || match.responses.en;
     }
 
+    // Handle generic confusion and highlighted context questions
+    const askingWhatIsThis = /(what\s+is\s+(this|that)|qué\s+es\s+(esto|eso))/i.test(message);
+    if (highlighted && askingWhatIsThis) {
+      return this.lang === 'es'
+        ? 'Eso es un recurso/tema resaltado en esta página. Si quieres, puedo explicar para qué sirve y cómo usarlo, o darte enlaces para más información.'
+        : 'That is a highlighted resource/topic on this page. I can explain what it is used for, how to use it, or point you to more info links.';
+    }
+    if (/^(huh\?|huh|what\?|what)$/i.test(message.trim())) {
+      return this.lang === 'es'
+        ? '¿Qué parte no quedó clara? ¿Quieres que explique un término, una prueba específica o los próximos pasos?'
+        : 'What part wasn’t clear? Want me to explain a term, a specific test, or next steps?';
+    }
     if (highlighted) {
       return this.lang === 'es'
-        ? 'Aquí tienes algunos detalles adicionales basados en el texto que seleccionaste. Si necesitas más contexto, dime qué parte no está clara.'
-        : 'Here are some extra details based on what you highlighted. Let me know if a specific part is unclear.';
+        ? 'Aquí tienes algunos detalles adicionales basados en lo que seleccionaste. Si necesitas más contexto, dime qué parte no está clara.'
+        : 'Here are some extra details based on what you highlighted. If you need more context, tell me which part is unclear.';
     }
 
     const summary = this.pageSummaries[this.pageKey]?.[this.lang];
