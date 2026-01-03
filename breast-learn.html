@@ -6,6 +6,62 @@
 <link rel="icon" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/styles.css">
+<style>
+  .learn-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  .info-section {
+    margin-bottom: 2.5rem;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .info-section h2 {
+    color: #be185d;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #fbcfe8;
+    padding-bottom: 0.5rem;
+  }
+  .info-section p {
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+  .info-section ul {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+  }
+  .info-section li {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+  .resources a {
+    color: #be185d;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .resources a:hover {
+    text-decoration: underline;
+  }
+  .risk-factors {
+    border-left: 4px solid #f9a8d4;
+  }
+  .symptoms {
+    border-left: 4px solid #f472b6;
+  }
+  .common-in {
+    border-left: 4px solid #ec4899;
+  }
+  .resources {
+    background-color: #fdf2f8;
+    border-left: 4px solid #db2777;
+  }
+</style>
 </head>
 <body data-page="breast-learn.html">
 
@@ -55,139 +111,64 @@
   <div class="container">
     <h1 data-en="Breast Cancer" data-es="Cáncer de Mama">Breast Cancer</h1>
     
-    <div class="info-panel">
-      <h2 data-en="Mammogram" data-es="Mamografía">Mammogram</h2>
-      <div class="info-block">
-        <div class="info-text">
-          <p data-en="In a mammogram, the patient is directed to stand in front of an x-ray machine. Your breast is placed between two plastic plates that flatten your breast to get a clear image." data-es="En una mamografía, se le indica al paciente que se pare frente a una máquina de rayos X. Su seno se coloca entre dos placas de plástico que aplanan su seno para obtener una imagen clara.">In a mammogram, the patient is directed to stand in front of an x-ray machine. Your breast is placed between two plastic plates that flatten your breast to get a clear image.</p>
-          <p style="font-style: italic; color: #6b7280;" data-en="(This procedure is known to be slightly discomforting)" data-es="(Se sabe que este procedimiento es ligeramente incómodo)">(This procedure is known to be slightly discomforting)</p>
-        </div>
-        <div class="info-visual">
-          <a href="https://my.clevelandclinic.org/-/scassets/images/org/health/articles/4877-mammogram-illustration" target="_blank" rel="noopener noreferrer" style="display:block; width:100%; height:100%;">
-            <img src="https://my.clevelandclinic.org/-/scassets/images/org/health/articles/4877-mammogram-illustration" alt="Mammogram procedure illustration" style="width: 100%; height: 100%; object-fit: contain; background: #f0f0f0;">
-          </a>
-        </div>
+    <div class="info-panel learn-content">
+      <div class="info-section">
+        <h2>What is it?</h2>
+        <p>Breast cancer is the formation of a tumor in the breast tissue due to mutated cells.</p>
       </div>
-      
-      <div class="info-block" style="margin-top:1rem;">
-        <div class="info-text">
-          <strong data-en="2D mammograms" data-es="Mamografías 2D">2D mammograms</strong>
-          <span data-en=" - Takes standard X-ray images from two angles per breast, producing one flat image." data-es=" - Toma imágenes estándar de rayos X desde dos ángulos por seno, produciendo una imagen plana."> - Takes standard X-ray images from two angles per breast, producing one flat image.</span>
-        </div>
-        <div class="info-card info-card--blue">
-          <p data-en="This is the most common screening method for breast cancer" data-es="Este es el método de detección más común para el cáncer de mama" style="margin:0;">This is the most common screening method for breast cancer</p>
-        </div>
+
+      <div class="info-section common-in">
+        <h2>It is most common in (but not limited to)...</h2>
+        <ul>
+          <li>Women above the age of 40</li>
+          <li>Someone with any family history of breast, ovarian, pancreatic, or prostate cancer</li>
+          <li>Prominent in African American Women</li>
+        </ul>
       </div>
-      <div class="info-block">
-        <div class="info-text">
-          <strong data-en="3D mammograms/Digital Breast Tomosynthesis (DBT)" data-es="Mamografías 3D/Tomosíntesis Digital de Mama (DBT)">3D mammograms/Digital Breast Tomosynthesis (DBT)</strong>
-          <span data-en=" - An X-ray tube moves in an arc, capturing multiple low-dose images from various angles" data-es=" - Un tubo de rayos X se mueve en un arco, capturando múltiples imágenes de baja dosis desde varios ángulos"> - An X-ray tube moves in an arc, capturing multiple low-dose images from various angles</span>
-        </div>
-        <div class="info-card info-card--green">
-          <p data-en="This option has improved detection and fewer false alarms!" data-es="¡Esta opción tiene una detección mejorada y menos falsas alarmas!" style="margin:0;">This option has improved detection and fewer false alarms!</p>
-        </div>
+
+      <div class="info-section risk-factors">
+        <h2>Risk Factors</h2>
+        <p>Some risk factors that make your chances of breast cancer greater:</p>
+        <ul>
+          <li>Overweight/Obese (BMI above 25) and being physically inactive</li>
+          <li>History of Radiation Therapy</li>
+          <li>Frequent alcohol drinker</li>
+          <li>Pregnancy after the age of 30</li>
+          <li>Starting the menstrual cycle before the age of 12, and hitting menopause after 55</li>
+          <li>Hormone replacement therapy (those that include progesterone and estrogen)</li>
+          <li>Inherited genes (BRCA1, BRCA2, p53, CHEK2, ATM and PALB)</li>
+        </ul>
       </div>
-      
-      <h3 style="font-size: 1.4em; margin-top: 1.5em; margin-bottom: 0.8em; color: #be185d;" data-en="Screening Frequency (average-risk patient*):" data-es="Frecuencia de Detección (paciente de riesgo promedio*):">Screening Frequency (average-risk patient*):</h3>
-      <ul style="line-height: 1.8;">
-        <li data-en="Screening should begin at age 40 (at most) for all women" data-es="La detección debe comenzar a los 40 años (como máximo) para todas las mujeres">Screening should begin at age 40 (at most) for all women</li>
-        <li data-en="Ages 40-44 → Annual or biannual, depends on test results at age 40" data-es="Edades 40-44 → Anual o bianual, depende de los resultados de la prueba a los 40 años">Ages 40-44 → Annual or biannual, depends on test results at age 40</li>
-        <li data-en="Ages 45-54 → Annual" data-es="Edades 45-54 → Anual">Ages 45-54 → Annual</li>
-        <li data-en="Ages 55+ → Every 2 years" data-es="Edades 55+ → Cada 2 años">Ages 55+ → Every 2 years</li>
-      </ul>
-      
-      <h3 style="font-size: 1.4em; margin-top: 1.5em; margin-bottom: 0.8em; color: #be185d;" data-en="For high-risk patients*:" data-es="Para pacientes de alto riesgo*:">For high-risk patients*:</h3>
-      <ul style="line-height: 1.8;">
-        <li data-en="Start at age 30" data-es="Comenzar a los 30 años">Start at age 30</li>
-        <li data-en="Recommended to get both a breast MRI and mammogram annually" data-es="Se recomienda realizar tanto una resonancia magnética de mama como una mamografía anualmente">Recommended to get both a breast MRI and mammogram annually</li>
-      </ul>
-    </div>
-    
-    <div style="margin-top: 3em; padding: 2em; background: linear-gradient(120deg, #f9a8d4, #fbcfe8); border-radius: 12px; color: white;">
-      <h2 style="font-size: 1.8em; margin-bottom: 1em; margin-top: 0; color: white;" data-en="Breast MRI (magnetic resonance imaging)" data-es="Resonancia Magnética de Mama">Breast MRI (magnetic resonance imaging)</h2>
-      <div style="display: flex; gap: 2em; align-items: flex-start; margin-bottom: 1.5em; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 250px;">
-          <p style="color: rgba(255, 255, 255, 0.95);" data-en="The MRI machine makes detailed 3D images of your breast when you lay down (on your belly) on a table and are imaged inside an MRI machine." data-es="La máquina de resonancia magnética hace imágenes 3D detalladas de su seno cuando se acuesta (boca abajo) en una mesa y se le toma una imagen dentro de una máquina de resonancia magnética.">The MRI machine makes detailed 3D images of your breast when you lay down (on your belly) on a table and are imaged inside an MRI machine.</p>
-          <p style="font-style: italic; color: rgba(255, 255, 255, 0.8);" data-en="(This procedure may require fluids injected through in IV, which can help make better images of the inside of the breast → brief pain)" data-es="(Este procedimiento puede requerir líquidos inyectados a través de una vía intravenosa, lo que puede ayudar a obtener mejores imágenes del interior del seno → dolor breve)">(This procedure may require fluids injected through in IV, which can help make better images of the inside of the breast → brief pain)</p>
-        </div>
-        <div style="flex: 0 0 300px; min-width: 250px; min-height: 200px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <a href="https://my.clevelandclinic.org/-/scassets/images/org/health/articles/8332-breast-MRI" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; height: 100%;">
-            <img src="https://my.clevelandclinic.org/-/scassets/images/org/health/articles/8332-breast-MRI" alt="Breast MRI procedure illustration" style="width: 100%; height: 100%; object-fit: contain; background: #f0f0f0; cursor: pointer;">
-          </a>
-          <p style="font-size: 0.75em; color: rgba(255,255,255,0.7); margin-top: 0.5em; text-align: center;" data-en="Source: Cleveland Clinic" data-es="Fuente: Clínica Cleveland">Source: <a href="https://my.clevelandclinic.org" target="_blank" rel="noopener noreferrer" style="color: white;">Cleveland Clinic</a></p>
-        </div>
+
+      <div class="info-section symptoms">
+        <h2>Symptoms/When to contact a doctor:</h2>
+        <ul>
+          <li>New lump in the breast or underarm (armpit)</li>
+          <li>Thickening or swelling of part of the breast</li>
+          <li>Irritation or dimpling of breast skin</li>
+          <li>Redness or flaky skin in the nipple area or the breast</li>
+          <li>Pulling in of the nipple or pain in the nipple area</li>
+          <li>Nipple discharge other than breast milk, including blood</li>
+          <li>Any change in the size or shape of the breast</li>
+          <li>Pain in any area of the breast</li>
+        </ul>
       </div>
-      
-      <h3 style="font-size: 1.4em; margin-top: 1.5em; margin-bottom: 0.8em;" data-en="Screening Frequency (average risk patient):" data-es="Frecuencia de Detección (paciente de riesgo promedio):">Screening Frequency (average risk patient):</h3>
-      <p data-en="A breast MRI is not done for average risk patients, only mammograms!" data-es="¡Una resonancia magnética de mama no se realiza para pacientes de riesgo promedio, solo mamografías!">A breast MRI is not done for average risk patients, only mammograms!</p>
-      
-      <h3 style="font-size: 1.4em; margin-top: 1.5em; margin-bottom: 0.8em;" data-en="Screening Frequency (high risk patient):" data-es="Frecuencia de Detección (paciente de alto riesgo):">Screening Frequency (high risk patient):</h3>
-      <ul style="line-height: 1.8;">
-        <li data-en="→ A Breast MRI is not recommended as a screening test by itself, it should be paired with a mammogram in order to be most effective" data-es="→ Una resonancia magnética de mama no se recomienda como prueba de detección por sí sola, debe combinarse con una mamografía para ser más efectiva">→ A Breast MRI is not recommended as a screening test by itself, it should be paired with a mammogram in order to be most effective</li>
-        <li data-en="Start at age 30 and do MRI along with a mammogram" data-es="Comenzar a los 30 años y realizar resonancia magnética junto con una mamografía">Start at age 30 and do MRI along with a mammogram</li>
-      </ul>
-    </div>
-    
-    <div style="margin-top: 3em; padding: 2em; background: white; border-radius: 12px; color: #111827; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-      <h2 style="font-size: 1.8em; margin-bottom: 1em; margin-top: 0; color: #be185d;" data-en="Clinical Breast Exam" data-es="Examen Clínico de Mama">Clinical Breast Exam</h2>
-      <div style="display: flex; gap: 2em; align-items: flex-start; margin-bottom: 1.5em; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 250px;">
-          <p style="color: #374151;" data-en="A doctor will physically examine breasts to feel for any abnormal spots." data-es="Un médico examinará físicamente los senos para detectar cualquier punto anormal.">A doctor will physically examine breasts to feel for any abnormal spots.</p>
-          <p style="font-style: italic; color: #6b7280;" data-en="(Women should be familiar with how their breasts normally look and feel and should report any changes to a health care provider right away)" data-es="(Las mujeres deben estar familiarizadas con cómo se ven y se sienten normalmente sus senos y deben informar cualquier cambio a un proveedor de atención médica de inmediato)">(Women should be familiar with how their breasts normally look and feel and should report any changes to a health care provider right away)</p>
-        </div>
-        <div style="flex: 0 0 300px; min-width: 250px; min-height: 200px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <a href="https://www.wikihow.life/images/thumb/9/96/Check-for-Breast-Cancer-Step-7-Version-2.jpg/aid9447869-v4-728px-Check-for-Breast-Cancer-Step-7-Version-2.jpg.webp" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; height: 100%;">
-            <img src="https://www.wikihow.life/images/thumb/9/96/Check-for-Breast-Cancer-Step-7-Version-2.jpg/aid9447869-v4-728px-Check-for-Breast-Cancer-Step-7-Version-2.jpg.webp" alt="Clinical breast exam illustration" style="width: 100%; height: 100%; object-fit: contain; background: #f0f0f0; cursor: pointer;">
-          </a>
-          <p style="font-size: 0.75em; color: #666; margin-top: 0.5em; text-align: center;" data-en="Source: wikiHow" data-es="Fuente: wikiHow">Source: <a href="https://www.wikihow.life" target="_blank" rel="noopener noreferrer" style="color: #0066cc;">wikiHow</a></p>
-        </div>
+
+      <div class="info-section resources">
+        <h2>Learn More</h2>
+        <p>For more detailed information about breast cancer screening options, please visit our <a href="breast.html">Breast Cancer Screening</a> page.</p>
       </div>
-      
-      <p style="margin-top: 1em; font-weight: 600; color: #374151;" data-en="***This screening method doesn't have strong effectiveness for average risk patients and is typically paired with a mammogram to get clearer imaging (not a replacement for mammograms and breast MRIs)" data-es="***Este método de detección no tiene una fuerte efectividad para pacientes de riesgo promedio y generalmente se combina con una mamografía para obtener imágenes más claras (no es un reemplazo para mamografías y resonancias magnéticas de mama)">***This screening method doesn't have strong effectiveness for average risk patients and is typically paired with a mammogram to get clearer imaging (not a replacement for mammograms and breast MRIs)</p>
-      
-      <h3 style="font-size: 1.4em; margin-top: 1.5em; margin-bottom: 0.8em; color: #be185d;" data-en="Screening Frequency (average risk patient):" data-es="Frecuencia de Detección (paciente de riesgo promedio):">Screening Frequency (average risk patient):</h3>
-      <ul style="line-height: 1.8;">
-        <li data-en="Does not need to be done annually, no routine checkups" data-es="No necesita realizarse anualmente, sin chequeos de rutina">Does not need to be done annually, no routine checkups</li>
-        <li data-en="Not recommended at any age but is utilized when the patient has a suspicion/notices lumps or abnormalities in breast appearance" data-es="No se recomienda a ninguna edad, pero se utiliza cuando el paciente tiene una sospecha/nota bultos o anomalías en la apariencia del seno">Not recommended at any age but is utilized when the patient has a suspicion/notices lumps or abnormalities in breast appearance</li>
-      </ul>
-      
-      <h3 style="font-size: 1.4em; margin-top: 1.5em; margin-bottom: 0.8em; color: #be185d;" data-en="Screening Frequency (high risk patient):" data-es="Frecuencia de Detección (paciente de alto riesgo):">Screening Frequency (high risk patient):</h3>
-      <ul style="line-height: 1.8;">
-        <li data-en="Usually done every 6-12 months starting at age 30" data-es="Generalmente se realiza cada 6-12 meses a partir de los 30 años">Usually done every 6-12 months starting at age 30</li>
-        <li data-en="Individualized routine, discuss with your doctor" data-es="Rutina individualizada, discuta con su médico">Individualized routine, discuss with your doctor</li>
-      </ul>
-    </div>
-    
-    <div style="margin-top: 3em; padding: 2em; background: linear-gradient(120deg, #f9a8d4, #fbcfe8); border-radius: 12px; color: white;">
-      <h2 style="font-size: 1.8em; margin-bottom: 1em; margin-top: 0; color: white;" data-en="More Resources:" data-es="Más Recursos:">More Resources:</h2>
-      <ul style="line-height: 1.8;">
-        <li><a href="https://www.cancer.org/cancer/types/breast-cancer/screening-tests-and-early-detection/american-cancer-society-recommendations-for-the-early-detection-of-breast-cancer.html" target="_blank" style="color: white; text-decoration: underline;" data-en="American Cancer Society Guidelines" data-es="Pautas de la Sociedad Americana del Cáncer">American Cancer Society Guidelines</a></li>
-        <li><a href="https://www.cdc.gov/cancer/breast/basic_info/screening.htm" target="_blank" style="color: white; text-decoration: underline;" data-en="CDC Breast Cancer Guidelines" data-es="Pautas de Cáncer de Mama del CDC">CDC Breast Cancer Guidelines</a></li>
-        <li><a href="https://www.mayoclinic.org/tests-procedures/mammogram/about/pac-20384806" target="_blank" style="color: white; text-decoration: underline;" data-en="Mayo Clinic Screening Types" data-es="Tipos de Detección de la Clínica Mayo">Mayo Clinic Screening Types</a></li>
-        <li><a href="https://my.clevelandclinic.org/health/diseases/3986-breast-cancer" target="_blank" style="color: white; text-decoration: underline;" data-en="Cleveland Clinic Guidelines" data-es="Pautas de la Clínica Cleveland">Cleveland Clinic Guidelines</a></li>
-      </ul>
-    </div>
-    
-    <div style="margin-top: 3em; padding: 1.5em; background: #f0f0f0; border-radius: 8px; color: #111827;">
-      <p style="margin-bottom: 1em;"><strong data-en="*An average risk patient is someone who does NOT have:" data-es="*Un paciente de riesgo promedio es alguien que NO tiene:">*An average risk patient is someone who does NOT have:</strong></p>
-      <ul style="line-height: 1.8;">
-        <li data-en="personal history of breast cancer" data-es="historial personal de cáncer de mama">personal history of breast cancer</li>
-        <li data-en="known genetic mutation (like BRCA1 or BRCA2)" data-es="mutación genética conocida (como BRCA1 o BRCA2)">known genetic mutation (like BRCA1 or BRCA2)</li>
-        <li data-en="strong family history of breast or related cancers (Breast, Ovarian, Pancreatic or Prostate Cancer)" data-es="historial familiar fuerte de cáncer de mama o relacionados (Cáncer de Mama, Ovario, Páncreas o Próstata)">strong family history of breast or related cancers (Breast, Ovarian, Pancreatic or Prostate Cancer)</li>
-        <li data-en="chest radiation at a young age" data-es="radiación en el pecho a una edad temprana">chest radiation at a young age</li>
-      </ul>
-      
-      <p style="margin-top: 1.5em; margin-bottom: 1em;"><strong data-en="**A high risk patient is someone with:" data-es="**Un paciente de alto riesgo es alguien con:">**A high risk patient is someone with:</strong></p>
-      <ul style="line-height: 1.8;">
-        <li data-en="BRCA1/2 mutation" data-es="mutación BRCA1/2">BRCA1/2 mutation</li>
-        <li data-en="Strong family history" data-es="Historial familiar fuerte">Strong family history</li>
-        <li data-en="Chest radiation at young age" data-es="Radiación en el pecho a una edad temprana">Chest radiation at young age</li>
-      </ul>
     </div>
   </div>
 </section>
 
-<footer><span data-en="© ScreenWiseATX" data-es="© ScreenWiseATX">© ScreenWiseATX</span></footer>
+<footer>
+  <div class="container">
+    <p style="text-align: center; color: #6b7280; font-size: 0.9rem; margin: 0;">
+      <span data-en="© 2023 ScreenWiseATX. All rights reserved." data-es="© 2023 ScreenWiseATX. Todos los derechos reservados.">© 2023 ScreenWiseATX. All rights reserved.</span>
+    </p>
+  </div>
+</footer>
 <script src="js/app.js"></script>
 </body>
 </html>

@@ -411,11 +411,13 @@ input:checked + .slider:before {
 
 /* Site-wide cancer tiles */
 .cancer-cards {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 1.5rem;
-  overflow-x: auto;
-  padding-bottom: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.cancer-cards--row .cancer-card {
+  text-align: center;
 }
 
 .cancer-cards .cancer-card {

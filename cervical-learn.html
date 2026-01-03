@@ -6,8 +6,72 @@
 <link rel="icon" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/styles.css">
+<style>
+  .learn-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  .info-section {
+    margin-bottom: 2.5rem;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .info-section h2 {
+    color: #7e22ce;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #e9d5ff;
+    padding-bottom: 0.5rem;
+  }
+  .info-section p {
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+  .info-section ul {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+  }
+  .info-section li {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+  .resources a {
+    color: #7e22ce;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .resources a:hover {
+    text-decoration: underline;
+  }
+  .risk-factors {
+    border-left: 4px solid #c084fc;
+  }
+  .symptoms {
+    border-left: 4px solid #a855f7;
+  }
+  .common-in {
+    border-left: 4px solid #9333ea;
+  }
+  .resources {
+    background-color: #f5f3ff;
+    border-left: 4px solid #7e22ce;
+  }
+  .vaccine-note {
+    background-color: #f0f9ff;
+    border-left: 4px solid #0ea5e9;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+  }
+</style>
 </head>
 <body data-page="cervical-learn">
+
 <header>
   <div class="nav">
     <div class="brand">
@@ -53,47 +117,77 @@
 <section class="section hero-cervical">
   <div class="container">
     <h1 data-en="Cervical Cancer" data-es="Cáncer Cervical">Cervical Cancer</h1>
-
-    <div class="detail-intro">
-      <p data-en="Cervical cancer screening detects changes in cervical cells before they become cancer. Routine testing is the most reliable way to prevent invasive cervical disease." data-es="Las pruebas de detección del cáncer de cuello uterino detectan cambios en las células cervicales antes de que se conviertan en cáncer. Las pruebas de rutina son la forma más confiable de prevenir la enfermedad invasiva.">Cervical cancer screening detects changes in cervical cells before they become cancer. Routine testing is the most reliable way to prevent invasive cervical disease.</p>
-      <ul>
-        <li data-en="Start regular screening at age 21" data-es="Comience las pruebas regulares a los 21 años">Start regular screening at age 21</li>
-        <li data-en="Use Pap tests, HPV tests, or both depending on age" data-es="Utilice pruebas de Papanicolaou, pruebas de VPH o ambas según la edad">Use Pap tests, HPV tests, or both depending on age</li>
-        <li data-en="Vaccination and safe practices lower risk" data-es="La vacunación y las prácticas seguras reducen el riesgo">Vaccination and safe practices lower risk</li>
-      </ul>
-    </div>
-
-    <div class="detail-grid">
-      <div class="detail-card accent-cervical">
-        <h2 data-en="Pap Test" data-es="Prueba de Papanicolaou">Pap Test</h2>
-        <p data-en="Collects cervical cells to look for precancerous changes. Recommended every 3 years for ages 21-29, and every 3 years for 30-65 if HPV test is not available." data-es="Recoge células cervicales para buscar cambios precancerosos. Se recomienda cada 3 años para edades de 21-29, y cada 3 años de 30-65 si la prueba de VPH no está disponible.">Collects cervical cells to look for precancerous changes. Recommended every 3 years for ages 21-29, and every 3 years for 30-65 if HPV test is not available.</p>
+    
+    <div class="info-panel learn-content">
+      <div class="info-section">
+        <h2>What is it?</h2>
+        <p>Cervical cancer is a type of cancer that occurs in the cells of the cervix — the lower part of the uterus that connects to the vagina. Most cervical cancers are caused by the human papillomavirus (HPV).</p>
       </div>
-      <div class="detail-card accent-cervical">
-        <h2 data-en="HPV Test" data-es="Prueba de VPH">HPV Test</h2>
-        <p data-en="Looks for high-risk human papillomavirus types that can lead to cervical cancer. Ages 30-65 can opt for HPV testing alone every 5 years." data-es="Busca tipos de virus del papiloma humano de alto riesgo que pueden provocar cáncer cervical. Las edades 30-65 pueden optar por la prueba de VPH sola cada 5 años.">Looks for high-risk human papillomavirus types that can lead to cervical cancer. Ages 30-65 can opt for HPV testing alone every 5 years.</p>
-      </div>
-      <div class="detail-card accent-cervical">
-        <h2 data-en="Co-testing" data-es="Pruebas Combinadas">Co-testing</h2>
-        <p data-en="Combines Pap and HPV tests during the same visit. Recommended every 5 years for ages 30-65 for the most thorough screening approach." data-es="Combina las pruebas de Papanicolaou y VPH durante la misma visita. Se recomienda cada 5 años para edades de 30-65 como el enfoque de detección más completo.">Combines Pap and HPV tests during the same visit. Recommended every 5 years for ages 30-65 for the most thorough screening approach.</p>
-      </div>
-    </div>
 
-    <div class="detail-card accent-cervical" style="margin-top:2rem;">
-      <h3 data-en="HPV Vaccination" data-es="Vacunación contra el VPH">HPV Vaccination</h3>
-      <p data-en="The HPV vaccine protects against the virus types that cause most cervical cancers. It’s recommended between ages 9 and 26, with catch-up doses through age 45." data-es="La vacuna contra el VPH protege contra los tipos de virus que causan la mayoría de los cánceres cervicales. Se recomienda entre los 9 y 26 años, con dosis de recuperación hasta los 45 años.">The HPV vaccine protects against the virus types that cause most cervical cancers. It’s recommended between ages 9 and 26, with catch-up doses through age 45.</p>
-    </div>
+      <div class="info-section common-in">
+        <h2>It is most common in (but not limited to)...</h2>
+        <ul>
+          <li>Women between the ages of 35 and 44</li>
+          <li>Women who have had multiple sexual partners or have a partner who has had multiple partners</li>
+          <li>Women who have a weakened immune system</li>
+          <li>Women who smoke</li>
+          <li>Women who have given birth to three or more children</li>
+          <li>Women who have used birth control pills for five or more years</li>
+        </ul>
+      </div>
 
-    <div class="detail-note">
-      <h3 data-en="When to See a Doctor" data-es="Cuándo Ver a un Médico">When to See a Doctor</h3>
-      <ul>
-        <li data-en="Postpartum or post-menopausal spotting" data-es="Sangrado posparto o posmenopáusico">Postpartum or post-menopausal spotting</li>
-        <li data-en="Pain during sex or pelvic pain" data-es="Dolor durante las relaciones sexuales o dolor pélvico">Pain during sex or pelvic pain</li>
-      </ul>
+      <div class="info-section risk-factors">
+        <h2>Risk Factors</h2>
+        <p>Factors that can increase your risk of cervical cancer include:</p>
+        <ul>
+          <li>HPV infection (especially types 16 and 18)</li>
+          <li>Smoking</li>
+          <li>Having a weakened immune system (such as from HIV/AIDS)</li>
+          <li>Chlamydia infection</li>
+          <li>Being overweight</li>
+          <li>Long-term use of birth control pills</li>
+          <li>Having multiple full-term pregnancies</li>
+          <li>Young age at first full-term pregnancy</li>
+          <li>Family history of cervical cancer</li>
+          <li>Exposure to diethylstilbestrol (DES) before birth</li>
+        </ul>
+      </div>
+
+      <div class="info-section symptoms">
+        <h2>Symptoms/When to contact a doctor:</h2>
+        <p>Early-stage cervical cancer generally produces no signs or symptoms. More advanced cervical cancer may cause:</p>
+        <ul>
+          <li>Vaginal bleeding after intercourse, between periods or after menopause</li>
+          <li>Watery, bloody vaginal discharge that may be heavy and have a foul odor</li>
+          <li>Pelvic pain or pain during intercourse</li>
+          <li>Painful urination</li>
+          <li>Unexplained, persistent pelvic and/or back pain</li>
+          <li>Unexplained weight loss and fatigue</li>
+        </ul>
+        <p>Contact your doctor if you experience any of these symptoms, especially if they persist for more than two weeks.</p>
+      </div>
+
+      <div class="vaccine-note">
+        <h3>HPV Vaccination</h3>
+        <p>The HPV vaccine protects against the virus types that cause most cervical cancers. It's recommended between ages 9 and 26, with catch-up doses through age 45.</p>
+      </div>
+
+      <div class="info-section resources">
+        <h2>Learn More</h2>
+        <p>For more detailed information about cervical cancer screening options, please visit our <a href="cervical.html">Cervical Cancer Screening</a> page.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<footer><span data-en="© ScreenWiseATX" data-es="© ScreenWiseATX">© ScreenWiseATX</span></footer>
+<footer>
+  <div class="container">
+    <p style="text-align: center; color: #6b7280; font-size: 0.9rem; margin: 0;">
+      <span data-en=" 2023 ScreenWiseATX. All rights reserved." data-es=" 2023 ScreenWiseATX. Todos los derechos reservados."> 2023 ScreenWiseATX. All rights reserved.</span>
+    </p>
+  </div>
+</footer>
+
 <script src="js/app.js"></script>
 </body>
 </html>
