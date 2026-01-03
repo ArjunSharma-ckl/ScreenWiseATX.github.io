@@ -376,6 +376,70 @@ input:checked + .slider:before {
   font-size: 1.25rem;
 }
 
+/* Logo slider carousel */
+.logo-slider {
+  overflow: hidden;
+  padding: 2.5rem 0;
+  margin-top: 1.5rem;
+  background: linear-gradient(90deg, #f8fafc, #eef2ff);
+  border-radius: 16px;
+  position: relative;
+  border: 1px solid #e2e8f0;
+}
+
+.logo-slider::before,
+.logo-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 90px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logo-slider::before {
+  left: 0;
+  background: linear-gradient(to right, #f8fafc, rgba(248,250,252,0));
+}
+
+.logo-slider::after {
+  right: 0;
+  background: linear-gradient(to left, #f8fafc, rgba(248,250,252,0));
+}
+
+.logo-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 3.5rem;
+  animation: logo-scroll 60s linear infinite;
+  padding: 0 3rem;
+}
+
+.logo-track:hover {
+  animation-play-state: paused;
+}
+
+.logo-track img {
+  height: 60px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo-track img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+@keyframes logo-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* Who We Are Section - White background */
 .who-we-are {
   background: white;

@@ -1,3 +1,5 @@
+const pageSummaries = buildPageSummaries();
+
 document.addEventListener('DOMContentLoaded', () => {
   // Language Toggle Functionality
   function applyLang(lang) {
@@ -207,7 +209,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function enhanceFreeScreening() {
-    // Linkify key resources
     document.querySelectorAll('p').forEach(p => {
       let html = p.innerHTML;
       html = html.replace(/\bcommunitycaretx\.org\b/g, '<a href="https://communitycaretx.org" target="_blank" rel="noopener">communitycaretx.org<\/a>');
@@ -216,30 +217,12 @@ document.addEventListener('DOMContentLoaded', () => {
       html = html.replace(/\bcancer\.org\b/g, '<a href="https://www.cancer.org" target="_blank" rel="noopener">cancer.org<\/a>');
       p.innerHTML = html;
     });
-
-    // Inject rotating logo marquee after the resources grid if present
-    if (!document.querySelector('.logo-marquee')) {
-      const container = document.querySelector('.who-we-are .container') || document.querySelector('.section .container:last-child');
-      if (container) {
-        const marquee = document.createElement('div');
-        marquee.className = 'logo-marquee';
-        marquee.innerHTML = `
-          <div class="logo-track">
-            <a href="https://communitycaretx.org" target="_blank" rel="noopener"><img src="https://www.communitycaretx.org/wp-content/uploads/2023/05/CommunityCare-Logo.svg" alt="CommUnityCare">CommUnityCare</a>
-            <a href="https://austinpcc.org" target="_blank" rel="noopener"><img src="https://austinpcc.org/wp-content/uploads/2021/04/PCC-logo.svg" alt="People's Community Clinic">People’s CC</a>
-            <a href="https://www.hhs.texas.gov" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Texas_Health_and_Human_Services_logo.svg" alt="Texas HHS">Texas HHS</a>
-            <a href="https://www.cancer.org" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/1/18/American_Cancer_Society_Logo.svg" alt="ACS">American Cancer Society</a>
-            <a href="https://www.cdc.gov/cancer/nbccedp" target="_blank" rel="noopener"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/US_CDC_logo.svg" alt="CDC NBCCEDP">CDC NBCCEDP</a>
-          </div>`;
-        container.appendChild(marquee);
-      }
-    }
   }
 
   function renderMiniSummaryCard() {
-    // Create a lightweight summary card (no external ChatGPT)
     const container = document.querySelector('.chatgpt-section .container') || document.querySelector('footer')?.previousElementSibling || document.body;
-    const summary = (document.body.dataset.page && (new Chatbot()).pageSummaries[document.body.dataset.page]) || (new Chatbot()).pageSummaries.default;
+    const key = document.body.dataset.page || 'default';
+    const summary = pageSummaries[key] || pageSummaries.default;
     const lang = document.documentElement.lang || 'en';
     const text = summary?.[lang] || summary?.en || '';
     if (!container || !text) return;
@@ -275,8 +258,9 @@ class Chatbot {
   constructor() {
     this.lang = document.documentElement.lang || 'en';
     this.pageKey = document.body.dataset.page || (location.pathname.split('/').pop() || 'index.html');
-    this.pageSummaries = this.buildPageSummaries();
-    this.summarySent = false;
+    this.pageSummaries = pageSummaries;
+    this.currentContext = 'idle';
+    this.hasGreeted = false;
 
     this.chatContainer = document.createElement('div');
     this.chatContainer.className = 'chatbot-container';
@@ -323,14 +307,9 @@ class Chatbot {
     
     document.addEventListener('langchange', (event) => {
       this.lang = event.detail.lang;
-      if (this.isOpen) {
-        this.summarySent = false;
-        this.sharePageSummary();
-      }
     });
     
-    // Initial message placeholder
-    this.addBotMessage(this.getLocalizedString('intro'));
+    // No auto-greeting; wait for user input
   }
   
   toggleChat() {
@@ -340,7 +319,6 @@ class Chatbot {
     
     if (this.isOpen) {
       this.chatContainer.querySelector('input').focus();
-      this.sharePageSummary();
     }
   }
   
@@ -385,32 +363,8 @@ class Chatbot {
     return selection.toString().trim();
   }
 
-  sharePageSummary() {
-    if (this.summarySent) return;
-    this.summarySent = true;
-    this.addBotMessage(this.getLocalizedSummary());
-  }
-
-  getLocalizedSummary() {
-    const summary = this.pageSummaries[this.pageKey] || this.pageSummaries.default;
-    const text = summary?.[this.lang] || summary?.en;
-    return `${text}\n\n${this.getLocalizedString('highlightTip')}`;
-  }
-
   getLocalizedString(key, interpolation) {
     const strings = {
-      intro: {
-        en: 'Hello! I\'m your Cancer Screening Assistant. Ask me anything about screenings, resources, or the content on this page.',
-        es: '¡Hola! Soy tu Asistente de Detección de Cáncer. Pregúntame cualquier cosa sobre exámenes, recursos o el contenido de esta página.'
-      },
-      highlightTip: {
-        en: 'Tip: highlight any text on this page before asking and I\'ll include it in my answer.',
-        es: 'Consejo: resalta cualquier texto de esta página antes de preguntar y lo incluiré en mi respuesta.'
-      },
-      contextNote: {
-        en: (snippet) => `I noticed you highlighted: "${snippet}". Here\'s a quick explanation:`,
-        es: (snippet) => `Noté que seleccionaste: "${snippet}". Aquí tienes una explicación rápida:`
-      },
       fallback: {
         en: 'I\'m here to help with cancer screening questions. Could you share a bit more detail?',
         es: 'Estoy aquí para ayudarte con preguntas sobre detección de cáncer. ¿Puedes compartir un poco más de detalle?'
@@ -422,49 +376,16 @@ class Chatbot {
     return typeof localized === 'function' ? localized(interpolation) : localized;
   }
 
-  buildPageSummaries() {
-    return {
-      'index.html': {
-        en: 'You are on the ScreenWiseATX homepage where we outline our mission, key statistics about early detection, and links to every major section.',
-        es: 'Estás en la página principal de ScreenWiseATX donde describimos nuestra misión, estadísticas clave sobre la detección temprana y enlaces a cada sección principal.'
-      },
-      'cancer-types.html': {
-        en: 'This page points you to the full set of cancer education cards now hosted on the homepage.',
-        es: 'Esta página te dirige al conjunto completo de tarjetas educativas sobre el cáncer ahora alojadas en la página principal.'
-      },
-      'breast.html': {
-        en: 'You are reviewing breast cancer screening options like mammograms, breast MRI, and clinical exams.',
-        es: 'Estás revisando las opciones de detección del cáncer de mama como mamografías, resonancias magnéticas y exámenes clínicos.'
-      },
-      'cervical.html': {
-        en: 'This page covers cervical cancer screenings such as Pap smears and HPV tests.',
-        es: 'Esta página cubre los exámenes de cáncer cervical como las pruebas de Papanicolaou y de VPH.'
-      },
-      'colon.html': {
-        en: 'You are looking at colon cancer screening information including colonoscopies and FIT tests.',
-        es: 'Estás viendo información sobre detección de cáncer de colon, incluidas las colonoscopías y las pruebas FIT.'
-      },
-      'lung.html': {
-        en: 'This section explains low-dose CT scans and eligibility for lung cancer screening.',
-        es: 'Esta sección explica las tomografías computarizadas de baja dosis y la elegibilidad para la detección del cáncer de pulmón.'
-      },
-      'prostate.html': {
-        en: 'You are reading about prostate cancer screening, PSA tests, and digital rectal exams.',
-        es: 'Estás leyendo sobre la detección del cáncer de próstata, las pruebas de PSA y los exámenes rectales digitales.'
-      },
-      'free-screening.html': {
-        en: 'This page lists free and low-cost screening programs along with state and local resources.',
-        es: 'Esta página enumera programas de detección gratuitos o de bajo costo junto con recursos estatales y locales.'
-      },
-      'screening-info.html': {
-        en: 'You are viewing general information about screening types, recommended routines, and timelines.',
-        es: 'Estás viendo información general sobre los tipos de detección, rutinas recomendadas y cronogramas.'
-      },
-      default: {
-        en: 'You are browsing a ScreenWiseATX education page with detailed screening information.',
-        es: 'Estás explorando una página educativa de ScreenWiseATX con información detallada sobre detección.'
-      }
+  getContextLabel(intent) {
+    const labels = {
+      breast: this.lang === 'es' ? 'detección de mama' : 'breast screening',
+      cervical: this.lang === 'es' ? 'detección cervical' : 'cervical screening',
+      colon: this.lang === 'es' ? 'detección de colon' : 'colon screening',
+      'lung-prostate': this.lang === 'es' ? 'detección de pulmón/prostata' : 'lung/prostate screening',
+      financial: this.lang === 'es' ? 'programas financieros' : 'financial programs',
+      clinic: this.lang === 'es' ? 'clínicas locales' : 'local clinics'
     };
+    return labels[intent] || (this.lang === 'es' ? 'detección' : 'screening');
   }
 
   async sendMessage() {
@@ -516,9 +437,28 @@ class Chatbot {
     }
   }
 
+  async crossPageClinics() {
+    try {
+      const resp = await fetch('free-screening.html', { credentials: 'same-origin' });
+      const html = await resp.text();
+      const names = [];
+      if (/communitycaretx\.org/i.test(html)) names.push(this.lang === 'es' ? 'CommUnityCare (communitycaretx.org)' : 'CommUnityCare (communitycaretx.org)');
+      if (/austinpcc\.org/i.test(html)) names.push(this.lang === 'es' ? 'People’s Community Clinic (austinpcc.org)' : 'People’s Community Clinic (austinpcc.org)');
+      if (/hhs\.texas\.gov/i.test(html)) names.push(this.lang === 'es' ? 'Texas HHS (hhs.texas.gov)' : 'Texas HHS (hhs.texas.gov)');
+      if (/cancer\.org/i.test(html)) names.push(this.lang === 'es' ? 'American Cancer Society (cancer.org)' : 'American Cancer Society (cancer.org)');
+      const intro = this.lang === 'es' ? 'Opciones cercanas y recursos:' : 'Nearby options and resources:';
+      const tail = this.lang === 'es' ? 'También puedes marcar 211 para recursos comunitarios.' : 'You can also dial 211 for community resources.';
+      return names.length ? `${intro} ${names.join(' • ')}. ${tail}` : '';
+    } catch (_) {
+      return '';
+    }
+  }
+
   getResponse(message, highlighted) {
+    const normalizedMessage = normalizeIntentText(message);
     const knowledgeBase = [
       {
+        intent: 'greeting',
         keywords: ['hello', 'hola', 'hi'],
         responses: {
           en: 'Hi there! I can explain screenings, scheduling tips, or connect you to programs. What would you like to know?',
@@ -526,6 +466,27 @@ class Chatbot {
         }
       },
       {
+        intent: 'identity',
+        keywords: ['screenwise', 'who are you', 'who is this', 'website purpose', 'what is this place'],
+        responses: {
+          en: 'ScreenWiseATX is a youth-led initiative in Austin, TX focused on early cancer detection and public health equity.',
+          es: 'ScreenWiseATX es una iniciativa dirigida por jóvenes en Austin, TX enfocada en la detección temprana del cáncer y la equidad en salud pública.'
+        },
+        followUp: {
+          en: 'Would you like to see our Free and Low Cost Screening resources?',
+          es: '¿Quieres ver nuestros recursos de Detección Gratuita y de Bajo Costo?'
+        }
+      },
+      {
+        intent: 'identity-contact',
+        keywords: ['contact', 'email', 'aarya', 'kiara', 'arjun'],
+        responses: {
+          en: 'Founded by Aarya Sharma and Kiara Mallen (LASA students). Reach us at info@screenwiseatx.org or explore the Who We Are section.',
+          es: 'Fundada por Aarya Sharma y Kiara Mallen (estudiantes de LASA). Escríbenos a info@screenwiseatx.org o visita la sección ¿Quiénes Somos?.'
+        }
+      },
+      {
+        intent: 'education',
         keywords: ['what is cancer', 'que es el cancer', 'qué es el cáncer', 'cancer definition', 'definición de cáncer'],
         responses: {
           en: 'Cancer is a group of diseases where cells grow and divide abnormally, forming tumors or spreading (metastasis). Screening looks for cancer before symptoms appear so treatment can be more effective.',
@@ -533,73 +494,125 @@ class Chatbot {
         }
       },
       {
-        keywords: ['mammogram', 'mamografía'],
+        intent: 'breast',
+        keywords: ['mammogram', 'mamografia', 'mamografía', 'breast', 'mri', 'resonancia', 'clinical exam', 'examen clinico', 'examen clínico'],
         responses: {
-          en: 'A mammogram is an X-ray of the breast. For average-risk patients, annual screenings are recommended starting at 40. High-risk patients may start earlier and pair mammograms with MRI.',
-          es: 'Una mamografía es una radiografía del seno. Para pacientes de riesgo promedio se recomienda un examen anual a partir de los 40 años. Los pacientes de alto riesgo pueden comenzar antes y combinarla con una resonancia magnética.'
+          en: 'Early detection has a 90%+ survival rate. Breast screenings include mammograms, MRIs for higher-risk patients, and clinical exams when changes are noticed.',
+          es: 'La detección temprana tiene una tasa de supervivencia superior al 90 %. Las pruebas para mama incluyen mamografías, resonancias magnéticas para mayor riesgo y exámenes clínicos cuando se observan cambios.'
+        },
+        followUp: {
+          en: 'Want a quick comparison between mammograms and MRI?',
+          es: '¿Quieres una comparación rápida entre mamografías y resonancias?'
         }
       },
       {
-        keywords: ['mri', 'resonancia'],
+        intent: 'cervical',
+        keywords: ['pap', 'papanicolaou', 'hpv', 'cervical', 'cervix'],
         responses: {
-          en: 'Breast MRI provides 3D images and is reserved for higher-risk patients, usually alongside a mammogram starting around age 30.',
-          es: 'La resonancia magnética de mama ofrece imágenes en 3D y se reserva para pacientes de mayor riesgo, normalmente junto con una mamografía a partir de los 30 años.'
+          en: 'Cervical cancer is highly preventable with Pap smears starting at 21 and HPV co-testing around 30 for five-year intervals.',
+          es: 'El cáncer cervical es altamente prevenible con pruebas de Papanicolaou desde los 21 y co-pruebas de VPH alrededor de los 30 cada cinco años.'
+        },
+        followUp: {
+          en: 'Need guidance on when to schedule your next Pap smear?',
+          es: '¿Necesitas guía sobre cuándo programar tu próxima prueba de Papanicolaou?'
         }
       },
       {
-        keywords: ['clinical', 'examen clínico'],
+        intent: 'colon',
+        keywords: ['colonoscopy', 'colonoscopia', 'colonoscopía', 'fit', 'stool test'],
         responses: {
-          en: 'A clinical breast exam is a physical exam performed by a healthcare professional when symptoms or changes are noticed.',
-          es: 'Un examen clínico de los senos es un examen físico realizado por un profesional de la salud cuando se notan síntomas o cambios.'
+          en: 'Screening can prevent colon cancer by removing polyps. Colonoscopies start around 45 every 10 years, while FIT stool tests are a yearly at-home option.',
+          es: 'La detección puede prevenir el cáncer de colon al eliminar pólipos. Las colonoscopías comienzan alrededor de los 45 cada 10 años, mientras que las pruebas FIT de heces son una opción anual en casa.'
+        },
+        followUp: {
+          en: 'Want me to explain how a FIT test works?',
+          es: '¿Quieres que explique cómo funciona una prueba FIT?'
         }
       },
       {
-        keywords: ['pap', 'hpv'],
+        intent: 'lung-prostate',
+        keywords: ['lung', 'pulmon', 'pulmón', 'ldct', 'prostate', 'prostata', 'próstata', 'psa', 'dre'],
         responses: {
-          en: 'Cervical screening generally starts at age 21 with Pap tests every 3 years. HPV testing can be combined starting at age 30 for a 5-year interval.',
-          es: 'La detección cervical generalmente comienza a los 21 años con pruebas de Papanicolaou cada 3 años. A partir de los 30 años se puede combinar con la prueba de VPH para un intervalo de 5 años.'
+          en: 'We share info on LDCT scans for eligible smokers plus PSA blood tests or DRE exams for prostate health.',
+          es: 'Compartimos información sobre tomografías LDCT para fumadores elegibles y pruebas de PSA o exámenes DRE para la salud de la próstata.'
+        },
+        followUp: {
+          en: 'Need screening eligibility guidelines?',
+          es: '¿Necesitas las pautas de elegibilidad para la detección?'
         }
       },
       {
-        keywords: ['colonoscopy', 'colonoscopía', 'fit'],
+        intent: 'financial',
+        keywords: ['cost', 'free', 'gratuito', 'insurance', 'money'],
         responses: {
-          en: 'Colonoscopies are typically done every 10 years starting at age 45 for average-risk adults. FIT stool tests are a yearly, non-invasive option.',
-          es: 'Las colonoscopías se realizan generalmente cada 10 años a partir de los 45 años para adultos de riesgo promedio. Las pruebas FIT de heces son una opción anual no invasiva.'
+          en: 'Many Austin programs offer free or low-cost screenings. You don’t always need insurance—start with our Free and Low Cost Screening page.',
+          es: 'Muchos programas en Austin ofrecen exámenes gratuitos o de bajo costo. No siempre necesitas seguro; comienza con nuestra página de Detección Gratuita y de Bajo Costo.'
+        },
+        followUp: {
+          en: 'Want me to list nearby clinics?',
+          es: '¿Quieres que enumere clínicas cercanas?'
         }
       },
       {
-        keywords: ['lung', 'pulmón', 'ldct'],
-        responses: {
-          en: 'Low-dose CT (LDCT) scans are recommended for adults 50-80 with a 20 pack-year smoking history who currently smoke or quit within 15 years.',
-          es: 'Las tomografías computarizadas de baja dosis (LDCT) se recomiendan para adultos de 50 a 80 años con un historial de 20 paquetes-año que aún fuman o dejaron de fumar en los últimos 15 años.'
-        }
-      },
-      {
-        keywords: ['cost', 'free', 'gratuito', 'program'],
-        responses: {
-          en: 'Check our Free and Low Cost Screening page for CommUnityCare, People’s Community Clinic, Texas HHS, and American Cancer Society resources.',
-          es: 'Consulta nuestra página de Detección Gratuita y de Bajo Costo para recursos de CommUnityCare, People’s Community Clinic, Texas HHS y la American Cancer Society.'
-        }
-      },
-      {
+        intent: 'clinic',
         keywords: ['clinic', 'clinics', 'near me', 'cerca de mi', 'cerca de mí', 'resources', 'recursos'],
         responses: {
-          en: 'Find local options on our Free and Low Cost Screening page: free-screening.html. You can also dial 211 for community resources.',
-          es: 'Encuentra opciones locales en nuestra página de Detección Gratuita y de Bajo Costo: free-screening.html. También puedes marcar 211 para recursos comunitarios.'
+          en: 'Find local options on our Free and Low Cost Screening page (free-screening.html) or dial 211 for 24/7 assistance.',
+          es: 'Encuentra opciones locales en nuestra página de Detección Gratuita y de Bajo Costo (free-screening.html) o marca 211 para asistencia 24/7.'
         }
       },
       {
-        keywords: ['schedule', 'when', 'cuándo', 'how often', 'frecuencia'],
+        intent: 'schedule',
+        keywords: ['schedule', 'when', 'cuándo', 'how often', 'frecuencia', 'routine'],
         responses: {
-          en: 'Screening frequency depends on cancer type and risk. Use the page you are on for the exact timelines or let me know which test you are curious about.',
-          es: 'La frecuencia de los exámenes depende del tipo de cáncer y del riesgo. Usa la página en la que estás para ver los cronogramas exactos o dime qué prueba te interesa.'
+          en: 'Screening frequency depends on cancer type and risk. Tell me which test you are considering and I can share the timing basics.',
+          es: 'La frecuencia depende del tipo de cáncer y del riesgo. Dime qué prueba estás considerando y puedo compartir los tiempos básicos.'
         }
       }
     ];
 
-    const match = knowledgeBase.find(item => item.keywords.some(kw => message.includes(kw)));
+    const match = knowledgeBase.find(item => item.keywords.some(kw => matchesKeyword(normalizedMessage, kw)));
     if (match) {
-      return match.responses[this.lang] || match.responses.en;
+      if (match.intent === 'greeting') {
+        if (this.hasGreeted) {
+          return this.lang === 'es'
+            ? 'Aquí sigo para ayudarte con preguntas sobre detección o clínicas.'
+            : 'Still here to help with screening questions or clinics whenever you need.';
+        }
+        this.hasGreeted = true;
+      }
+      if (match.intent && match.intent !== 'greeting') {
+        this.currentContext = match.intent;
+      }
+      let response = match.responses[this.lang] || match.responses.en;
+      if (match.followUp) {
+        response += `\n\n${match.followUp[this.lang] || match.followUp.en}`;
+      }
+      return response;
+    }
+
+    const vagueRegex = /(help|ayuda|tell me more|dime mas|dime más)/i;
+    if (vagueRegex.test(message)) {
+      return this.pageKey === 'index.html'
+        ? this.lang === 'es'
+          ? 'Puedo guiarte por los tipos de cáncer, programas gratuitos o información de detección. ¿Quieres aprender sobre mama, cérvix, colon, pulmón o próstata?'
+          : 'I can guide you through cancer types, free programs, or screening info. Want to learn about breast, cervical, colon, lung, or prostate?'
+        : this.lang === 'es'
+          ? 'Puedo resumir esta página o conectarte con clínicas cercanas. ¿Qué parte te gustaría aclarar?'
+          : 'I can summarize this page or connect you to nearby clinics. Which part would you like clarified?';
+    }
+
+    if (/(do i have|tengo yo|my symptoms|mis sintomas|tengo cancer|tengo cáncer)/i.test(message)) {
+      return this.lang === 'es'
+        ? 'Soy un asistente educativo y no puedo diagnosticar síntomas. Por favor visita nuestra página de Detección Gratuita y de Bajo Costo o marca 211 para hablar con un profesional.'
+        : 'I am an educational assistant and cannot diagnose symptoms. Please visit our Free and Low Cost Screening page or dial 211 to speak with a professional.';
+    }
+
+    if (/\b(donde|dónde|where)\b/.test(normalizedMessage) && this.currentContext && this.currentContext !== 'idle') {
+      const contextLabel = this.getContextLabel(this.currentContext);
+      return this.lang === 'es'
+        ? `Para ${contextLabel}, revisa free-screening.html para clínicas de bajo costo o marca 211 para ubicar centros cercanos.`
+        : `For ${contextLabel}, check free-screening.html for low-cost clinics or dial 211 to locate nearby centers.`;
     }
 
     // Handle generic confusion and highlighted context questions
@@ -634,6 +647,69 @@ class Chatbot {
 
     return this.getLocalizedString('fallback');
   }
+}
+
+function normalizeIntentText(text) {
+  return (text || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function matchesKeyword(normalizedMessage, keyword) {
+  const normalizedKeyword = normalizeIntentText(keyword);
+  if (!normalizedKeyword) return false;
+  const haystack = ` ${normalizedMessage} `;
+  const needle = ` ${normalizedKeyword} `;
+  return haystack.includes(needle);
+}
+
+function buildPageSummaries() {
+  return {
+    'index.html': {
+      en: 'You are on the ScreenWiseATX homepage where we outline our mission, key statistics about early detection, and links to every major section.',
+      es: 'Estás en la página principal de ScreenWiseATX donde describimos nuestra misión, estadísticas clave sobre la detección temprana y enlaces a cada sección principal.'
+    },
+    'cancer-types.html': {
+      en: 'This page points you to the full set of cancer education cards now hosted on the homepage.',
+      es: 'Esta página te dirige al conjunto completo de tarjetas educativas sobre el cáncer ahora alojadas en la página principal.'
+    },
+    'breast.html': {
+      en: 'You are reviewing breast cancer screening options like mammograms, breast MRI, and clinical exams.',
+      es: 'Estás revisando las opciones de detección del cáncer de mama como mamografías, resonancias magnéticas y exámenes clínicos.'
+    },
+    'cervical.html': {
+      en: 'This page covers cervical cancer screenings such as Pap smears and HPV tests.',
+      es: 'Esta página cubre los exámenes de cáncer cervical como las pruebas de Papanicolaou y de VPH.'
+    },
+    'colon.html': {
+      en: 'You are looking at colon cancer screening information including colonoscopies and FIT tests.',
+      es: 'Estás viendo información sobre detección de cáncer de colon, incluidas las colonoscopías y las pruebas FIT.'
+    },
+    'lung.html': {
+      en: 'This section explains low-dose CT scans and eligibility for lung cancer screening.',
+      es: 'Esta sección explica las tomografías computarizadas de baja dosis y la elegibilidad para la detección del cáncer de pulmón.'
+    },
+    'prostate.html': {
+      en: 'You are reading about prostate cancer screening, PSA tests, and digital rectal exams.',
+      es: 'Estás leyendo sobre la detección del cáncer de próstata, las pruebas de PSA y los exámenes rectales digitales.'
+    },
+    'free-screening.html': {
+      en: 'This page lists free and low-cost screening programs along with state and local resources.',
+      es: 'Esta página enumera programas de detección gratuitos o de bajo costo junto con recursos estatales y locales.'
+    },
+    'screening-info.html': {
+      en: 'You are viewing general information about screening types, recommended routines, and timelines.',
+      es: 'Estás viendo información general sobre los tipos de detección, rutinas recomendadas y cronogramas.'
+    },
+    default: {
+      en: 'You are browsing a ScreenWiseATX education page with detailed screening information.',
+      es: 'Estás explorando una página educativa de ScreenWiseATX con información detallada sobre detección.'
+    }
+  };
 }
 
 // Initialize the chatbot when the page loads
