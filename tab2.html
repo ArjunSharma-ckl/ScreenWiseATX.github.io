@@ -10,7 +10,10 @@
 <body>
 <header>
   <div class="nav">
-    <div class="brand" data-en="ScreenWiseATX" data-es="ScreenWiseATX">ScreenWiseATX</div>
+    <div class="brand">
+      <img src="logo.svg" alt="ScreenWiseATX Logo" style="height: 24px; width: auto; margin-right: 8px; vertical-align: middle;">
+      <span data-en="ScreenWiseATX" data-es="ScreenWiseATX">ScreenWiseATX</span>
+    </div>
     <nav class="tabs">
       <a class="tab" href="index.html" data-en="Home" data-es="Inicio">Home</a>
       <a class="tab" href="tab1.html" data-en="Learn About Different Cancer Types" data-es="Aprende Sobre Diferentes Tipos de Cáncer">Learn About Different Cancer Types</a>
@@ -24,8 +27,12 @@
       <a class="tab" href="tab3.html" data-en="Free and Low Cost Screening" data-es="Detección Gratuita y de Bajo Costo">Free and Low Cost Screening</a>
     </nav>
     <div class="actions">
-      <label class="toggle" data-en="Español" data-es="English">Español
-        <span class="switch"><input id="langToggle" type="checkbox"><span class="slider"></span></span>
+      <label class="toggle" for="langToggle">
+        <span data-en="Español" data-es="English">Español</span>
+        <span class="switch">
+          <input id="langToggle" type="checkbox">
+          <span class="slider"></span>
+        </span>
       </label>
     </div>
   </div>

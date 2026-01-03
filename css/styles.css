@@ -43,7 +43,7 @@ header.hide-on-scroll { transform: translateY(-100%); }
   box-sizing: border-box;
 }
 
-.brand { font-weight: 900; font-size: 1.2rem; flex-shrink: 0; white-space: nowrap; }
+.brand { font-weight: 900; font-size: 1.2rem; flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; }
 
 .tabs { display: flex; gap: 12px; align-items: center; flex-wrap: nowrap; flex: 1; min-width: 0; overflow: hidden; }
 
@@ -190,7 +190,8 @@ header.hide-on-scroll { transform: translateY(-100%); }
 
 /* SECTIONS */
 .section { padding: 60px 20px; }
-.hero { background: linear-gradient(120deg, var(--babyblue), var(--lightgreen)); }
+.hero { background: linear-gradient(120deg, #1e3a8a, #3b82f6); }
+.hero-alt { background: linear-gradient(120deg, #9f1239, #ec4899); }
 .container { max-width: 1000px; margin: auto; }
 h1 { font-size: 2.5rem; margin-bottom: 20px; }
 h2 { font-size: 2rem; margin-bottom: 20px; }
@@ -206,20 +207,26 @@ p { line-height: 1.6; margin-bottom: 20px; }
   color: inherit;
 }
 
-.why-it-matters { background: #fff; }
+.why-it-matters { background: linear-gradient(120deg, #1e3a8a, #3b82f6); color: white; }
+.why-it-matters h2 { color: white; }
+.why-it-matters p, .why-it-matters li { color: rgba(255, 255, 255, 0.95); }
 .why-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 30px; }
 .why-card {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 14px;
   padding: 30px;
   text-decoration: none;
-  color: inherit;
-  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
   transition: transform .2s;
+  backdrop-filter: blur(10px);
 }
-.why-card:hover { transform: translateY(-4px); }
+.why-card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.2); }
+.why-card h3 { color: white; }
 
-.who-we-are { background: linear-gradient(120deg, var(--babyblue), var(--lightgreen)); }
+.who-we-are { background: linear-gradient(120deg, #1e40af, #2563eb); color: white; }
+.who-we-are h2 { color: white; }
+.who-we-are h3, .who-we-are p { color: rgba(255, 255, 255, 0.95); }
 footer { text-align: center; padding: 40px; color: var(--muted); font-size: 0.9rem; }
 
 /* MOBILE RESPONSIVE FIX */
