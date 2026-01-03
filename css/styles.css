@@ -8,7 +8,9 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: #f9fafb;
   color: #111827;
-  line-height: 1.6;
+  line-height: 1.78;
+  font-size: 1.25rem;
+  min-height: 100vh;
 }
 
 /* Header Styles */
@@ -62,7 +64,7 @@ header {
   color: #db2777;
 }
 
-/* Dropdown menu for cancer types - HORIZONTAL LAYOUT */
+/* Dropdown menu for cancer types - VERTICAL LAYOUT */
 .tab2-wrap {
   position: relative;
 }
@@ -75,23 +77,22 @@ header {
   display: none;
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   background: white;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  border-radius: 8px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
   padding: 0.75rem 1rem;
-  margin-top: 0.25rem;
-  white-space: nowrap;
-  gap: 0.5rem;
+  border-radius: 12px;
+  z-index: 10;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .cancer-menu a {
-  display: inline-block;
-  padding: 0.5rem 1rem;
+  display: block;
+  padding: 0.4rem 0.75rem;
   color: #374151;
   text-decoration: none;
-  transition: all 0.2s;
+  font-weight: 600;
   border-radius: 6px;
 }
 
@@ -227,40 +228,55 @@ input:checked + .slider:before {
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 3.4rem;
   color: #0369a1;
   margin-bottom: 1rem;
 }
 
 .hero-alt h1,
 .hero-breast h1 {
-  font-size: 3rem;
+  font-size: 3.4rem;
   color: #be185d;
   margin-bottom: 2rem;
 }
 
 .hero-cervical h1 {
-  font-size: 3rem;
+  font-size: 3.4rem;
   color: #d97706;
   margin-bottom: 2rem;
 }
 
 .hero-colon h1 {
-  font-size: 3rem;
+  font-size: 3.4rem;
   color: #0369a1;
   margin-bottom: 2rem;
 }
 
 .hero-lung h1 {
-  font-size: 3rem;
+  font-size: 3.4rem;
   color: #4f46e5;
   margin-bottom: 2rem;
 }
 
 .hero-prostate h1 {
-  font-size: 3rem;
+  font-size: 3.4rem;
   color: #0284c7;
   margin-bottom: 2rem;
+}
+
+.stats-grid .stat-number {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0369a1;
+  margin-bottom: 0.25rem;
+}
+
+.stats-grid .stat-label {
+  display: block;
+  color: #6b7280;
+  font-size: 0.8rem;
+  line-height: 1.4;
 }
 
 .section-alt-dark {
@@ -373,7 +389,7 @@ input:checked + .slider:before {
 
 .why-card h3 {
   color: #0369a1;
-  font-size: 1.25rem;
+  font-size: 1.45rem;
 }
 
 /* Who We Are Section - White background */
@@ -390,6 +406,156 @@ input:checked + .slider:before {
 
 .who-we-are h3 {
   color: #0369a1;
+}
+
+/* Site-wide cancer tiles */
+.cancer-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.75rem;
+}
+
+.cancer-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.cancer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.cancer-card:hover::before {
+  transform: scaleX(1);
+}
+
+.cancer-card h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.35rem;
+}
+
+.cancer-card p {
+  color: #6b7280;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.cancer-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.cancer-card--compact p,
+.cancer-card--compact .cancer-tags {
+  display: none;
+}
+
+.cancer-card.breast::before { background: linear-gradient(90deg, #be185d, #f472b6); }
+.cancer-card.breast:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(190,24,93,0.15); border-color: #be185d; }
+.cancer-card.breast h3 { color: #be185d; }
+.cancer-card.breast .tag { background: #fce7f3; color: #be185d; }
+
+.cancer-card.cervical::before { background: linear-gradient(90deg, #d97706, #fbbf24); }
+.cancer-card.cervical:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(217,119,6,0.15); border-color: #d97706; }
+.cancer-card.cervical h3 { color: #d97706; }
+.cancer-card.cervical .tag { background: #fef3c7; color: #78350f; }
+
+.cancer-card.colon::before { background: linear-gradient(90deg, #0369a1, #38bdf8); }
+.cancer-card.colon:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(3,105,161,0.15); border-color: #0369a1; }
+.cancer-card.colon h3 { color: #0369a1; }
+.cancer-card.colon .tag { background: #dbeafe; color: #0369a1; }
+
+.cancer-card.lung::before { background: linear-gradient(90deg, #475569, #94a3b8); }
+.cancer-card.lung:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(71,85,105,0.15); border-color: #475569; }
+.cancer-card.lung h3 { color: #475569; }
+.cancer-card.lung .tag { background: #f1f5f9; color: #475569; }
+
+.cancer-card.prostate::before { background: linear-gradient(90deg, #0284c7, #38bdf8); }
+.cancer-card.prostate:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(2,132,199,0.15); border-color: #0284c7; }
+.cancer-card.prostate h3 { color: #0284c7; }
+.cancer-card.prostate .tag { background: #e0f2fe; color: #0284c7; }
+
+/* Why overview hero */
+.why-overview {
+  padding: 4rem 0 1rem;
+}
+
+.why-overview h1 {
+  font-size: 3.25rem;
+  color: #0f172a;
+  margin-bottom: 2rem;
+}
+
+.why-overview__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.why-overview__block {
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+}
+
+.why-overview__block.is-blue {
+  background: linear-gradient(120deg, #dbeafe, #e0f2ff);
+  color: #0f172a;
+}
+
+.why-overview__block.is-white {
+  background: white;
+  border: 1px solid #e2e8f0;
+}
+
+.why-overview__block p {
+  margin-bottom: 1rem;
+}
+
+.why-overview__list {
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+  color: #1f2937;
+  line-height: 1.7;
+}
+
+.mission-card {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: #0f172a;
+  color: #f8fafc;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.mission-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 /* Footer */
@@ -672,6 +838,14 @@ footer {
   .why-it-matters h2,
   .who-we-are h2 {
     font-size: 2rem;
+  }
+
+  .why-overview h1 {
+    font-size: 2.4rem;
+  }
+
+  .why-overview__block {
+    padding: 1.75rem;
   }
 }
 
