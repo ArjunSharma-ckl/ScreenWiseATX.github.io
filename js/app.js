@@ -134,23 +134,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile menu toggle
   const mobileMenuToggle = document.createElement('button');
   mobileMenuToggle.className = 'mobile-menu-toggle';
-  mobileMenuToggle.innerHTML = '☰';
+  mobileMenuToggle.innerHTML = '';
   mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
   
   const header = document.querySelector('header');
   const nav = header ? header.querySelector('.tabs') : null;
   
   if (header && nav) {
-    header.insertBefore(mobileMenuToggle, nav);
+    // Create a container for the mobile menu button
+    const menuContainer = document.createElement('div');
+    menuContainer.className = 'mobile-menu-container';
+    menuContainer.appendChild(mobileMenuToggle);
     
-    mobileMenuToggle.addEventListener('click', () => {
+    // Insert the container before the nav
+    header.insertBefore(menuContainer, nav);
+    
+    mobileMenuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       nav.classList.toggle('active');
       mobileMenuToggle.classList.toggle('active');
     });
     
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-      if (!nav.contains(e.target) && e.target !== mobileMenuToggle) {
+      if (nav.classList.contains('active') && !nav.contains(e.target) && e.target !== mobileMenuToggle) {
         nav.classList.remove('active');
         mobileMenuToggle.classList.remove('active');
       }
@@ -298,13 +305,4 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!window.buildPageSummaries) {
     window.buildPageSummaries = buildPageSummaries;
   }
-  
-  // Initialize the chatbot when the page loads
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      if (window.Chatbot) {
-        window.chatbot = new Chatbot();
-      }
-    }, 1000);
-  });
 });

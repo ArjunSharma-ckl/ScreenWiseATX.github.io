@@ -153,43 +153,56 @@ class Chatbot {
   }
   
   async getGroqResponse(message) {
-    // Add context about ScreenWiseATX
-    const context = this.getLocalizedString('assistant_context');
-    
     try {
       console.log('Sending request to Groq API...');
+      
+      // Prepare the conversation history with system prompt
+      const messages = [
+        {
+          role: 'system',
+          content: `You are a helpful assistant for ScreenWise ATX, providing information about cancer screening and prevention. 
+                   Keep responses concise and focused on the user's question. 
+                   Current language: ${this.lang === 'es' ? 'Spanish' : 'English'}`
+        },
+        ...this.conversation.map(msg => ({
+          role: msg.sender === 'user' ? 'user' : 'assistant',
+          content: msg.text
+        })),
+        {
+          role: 'user',
+          content: message
+        }
+      ];
+      
+      const requestBody = {
+        model: 'mixtral-8x7b-32768',
+        messages: messages,
+        temperature: 0.7,
+        max_tokens: 500,
+        top_p: 1,
+        frequency_penalty: 0,
+        presence_penalty: 0,
+        stream: false
+      };
+      
+      console.log('Sending request body:', JSON.stringify(requestBody, null, 2));
+      
       const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer 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'
+          'Authorization': 'Bearer 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',
+          'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          model: 'mixtral-8x7b-32768',
-          messages: [
-            {
-              role: 'system',
-              content: this.getLocalizedString('system_prompt')
-            },
-            {
-              role: 'user',
-              content: message
-            }
-          ],
-          temperature: 0.7,
-          max_tokens: 500,
-          top_p: 1,
-          frequency_penalty: 0,
-          presence_penalty: 0
-        })
+        body: JSON.stringify(requestBody)
       });
       
       console.log('Received response status:', response.status);
       
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        console.error('API Error:', errorData);
-        throw new Error(`API request failed with status ${response.status}`);
+        const errorText = await response.text();
+        console.error('API Error Response:', errorText);
+        throw new Error(`API request failed with status ${response.status}: ${errorText}`);
       }
       
       const data = await response.json();
