@@ -481,8 +481,8 @@ class Chatbot {
         intent: 'identity-contact',
         keywords: ['contact', 'email', 'aarya', 'kiara', 'arjun'],
         responses: {
-          en: 'Founded by Aarya Sharma and Kiara Mallen (LASA students). Reach us at info@screenwiseatx.org or explore the Who We Are section.',
-          es: 'Fundada por Aarya Sharma y Kiara Mallen (estudiantes de LASA). Escríbenos a info@screenwiseatx.org o visita la sección ¿Quiénes Somos?.'
+          en: 'Founded by Aarya Sharma and Kiara Mallen (LASA students). Reach us at screenwiseatx@gmail.com or explore the Who We Are section.',
+          es: 'Fundada por Aarya Sharma y Kiara Mallen (estudiantes de LASA). Escríbenos a screenwiseatx@gmail.com o visita la sección ¿Quiénes Somos?.'
         }
       },
       {
