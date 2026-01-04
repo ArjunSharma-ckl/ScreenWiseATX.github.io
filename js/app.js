@@ -14,8 +14,8 @@ function buildPageSummaries() {
       es: 'Información sobre el cáncer de cuello uterino, incluyendo factores de riesgo y recomendaciones de detección.'
     },
     'colon-learn.html': {
-      en: 'Information about colon cancer, including risk factors and screening recommendations.',
-      es: 'Información sobre el cáncer de colon, incluyendo factores de riesgo y recomendaciones de detección.'
+      en: 'Information about colorectal cancer, including risk factors and screening recommendations.',
+      es: 'Información sobre el cáncer colorrectal, incluyendo factores de riesgo y recomendaciones de detección.'
     },
     'lung-learn.html': {
       en: 'Information about lung cancer, including risk factors and screening recommendations.',
@@ -29,13 +29,17 @@ function buildPageSummaries() {
       en: 'Information about different types of cancer screening methods and routines.',
       es: 'Información sobre diferentes tipos de métodos y rutinas de detección de cáncer.'
     },
+    'colon.html': {
+      en: 'Information about colorectal cancer, including risk factors and screening recommendations.',
+      es: 'Información sobre el cáncer colorrectal, incluyendo factores de riesgo y recomendaciones de detección.'
+    },
     'free-screening.html': {
       en: 'Information about free and low-cost cancer screening options.',
       es: 'Información sobre opciones de detección de cáncer gratuitas y de bajo costo.'
     },
     'default': {
-      en: 'Key details about screening options, timing, and prevention.',
-      es: 'Detalles clave sobre opciones, tiempos y prevención de detección.'
+      en: 'Screening highlights for this page.',
+      es: 'Puntos clave de detección para esta página.'
     }
   };
 }
@@ -69,6 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Apply language
   applyLang(userLang);
+
+  // Mobile mode helper
+  const setMobileMode = () => {
+    const isMobile = window.innerWidth <= 640;
+    document.body.classList.toggle('is-mobile', isMobile);
+  };
+  setMobileMode();
+  window.addEventListener('resize', setMobileMode);
 
   // Language toggle event listener
   const toggle = document.getElementById('langToggle');
@@ -289,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
     card.style.marginTop = '1.5rem';
     card.innerHTML = `
       <div>
-        <h3>${lang === 'es' ? 'En pocas palabras' : 'Quick snapshot'}</h3>
+        <h3>${lang === 'es' ? 'Resumen breve' : 'Page highlights'}</h3>
         <p>${text}</p>
       </div>
       <button class="chatgpt-btn" type="button">${lang === 'es' ? 'Ampliar en el chat' : 'Open ChatWise'}</button>

@@ -156,6 +156,11 @@ class Chatbot {
                            subtitle.getAttribute('data-en');
       subtitle.textContent = subtitleText;
     }
+
+    // Refresh quick replies to match language if we're at the start of a chat
+    if (this.messages.length <= 1) {
+      this.showQuickReplies(this.getDefaultQuickReplies());
+    }
   }
 
   addWelcomeMessage() {
@@ -163,7 +168,7 @@ class Chatbot {
       ? `¡Hola! Soy ChatWise, tu asistente de detección de cáncer. Puedo ayudarte con:
 
 • Información sobre diferentes tipos de cáncer
-• Programas y recomendaciones de detección
+• Calendarios y recomendaciones de detección
 • Encontrar opciones de detección gratuitas o de bajo costo
 • Preguntas generales sobre prevención del cáncer
 
@@ -178,11 +183,13 @@ class Chatbot {
 How can I help you today?`;
 
     this.addMessage(welcomeText, 'bot');
-    this.showQuickReplies(
-      this.lang === 'es'
-        ? ['¿Qué pruebas necesito?', 'Cuéntame sobre cáncer de mama', 'Encuentra detección gratuita cerca de mí', '¿Cuándo debo comenzar las pruebas?']
-        : ['What screenings do I need?', 'Tell me about breast cancer', 'Find free screening near me', 'When should I start screening?']
-    );
+    this.showQuickReplies(this.getDefaultQuickReplies());
+  }
+
+  getDefaultQuickReplies() {
+    return this.lang === 'es'
+      ? ['¿Qué pruebas necesito?', 'Cuéntame sobre cáncer de mama', 'Encuentra detección gratuita cerca de mí', '¿Cuándo debo comenzar las pruebas?']
+      : ['What screenings do I need?', 'Tell me about breast cancer', 'Find free screening near me', 'When should I start screening?'];
   }
 
   showQuickReplies(replies) {
