@@ -40,6 +40,11 @@
     font-size: 0.85rem;
   }
 
+  .actions {
+    position: relative;
+    left: -10px;
+  }
+
   .section {
     padding: 1.25rem 0;
   }

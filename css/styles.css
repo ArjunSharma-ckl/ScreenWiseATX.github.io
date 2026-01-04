@@ -821,7 +821,7 @@ input:checked + .slider:before {
 }
 
 .why-overview__block.is-blue {
-  background: linear-gradient(120deg, #e9fbe3, #d5f5c4);
+  background: linear-gradient(120deg, #dbeafe, #e0f2ff);
   color: #0f172a;
 }
 
@@ -843,8 +843,8 @@ input:checked + .slider:before {
 
 /* Mission hero */
 .mission-hero {
-  background: linear-gradient(120deg, #f4fde9, #dcf7c7);
-  color: #1f2937;
+  background: linear-gradient(120deg, #dbeafe, #e0f2ff);
+  color: #0f172a;
   padding: 4rem 2rem 3.5rem;
 }
 
@@ -857,13 +857,13 @@ input:checked + .slider:before {
 .mission-hero h1 {
   font-size: 3rem;
   margin: 0;
-  color: #1f2937;
+  color: #0f172a;
 }
 
 .mission-hero p {
   margin: 0;
   max-width: 900px;
-  color: #2f3b46;
+  color: #1f2937;
 }
 
 /* Footer */
