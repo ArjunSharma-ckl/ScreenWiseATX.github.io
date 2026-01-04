@@ -39,7 +39,7 @@ function buildPageSummaries() {
     },
     'default': {
       en: 'Screening highlights for this page.',
-      es: 'Puntos clave de detección para esta página.'
+      es: 'Aspectos destacados de detección para esta página.'
     }
   };
 }
@@ -301,14 +301,15 @@ document.addEventListener('DOMContentLoaded', () => {
     card.style.marginTop = '1.5rem';
     card.innerHTML = `
       <div>
-        <h3>${lang === 'es' ? 'Resumen breve' : 'Page highlights'}</h3>
+        <h3>${lang === 'es' ? 'Aspectos destacados de la página' : 'Page highlights'}</h3>
         <p>${text}</p>
       </div>
-      <button class="chatgpt-btn" type="button">${lang === 'es' ? 'Ampliar en el chat' : 'Open ChatWise'}</button>
+      <button class="chatgpt-btn" type="button">${lang === 'es' ? 'Abrir ChatWise' : 'Open ChatWise'}</button>
     `;
 
     // Button toggles chatbot open
     card.querySelector('.chatgpt-btn').addEventListener('click', () => {
+      renderMiniSummaryCard();
       const evt = new Event('click');
       (document.querySelector('.chat-toggle') || document.querySelector('.chatbot-toggle'))?.dispatchEvent(evt);
     });
@@ -322,4 +323,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!window.buildPageSummaries) {
     window.buildPageSummaries = buildPageSummaries;
   }
+
+  // Ensure clicking ChatWise also shows the highlight card
+  document.querySelectorAll('.chat-toggle, .chatbot-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      try { renderMiniSummaryCard(); } catch (e) {}
+    });
+  });
 });

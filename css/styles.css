@@ -31,7 +31,7 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 0.875rem;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1283,7 +1283,7 @@ footer {
 }
 
 .is-mobile {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .is-mobile .section {
@@ -1296,7 +1296,26 @@ footer {
 
 .is-mobile header .nav {
   gap: 0.6rem;
-  padding: 0.75rem 0;
+  padding: 0.75rem 1rem;
+  align-items: flex-start;
+}
+
+.is-mobile .brand span {
+  font-size: 0.95rem;
+}
+
+.is-mobile .tabs {
+  width: 100%;
+  gap: 0.4rem;
+}
+
+.is-mobile .tab {
+  font-size: 0.95rem;
+  padding: 0.6rem 0.75rem;
+}
+
+.is-mobile .toggle span {
+  font-size: 0.9rem;
 }
 
 .is-mobile .hero h1,
