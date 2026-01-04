@@ -1024,8 +1024,8 @@ footer {
 
 .learn-grid {
   margin-top: 1.75rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1.25rem;
 }
 
