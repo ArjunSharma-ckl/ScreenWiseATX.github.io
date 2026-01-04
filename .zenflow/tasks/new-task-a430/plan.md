@@ -25,6 +25,7 @@ If blocked or uncertain on a critical decision, ask the user for direction.
 ## Workflow Steps
 
 ### [ ] Step: Implementation
+<!-- chat-id: d632f192-d41f-45c3-8d12-fba8f6e9d4df -->
 
 Implement the task directly based on the task description.
 

@@ -217,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const page = document.body.dataset.page || (location.pathname.split('/').pop() || '');
   try { if (page === 'index.html') { injectHomeStyles(); relocateCardsUnderWhy(); } } catch (e) {}
   try { if (page === 'free-screening.html') { enhanceFreeScreening(); } } catch (e) {}
-  try { renderMiniSummaryCard(); } catch (e) {}
 
   function injectHomeStyles() {
     if (document.getElementById('home-scoped-styles')) return;
@@ -273,38 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function renderMiniSummaryCard() {
-    const container = document.querySelector('.chatgpt-section .container') || document.querySelector('footer')?.previousElementSibling || document.body;
-    const key = document.body.dataset.page || 'default';
-    const summary = pageSummaries[key] || pageSummaries.default;
-    const lang = document.documentElement.lang || 'en';
-    const text = summary?.[lang] || summary?.en || '';
-    if (!container || !text) return;
 
-    // If an existing helper card is present, skip
-    if (document.querySelector('.mini-summary-card')) return;
-
-    const card = document.createElement('div');
-    card.className = 'chatgpt-card mini-summary-card';
-    card.style.marginTop = '1.5rem';
-    card.innerHTML = `
-      <div>
-        <h3>${lang === 'es' ? 'Resumen rápido' : 'Quick Summary'}</h3>
-        <p>${text}</p>
-      </div>
-      <button class="chatgpt-btn" type="button">${lang === 'es' ? 'Ampliar en el chat' : 'Open Assistant'}</button>
-    `;
-
-    // Button toggles chatbot open
-    card.querySelector('.chatgpt-btn').addEventListener('click', () => {
-      const evt = new Event('click');
-      document.querySelector('.chatbot-toggle')?.dispatchEvent(evt);
-    });
-
-    // Insert before footer if possible
-    const parent = container.parentElement || document.body;
-    parent.insertBefore(card, document.querySelector('footer'));
-  }
 
   // Make buildPageSummaries available globally
   if (!window.buildPageSummaries) {
