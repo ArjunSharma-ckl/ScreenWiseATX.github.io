@@ -38,8 +38,8 @@ function buildPageSummaries() {
       es: 'Información sobre opciones de detección de cáncer gratuitas y de bajo costo.'
     },
     'default': {
-      en: 'Screening highlights for this page.',
-      es: 'Aspectos destacados de detección para esta página.'
+      en: '',
+      es: ''
     }
   };
 }
@@ -286,17 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function renderMiniSummaryCard() {
-    const container = document.querySelector('.chatgpt-section .container') || document.querySelector('footer')?.previousElementSibling || document.body;
-    const key = document.body.dataset.page || 'default';
-    const summary = pageSummaries[key] || pageSummaries.default;
-    const lang = document.documentElement.lang || 'en';
-    const text = summary?.[lang] || summary?.en || '';
-    if (!container || !text) return;
-
-    // If an existing helper card is present, skip
-    if (document.querySelector('.mini-summary-card')) return;
-
-    // Feature removed
+    return;
   }
 
   // Make buildPageSummaries available globally

@@ -821,7 +821,7 @@ input:checked + .slider:before {
 }
 
 .why-overview__block.is-blue {
-  background: linear-gradient(120deg, #dbeafe, #e0f2ff);
+  background: linear-gradient(120deg, #e8fce3, #d1fae5);
   color: #0f172a;
 }
 
@@ -843,8 +843,8 @@ input:checked + .slider:before {
 
 /* Mission hero */
 .mission-hero {
-  background: linear-gradient(120deg, #d9f99d, #bef264);
-  color: #f8fafc;
+  background: linear-gradient(120deg, #f3fde5, #d9f99d);
+  color: #1f2937;
   padding: 4rem 2rem 3.5rem;
 }
 
@@ -1329,6 +1329,11 @@ footer {
   margin-bottom: 1rem;
 }
 
+.is-mobile header {
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  border-bottom: 1px solid #e2e8f0;
+}
+
 .is-mobile .info-panel,
 .is-mobile .detail-intro,
 .is-mobile .detail-card,
@@ -1348,6 +1353,55 @@ footer {
 .is-mobile .learn-grid {
   grid-template-columns: 1fr;
   gap: 1rem;
+}
+
+.is-mobile .cancer-cards.cancer-cards--row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.is-mobile .cancer-card {
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+}
+
+.is-mobile .mission-hero .container,
+.is-mobile .why-overview__stack {
+  gap: 1rem;
+}
+
+.is-mobile .mission-hero h1 {
+  font-size: 2.1rem;
+  text-align: center;
+}
+
+.is-mobile .mission-hero p {
+  text-align: center;
+}
+
+.is-mobile .why-overview__block {
+  padding: 1.5rem;
+}
+
+.is-mobile .why-overview__block h1 {
+  font-size: 1.6rem;
+}
+
+.is-mobile .why-overview__block p,
+.is-mobile .why-overview__list {
+  font-size: 0.95rem;
+}
+
+.is-mobile .chatbot-toggle {
+  width: 54px;
+  height: 54px;
+  bottom: 12px;
+  right: 12px;
+}
+
+.is-mobile .chatbot-container {
+  max-height: 90vh;
 }
 
 .is-mobile .learn-meta {
