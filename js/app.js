@@ -74,10 +74,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Apply language
   applyLang(userLang);
 
+  // Ensure mobile stylesheet is present
+  let mobileLink = document.getElementById('mobile-css');
+  if (!mobileLink) {
+    mobileLink = document.createElement('link');
+    mobileLink.id = 'mobile-css';
+    mobileLink.rel = 'stylesheet';
+    mobileLink.href = 'mobile.css';
+    mobileLink.disabled = true;
+    document.head.appendChild(mobileLink);
+  }
+
   // Mobile mode helper
   const setMobileMode = () => {
     const isMobile = window.innerWidth <= 640;
     document.body.classList.toggle('is-mobile', isMobile);
+    if (mobileLink) {
+      mobileLink.disabled = !isMobile;
+    }
   };
   setMobileMode();
   window.addEventListener('resize', setMobileMode);

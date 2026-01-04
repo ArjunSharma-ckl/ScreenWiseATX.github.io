@@ -1,0 +1,167 @@
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .brand span {
+    font-size: 0.95rem;
+  }
+
+  .tabs {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.4rem;
+  }
+
+  .tab {
+    text-align: left;
+    font-size: 0.95rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .toggle span {
+    font-size: 0.9rem;
+  }
+
+  .section {
+    padding: 1.5rem 0;
+  }
+
+  .container {
+    padding: 0 1.1rem;
+  }
+
+  .hero h1,
+  .hero-alt h1,
+  .hero-breast h1,
+  .hero-cervical h1,
+  .hero-colon h1,
+  .hero-lung h1,
+  .hero-prostate h1 {
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-panel,
+  .detail-intro,
+  .detail-card,
+  .detail-note,
+  .learn-card,
+  .learn-intro {
+    padding: 1rem 1.1rem;
+    border-radius: 12px;
+  }
+
+  .info-block {
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .detail-grid,
+  .learn-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .cancer-cards.cancer-cards--row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .cancer-card {
+    padding: 1rem 1.1rem;
+    border-radius: 12px;
+  }
+
+  .mission-hero .container,
+  .why-overview__stack {
+    gap: 1rem;
+  }
+
+  .mission-hero h1 {
+    font-size: 2.1rem;
+    text-align: center;
+  }
+
+  .mission-hero p {
+    text-align: center;
+  }
+
+  .why-overview__block {
+    padding: 1.5rem;
+  }
+
+  .why-overview__block h1 {
+    font-size: 1.6rem;
+  }
+
+  .why-overview__block p,
+  .why-overview__list {
+    font-size: 0.95rem;
+  }
+
+  .chatbot-toggle {
+    width: 54px;
+    height: 54px;
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .chatbot-container {
+    max-height: 90vh;
+    width: 100%;
+    max-width: none;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
+
+  .chatbot-header {
+    padding: 0.65rem 0.9rem;
+  }
+
+  .chatbot-messages {
+    padding: 0.75rem;
+  }
+
+  .chatbot-input-wrapper {
+    gap: 0.5rem;
+  }
+
+  .learn-meta {
+    gap: 0.45rem;
+  }
+
+  .pill {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.55rem;
+  }
+
+  ul {
+    padding-left: 1rem;
+  }
+
+  .info-card,
+  .definition-bubble {
+    padding: 0.85rem 0.95rem;
+  }
+}
