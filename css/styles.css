@@ -843,7 +843,7 @@ input:checked + .slider:before {
 
 /* Mission hero */
 .mission-hero {
-  background: linear-gradient(120deg, #0f172a, #1e3a8a);
+  background: linear-gradient(120deg, #d9f99d, #bef264);
   color: #f8fafc;
   padding: 4rem 2rem 3.5rem;
 }
@@ -857,13 +857,13 @@ input:checked + .slider:before {
 .mission-hero h1 {
   font-size: 3rem;
   margin: 0;
-  color: #fff;
+  color: #1f2937;
 }
 
 .mission-hero p {
   margin: 0;
   max-width: 900px;
-  color: rgba(248,250,252,0.9);
+  color: #2f3b46;
 }
 
 /* Footer */

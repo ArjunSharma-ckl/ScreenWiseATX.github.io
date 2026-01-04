@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const page = document.body.dataset.page || (location.pathname.split('/').pop() || '');
   try { if (page === 'index.html') { injectHomeStyles(); relocateCardsUnderWhy(); } } catch (e) {}
   try { if (page === 'free-screening.html') { enhanceFreeScreening(); } } catch (e) {}
-  try { renderMiniSummaryCard(); } catch (e) {}
+  // Mini summary disabled per new requirements
 
   function injectHomeStyles() {
     if (document.getElementById('home-scoped-styles')) return;
@@ -296,27 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // If an existing helper card is present, skip
     if (document.querySelector('.mini-summary-card')) return;
 
-    const card = document.createElement('div');
-    card.className = 'chatgpt-card mini-summary-card';
-    card.style.marginTop = '1.5rem';
-    card.innerHTML = `
-      <div>
-        <h3>${lang === 'es' ? 'Aspectos destacados de la página' : 'Page highlights'}</h3>
-        <p>${text}</p>
-      </div>
-      <button class="chatgpt-btn" type="button">${lang === 'es' ? 'Abrir ChatWise' : 'Open ChatWise'}</button>
-    `;
-
-    // Button toggles chatbot open
-    card.querySelector('.chatgpt-btn').addEventListener('click', () => {
-      renderMiniSummaryCard();
-      const evt = new Event('click');
-      (document.querySelector('.chat-toggle') || document.querySelector('.chatbot-toggle'))?.dispatchEvent(evt);
-    });
-
-    // Insert before footer if possible
-    const parent = container.parentElement || document.body;
-    parent.insertBefore(card, document.querySelector('footer'));
+    // Feature removed
   }
 
   // Make buildPageSummaries available globally
@@ -324,10 +304,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.buildPageSummaries = buildPageSummaries;
   }
 
-  // Ensure clicking ChatWise also shows the highlight card
-  document.querySelectorAll('.chat-toggle, .chatbot-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      try { renderMiniSummaryCard(); } catch (e) {}
-    });
-  });
+  // Disable summary card creation
+  window.renderMiniSummaryCard = () => {};
 });
