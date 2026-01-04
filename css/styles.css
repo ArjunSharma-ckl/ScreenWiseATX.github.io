@@ -521,6 +521,13 @@ input:checked + .slider:before {
   margin-bottom: 2rem;
 }
 
+/* Accent tokens for learn/screening themes */
+.accent-breast { --accent: #be185d; --accent-soft: #fdf2f8; --accent-ink: #831843; }
+.accent-cervical { --accent: #7e22ce; --accent-soft: #f5f3ff; --accent-ink: #581c87; }
+.accent-colon { --accent: #0369a1; --accent-soft: #e0f2fe; --accent-ink: #0c4a6e; }
+.accent-lung { --accent: #475569; --accent-soft: #e2e8f0; --accent-ink: #111827; }
+.accent-prostate { --accent: #0284c7; --accent-soft: #e0f2fe; --accent-ink: #0f172a; }
+.accent-neutral { --accent: #0f172a; --accent-soft: #f8fafc; --accent-ink: #0f172a; }
 .stats-grid .stat-number {
   display: block;
   font-size: 2rem;
@@ -987,6 +994,93 @@ footer {
   margin-bottom: 0.35rem;
 }
 
+/* Learn page backbone */
+.learn-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.learn-intro {
+  background: white;
+  border-radius: 18px;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.learn-intro h2 {
+  margin: 0;
+  color: var(--accent-ink, #0f172a);
+}
+
+.learn-intro p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.7;
+}
+
+.learn-grid {
+  margin-top: 1.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.learn-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  border-left: 5px solid var(--accent, #0f172a);
+}
+
+.learn-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.65rem;
+  color: var(--accent-ink, #0f172a);
+}
+
+.learn-card p,
+.learn-card li {
+  color: #475569;
+  line-height: 1.65;
+}
+
+.learn-card ul {
+  margin: 0.25rem 0 0 1.15rem;
+  padding: 0;
+  list-style: disc;
+}
+
+.learn-highlight {
+  background: var(--accent-soft, #f8fafc);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--accent, #0f172a);
+}
+
+.learn-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #1e3a8a;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
 /* Cancer detail layouts */
 .detail-intro {
   margin-top: 1.5rem;
@@ -1072,6 +1166,28 @@ footer {
   border-top: 4px solid #0f172a;
 }
 
+.definition-bubble {
+  margin: 0.75rem 0 1.1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: var(--accent-soft, #f8fafc);
+  border-left: 5px solid var(--accent, #0f172a);
+  color: #334155;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.definition-bubble strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--accent-ink, #0f172a);
+}
+
+.definition-bubble ul {
+  margin: 0.25rem 0 0 1.15rem;
+  padding: 0;
+  line-height: 1.6;
+}
+
 .detail-note {
   margin-top: 2rem;
   padding: 1.5rem;
@@ -1134,6 +1250,22 @@ footer {
   .hero-lung h1,
   .hero-prostate h1 {
     font-size: 2rem;
+  }
+
+  .learn-wrapper {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .learn-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learn-card {
+    padding: 1.25rem;
+  }
+
+  .definition-bubble {
+    padding: 0.85rem 0.95rem;
   }
 
   .why-it-matters h2,

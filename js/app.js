@@ -34,8 +34,8 @@ function buildPageSummaries() {
       es: 'Información sobre opciones de detección de cáncer gratuitas y de bajo costo.'
     },
     'default': {
-      en: 'General information about cancer screening and prevention.',
-      es: 'Información general sobre detección y prevención del cáncer.'
+      en: 'Key details about screening options, timing, and prevention.',
+      es: 'Detalles clave sobre opciones, tiempos y prevención de detección.'
     }
   };
 }
@@ -289,16 +289,16 @@ document.addEventListener('DOMContentLoaded', () => {
     card.style.marginTop = '1.5rem';
     card.innerHTML = `
       <div>
-        <h3>${lang === 'es' ? 'Resumen rápido' : 'Quick Summary'}</h3>
+        <h3>${lang === 'es' ? 'En pocas palabras' : 'Quick snapshot'}</h3>
         <p>${text}</p>
       </div>
-      <button class="chatgpt-btn" type="button">${lang === 'es' ? 'Ampliar en el chat' : 'Open Assistant'}</button>
+      <button class="chatgpt-btn" type="button">${lang === 'es' ? 'Ampliar en el chat' : 'Open ChatWise'}</button>
     `;
 
     // Button toggles chatbot open
     card.querySelector('.chatgpt-btn').addEventListener('click', () => {
       const evt = new Event('click');
-      document.querySelector('.chatbot-toggle')?.dispatchEvent(evt);
+      (document.querySelector('.chat-toggle') || document.querySelector('.chatbot-toggle'))?.dispatchEvent(evt);
     });
 
     // Insert before footer if possible

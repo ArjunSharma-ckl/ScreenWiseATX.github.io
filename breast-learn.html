@@ -2,69 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Breast • ScreenWiseATX</title>
+<title>Breast | ScreenWiseATX</title>
 <link rel="icon" href="favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/chatbot.css">
-<style>
-  .learn-content {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-  .info-section {
-    margin-bottom: 2.5rem;
-    background: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  .info-section h2 {
-    color: #be185d;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    border-bottom: 2px solid #fbcfe8;
-    padding-bottom: 0.5rem;
-  }
-  .info-section p {
-    color: #4b5563;
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
-  }
-  .info-section ul {
-    padding-left: 1.5rem;
-    margin: 1rem 0;
-  }
-  .info-section li {
-    margin-bottom: 0.75rem;
-    line-height: 1.5;
-  }
-  .resources a {
-    color: #be185d;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  .resources a:hover {
-    text-decoration: underline;
-  }
-  .risk-factors {
-    border-left: 4px solid #f9a8d4;
-  }
-  .symptoms {
-    border-left: 4px solid #f472b6;
-  }
-  .common-in {
-    border-left: 4px solid #ec4899;
-  }
-  .resources {
-    background-color: #fdf2f8;
-    border-left: 4px solid #db2777;
-  }
-</style>
 </head>
-<body data-page="breast-learn.html">
+<body data-page="breast-learn.html" class="learn-page accent-breast">
 
 <header>
   <div class="nav">
@@ -111,53 +55,68 @@
 <section class="section hero-breast">
   <div class="container">
     <h1 data-en="Breast Cancer" data-es="Cáncer de Mama">Breast Cancer</h1>
-    
-    <div class="info-panel learn-content">
-      <div class="info-section">
-        <h2>What is it?</h2>
-        <p>Breast cancer is the formation of a tumor in the breast tissue due to mutated cells.</p>
+
+    <div class="learn-wrapper">
+      <div class="learn-intro">
+        <div class="learn-meta">
+          <span class="pill">Early detection</span>
+          <span class="pill">Breast health basics</span>
+        </div>
+        <p>Breast cancer happens when cells in breast tissue grow and form a tumor. Finding it early means more treatment options and higher survival.</p>
       </div>
 
-      <div class="info-section common-in">
-        <h2>It is most common in (but not limited to)...</h2>
-        <ul>
-          <li>Women above the age of 40</li>
-          <li>Someone with any family history of breast, ovarian, pancreatic, or prostate cancer</li>
-          <li>Prominent in African American Women</li>
-        </ul>
-      </div>
+      <div class="learn-grid">
+        <div class="learn-card">
+          <h3>What is it?</h3>
+          <p>Breast cancer is the growth of abnormal cells that can invade nearby tissue or spread elsewhere in the body.</p>
+          <div class="learn-highlight">
+            Regular mammograms catch most cancers before they can be felt.
+          </div>
+        </div>
 
-      <div class="info-section risk-factors">
-        <h2>Risk Factors</h2>
-        <p>Some risk factors that make your chances of breast cancer greater:</p>
-        <ul>
-          <li>Overweight/Obese (BMI above 25) and being physically inactive</li>
-          <li>History of Radiation Therapy</li>
-          <li>Frequent alcohol drinker</li>
-          <li>Pregnancy after the age of 30</li>
-          <li>Starting the menstrual cycle before the age of 12, and hitting menopause after 55</li>
-          <li>Hormone replacement therapy (those that include progesterone and estrogen)</li>
-          <li>Inherited genes (BRCA1, BRCA2, p53, CHEK2, ATM and PALB)</li>
-        </ul>
-      </div>
+        <div class="learn-card">
+          <h3>Who is most affected?</h3>
+          <ul>
+            <li>Women 40+ (risk increases with age)</li>
+            <li>Anyone with family history of breast, ovarian, pancreatic, or prostate cancer</li>
+            <li>Higher rates in Black women at younger ages</li>
+          </ul>
+        </div>
 
-      <div class="info-section symptoms">
-        <h2>Symptoms/When to contact a doctor:</h2>
-        <ul>
-          <li>New lump in the breast or underarm (armpit)</li>
-          <li>Thickening or swelling of part of the breast</li>
-          <li>Irritation or dimpling of breast skin</li>
-          <li>Redness or flaky skin in the nipple area or the breast</li>
-          <li>Pulling in of the nipple or pain in the nipple area</li>
-          <li>Nipple discharge other than breast milk, including blood</li>
-          <li>Any change in the size or shape of the breast</li>
-          <li>Pain in any area of the breast</li>
-        </ul>
-      </div>
+        <div class="learn-card">
+          <h3>Risk factors</h3>
+          <ul>
+            <li>Inherited genes (BRCA1/2, p53, CHEK2, ATM, PALB)</li>
+            <li>Chest radiation or hormone replacement therapy with estrogen/progesterone</li>
+            <li>Overweight/obesity, low physical activity, or frequent alcohol use</li>
+            <li>First period before 12 or menopause after 55</li>
+            <li>Pregnancy after age 30</li>
+          </ul>
+        </div>
 
-      <div class="info-section resources">
-        <h2>Learn More</h2>
-        <p>For more detailed information about breast cancer screening options, please visit our <a href="breast.html">Breast Cancer Screening</a> page.</p>
+        <div class="learn-card">
+          <h3>Symptoms—call your doctor if you notice:</h3>
+          <ul>
+            <li>New lump in the breast or underarm</li>
+            <li>Swelling, dimpling, redness, or flaky skin on the breast</li>
+            <li>Nipple pulling inward, pain, or discharge (including blood)</li>
+            <li>Any change in size, shape, or persistent breast pain</li>
+          </ul>
+        </div>
+
+        <div class="learn-card">
+          <h3>What lowers risk</h3>
+          <ul>
+            <li>Staying active and maintaining a healthy weight</li>
+            <li>Limiting alcohol</li>
+            <li>Talking with your clinician about genetic testing if family history is strong</li>
+          </ul>
+        </div>
+
+        <div class="learn-card">
+          <h3>Learn more</h3>
+          <p>See screening options and timelines on the <a href="breast.html">Breast Cancer Screening</a> page.</p>
+        </div>
       </div>
     </div>
   </div>
