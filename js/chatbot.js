@@ -4,8 +4,11 @@ class Chatbot {
     this.isOpen = false;
     this.isMinimized = false;
     this.messages = [];
-    this.conversation = [];
     this.lang = document.documentElement.lang || 'en';
+    // ⚠️ SECURITY WARNING: API KEY EXPOSED IN CLIENT-SIDE CODE ⚠️
+    // For production, move to backend endpoint
+    this.apiKey = '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';
+    this.apiUrl = 'https://api.groq.com/openai/v1/chat/completions';
     
     this.init();
   }
@@ -216,10 +219,6 @@ How can I help you today?`;
     
     // Store message for conversation history
     this.messages.push({ text, sender });
-    this.conversation.push({
-      role: sender === 'user' ? 'user' : 'assistant',
-      content: text
-    });
     
     // Scroll to bottom
     this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
@@ -351,43 +350,71 @@ Pautas:
   }
 
   async sendToAPI(userMessage) {
-    const safeHistory = Array.isArray(this.conversation)
-      ? this.conversation.filter(
-          (m) =>
-            m &&
-            (m.role === "user" || m.role === "assistant") &&
-            typeof m.content === "string" &&
-            m.content.trim() !== ""
-        )
-      : [];
+    const systemPrompt = this.buildWebsiteContext();
+    
+    // Build conversation history (last 8 messages)
+    const conversationHistory = this.messages
+      .filter(msg => msg.text && msg.text.trim() && msg.text !== '...')
+      .slice(-8)
+      .map(msg => ({
+        role: msg.sender === 'user' ? 'user' : 'assistant',
+        content: msg.text
+      }));
 
-    const response = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    const response = await fetch(this.apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.apiKey}`
+      },
       body: JSON.stringify({
-        message: userMessage,
-        history: safeHistory,
-        lang: this.lang
+        model: 'llama-3.3-70b-versatile',
+        messages: [
+          { role: 'system', content: systemPrompt },
+          ...conversationHistory,
+          { role: 'user', content: userMessage }
+        ],
+        temperature: 0.7,
+        max_tokens: 300,
+        stream: false
       })
     });
 
-    const fallback =
-      this.lang === "es"
-        ? "Lo siento, encontré un problema al responder."
-        : "Sorry — I had trouble responding.";
-
-    let data;
-    try {
-      data = await response.json();
-    } catch (e) {
-      return fallback;
+    if (!response.ok) {
+      let errorText = '';
+      try {
+        const errorData = await response.json();
+        errorText = errorData.error?.message || JSON.stringify(errorData);
+        console.error('Groq API error:', errorData);
+      } catch (e) {
+        errorText = await response.text();
+        console.error('Groq API error (text):', errorText);
+      }
+      
+      // Provide user-friendly error message
+      const errorMsg = this.lang === 'es'
+        ? 'Lo siento, hubo un error al procesar tu solicitud. Por favor intenta de nuevo.'
+        : 'Sorry, there was an error processing your request. Please try again.';
+      throw new Error(errorMsg);
     }
 
-    if (!data || typeof data.reply !== "string") {
-      return fallback;
+    const data = await response.json();
+    if (!data || !data.choices || !data.choices[0] || !data.choices[0].message) {
+      const errorMsg = this.lang === 'es'
+        ? 'La respuesta del servidor no es válida. Por favor intenta de nuevo.'
+        : 'Invalid response from server. Please try again.';
+      throw new Error(errorMsg);
     }
-
-    return data.reply.trim();
+    
+    const content = data.choices[0].message.content;
+    if (!content || !content.trim()) {
+      const errorMsg = this.lang === 'es'
+        ? 'No se pudo generar una respuesta. Por favor reformula tu pregunta.'
+        : 'Could not generate a response. Please rephrase your question.';
+      throw new Error(errorMsg);
+    }
+    
+    return content.trim();
   }
 }
 
@@ -408,4 +435,3 @@ function initChatbot() {
 
 // Start initialization
 initChatbot();
-
