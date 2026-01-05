@@ -371,9 +371,20 @@ Pautas:
       })
     });
 
-    const data = await response.json();
+    const fallback =
+      this.lang === "es"
+        ? "Lo siento, encontré un problema al responder."
+        : "Sorry — I had trouble responding.";
+
+    let data;
+    try {
+      data = await response.json();
+    } catch (e) {
+      return fallback;
+    }
+
     if (!data || typeof data.reply !== "string") {
-      throw new Error("Invalid response from server");
+      return fallback;
     }
 
     return data.reply.trim();
