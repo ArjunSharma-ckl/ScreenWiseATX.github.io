@@ -57,6 +57,19 @@ document.addEventListener('DOMContentLoaded', () => {
         el.textContent = lang === 'es' ? (el.dataset.es || el.textContent) : (el.dataset.en || el.textContent);
       }
     });
+
+    // Chat toggles and header titles
+    document.querySelectorAll('.chat-toggle').forEach(btn => {
+      const en = btn.dataset.en || 'ChatWise';
+      const es = btn.dataset.es || 'ChatWise';
+      btn.textContent = lang === 'es' ? es : en;
+    });
+    const headerTitle = document.querySelector('.chatbot-title');
+    if (headerTitle && headerTitle.dataset) {
+      headerTitle.textContent = lang === 'es'
+        ? (headerTitle.dataset.es || headerTitle.textContent)
+        : (headerTitle.dataset.en || headerTitle.textContent);
+    }
     
     // Update toggle button text
     const toggleLabel = document.querySelector('.toggle span:first-child');
