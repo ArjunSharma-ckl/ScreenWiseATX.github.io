@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenuToggle = document.createElement('button');
   mobileMenuToggle.className = 'mobile-menu-toggle';
   mobileMenuToggle.type = 'button';
-  mobileMenuToggle.innerHTML = '<span></span><span></span><span></span>';
+  mobileMenuToggle.innerHTML = '<span class="menu-bars"><span></span><span></span><span></span></span><span class="menu-label" data-en="Menu" data-es="Menú">Menu</span>';
   mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
   
   const header = document.querySelector('header');

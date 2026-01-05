@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   body {
     font-size: 13px;
   }
@@ -47,39 +47,53 @@
   }
 
   .mobile-menu-toggle {
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
+    flex-direction: row;
     justify-content: center;
-    gap: 5px;
-    width: 42px;
-    height: 34px;
+    align-items: center;
+    gap: 8px;
+    width: auto;
+    height: 38px;
     background: #0369a1;
     border: none;
     border-radius: 10px;
-    padding: 6px;
+    padding: 6px 10px;
     box-shadow: 0 10px 20px rgba(3, 105, 161, 0.18);
     margin: 0 auto;
   }
 
-  .mobile-menu-toggle span {
+  .mobile-menu-toggle .menu-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .mobile-menu-toggle .menu-bars span {
     display: block;
     height: 3px;
-    width: 100%;
+    width: 24px;
     background: #fff;
     border-radius: 999px;
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
-  .mobile-menu-toggle.active span:nth-child(1) {
+  .mobile-menu-toggle.active .menu-bars span:nth-child(1) {
     transform: translateY(4px) rotate(45deg);
   }
 
-  .mobile-menu-toggle.active span:nth-child(2) {
+  .mobile-menu-toggle.active .menu-bars span:nth-child(2) {
     opacity: 0;
   }
 
-  .mobile-menu-toggle.active span:nth-child(3) {
+  .mobile-menu-toggle.active .menu-bars span:nth-child(3) {
     transform: translateY(-4px) rotate(-45deg);
+  }
+
+  .mobile-menu-toggle .menu-label {
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
   }
 
   .tabs {
@@ -253,10 +267,23 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 0.85rem;
+    overflow: visible;
   }
 
   .cancer-card {
     width: 100%;
     text-align: left;
+    min-width: 0;
+  }
+
+  /* Remove hover effects on mobile */
+  a:hover,
+  .tab:hover,
+  .cancer-card:hover,
+  .why-card:hover {
+    background: inherit;
+    color: inherit;
+    transform: none;
+    box-shadow: none;
   }
 }
