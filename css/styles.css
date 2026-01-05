@@ -91,6 +91,11 @@ button, .btn {
   transition: var(--transition);
 }
 
+/* Hide mobile menu toggle on desktop */
+.mobile-menu-toggle {
+  display: none;
+}
+
 /* Utility Classes */
 .container {
   width: 100%;
