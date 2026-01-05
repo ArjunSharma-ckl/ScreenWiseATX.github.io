@@ -81,17 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileLink.id = 'mobile-css';
     mobileLink.rel = 'stylesheet';
     mobileLink.href = 'mobile.css';
-    mobileLink.disabled = true;
     document.head.appendChild(mobileLink);
   }
 
   // Mobile mode helper
   const setMobileMode = () => {
-    const isMobile = window.innerWidth <= 640;
+    const isMobile = window.innerWidth <= 820;
     document.body.classList.toggle('is-mobile', isMobile);
-    if (mobileLink) {
-      mobileLink.disabled = !isMobile;
-    }
   };
   setMobileMode();
   window.addEventListener('resize', setMobileMode);
@@ -160,7 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile menu toggle
   const mobileMenuToggle = document.createElement('button');
   mobileMenuToggle.className = 'mobile-menu-toggle';
-  mobileMenuToggle.innerHTML = '';
+  mobileMenuToggle.type = 'button';
+  mobileMenuToggle.innerHTML = '<span></span><span></span><span></span>';
   mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
   
   const header = document.querySelector('header');

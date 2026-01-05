@@ -10,6 +10,8 @@
     background: #fff;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
     border-bottom: 1px solid #e2e8f0;
+    display: block;
+    width: 100%;
   }
 
   .nav {
@@ -17,17 +19,75 @@
     align-items: stretch;
     gap: 0.45rem;
     padding: 0.6rem 0.9rem;
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    align-items: flex-start;
   }
 
   .brand span {
     font-size: 0.88rem;
   }
 
+  .mobile-menu-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 34px;
+    background: #0369a1;
+    border: none;
+    border-radius: 10px;
+    padding: 6px;
+    box-shadow: 0 10px 20px rgba(3, 105, 161, 0.18);
+  }
+
+  .mobile-menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #fff;
+    border-radius: 999px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
   .tabs {
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    box-shadow: none;
     flex-direction: column;
     align-items: stretch;
     width: 100%;
     gap: 0.3rem;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    padding: 0.35rem 0.4rem;
+    display: flex !important;
   }
 
   .tab {
@@ -43,6 +103,9 @@
   .actions {
     position: relative;
     left: -10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
   }
 
   .section {
