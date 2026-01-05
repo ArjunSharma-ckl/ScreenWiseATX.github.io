@@ -4,9 +4,8 @@ class Chatbot {
     this.isOpen = false;
     this.isMinimized = false;
     this.messages = [];
+    this.conversation = [];
     this.lang = document.documentElement.lang || 'en';
-    this.apiKey = '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';
-    this.apiUrl = 'https://api.groq.com/openai/v1/chat/completions';
     
     this.init();
   }
@@ -217,6 +216,10 @@ How can I help you today?`;
     
     // Store message for conversation history
     this.messages.push({ text, sender });
+    this.conversation.push({
+      role: sender === 'user' ? 'user' : 'assistant',
+      content: text
+    });
     
     // Scroll to bottom
     this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
@@ -348,71 +351,32 @@ Pautas:
   }
 
   async sendToAPI(userMessage) {
-    const systemPrompt = this.buildWebsiteContext();
-    
-    // Build conversation history (last 8 messages)
-    const conversationHistory = this.messages
-      .filter(msg => msg.text && msg.text.trim() && msg.text !== '...')
-      .slice(-8)
-      .map(msg => ({
-        role: msg.sender === 'user' ? 'user' : 'assistant',
-        content: msg.text
-      }));
+    const safeHistory = Array.isArray(this.conversation)
+      ? this.conversation.filter(
+          (m) =>
+            m &&
+            (m.role === "user" || m.role === "assistant") &&
+            typeof m.content === "string" &&
+            m.content.trim() !== ""
+        )
+      : [];
 
-    const response = await fetch(this.apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.apiKey}`
-      },
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        model: 'llama-3.3-70b-versatile',
-        messages: [
-          { role: 'system', content: systemPrompt },
-          ...conversationHistory,
-          { role: 'user', content: userMessage }
-        ],
-        temperature: 0.7,
-        max_tokens: 300,
-        stream: false
+        message: userMessage,
+        history: safeHistory,
+        lang: this.lang
       })
     });
 
-    if (!response.ok) {
-      let errorText = '';
-      try {
-        const errorData = await response.json();
-        errorText = errorData.error?.message || JSON.stringify(errorData);
-        console.error('Groq API error:', errorData);
-      } catch (e) {
-        errorText = await response.text();
-        console.error('Groq API error (text):', errorText);
-      }
-      
-      // Provide user-friendly error message
-      const errorMsg = this.lang === 'es'
-        ? 'Lo siento, hubo un error al procesar tu solicitud. Por favor intenta de nuevo.'
-        : 'Sorry, there was an error processing your request. Please try again.';
-      throw new Error(errorMsg);
+    const data = await response.json();
+    if (!data || typeof data.reply !== "string") {
+      throw new Error("Invalid response from server");
     }
 
-    const data = await response.json();
-    if (!data || !data.choices || !data.choices[0] || !data.choices[0].message) {
-      const errorMsg = this.lang === 'es'
-        ? 'La respuesta del servidor no es válida. Por favor intenta de nuevo.'
-        : 'Invalid response from server. Please try again.';
-      throw new Error(errorMsg);
-    }
-    
-    const content = data.choices[0].message.content;
-    if (!content || !content.trim()) {
-      const errorMsg = this.lang === 'es'
-        ? 'No se pudo generar una respuesta. Por favor reformula tu pregunta.'
-        : 'Could not generate a response. Please rephrase your question.';
-      throw new Error(errorMsg);
-    }
-    
-    return content.trim();
+    return data.reply.trim();
   }
 }
 
@@ -433,3 +397,4 @@ function initChatbot() {
 
 // Start initialization
 initChatbot();
+
