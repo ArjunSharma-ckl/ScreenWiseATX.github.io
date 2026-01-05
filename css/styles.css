@@ -848,7 +848,7 @@ input:checked + .slider:before {
 
 /* Mission hero */
 .mission-hero {
-  background: linear-gradient(120deg, #dbeafe, #e0f2ff);
+  background: #ffffff;
   color: #0f172a;
   padding: 4rem 2rem 3.5rem;
 }
