@@ -48,35 +48,63 @@ const pageSummaries = buildPageSummaries();
 
 document.addEventListener('DOMContentLoaded', () => {
   // Language Toggle Functionality
+  function normalizeText(text) {
+    if (!text) {
+      return text;
+    }
+    const replacements = [
+      ['Espa??ol', 'Espa?ol'],
+      ['EspaA?ol', 'Espa?ol'],
+      ['CA??ncer', 'C?ncer'],
+      ['CA?ncer', 'C?ncer'],
+      ['cA??ncer', 'c?ncer'],
+      ['cA?ncer', 'c?ncer'],
+      ['PulmA3n', 'Pulm\\u00F3n'],
+      ['PrA3stata', 'Pr\\u00F3stata'],
+      ['detecciA3n', 'detecci\\u00F3n'],
+      ['DetecciA3n', 'Detecci\\u00F3n'],
+      ['QUI??NES', 'QUI?NES'],
+      ['QUIA%NES', 'QUI\\u00C9NES'],
+      ['Dise??o', 'Dise?o'],
+      ['DiseA?o', 'Dise?o'],
+      ['Men??', 'Men?'],
+      ['MenA?', 'Men?'],
+      ['11??', '11?'],
+      ['11A?', '11?'],
+      ['9??', '9?'],
+      ['9A?', '9?'],
+      ['p??blica', 'p?blica'],
+      ['pA?blica', 'p?blica']
+    ];
+    return replacements.reduce((value, [source, target]) => value.split(source).join(target), text);
+  }
   function applyLang(lang) {
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-en]').forEach(el => {
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.placeholder = lang === 'es' ? (el.dataset.es || '') : (el.dataset.en || '');
+        const placeholder = lang === 'es' ? (el.dataset.es || '') : (el.dataset.en || '');
+        el.placeholder = normalizeText(placeholder);
       } else {
-        el.textContent = lang === 'es' ? (el.dataset.es || el.textContent) : (el.dataset.en || el.textContent);
+        const text = lang === 'es' ? (el.dataset.es || el.textContent) : (el.dataset.en || el.textContent);
+        el.textContent = normalizeText(text);
       }
     });
-
-    // Chat toggles and header titles
     document.querySelectorAll('.chat-toggle').forEach(btn => {
-      const en = btn.dataset.en || 'ChatWise';
-      const es = btn.dataset.es || 'ChatWise';
+      const en = normalizeText(btn.dataset.en || 'ChatWise');
+      const es = normalizeText(btn.dataset.es || 'ChatWise');
       btn.textContent = lang === 'es' ? es : en;
     });
     const headerTitle = document.querySelector('.chatbot-title');
     if (headerTitle && headerTitle.dataset) {
-      headerTitle.textContent = lang === 'es'
+      const headerText = lang === 'es'
         ? (headerTitle.dataset.es || headerTitle.textContent)
         : (headerTitle.dataset.en || headerTitle.textContent);
+      headerTitle.textContent = normalizeText(headerText);
     }
-    
-    // Update toggle button text
     const toggleLabel = document.querySelector('.toggle span:first-child');
     if (toggleLabel) {
-      toggleLabel.textContent = lang === 'es' ? 'English' : 'Español';
+      toggleLabel.textContent = lang === 'es' ? 'English' : 'Espa?ol';
     }
-
     document.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
   }
 
