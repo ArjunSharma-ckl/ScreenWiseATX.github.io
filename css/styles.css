@@ -1757,3 +1757,8 @@ footer {
     padding: 1rem 0;
   }
 }
+
+.chat-toggle,
+.chatbot-container {
+  display: none !important;
+}

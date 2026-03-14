@@ -27,6 +27,7 @@
   }
 
   .brand {
+    order: 1;
     width: 100%;
     display: flex;
     align-items: center;
@@ -38,12 +39,13 @@
   }
 
   .mobile-menu-container {
+    order: 2;
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
     gap: 0.75rem;
-    margin-top: 0.25rem;
+    margin: 0.25rem auto 0.1rem;
   }
 
   .mobile-menu-toggle {
@@ -97,6 +99,7 @@
   }
 
   .tabs {
+    order: 4;
     position: static;
     top: auto;
     left: auto;
@@ -129,12 +132,19 @@
   }
 
   .actions {
+    order: 3;
     position: relative;
     left: 0;
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 0.35rem 0 0.5rem;
+    margin: -0.05rem auto 0.5rem;
+    text-align: center;
+  }
+
+  .toggle {
+    margin: 0 auto;
+    transform: translateY(-0.15rem);
   }
 
   .section {

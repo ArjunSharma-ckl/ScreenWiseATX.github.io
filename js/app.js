@@ -175,6 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const header = document.querySelector('header');
   const nav = header ? header.querySelector('.tabs') : null;
+  const navShell = nav ? nav.parentNode : null;
+  const actions = navShell && navShell.querySelector ? navShell.querySelector('.actions') : null;
   
   if (header && nav) {
     // Create a container for the mobile menu button
@@ -182,11 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
     menuContainer.className = 'mobile-menu-container';
     menuContainer.appendChild(mobileMenuToggle);
     
-    // Insert the container before the nav (safely check if nav is a child)
-    if (nav && nav.parentNode === header) {
-      header.insertBefore(menuContainer, nav);
+    // Keep mobile controls together so they can stack cleanly on small screens
+    if (actions && actions.parentNode === navShell) {
+      navShell.insertBefore(menuContainer, actions);
+    } else if (nav && nav.parentNode === navShell) {
+      navShell.insertBefore(menuContainer, nav);
     } else if (header) {
-      // Fallback: append to header if nav doesn't exist or isn't a child
       header.appendChild(menuContainer);
     }
     

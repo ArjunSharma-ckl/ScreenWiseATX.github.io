@@ -419,18 +419,19 @@ Pautas:
 }
 
 // Initialize chatbot when DOM is ready
+function hideChatUI() {
+  document.querySelectorAll('.chat-toggle, .chatbot-container').forEach((element) => {
+    element.style.display = 'none';
+  });
+}
+
 function initChatbot() {
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      if (!window.chatbot) {
-        window.chatbot = new Chatbot();
-      }
-    });
-  } else {
-    if (!window.chatbot) {
-      window.chatbot = new Chatbot();
-    }
+    document.addEventListener('DOMContentLoaded', hideChatUI);
+    return;
   }
+
+  hideChatUI();
 }
 
 // Start initialization
