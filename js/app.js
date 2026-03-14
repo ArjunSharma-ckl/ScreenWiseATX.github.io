@@ -263,48 +263,10 @@ document.addEventListener('DOMContentLoaded', () => {
       header.appendChild(menuContainer);
     }
     
-    const isMobileMenuMode = () => window.innerWidth <= 820;
-    const dropdownGroups = Array.from(nav.querySelectorAll('.tab2-wrap'));
-
-    const collapseDropdowns = () => {
-      dropdownGroups.forEach((group) => {
-        group.classList.remove('expanded');
-        const trigger = group.querySelector('.tab');
-        if (trigger) {
-          trigger.setAttribute('aria-expanded', 'false');
-        }
-      });
-    };
-
-    dropdownGroups.forEach((group) => {
-      const trigger = group.querySelector('.tab');
-      if (!trigger) {
-        return;
-      }
-
-      trigger.setAttribute('aria-expanded', 'false');
-      trigger.addEventListener('click', (e) => {
-        if (!isMobileMenuMode()) {
-          return;
-        }
-        e.preventDefault();
-        const shouldExpand = !group.classList.contains('expanded');
-        collapseDropdowns();
-        if (shouldExpand) {
-          group.classList.add('expanded');
-          trigger.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
     mobileMenuToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      const willOpen = !nav.classList.contains('active');
       nav.classList.toggle('active');
       mobileMenuToggle.classList.toggle('active');
-      if (!willOpen || !isMobileMenuMode()) {
-        collapseDropdowns();
-      }
     });
     
     // Close menu when clicking outside
@@ -312,13 +274,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (nav.classList.contains('active') && !nav.contains(e.target) && e.target !== mobileMenuToggle) {
         nav.classList.remove('active');
         mobileMenuToggle.classList.remove('active');
-        collapseDropdowns();
-      }
-    });
-
-    window.addEventListener('resize', () => {
-      if (!isMobileMenuMode()) {
-        collapseDropdowns();
       }
     });
   }
