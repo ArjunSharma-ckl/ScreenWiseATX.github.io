@@ -944,6 +944,46 @@ footer {
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
+.screening-figure {
+  margin: 1rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+.screening-figure--wide {
+  max-width: 620px;
+}
+
+.screening-figure-link {
+  display: block;
+}
+
+.screening-figure img {
+  width: 100%;
+  display: block;
+}
+
+.screening-figure figcaption {
+  margin: 0;
+  padding: 0.75rem 1rem 1rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.screening-figure-title {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.screening-figure-source {
+  display: block;
+}
+
 .info-card {
   padding: 1rem;
   border-radius: 12px;

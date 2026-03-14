@@ -53,28 +53,70 @@ document.addEventListener('DOMContentLoaded', () => {
       return text;
     }
     const replacements = [
-      ['Espa??ol', 'Espa?ol'],
-      ['EspaA?ol', 'Espa?ol'],
-      ['CA??ncer', 'C?ncer'],
-      ['CA?ncer', 'C?ncer'],
-      ['cA??ncer', 'c?ncer'],
-      ['cA?ncer', 'c?ncer'],
-      ['PulmA3n', 'Pulm\\u00F3n'],
-      ['PrA3stata', 'Pr\\u00F3stata'],
-      ['detecciA3n', 'detecci\\u00F3n'],
-      ['DetecciA3n', 'Detecci\\u00F3n'],
-      ['QUI??NES', 'QUI?NES'],
-      ['QUIA%NES', 'QUI\\u00C9NES'],
-      ['Dise??o', 'Dise?o'],
-      ['DiseA?o', 'Dise?o'],
-      ['Men??', 'Men?'],
-      ['MenA?', 'Men?'],
-      ['11??', '11?'],
-      ['11A?', '11?'],
-      ['9??', '9?'],
-      ['9A?', '9?'],
-      ['p??blica', 'p?blica'],
-      ['pA?blica', 'p?blica']
+      ['Espa??ol', 'Espa\u00f1ol'],
+      ['Espa?ol', 'Espa\u00f1ol'],
+      ['EspaA?ol', 'Espa\u00f1ol'],
+      ['EspaA\u00f1ol', 'Espa\u00f1ol'],
+      ['CA??ncer', 'C\u00e1ncer'],
+      ['CA?ncer', 'C\u00e1ncer'],
+      ['C?ncer', 'C\u00e1ncer'],
+      ['cA??ncer', 'c\u00e1ncer'],
+      ['cA?ncer', 'c\u00e1ncer'],
+      ['c?ncer', 'c\u00e1ncer'],
+      ['PulmA3n', 'Pulm\u00f3n'],
+      ['Pulm?n', 'Pulm\u00f3n'],
+      ['PrA3stata', 'Pr\u00f3stata'],
+      ['Pr?stata', 'Pr\u00f3stata'],
+      ['detecciA3n', 'detecci\u00f3n'],
+      ['detecci?n', 'detecci\u00f3n'],
+      ['DetecciA3n', 'Detecci\u00f3n'],
+      ['Detecci?n', 'Detecci\u00f3n'],
+      ['Ant?geno', 'Ant\u00edgeno'],
+      ['ant?geno', 'ant\u00edgeno'],
+      ['prost?tico', 'prost\u00e1tico'],
+      ['Espec?fico', 'Espec\u00edfico'],
+      ['espec?fico', 'espec\u00edfico'],
+      ['an?lisis', 'an\u00e1lisis'],
+      ['prote?na', 'prote\u00edna'],
+      ['c?lulas', 'c\u00e9lulas'],
+      ['gl?ndula', 'gl\u00e1ndula'],
+      ['tambi?n', 'tambi\u00e9n'],
+      ['peque?as', 'peque\u00f1as'],
+      ['m?s', 'm\u00e1s'],
+      ['seg?n', 'seg\u00fan'],
+      ['cl?nica', 'cl\u00ednica'],
+      ['despu?s', 'despu\u00e9s'],
+      ['a?os', 'a\u00f1os'],
+      ['mayor?a', 'mayor\u00eda'],
+      ['m?dico', 'm\u00e9dico'],
+      ['m?dicos', 'm\u00e9dicos'],
+      ['podr?an', 'podr\u00edan'],
+      ['se?alar', 'se\u00f1alar'],
+      ['Ilustraci?n', 'Ilustraci\u00f3n'],
+      ['Informaci?n', 'Informaci\u00f3n'],
+      ['gen?ticas', 'gen\u00e9ticas'],
+      ['QUI??NES', 'QUI\u00c9NES'],
+      ['QUI?NES', 'QUI\u00c9NES'],
+      ['QUIA%NES', 'QUI\u00c9NES'],
+      ['Dise??o', 'Dise\u00f1o'],
+      ['Dise?o', 'Dise\u00f1o'],
+      ['DiseA?o', 'Dise\u00f1o'],
+      ['Men??', 'Men\u00fa'],
+      ['Men?', 'Men\u00fa'],
+      ['MenA?', 'Men\u00fa'],
+      ['11??', '11\u00ba'],
+      ['11?', '11\u00ba'],
+      ['11A?', '11\u00ba'],
+      ['9??', '9\u00ba'],
+      ['9?', '9\u00ba'],
+      ['9A?', '9\u00ba'],
+      ['p??blica', 'p\u00fablica'],
+      ['p?blica', 'p\u00fablica'],
+      ['pA?blica', 'p\u00fablica'],
+      ['Cont?ctenos', 'Cont\u00e1ctenos'],
+      ['Revisi?n', 'Revisi\u00f3n'],
+      ['Decisi?n', 'Decisi\u00f3n'],
+      ['S?ntomas', 'S\u00edntomas']
     ];
     return replacements.reduce((value, [source, target]) => value.split(source).join(target), text);
   }
@@ -103,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const toggleLabel = document.querySelector('.toggle span:first-child');
     if (toggleLabel) {
-      toggleLabel.textContent = lang === 'es' ? 'English' : 'Espa?ol';
+      toggleLabel.textContent = lang === 'es' ? 'English' : 'Espa\u00f1ol';
     }
     document.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
   }
@@ -198,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenuToggle = document.createElement('button');
   mobileMenuToggle.className = 'mobile-menu-toggle';
   mobileMenuToggle.type = 'button';
-  mobileMenuToggle.innerHTML = '<span class="menu-bars"><span></span><span></span><span></span></span><span class="menu-label" data-en="Menu" data-es="Menú">Menu</span>';
+  mobileMenuToggle.innerHTML = '<span class="menu-bars"><span></span><span></span><span></span></span><span class="menu-label" data-en="Menu" data-es="Men\u00fa">Menu</span>';
   mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
   
   const header = document.querySelector('header');

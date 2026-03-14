@@ -129,6 +129,7 @@
 
   .toggle span {
     font-size: 0.85rem;
+    white-space: nowrap;
   }
 
   .actions {
@@ -143,8 +144,17 @@
   }
 
   .toggle {
+    display: inline-flex;
+    width: auto;
+    min-width: max-content;
     margin: 0 auto;
     transform: translateY(-0.15rem);
+    flex-wrap: nowrap;
+  }
+
+  .toggle > span:first-child {
+    display: inline-block;
+    white-space: nowrap;
   }
 
   .section {
