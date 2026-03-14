@@ -121,10 +121,6 @@
     display: flex;
   }
 
-  .tabs > .tab:first-child {
-    display: none;
-  }
-
   .tab2-wrap {
     display: flex;
     flex-direction: column;
