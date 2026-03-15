@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -17,8 +17,67 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/chatbot.css">
 <link rel="stylesheet" href="mobile.css">
+<style>
+.doc-flow {
+  display: grid;
+  gap: 1.5rem;
+}
+.doc-table-wrap {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.doc-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  border: 1px solid #94a3b8;
+  background: #fff;
+}
+.doc-table th,
+.doc-table td {
+  padding: 0.75rem 0.85rem;
+  border: 1px solid #94a3b8;
+  vertical-align: top;
+  color: #334155;
+  line-height: 1.65;
+}
+.doc-table th {
+  background: #e0f2fe;
+  color: #0f172a;
+  font-weight: 700;
+}
+.doc-figure {
+  margin: 1.25rem auto 0;
+  max-width: 920px;
+}
+.doc-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  background: #fff;
+}
+.doc-list {
+  margin: 0.45rem 0 0 1.15rem;
+  padding: 0;
+}
+.doc-list li {
+  margin-bottom: 0.35rem;
+}
+.doc-kicker {
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.45rem;
+}
+.doc-link {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+</style>
 </head>
-<body class="accent-colon">
+<body data-page="colon.html" class="accent-colon">
 <header>
   <div class="nav">
     <div class="brand">
@@ -62,88 +121,133 @@
 </header>
 
 <section class="section hero-colon">
-  <div class="container">
-    <h1 data-en="Colorectal Cancer" data-es="Cancer Colorrectal">Colorectal Cancer</h1>
+  <div class="container doc-flow">
+    <h1 data-en="Colorectal Cancer" data-es="Cáncer Colorrectal">Colorectal Cancer</h1>
 
     <div class="detail-card accent-colon">
-      <h2 data-en="Stool Based Tests" data-es="Pruebas basadas en heces">Stool Based Tests</h2>
-      <p data-en="These tests examine stool for markers of colorectal cancer such as blood. They are non-invasive, can be done at home, and require more frequent testing than visual exams." data-es="Estas pruebas examinan las heces en busca de marcadores de cancer colorrectal como la sangre. Son no invasivas, pueden hacerse en casa y requieren pruebas mas frecuentes que los examenes visuales.">These tests examine stool for markers of colorectal cancer such as blood. They are non-invasive, can be done at home, and require more frequent testing than visual exams.</p>
-      <p data-en="Common types include: Fecal immunochemical test (FIT), Guaiac-based fecal occult blood test (gFOBT), and Multitargeted stool DNA/RNA tests." data-es="Los tipos comunes incluyen: prueba inmunoquimica fecal (FIT), prueba de sangre oculta en heces basada en guayaco (gFOBT) y pruebas de ADN/ARN en heces de multiples objetivos.">Common types include: Fecal immunochemical test (FIT), Guaiac-based fecal occult blood test (gFOBT), and Multitargeted stool DNA/RNA tests.</p>
-      <p data-en="Screening should begin at age 45, taper around 75, and stop by 85." data-es="La deteccion debe comenzar a los 45 anos, reducirse alrededor de los 75 y detenerse a los 85.">Screening should begin at age 45, taper around 75, and stop by 85.</p>
-      <div class="table-responsive" style="overflow-x:auto; margin-top:1rem;">
-        <table style="width:100%; border-collapse:collapse; border:1px solid #94a3b8;">
-          <thead>
-            <tr style="text-align:left; background:#e2e8f0;">
-              <th style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;" data-en="Test Type" data-es="Tipo de prueba">Test Type</th>
-              <th style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;" data-en="Procedure" data-es="Procedimiento">Procedure</th>
-              <th style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;" data-en="Screening Frequency" data-es="Frecuencia de deteccion">Screening Frequency</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Fecal immunochemical test (FIT)</td>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Checks for hidden blood in the stool and can be done at home; no dietary restrictions required.</td>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Every year starting at age 45; a colonoscopy is needed if results are positive.</td>
-            </tr>
-            <tr>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Guaiac-based fecal occult blood test (gFOBT)</td>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Checks for hidden blood in stool less accurately than FIT; can be done at home; requires drug and diet restrictions.</td>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Every year starting at age 45; a colonoscopy is needed if results are positive.</td>
-            </tr>
-            <tr>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Multitargeted stool DNA/RNA tests</td>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Screens for mutated sections of DNA/RNA in cancer cells plus blood; can be done at home; no drug/dietary restrictions. Popular option: Cologuard.</td>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Every three years starting at age 45.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div style="margin: 1.25rem 0; display:flex; justify-content:center;">
-      <figure class="screening-figure screening-figure--wide" style="margin: 0; width: 100%;">
-        <a href="https://www.mdpi.com/healthcare/healthcare-12-01645/article_deploy/html/images/healthcare-12-01645-g001-550.jpg" target="_blank" rel="noopener" class="screening-figure-link">
-          <img src="https://www.mdpi.com/healthcare/healthcare-12-01645/article_deploy/html/images/healthcare-12-01645-g001-550.jpg" alt="Colorectal cancer screening stool-based tests overview" style="object-fit:cover;">
-        </a>
-        <figcaption>
-          <span class="screening-figure-title">Colorectal cancer screening stool-based tests overview</span>
-          <span class="screening-figure-source">Source: MDPI Healthcare</span>
-        </figcaption>
+      <h2 data-en="Stool Based Tests" data-es="Pruebas Basadas en Heces">Stool Based Tests</h2>
+      <p data-en="These tests involve the examination of the stool for typical markers of colon cancer such as blood. Typically, these tests are non-invasive and are much more accessible and easily done than visual exams as they can be done at home, however this comes with the drawback of having to conduct more frequent tests." data-es="Estas pruebas implican examinar las heces en busca de marcadores típicos del cáncer de colon, como sangre. Por lo general, no son invasivas y son mucho más accesibles y fáciles de realizar que los exámenes visuales porque pueden hacerse en casa; sin embargo, esto conlleva la desventaja de tener que realizarlas con mayor frecuencia.">These tests involve the examination of the stool for typical markers of colon cancer such as blood. Typically, these tests are non-invasive and are much more accessible and easily done than visual exams as they can be done at home, however this comes with the drawback of having to conduct more frequent tests.</p>
+      <p class="doc-kicker" data-en="Common types of this test include:" data-es="Los tipos comunes de esta prueba incluyen:">Common types of this test include:</p>
+      <ul class="doc-list">
+        <li data-en="Fecal immunochemical test (FIT)" data-es="Prueba inmunoquímica fecal (FIT)">Fecal immunochemical test (FIT)</li>
+        <li data-en="Guaiac-based fecal occult blood test (gFOBT)" data-es="Prueba de sangre oculta en heces basada en guayaco (gFOBT)">Guaiac-based fecal occult blood test (gFOBT)</li>
+        <li data-en="Multitargeted stool DNA/RNA tests" data-es="Pruebas de ADN/ARN en heces de múltiples objetivos">Multitargeted stool DNA/RNA tests</li>
+      </ul>
+      <h3 data-en="Screening Frequency" data-es="Frecuencia de Detección">Screening Frequency</h3>
+      <p data-en="Screening should be started at age 45, and reduce your frequency around age 75, and stop completely at age 85." data-es="La detección debe comenzar a los 45 años, reducir su frecuencia alrededor de los 75 y detenerse por completo a los 85.">Screening should be started at age 45, and reduce your frequency around age 75, and stop completely at age 85.</p>
+      <figure class="doc-figure">
+        <img src="colorectal-format-overview.png" alt="Colorectal stool based tests overview illustration">
       </figure>
     </div>
 
     <div class="detail-card accent-colon">
-      <h2 data-en="Visual Exams" data-es="Examenes visuales">Visual Exams</h2>
-      <p data-en="These exams look inside the colon and rectum for cancer or polyps. They are less frequent but more involved than stool tests." data-es="Estos examenes revisan el interior del colon y el recto para detectar cancer o polipos. Son menos frecuentes pero mas detallados que las pruebas de heces.">These exams look inside the colon and rectum for cancer or polyps. They are less frequent but more involved than stool tests.</p>
-      <p data-en="Types include: Colonoscopy, CT colonography (virtual colonoscopy), Sigmoidoscopy." data-es="Los tipos incluyen: colonoscopia, colonografia por TC (colonoscopia virtual), sigmoidoscopia.">Types include: Colonoscopy, CT colonography (virtual colonoscopy), Sigmoidoscopy.</p>
-      <div class="table-responsive" style="overflow-x:auto; margin-top:1rem;">
-        <table style="width:100%; border-collapse:collapse; border:1px solid #94a3b8;">
+      <h2 data-en="Stool Based Test Table" data-es="Tabla de Pruebas Basadas en Heces">Stool Based Test Table</h2>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
           <thead>
-            <tr style="text-align:left; background:#e2e8f0;">
-              <th style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;" data-en="Test Type" data-es="Tipo de prueba">Test Type</th>
-              <th style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;" data-en="Procedure" data-es="Procedimiento">Procedure</th>
-              <th style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;" data-en="Screening Frequency" data-es="Frecuencia de deteccion">Screening Frequency</th>
+            <tr>
+              <th data-en="Test Type" data-es="Tipo de Prueba">Test Type</th>
+              <th data-en="Procedure" data-es="Procedimiento">Procedure</th>
+              <th data-en="Screening Frequency" data-es="Frecuencia de Detección">Screening Frequency</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Colonoscopy</td>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Tube with light and camera inserted through the anus into the lower intestine; biopsies can be taken; special diet/fasting required; can be uncomfortable.</td>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Every 10 years starting at age 45; genetic risk may need every 1-5 years.</td>
+              <td data-en="Fecal immunochemical test (FIT)" data-es="Prueba inmunoquímica fecal (FIT)">Fecal immunochemical test (FIT)</td>
+              <td data-en="Checks for hidden blood in the stool and can be done at home. No dietary restrictions are required." data-es="Busca sangre oculta en las heces y puede hacerse en casa. No requiere restricciones alimentarias.">Checks for hidden blood in the stool and can be done at home. No dietary restrictions are required.</td>
+              <td data-en="Every year is recommended, starting at age 45. A colonoscopy is needed if the test results are positive." data-es="Se recomienda cada año a partir de los 45 años. Se necesita una colonoscopia si los resultados son positivos.">Every year is recommended, starting at age 45. A colonoscopy is needed if the test results are positive.</td>
             </tr>
             <tr>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">CT colonography (virtual colonoscopy)</td>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">X-rays and CT scans take 3D pictures of the rectum/colon; no sedation; catheter placed into rectum; less invasive; special diet/fasting required.</td>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Often every 5 years; follow clinician guidance.</td>
+              <td data-en="Guaiac-based fecal occult blood test (gFOBT)" data-es="Prueba de sangre oculta en heces basada en guayaco (gFOBT)">Guaiac-based fecal occult blood test (gFOBT)</td>
+              <td data-en="Checks for hidden blood in stool less accurately than the FIT test, but can be done at home. It does not differentiate between blood from the digestive tract or from the colon. Requires drug and diet restrictions." data-es="Busca sangre oculta en las heces con menos precisión que la prueba FIT, pero puede hacerse en casa. No diferencia entre sangre del tracto digestivo o del colon. Requiere restricciones de medicamentos y dieta.">Checks for hidden blood in stool less accurately than the FIT test, but can be done at home. It does not differentiate between blood from the digestive tract or from the colon. Requires drug and diet restrictions.</td>
+              <td data-en="Every year is recommended, starting at age 45. A colonoscopy is needed if the test results are positive." data-es="Se recomienda cada año a partir de los 45 años. Se necesita una colonoscopia si los resultados son positivos.">Every year is recommended, starting at age 45. A colonoscopy is needed if the test results are positive.</td>
             </tr>
             <tr>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Sigmoidoscopy</td>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Scope examines the rectum and lower colon; prep required; quicker than a full colonoscopy.</td>
-              <td style="padding:0.65rem 0.75rem; border:1px solid #94a3b8;">Typically every 5 years for average risk; follow clinician guidance.</td>
+              <td data-en="Multitargeted stool DNA/RNA tests (Cologuard)" data-es="Pruebas de ADN/ARN en heces de múltiples objetivos (Cologuard)">Multitargeted stool DNA/RNA tests (Cologuard)</td>
+              <td data-en="Screens the stool for mutated sections of DNA/RNA in cancer cells, in addition to blood. This test can be done at home. There are no drug or dietary restrictions. Popular companies include Cologuard." data-es="Analiza las heces para detectar secciones mutadas de ADN/ARN en células cancerosas, además de sangre. Esta prueba puede hacerse en casa. No hay restricciones de medicamentos ni de dieta. Las compañías populares incluyen Cologuard.">Screens the stool for mutated sections of DNA/RNA in cancer cells, in addition to blood. This test can be done at home. There are no drug or dietary restrictions. Popular companies include Cologuard.</td>
+              <td data-en="Every three years, starting at age 45." data-es="Cada tres años, a partir de los 45 años.">Every three years, starting at age 45.</td>
             </tr>
           </tbody>
         </table>
       </div>
+      <figure class="doc-figure" style="max-width: 760px;">
+        <img src="colorectal-format-sample.png" alt="Stool based colorectal screening sample illustration">
+      </figure>
+    </div>
+
+    <div class="detail-card accent-colon">
+      <h2 data-en="Visual Exams" data-es="Exámenes Visuales">Visual Exams</h2>
+      <p data-en="These tests give visualization inside the colon and rectum of the patient to check for any abnormal areas that might mean cancer or polyps." data-es="Estas pruebas permiten visualizar el interior del colon y el recto del paciente para revisar cualquier área anormal que pudiera indicar cáncer o pólipos.">These tests give visualization inside the colon and rectum of the patient to check for any abnormal areas that might mean cancer or polyps.</p>
+      <p class="doc-kicker" data-en="Types of this test include:" data-es="Los tipos de esta prueba incluyen:">Types of this test include:</p>
+      <ul class="doc-list">
+        <li data-en="Colonoscopy" data-es="Colonoscopia">Colonoscopy</li>
+        <li data-en="CT colonography (virtual colonoscopy)" data-es="Colonografía por TC (colonoscopia virtual)">CT colonography (virtual colonoscopy)</li>
+        <li data-en="Sigmoidoscopy" data-es="Sigmoidoscopia">Sigmoidoscopy</li>
+      </ul>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th data-en="Test Type" data-es="Tipo de Prueba">Test Type</th>
+              <th data-en="Procedure" data-es="Procedimiento">Procedure</th>
+              <th data-en="Screening Frequency" data-es="Frecuencia de Detección">Screening Frequency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-en="Colonoscopy" data-es="Colonoscopia">Colonoscopy</td>
+              <td data-en="A tube with a light and video camera is inserted through the anus into regions of the lower intestine. Biopsies can be taken here. Special diet and fasting are required before. It can be uncomfortable." data-es="Se introduce por el ano un tubo con luz y cámara de video en regiones del intestino inferior. Aquí se pueden tomar biopsias. Se requiere dieta especial y ayuno antes del procedimiento. Puede ser incómodo.">A tube with a light and video camera is inserted through the anus into regions of the lower intestine. Biopsies can be taken here. Special diet and fasting are required before. It can be uncomfortable.</td>
+              <td data-en="Every 10 years starting at age 45. Genetic risk factors increase frequency to every 1-5 years." data-es="Cada 10 años a partir de los 45 años. Los factores de riesgo genético aumentan la frecuencia a cada 1 a 5 años.">Every 10 years starting at age 45. Genetic risk factors increase frequency to every 1-5 years.</td>
+            </tr>
+            <tr>
+              <td data-en="CT colonography (virtual colonoscopy)" data-es="Colonografía por TC (colonoscopia virtual)">CT colonography (virtual colonoscopy)</td>
+              <td data-en="X-rays and CT scans take 3D pictures of the inside of the rectum and colon. Sedation is not required. A catheter is placed into the rectum. It is less invasive. Special diet and fasting are required before." data-es="Las radiografías y tomografías crean imágenes 3D del interior del recto y el colon. No se requiere sedación. Se coloca un catéter en el recto. Es menos invasiva. Se requiere dieta especial y ayuno antes del procedimiento.">X-rays and CT scans take 3D pictures of the inside of the rectum and colon. Sedation is not required. A catheter is placed into the rectum. It is less invasive. Special diet and fasting are required before.</td>
+              <td data-en="Every 5 years." data-es="Cada 5 años.">Every 5 years.</td>
+            </tr>
+            <tr>
+              <td data-en="Sigmoidoscopy" data-es="Sigmoidoscopia">Sigmoidoscopy</td>
+              <td data-en="Similar to a colonoscopy, but rather than examining the entire colon, it only examines the lower part of the colon through the rectum." data-es="Es similar a una colonoscopia, pero en lugar de examinar todo el colon, solo examina la parte inferior del colon a través del recto.">Similar to a colonoscopy, but rather than examining the entire colon, it only examines the lower part of the colon through the rectum.</td>
+              <td data-en="Every 5 years." data-es="Cada 5 años.">Every 5 years.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="detail-card accent-colon">
+      <h2 data-en="Blood-Based Tests" data-es="Pruebas Basadas en Sangre">Blood-Based Tests</h2>
+      <p data-en="These tests look for any possible signs of colorectal cancer or precancerous polyps by examining a person's blood. They are done in a clinic where your blood is drawn and then sent to a lab. The lab looks for DNA changes that could suggest the presence of cancer or precancer cells." data-es="Estas pruebas buscan posibles signos de cáncer colorrectal o pólipos precancerosos examinando la sangre de una persona. Se realizan en una clínica, donde se extrae sangre y luego se envía a un laboratorio. Allí se buscan cambios en el ADN que podrían sugerir la presencia de cáncer o de células precancerosas.">These tests look for any possible signs of colorectal cancer or precancerous polyps by examining a person's blood. They are done in a clinic where your blood is drawn and then sent to a lab. The lab looks for DNA changes that could suggest the presence of cancer or precancer cells.</p>
+      <ul class="doc-list">
+        <li data-en="Shield" data-es="Shield">Shield</li>
+        <li data-en="ColoHealth (previously Epi proColon)" data-es="ColoHealth (anteriormente Epi proColon)">ColoHealth (previously Epi proColon)</li>
+      </ul>
+      <h3 data-en="Screening Frequency for Average-Risk Patients" data-es="Frecuencia de Detección para Pacientes de Riesgo Promedio">Screening Frequency for Average-Risk Patients</h3>
+      <p data-en="Ages 50-85 → every 3 years" data-es="Edades 50-85 → cada 3 años">Ages 50-85 → every 3 years</p>
+    </div>
+
+    <div class="detail-note">
+      <h3 data-en="For More Information" data-es="Para Más Información">For More Information</h3>
+      <p><a class="doc-link" href="https://www.cancer.org/cancer/types/colon-rectal-cancer/detection-diagnosis-staging/screening-tests-used.html" target="_blank" rel="noopener" data-en="American Cancer Society" data-es="American Cancer Society">American Cancer Society</a></p>
+    </div>
+
+    <div class="definition-bubble accent-colon">
+      <strong data-en="An average-risk patient is someone who does NOT have:" data-es="Un paciente de riesgo promedio es alguien que NO tiene:">An average-risk patient is someone who does NOT have:</strong>
+      <ul>
+        <li data-en="A personal history of colorectal cancer" data-es="Antecedentes personales de cáncer colorrectal">A personal history of colorectal cancer</li>
+        <li data-en="An inflammatory bowel disease" data-es="Una enfermedad inflamatoria intestinal">An inflammatory bowel disease</li>
+        <li data-en="A strong family history of colorectal cancer" data-es="Un fuerte antecedente familiar de cáncer colorrectal">A strong family history of colorectal cancer</li>
+        <li data-en="Any genetic syndromes" data-es="Cualquier síndrome genético">Any genetic syndromes</li>
+      </ul>
+    </div>
+
+    <div class="definition-bubble accent-colon">
+      <strong data-en="A high-risk patient is one that:" data-es="Un paciente de alto riesgo es alguien que:">A high-risk patient is one that:</strong>
+      <ul>
+        <li data-en="Has a personal history of colorectal cancer or polyps" data-es="Tiene antecedentes personales de cáncer colorrectal o pólipos">Has a personal history of colorectal cancer or polyps</li>
+        <li data-en="Has any inflammatory bowel disease" data-es="Tiene alguna enfermedad inflamatoria intestinal">Has any inflammatory bowel disease</li>
+        <li data-en="Has a strong family history of the cancer" data-es="Tiene un fuerte antecedente familiar de este cáncer">Has a strong family history of the cancer</li>
+        <li data-en="Has genetic syndromes that link them to colorectal cancer" data-es="Tiene síndromes genéticos que lo vinculan al cáncer colorrectal">Has genetic syndromes that link them to colorectal cancer</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -161,16 +265,3 @@
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "42f954fe42be4b7ba8473652d7246c13"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

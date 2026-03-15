@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -17,6 +17,36 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/chatbot.css">
 <link rel="stylesheet" href="mobile.css">
+<style>
+.doc-flow {
+  display: grid;
+  gap: 1.5rem;
+}
+.doc-figure {
+  margin: 1.25rem auto 0;
+  max-width: 920px;
+}
+.doc-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  background: #fff;
+}
+.doc-list {
+  margin: 0.45rem 0 0 1.15rem;
+  padding: 0;
+}
+.doc-list li {
+  margin-bottom: 0.35rem;
+}
+.doc-link {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+</style>
 </head>
 <body data-page="lung.html" class="accent-lung">
 <header>
@@ -62,42 +92,31 @@
 </header>
 
 <section class="section hero-lung">
-  <div class="container">
+  <div class="container doc-flow">
     <h1 data-en="Lung Cancer" data-es="Cáncer de Pulmón">Lung Cancer</h1>
 
-    <div class="detail-intro">
-      <p data-en="Lung cancer screening uses a low-dose CT scan (LDCT) to look for early signs of cancer before symptoms begin. It is mainly recommended for people with a high-risk smoking history." data-es="La detección del cáncer de pulmón utiliza una tomografía computarizada de baja dosis (LDCT) para buscar signos tempranos de cáncer antes de que comiencen los síntomas. Se recomienda principalmente para personas con antecedentes de tabaquismo de alto riesgo.">Lung cancer screening uses a low-dose CT scan (LDCT) to look for early signs of cancer before symptoms begin. It is mainly recommended for people with a high-risk smoking history.</p>
+    <div class="detail-card accent-lung">
+      <h2 data-en="Low-Dose CT Scan (LDCT)" data-es="Tomografía Computarizada de Baja Dosis (LDCT)">Low-Dose CT Scan (LDCT)</h2>
+      <p data-en="Involved the usage of small amounts (low doses) of radiation in order to create detailed images of the lungs. The procedure is painless, noninvasive, and only takes a few minutes." data-es="Implica el uso de pequeñas cantidades (dosis bajas) de radiación para crear imágenes detalladas de los pulmones. El procedimiento es indoloro, no invasivo y solo toma unos minutos.">Involved the usage of small amounts (low doses) of radiation in order to create detailed images of the lungs. The procedure is painless, noninvasive, and only takes a few minutes.</p>
+      <figure class="doc-figure">
+        <img src="lung-format-illustration.png" alt="Low-dose CT scan lung screening illustration">
+      </figure>
+      <h3 data-en="Screening Frequency (high risk patient):" data-es="Frecuencia de Detección (paciente de alto riesgo):">Screening Frequency (high risk patient):</h3>
+      <p data-en="Ages 50 to 80 years → once every year" data-es="Edades de 50 a 80 años → una vez al año">Ages 50 to 80 years → once every year</p>
     </div>
 
-    <div class="detail-grid">
-      <div class="detail-card accent-lung">
-        <h2 data-en="Low-Dose CT Scan (LDCT)" data-es="Tomografía Computarizada de Baja Dosis (LDCT)">Low-Dose CT Scan (LDCT)</h2>
-        <p data-en="Involved the usage of small amounts (low doses) of radiation in order to create detailed images of the lungs. The procedure is painless, noninvasive, and only takes a few minutes." data-es="Implica el uso de pequeñas cantidades (dosis bajas) de radiación para crear imágenes detalladas de los pulmones. El procedimiento es indoloro, no invasivo y solo toma unos minutos.">Involved the usage of small amounts (low doses) of radiation in order to create detailed images of the lungs. The procedure is painless, noninvasive, and only takes a few minutes.</p>
+    <div class="detail-card accent-lung">
+      <h2 data-en="Who Should be Screened" data-es="Quiénes Deben Hacerse la Detección">Who Should be Screened</h2>
+      <ul class="doc-list">
+        <li data-en="Adults between the ages of 50 and 80" data-es="Adultos entre 50 y 80 años">Adults between the ages of 50 and 80</li>
+        <li data-en="People who have a 20 pack-year or more smoking history (a pack year is one pack per day for a year)" data-es="Personas con un historial de tabaquismo de 20 paquetes-año o más (un paquete-año equivale a un paquete por día durante un año)">People who have a 20 pack-year or more smoking history (a pack year is one pack per day for a year)</li>
+        <li data-en="Current smokers or former smokers who have quit within the past 15 years" data-es="Fumadores actuales o exfumadores que dejaron de fumar en los últimos 15 años">Current smokers or former smokers who have quit within the past 15 years</li>
+      </ul>
+    </div>
 
-        <figure class="screening-figure screening-figure--wide">
-          <a href="https://www.researchgate.net/publication/392797200/figure/fig1/AS:11431281769872405@1764990150432/Imaging-examination-pathological-examination-and-AI-for-lung-cancer-screening.png" target="_blank" rel="noopener" class="screening-figure-link">
-            <img src="LungCancer.webp" alt="Low-dose CT scan illustration" style="object-fit: contain; background: #f8fafc;">
-          </a>
-          <figcaption>
-            <span class="screening-figure-title" data-en="Low-dose CT scan illustration" data-es="Ilustración de tomografía computarizada de baja dosis">Low-dose CT scan illustration</span>
-            <span class="screening-figure-source" data-en="Source: ResearchGate" data-es="Fuente: ResearchGate">Source: ResearchGate</span>
-          </figcaption>
-        </figure>
-
-        <h3 data-en="Screening Frequency (high risk patient):" data-es="Frecuencia de Detección (paciente de alto riesgo):">Screening Frequency (high risk patient):</h3>
-        <ul>
-          <li data-en="Ages 50 to 80 years → once every year" data-es="Edades de 50 a 80 años → una vez al año">Ages 50 to 80 years → once every year</li>
-        </ul>
-      </div>
-
-      <div class="detail-card accent-lung">
-        <h2 data-en="Who Should be Screened" data-es="Quiénes Deben Hacerse la Detección">Who Should be Screened</h2>
-        <ul>
-          <li data-en="Adults between the ages of 50 and 80" data-es="Adultos entre 50 y 80 años">Adults between the ages of 50 and 80</li>
-          <li data-en="People who have a 20 pack-year or more smoking history (a pack year is one pack per day for a year)" data-es="Personas con un historial de tabaquismo de 20 paquetes-año o más (un paquete-año equivale a un paquete por día durante un año)">People who have a 20 pack-year or more smoking history (a pack year is one pack per day for a year)</li>
-          <li data-en="Current smokers or former smokers who have quit within the past 15 years" data-es="Fumadores actuales o exfumadores que dejaron de fumar en los últimos 15 años">Current smokers or former smokers who have quit within the past 15 years</li>
-        </ul>
-      </div>
+    <div class="detail-note">
+      <h3 data-en="Additional Information" data-es="Información Adicional">Additional Information</h3>
+      <p><a class="doc-link" href="https://www.cdc.gov/lung-cancer/screening/index.html" target="_blank" rel="noopener" data-en="CDC: Lung Cancer" data-es="CDC: Cáncer de Pulmón">CDC: Lung Cancer</a></p>
     </div>
 
     <div class="definition-bubble accent-lung">
@@ -116,11 +135,6 @@
         <li data-en="Current smoker or quit within the last 15 years" data-es="Fumador actual o que dejó de fumar en los últimos 15 años">Current smoker or quit within the last 15 years</li>
         <li data-en="Exposure to harmful substances" data-es="Exposición a sustancias dañinas">Exposure to harmful substances</li>
       </ul>
-    </div>
-
-    <div class="detail-note">
-      <h3 data-en="Additional Information" data-es="Información Adicional">Additional Information</h3>
-      <p><a href="https://www.cdc.gov/lung-cancer/screening/index.html" target="_blank" rel="noopener" style="color: #93c5fd; text-decoration: underline;" data-en="CDC: Lung Cancer" data-es="CDC: Cáncer de Pulmón">CDC: Lung Cancer</a></p>
     </div>
   </div>
 </section>

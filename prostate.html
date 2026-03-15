@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -17,6 +17,36 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/chatbot.css">
 <link rel="stylesheet" href="mobile.css">
+<style>
+.doc-flow {
+  display: grid;
+  gap: 1.5rem;
+}
+.doc-figure {
+  margin: 1.25rem auto 0;
+  max-width: 920px;
+}
+.doc-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  background: #fff;
+}
+.doc-list {
+  margin: 0.45rem 0 0 1.15rem;
+  padding: 0;
+}
+.doc-list li {
+  margin-bottom: 0.35rem;
+}
+.doc-link {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+</style>
 </head>
 <body data-page="prostate.html" class="accent-prostate">
 <header>
@@ -27,7 +57,16 @@
     </div>
     <nav class="tabs">
       <a class="tab" href="index.html" data-en="Home" data-es="Inicio">Home</a>
-      <a class="tab" href="cancer-types.html" data-en="Learn About Different Cancer Types" data-es="Aprende Sobre Diferentes Tipos de Cáncer">Learn About Different Cancer Types</a>
+      <span class="tab2-wrap">
+        <a class="tab" href="cancer-types.html" data-en="Learn About Different Cancer Types" data-es="Aprende Sobre Diferentes Tipos de Cáncer">Learn About Different Cancer Types</a>
+        <div class="cancer-menu">
+          <a href="breast-learn.html" data-en="Breast" data-es="Mama">Breast</a>
+          <a href="cervical-learn.html" data-en="Cervical" data-es="Cervical">Cervical</a>
+          <a href="colon-learn.html" data-en="Colorectal" data-es="Colorrectal">Colorectal</a>
+          <a href="lung-learn.html" data-en="Lung" data-es="Pulmón">Lung</a>
+          <a href="prostate-learn.html" data-en="Prostate" data-es="Próstata">Prostate</a>
+        </div>
+      </span>
       <span class="tab2-wrap">
         <a class="tab" href="screening-info.html" data-en="Screening Types and Routine" data-es="Tipos de Detección y Rutina">Screening Types and Routine</a>
         <div class="cancer-menu">
@@ -53,59 +92,48 @@
 </header>
 
 <section class="section hero-prostate">
-  <div class="container">
+  <div class="container doc-flow">
     <h1 data-en="Prostate Cancer" data-es="Cáncer de Próstata">Prostate Cancer</h1>
 
-    <div class="detail-intro">
-      <p data-en="Prostate screening often starts with a prostate-specific antigen (PSA) blood test and may also include a digital rectal exam (DRE). These tools help doctors decide whether more testing is needed based on age, risk level, and PSA trends over time." data-es="La detección del cáncer de próstata suele comenzar con una prueba de sangre del antígeno prostático específico (PSA) y también puede incluir un examen rectal digital (ERD). Estas herramientas ayudan a los médicos a decidir si se necesitan más pruebas según la edad, el nivel de riesgo y la evolución del PSA con el tiempo.">Prostate screening often starts with a prostate-specific antigen (PSA) blood test and may also include a digital rectal exam (DRE). These tools help doctors decide whether more testing is needed based on age, risk level, and PSA trends over time.</p>
+    <div class="detail-card accent-prostate">
+      <h2 data-en="Prostate-Specific Antigen (PSA) Blood Test" data-es="Prueba de Sangre del Antígeno Prostático Específico (PSA)">Prostate-Specific Antigen (PSA) Blood Test</h2>
+      <p data-en="This involved taking a blood test that will measure the levels of PSA which is a protein made by cells in the prostate gland. PSA is primarily comprised of semen but you can also find small traces of it in the blood. The higher the levels, the higher the chances of prostate cancer or prostate-related conditions. However, it is important to note that no set cutoff point can tell for sure if a man does or does not have prostate cancer. The test involves just a simple blood draw done at a clinic." data-es="Esto implica realizar un análisis de sangre para medir los niveles de PSA, una proteína producida por células de la glándula prostática. El PSA se compone principalmente de semen, pero también se pueden encontrar pequeñas cantidades en la sangre. Cuanto más altos sean los niveles, mayores son las probabilidades de cáncer de próstata u otras afecciones prostáticas. Sin embargo, es importante señalar que no existe un punto de corte fijo que pueda determinar con certeza si un hombre tiene o no cáncer de próstata. La prueba consiste simplemente en una extracción de sangre realizada en una clínica.">This involved taking a blood test that will measure the levels of PSA which is a protein made by cells in the prostate gland. PSA is primarily comprised of semen but you can also find small traces of it in the blood. The higher the levels, the higher the chances of prostate cancer or prostate-related conditions. However, it is important to note that no set cutoff point can tell for sure if a man does or does not have prostate cancer. The test involves just a simple blood draw done at a clinic.</p>
+      <h3 data-en="Screening Frequency (average-risk patient):" data-es="Frecuencia de Detección (paciente de riesgo promedio):">Screening Frequency (average-risk patient):</h3>
+      <ul class="doc-list">
+        <li data-en="Ages 50-69 → biannual to annual depending on PSA levels" data-es="Edades 50-69 → cada dos años o anualmente según los niveles de PSA">Ages 50-69 → biannual to annual depending on PSA levels</li>
+        <li data-en="Not routinely recommended under age 50 or over age 70 unless advised by a doctor" data-es="No se recomienda de rutina antes de los 50 ni después de los 70, a menos que lo indique un médico">Not routinely recommended under age 50 or over age 70 unless advised by a doctor</li>
+      </ul>
+      <h3 data-en="Screening Frequency (high-risk patient):" data-es="Frecuencia de Detección (paciente de alto riesgo):">Screening Frequency (high-risk patient):</h3>
+      <ul class="doc-list">
+        <li data-en="Ages 40-45 → every 1-2 years" data-es="Edades 40-45 → cada 1-2 años">Ages 40-45 → every 1-2 years</li>
+      </ul>
     </div>
 
-    <div class="detail-grid">
-      <div class="detail-card accent-prostate">
-        <h2 data-en="Prostate-Specific Antigen (PSA) Blood Test" data-es="Prueba de Sangre del Antígeno Prostático Específico (PSA)">Prostate-Specific Antigen (PSA) Blood Test</h2>
-        <p data-en="This involved taking a blood test that will measure the levels of PSA which is a protein made by cells in the prostate gland. PSA is primarily comprised of semen but you can also find small traces of it in the blood. The higher the levels, the higher the chances of prostate cancer or prostate-related conditions. However, it is important to note that no set cutoff point can tell for sure if a man does or does not have prostate cancer. The test involves a simple blood draw done at a clinic." data-es="Esto implica realizar un análisis de sangre para medir los niveles de PSA, una proteína producida por células de la glándula prostática. El PSA se encuentra principalmente en el semen, pero también se pueden encontrar pequeñas cantidades en la sangre. Cuanto más altos sean los niveles, mayores son las probabilidades de cáncer de próstata u otras afecciones prostáticas. Sin embargo, es importante señalar que no existe un punto de corte fijo que pueda determinar con certeza si un hombre tiene o no cáncer de próstata. La prueba consiste en una extracción de sangre sencilla realizada en una clínica.">This involved taking a blood test that will measure the levels of PSA which is a protein made by cells in the prostate gland. PSA is primarily comprised of semen but you can also find small traces of it in the blood. The higher the levels, the higher the chances of prostate cancer or prostate-related conditions. However, it is important to note that no set cutoff point can tell for sure if a man does or does not have prostate cancer. The test involves a simple blood draw done at a clinic.</p>
-
-        <h3 data-en="Screening Frequency (average-risk patient):" data-es="Frecuencia de Detección (paciente de riesgo promedio):">Screening Frequency (average-risk patient):</h3>
-        <ul>
-          <li data-en="Ages 50-69 → biannual to annual depending on PSA levels" data-es="Edades 50-69 → cada dos años o anualmente según los niveles de PSA">Ages 50-69 → biannual to annual depending on PSA levels</li>
-          <li data-en="Not routinely recommended under age 50 or over age 70 unless advised by a doctor" data-es="No se recomienda de rutina antes de los 50 ni después de los 70, a menos que lo indique un médico">Not routinely recommended under age 50 or over age 70 unless advised by a doctor</li>
-        </ul>
-
-        <h3 data-en="Screening Frequency (high-risk patient):" data-es="Frecuencia de Detección (paciente de alto riesgo):">Screening Frequency (high-risk patient):</h3>
-        <ul>
-          <li data-en="Ages 40-45 → every 1-2 years" data-es="Edades 40-45 → cada 1-2 años">Ages 40-45 → every 1-2 years</li>
-        </ul>
-      </div>
-
-      <div class="detail-card accent-prostate">
-        <h2 data-en="PSA Levels" data-es="Niveles de PSA">PSA Levels</h2>
-        <ul>
-          <li data-en="Most men that do not have prostate cancer will have levels that fall under 4 ng/mL of blood" data-es="La mayoría de los hombres que no tienen cáncer de próstata tendrán niveles por debajo de 4 ng/mL de sangre">Most men that do not have prostate cancer will have levels that fall under 4 ng/mL of blood</li>
-          <li data-en="Having a level between 4 and 10 is equivalent to having a 1 in 4 chance of having prostate cancer" data-es="Tener un nivel entre 4 y 10 equivale aproximadamente a una probabilidad de 1 en 4 de tener cáncer de próstata">Having a level between 4 and 10 is equivalent to having a 1 in 4 chance of having prostate cancer</li>
-          <li data-en="If PSA level is greater than 10 that means that the chances of that man having prostate cancer is above 50%" data-es="Si el nivel de PSA es mayor de 10, eso significa que la probabilidad de que ese hombre tenga cáncer de próstata es superior al 50%">If PSA level is greater than 10 that means that the chances of that man having prostate cancer is above 50%</li>
-        </ul>
-      </div>
+    <div class="detail-card accent-prostate">
+      <h2 data-en="PSA Levels" data-es="Niveles de PSA">PSA Levels</h2>
+      <ul class="doc-list">
+        <li data-en="Most men that do not have prostate cancer will have levels that fall under 4 ng/mL of blood" data-es="La mayoría de los hombres que no tienen cáncer de próstata tendrán niveles por debajo de 4 ng/mL de sangre">Most men that do not have prostate cancer will have levels that fall under 4 ng/mL of blood</li>
+        <li data-en="Having a level between 4 and 10 is equivalent to having a 1 in 4 chance of having prostate cancer" data-es="Tener un nivel entre 4 y 10 equivale aproximadamente a una probabilidad de 1 en 4 de tener cáncer de próstata">Having a level between 4 and 10 is equivalent to having a 1 in 4 chance of having prostate cancer</li>
+        <li data-en="If PSA level is greater than 10 that means that the chances of that man having prostate cancer is above 50%" data-es="Si el nivel de PSA es mayor de 10, eso significa que la probabilidad de que ese hombre tenga cáncer de próstata es superior al 50%">If PSA level is greater than 10 that means that the chances of that man having prostate cancer is above 50%</li>
+      </ul>
     </div>
 
-    <div class="detail-card accent-prostate" style="margin-top: 0.35rem;">
+    <div class="detail-card accent-prostate">
       <h2 data-en="Digital Rectal Exam (DRE)" data-es="Examen Rectal Digital (ERD)">Digital Rectal Exam (DRE)</h2>
-      <p data-en="Involves a healthcare provider or doctor inserting a gloved, lubricated hand into the rectum in attempts to feel for abnormal bumps or hard areas on the prostate that could indicate prostate cancer. It may cause brief, mild discomfort." data-es="Implica que un profesional de la salud o un médico inserte un dedo enguantado y lubricado en el recto para tratar de detectar bultos anormales o zonas duras en la próstata que podrían indicar cáncer de próstata. Puede causar una molestia breve y leve.">Involves a healthcare provider or doctor inserting a gloved, lubricated hand into the rectum in attempts to feel for abnormal bumps or hard areas on the prostate that could indicate prostate cancer. It may cause brief, mild discomfort.</p>
-
-      <figure class="screening-figure" style="max-width: 320px;">
-        <a href="https://www.cancer.org/adobe/dynamicmedia/deliver/dm-aid--d7b11ae8-f4fb-4c52-9183-e14d458cd489/prostate.jpg?quality=82&preferwebp=true" target="_blank" rel="noopener" class="screening-figure-link">
-          <img src="https://www.cancer.org/adobe/dynamicmedia/deliver/dm-aid--d7b11ae8-f4fb-4c52-9183-e14d458cd489/prostate.jpg?quality=82&preferwebp=true" alt="Digital rectal exam illustration" style="object-fit: cover;">
-        </a>
-        <figcaption>
-          <span class="screening-figure-title" data-en="Digital rectal exam illustration" data-es="Ilustración del examen rectal digital">Digital rectal exam illustration</span>
-          <span class="screening-figure-source" data-en="Source: American Cancer Society" data-es="Fuente: American Cancer Society">Source: American Cancer Society</span>
-        </figcaption>
+      <p data-en="Involves a healthcare provider or doctor inserting a gloved, lubricated hand into the rectum in attempts to feel for abnormal bumps or hard areas on the prostate that could indicate prostate cancer. It may cause brief, mild discomfort." data-es="Implica que un profesional de la salud o un médico inserte una mano enguantada y lubricada en el recto para tratar de detectar bultos anormales o áreas duras en la próstata que podrían indicar cáncer de próstata. Puede causar una molestia breve y leve.">Involves a healthcare provider or doctor inserting a gloved, lubricated hand into the rectum in attempts to feel for abnormal bumps or hard areas on the prostate that could indicate prostate cancer. It may cause brief, mild discomfort.</p>
+      <figure class="doc-figure" style="max-width: 880px;">
+        <img src="prostate-format-illustration.png" alt="Prostate screening illustration">
       </figure>
-
       <h3 data-en="Screening Frequency" data-es="Frecuencia de Detección">Screening Frequency</h3>
-      <ul>
+      <ul class="doc-list">
         <li data-en="Often occurs at the same time as PSA testing" data-es="A menudo ocurre al mismo tiempo que la prueba de PSA">Often occurs at the same time as PSA testing</li>
         <li data-en="Frequency cannot be determined without consulting a doctor who will factor in the risk factors" data-es="La frecuencia no puede determinarse sin consultar a un médico que tome en cuenta los factores de riesgo">Frequency cannot be determined without consulting a doctor who will factor in the risk factors</li>
       </ul>
+    </div>
+
+    <div class="detail-note">
+      <h3 data-en="Additional Information" data-es="Información Adicional">Additional Information</h3>
+      <p><a class="doc-link" href="https://www.cancer.org/cancer/types/prostate-cancer/detection-diagnosis-staging/tests.html" target="_blank" rel="noopener" data-en="American Cancer Society" data-es="American Cancer Society">American Cancer Society</a></p>
     </div>
 
     <div class="definition-bubble accent-prostate">
@@ -113,22 +141,17 @@
       <ul>
         <li data-en="A family history of prostate cancer" data-es="Antecedentes familiares de cáncer de próstata">A family history of prostate cancer</li>
         <li data-en="African ancestry" data-es="Ascendencia africana">African ancestry</li>
-        <li data-en="Any known genetic mutations that are linked to prostate cancer" data-es="Mutaciones genéticas conocidas relacionadas con el cáncer de próstata">Any known genetic mutations that are linked to prostate cancer</li>
+        <li data-en="Any known genetic mutations that are linked to prostate cancer" data-es="Cualquier mutación genética conocida relacionada con el cáncer de próstata">Any known genetic mutations that are linked to prostate cancer</li>
       </ul>
     </div>
 
     <div class="definition-bubble accent-prostate">
       <strong data-en="A high-risk patient is someone with:" data-es="Un paciente de alto riesgo es alguien con:">A high-risk patient is someone with:</strong>
       <ul>
-        <li data-en="A strong family history of prostate cancer" data-es="Fuertes antecedentes familiares de cáncer de próstata">A strong family history of prostate cancer</li>
+        <li data-en="A strong family history of prostate cancer" data-es="Un fuerte antecedente familiar de cáncer de próstata">A strong family history of prostate cancer</li>
         <li data-en="African ancestry" data-es="Ascendencia africana">African ancestry</li>
         <li data-en="Known genetic mutations" data-es="Mutaciones genéticas conocidas">Known genetic mutations</li>
       </ul>
-    </div>
-
-    <div class="detail-note">
-      <h3 data-en="Additional Information" data-es="Información Adicional">Additional Information</h3>
-      <p><a href="https://www.cancer.org/cancer/types/prostate-cancer/detection-diagnosis-staging/tests.html" target="_blank" rel="noopener" style="color: #93c5fd; text-decoration: underline;" data-en="American Cancer Society" data-es="American Cancer Society">American Cancer Society</a></p>
     </div>
   </div>
 </section>
@@ -146,12 +169,3 @@
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "42f954fe42be4b7ba8473652d7246c13"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
-
-
-
-
-
-
-
-
-
