@@ -7,7 +7,7 @@ class Chatbot {
     this.lang = document.documentElement.lang || 'en';
     // ⚠️ SECURITY WARNING: API KEY EXPOSED IN CLIENT-SIDE CODE ⚠️
     // For production, move to backend endpoint
-    this.apiKey = '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';
+    this.apiKey = 'N/A';  // REPLACE WITH YOUR GROQ API KEY
     this.apiUrl = 'https://api.groq.com/openai/v1/chat/completions';
     
     this.init();
