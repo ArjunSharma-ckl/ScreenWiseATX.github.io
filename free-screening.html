@@ -16,6 +16,65 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="mobile.css">
+<style>
+  .cost-guide {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .cost-note {
+    padding: 1.4rem 1.5rem;
+    background: linear-gradient(135deg, #eff6ff, #f8fafc);
+    border: 1px solid #bfdbfe;
+    border-radius: 14px;
+    color: #334155;
+    line-height: 1.7;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  }
+
+  .cost-card {
+    padding: 1.7rem;
+    background: white;
+    border-radius: 14px;
+    border-left: 6px solid #0369a1;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  }
+
+  .cost-card h3 {
+    margin: 0 0 0.9rem;
+    color: #0369a1;
+    font-size: 1.45rem;
+  }
+
+  .cost-table-wrap {
+    overflow-x: auto;
+    margin-top: 1rem;
+  }
+
+  .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #cbd5e1;
+    min-width: 680px;
+    background: #fff;
+  }
+
+  .cost-table th,
+  .cost-table td {
+    padding: 0.8rem 0.9rem;
+    border: 1px solid #cbd5e1;
+    text-align: left;
+    vertical-align: top;
+    color: #334155;
+    line-height: 1.6;
+  }
+
+  .cost-table th {
+    background: #e0f2fe;
+    color: #0f172a;
+    font-weight: 700;
+  }
+</style>
 </head>
 <body>
 <header>
@@ -60,42 +119,191 @@
 
 <section class="section why-it-matters">
   <div class="container">
-    <h2 data-en="Affordable Screening Options" data-es="Opciones de Detección Asequibles">Affordable Screening Options</h2>
-    <p data-en="Cost should never be a barrier to getting screened for cancer. Many programs offer free or low-cost screening services for those who qualify." data-es="El costo nunca debe ser una barrera para hacerse pruebas de detección del cáncer. Muchos programas ofrecen servicios de detección gratuitos o de bajo costo para quienes califiquen.">Cost should never be a barrier to getting screened for cancer. Many programs offer free or low-cost screening services for those who qualify.</p>
-    
-    <div style="margin-top: 3rem;">
-      <div style="margin-bottom: 2rem; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 6px solid #0369a1;">
-        <h3 style="color: #0369a1; font-size: 1.5em; margin-bottom: 1em;" data-en="Insurance Coverage" data-es="Cobertura de Seguro">Insurance Coverage</h3>
-        <p style="color: #374151; margin-bottom: 1em;" data-en="Under the Affordable Care Act, most health insurance plans must cover cancer screening tests at no cost to you when provided by an in-network provider." data-es="Bajo la Ley de Cuidado de Salud Asequible, la mayoría de los planes de seguro médico deben cubrir las pruebas de detección del cáncer sin costo para usted cuando las proporciona un proveedor de la red.">Under the Affordable Care Act, most health insurance plans must cover cancer screening tests at no cost to you when provided by an in-network provider.</p>
-        <ul style="color: #374151; line-height: 1.8;">
-          <li data-en="Mammograms for women 40+" data-es="Mamografías para mujeres mayores de 40 años">Mammograms for women 40+</li>
-          <li data-en="Pap smears and HPV testing" data-es="Papanicolaou y pruebas de VPH">Pap smears and HPV testing</li>
-          <li data-en="Colonoscopy for adults 45+" data-es="Colonoscopia para adultos mayores de 45 años">Colonoscopy for adults 45+</li>
-          <li data-en="Lung cancer screening for high-risk individuals" data-es="Detección de cáncer de pulmón para individuos de alto riesgo">Lung cancer screening for high-risk individuals</li>
-        </ul>
+    <div class="cost-guide">
+      <div class="cost-note">
+        <p style="margin: 0 0 0.75rem;" data-en="Keep in mind that many of these prices listed are sourced from those offered at clinics around Austin!" data-es="Tenga en cuenta que muchos de estos precios provienen de los que ofrecen clínicas en Austin.">Keep in mind that many of these prices listed are sourced from those offered at clinics around Austin!</p>
+        <p style="margin: 0;" data-en="Costs for each screening method will vary due to insurance coverage, a facility’s billing structure, and provider-specific pricing." data-es="Los costos de cada método de detección variarán según la cobertura del seguro, la estructura de cobro de la clínica y los precios específicos de cada proveedor.">Costs for each screening method will vary due to insurance coverage, a facility’s billing structure, and provider-specific pricing.</p>
       </div>
 
-      <div style="margin-bottom: 2rem; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 6px solid #d97706;">
-        <h3 style="color: #d97706; font-size: 1.5em; margin-bottom: 1em;" data-en="Community Health Centers" data-es="Centros de Salud Comunitarios">Community Health Centers</h3>
-        <p style="color: #374151; margin-bottom: 1em;" data-en="Federally Qualified Health Centers (FQHCs) provide cancer screening services on a sliding fee scale based on your ability to pay." data-es="Los Centros de Salud Calificados Federalmente (FQHC) brindan servicios de detección del cáncer en una escala de tarifas móvil según su capacidad de pago.">Federally Qualified Health Centers (FQHCs) provide cancer screening services on a sliding fee scale based on your ability to pay.</p>
-        <p style="color: #374151; font-weight: 600;" data-en="Find a health center near you at: findahealthcenter.hrsa.gov" data-es="Encuentre un centro de salud cerca de usted en: findahealthcenter.hrsa.gov">Find a health center near you at: findahealthcenter.hrsa.gov</p>
+      <div class="cost-card">
+        <h3 data-en="Breast Cancer" data-es="Cáncer de Mama">Breast Cancer</h3>
+        <div class="cost-table-wrap">
+          <table class="cost-table">
+            <thead>
+              <tr>
+                <th data-en="Screening Method" data-es="Método de Detección">Screening Method</th>
+                <th data-en="Cost Without Insurance (out-of-pocket)" data-es="Costo Sin Seguro (de su bolsillo)">Cost Without Insurance (out-of-pocket)</th>
+                <th data-en="Cost With Insurance" data-es="Costo Con Seguro">Cost With Insurance</th>
+                <th data-en="Notes/Exceptions" data-es="Notas/Excepciones">Notes/Exceptions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-en="2D Screening Mammography" data-es="Mamografía de Detección 2D">2D Screening Mammography</td>
+                <td data-en="Less than $200-$300" data-es="Menos de $200-$300">Less than $200-$300</td>
+                <td data-en="$0" data-es="$0">$0</td>
+                <td data-en="This type of mammogram is standard." data-es="Este tipo de mamografía es estándar.">This type of mammogram is standard.</td>
+              </tr>
+              <tr>
+                <td data-en="3D Screening Mammography" data-es="Mamografía de Detección 3D">3D Screening Mammography</td>
+                <td data-en="$280-$380" data-es="$280-$380">$280-$380</td>
+                <td data-en="$0 to minimal out-of-pocket cost depending on what your insurance covers. Medicare, Medicaid, and Tricare always fully cover 3D mammograms." data-es="$0 o un costo mínimo de su bolsillo según lo que cubra su seguro. Medicare, Medicaid y Tricare siempre cubren completamente las mamografías 3D.">$0 to minimal out-of-pocket cost depending on what your insurance covers. Medicare, Medicaid, and Tricare always fully cover 3D mammograms.</td>
+                <td data-en="This type of mammogram is more efficient and provides more accurate results." data-es="Este tipo de mamografía es más eficiente y ofrece resultados más precisos.">This type of mammogram is more efficient and provides more accurate results.</td>
+              </tr>
+              <tr>
+                <td data-en="Breast MRI" data-es="Resonancia Magnética de Mama">Breast MRI</td>
+                <td data-en="$500+ at outpatient imaging centers; $900+ at hospital-based imaging facilities" data-es="$500+ en centros ambulatorios de imágenes; $900+ en centros hospitalarios de imágenes">$500+ at outpatient imaging centers; $900+ at hospital-based imaging facilities</td>
+                <td data-en="Varies by plan" data-es="Varía según el plan">Varies by plan</td>
+                <td data-en="This is an option only for high-risk patients with a doctor’s prescription." data-es="Esta es una opción solo para pacientes de alto riesgo con una receta médica.">This is an option only for high-risk patients with a doctor’s prescription.</td>
+              </tr>
+              <tr>
+                <td data-en="Clinical Breast Exam" data-es="Examen Clínico de Mama">Clinical Breast Exam</td>
+                <td data-en="$100-$300+" data-es="$100-$300+">$100-$300+</td>
+                <td data-en="$20-$70" data-es="$20-$70">$20-$70</td>
+                <td data-en="Have a follow-up mammogram and do not use this as your primary method of screening." data-es="Hágase una mamografía de seguimiento y no use este examen como su método principal de detección.">Have a follow-up mammogram and do not use this as your primary method of screening.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <div style="margin-bottom: 2rem; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 6px solid #be185d;">
-        <h3 style="color: #be185d; font-size: 1.5em; margin-bottom: 1em;" data-en="National Breast and Cervical Cancer Early Detection Program (NBCCEDP)" data-es="Programa Nacional de Detección Temprana de Cáncer de Mama y Cuello Uterino">National Breast and Cervical Cancer Early Detection Program (NBCCEDP)</h3>
-        <p style="color: #374151; margin-bottom: 1em;" data-en="This CDC program provides free or low-cost breast and cervical cancer screenings to eligible women." data-es="Este programa de los CDC proporciona pruebas de detección de cáncer de mama y cuello uterino gratuitas o de bajo costo a mujeres elegibles.">This CDC program provides free or low-cost breast and cervical cancer screenings to eligible women.</p>
-        <ul style="color: #374151; line-height: 1.8;">
-          <li data-en="Available to women who are uninsured or underinsured" data-es="Disponible para mujeres sin seguro o con seguro insuficiente">Available to women who are uninsured or underinsured</li>
-          <li data-en="Ages 40-64 for breast cancer screening" data-es="Edades 40-64 para detección de cáncer de mama">Ages 40-64 for breast cancer screening</li>
-          <li data-en="Ages 21-64 for cervical cancer screening" data-es="Edades 21-64 para detección de cáncer cervical">Ages 21-64 for cervical cancer screening</li>
-        </ul>
+      <div class="cost-card">
+        <h3 data-en="Cervical Cancer" data-es="Cáncer Cervical">Cervical Cancer</h3>
+        <div class="cost-table-wrap">
+          <table class="cost-table">
+            <thead>
+              <tr>
+                <th data-en="Screening Method" data-es="Método de Detección">Screening Method</th>
+                <th data-en="Cost Without Insurance (out-of-pocket)" data-es="Costo Sin Seguro (de su bolsillo)">Cost Without Insurance (out-of-pocket)</th>
+                <th data-en="Cost With Insurance" data-es="Costo Con Seguro">Cost With Insurance</th>
+                <th data-en="Notes/Exceptions" data-es="Notas/Excepciones">Notes/Exceptions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-en="Pap Smear/Test" data-es="Papanicolaou/Prueba de Pap">Pap Smear/Test</td>
+                <td data-en="$40-$150" data-es="$40-$150">$40-$150</td>
+                <td data-en="$0" data-es="$0">$0</td>
+                <td data-en="" data-es=""></td>
+              </tr>
+              <tr>
+                <td data-en="HPV Test" data-es="Prueba de VPH">HPV Test</td>
+                <td data-en="$43-$124" data-es="$43-$124">$43-$124</td>
+                <td data-en="$0" data-es="$0">$0</td>
+                <td data-en="In Austin, many affordable local clinics stay within the $40-$70 price range. You can also look into take-home HPV tests." data-es="En Austin, muchas clínicas locales asequibles se mantienen dentro del rango de $40-$70. También puede considerar las pruebas de VPH para hacer en casa.">In Austin, many affordable local clinics stay within the $40-$70 price range. You can also look into take-home HPV tests.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <div style="margin-bottom: 2rem; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 6px solid #4f46e5;">
-        <h3 style="color: #4f46e5; font-size: 1.5em; margin-bottom: 1em;" data-en="State and Local Programs" data-es="Programas Estatales y Locales">State and Local Programs</h3>
-        <p style="color: #374151; margin-bottom: 1em;" data-en="Many states offer free or low-cost cancer screening programs. Contact your local health department to learn about programs in your area." data-es="Muchos estados ofrecen programas de detección del cáncer gratuitos o de bajo costo. Comuníquese con su departamento de salud local para conocer los programas en su área.">Many states offer free or low-cost cancer screening programs. Contact your local health department to learn about programs in your area.</p>
+      <div class="cost-card">
+        <h3 data-en="Colorectal Cancer" data-es="Cáncer Colorrectal">Colorectal Cancer</h3>
+        <div class="cost-table-wrap">
+          <table class="cost-table">
+            <thead>
+              <tr>
+                <th data-en="Screening Method" data-es="Método de Detección">Screening Method</th>
+                <th data-en="Cost Without Insurance (out-of-pocket)" data-es="Costo Sin Seguro (de su bolsillo)">Cost Without Insurance (out-of-pocket)</th>
+                <th data-en="Cost With Insurance" data-es="Costo Con Seguro">Cost With Insurance</th>
+                <th data-en="Notes/Exceptions" data-es="Notas/Excepciones">Notes/Exceptions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-en="Fecal immunochemical test (FIT)" data-es="Prueba inmunoquímica fecal (FIT)">Fecal immunochemical test (FIT)</td>
+                <td data-en="$20-$50" data-es="$20-$50">$20-$50</td>
+                <td data-en="$0" data-es="$0">$0</td>
+                <td data-en="" data-es=""></td>
+              </tr>
+              <tr>
+                <td data-en="Guaiac-based fecal occult blood test (gFOBT)" data-es="Prueba de sangre oculta en heces basada en guayaco (gFOBT)">Guaiac-based fecal occult blood test (gFOBT)</td>
+                <td data-en="$20-$40 for individual packs" data-es="$20-$40 por paquetes individuales">$20-$40 for individual packs</td>
+                <td data-en="$0" data-es="$0">$0</td>
+                <td data-en="" data-es=""></td>
+              </tr>
+              <tr>
+                <td data-en="Multitargeted stool DNA/RNA tests (Cologuard)" data-es="Pruebas de ADN/ARN en heces de múltiples objetivos (Cologuard)">Multitargeted stool DNA/RNA tests (Cologuard)</td>
+                <td data-en="$500-$700" data-es="$500-$700">$500-$700</td>
+                <td data-en="$0 (usually covered in full with insurance, but limited in some insurance types)" data-es="$0 (normalmente cubierto por completo con seguro, pero limitado en algunos tipos de seguro)">$0 (usually covered in full with insurance, but limited in some insurance types)</td>
+                <td data-en="" data-es=""></td>
+              </tr>
+              <tr>
+                <td data-en="Colonoscopy" data-es="Colonoscopia">Colonoscopy</td>
+                <td data-en="$1,250-$4,000" data-es="$1,250-$4,000">$1,250-$4,000</td>
+                <td data-en="$0" data-es="$0">$0</td>
+                <td data-en="" data-es=""></td>
+              </tr>
+              <tr>
+                <td data-en="CT Colonography (virtual colonoscopy)" data-es="Colonografía por TC (colonoscopia virtual)">CT Colonography (virtual colonoscopy)</td>
+                <td data-en="$400-$1,200" data-es="$400-$1,200">$400-$1,200</td>
+                <td data-en="$0" data-es="$0">$0</td>
+                <td data-en="Covered by Medicare Plan B as well." data-es="También está cubierta por Medicare Plan B.">Covered by Medicare Plan B as well.</td>
+              </tr>
+              <tr>
+                <td data-en="Sigmoidoscopy" data-es="Sigmoidoscopia">Sigmoidoscopy</td>
+                <td data-en="$150-$1,000" data-es="$150-$1,000">$150-$1,000</td>
+                <td data-en="$0-$200 (coverage varies)" data-es="$0-$200 (la cobertura varía)">$0-$200 (coverage varies)</td>
+                <td data-en="Examines only the lower abdomen. It is less common now. Abnormal findings require a full colonoscopy." data-es="Examina solo la parte inferior del abdomen. Ahora es menos común. Los hallazgos anormales requieren una colonoscopia completa.">Examines only the lower abdomen. It is less common now. Abnormal findings require a full colonoscopy.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
+      <div class="cost-card">
+        <h3 data-en="Lung Cancer" data-es="Cáncer de Pulmón">Lung Cancer</h3>
+        <div class="cost-table-wrap">
+          <table class="cost-table">
+            <thead>
+              <tr>
+                <th data-en="Screening Method" data-es="Método de Detección">Screening Method</th>
+                <th data-en="Cost Without Insurance (out-of-pocket)" data-es="Costo Sin Seguro (de su bolsillo)">Cost Without Insurance (out-of-pocket)</th>
+                <th data-en="Cost With Insurance" data-es="Costo Con Seguro">Cost With Insurance</th>
+                <th data-en="Notes/Exceptions" data-es="Notas/Excepciones">Notes/Exceptions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-en="Low-Dose CT Scan (LDCT)" data-es="Tomografía Computarizada de Baja Dosis (LDCT)">Low-Dose CT Scan (LDCT)</td>
+                <td data-en="$99 to $418" data-es="$99 a $418">$99 to $418</td>
+                <td data-en="$0" data-es="$0">$0</td>
+                <td data-en="Needs a physician or doctor referral." data-es="Necesita una referencia de un médico o doctor.">Needs a physician or doctor referral.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="cost-card">
+        <h3 data-en="Prostate Cancer" data-es="Cáncer de Próstata">Prostate Cancer</h3>
+        <div class="cost-table-wrap">
+          <table class="cost-table">
+            <thead>
+              <tr>
+                <th data-en="Screening Method" data-es="Método de Detección">Screening Method</th>
+                <th data-en="Cost Without Insurance (out-of-pocket)" data-es="Costo Sin Seguro (de su bolsillo)">Cost Without Insurance (out-of-pocket)</th>
+                <th data-en="Cost With Insurance" data-es="Costo Con Seguro">Cost With Insurance</th>
+                <th data-en="Notes/Exceptions" data-es="Notas/Excepciones">Notes/Exceptions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-en="Prostate-Specific Antigen (PSA) Blood Test" data-es="Prueba de Sangre del Antígeno Prostático Específico (PSA)">Prostate-Specific Antigen (PSA) Blood Test</td>
+                <td data-en="$20-$100" data-es="$20-$100">$20-$100</td>
+                <td data-en="$0" data-es="$0">$0</td>
+                <td data-en="For men over age 50, the cost is $0 with insurance." data-es="Para hombres mayores de 50 años, el costo es $0 con seguro.">For men over age 50, the cost is $0 with insurance.</td>
+              </tr>
+              <tr>
+                <td data-en="Digital rectal exam (DRE)" data-es="Examen rectal digital (ERD)">Digital rectal exam (DRE)</td>
+                <td data-en="$50-$200 (office visit cost)" data-es="$50-$200 (costo de la consulta)">$50-$200 (office visit cost)</td>
+                <td data-en="20% coinsurance after the deductible" data-es="20% de coaseguro después del deducible">20% coinsurance after the deductible</td>
+                <td data-en="Insurance covers 80% of the cost." data-es="El seguro cubre el 80% del costo.">Insurance covers 80% of the cost.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </section>

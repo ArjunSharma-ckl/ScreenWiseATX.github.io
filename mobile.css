@@ -217,6 +217,30 @@
     flex-direction: column;
   }
 
+  .doc-table {
+    min-width: 100%;
+    table-layout: fixed;
+    font-size: 0.72rem;
+  }
+
+  .doc-table th,
+  .doc-table td {
+    padding: 0.45rem 0.5rem;
+    word-break: break-word;
+  }
+
+  .cost-table {
+    min-width: 100%;
+    table-layout: fixed;
+    font-size: 0.72rem;
+  }
+
+  .cost-table th,
+  .cost-table td {
+    padding: 0.45rem 0.5rem;
+    word-break: break-word;
+  }
+
   .detail-grid,
   .learn-grid {
     grid-template-columns: 1fr;
