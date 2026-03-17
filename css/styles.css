@@ -805,8 +805,11 @@ input:checked + .slider:before {
 .cancer-cards--row .cancer-card.lung h3,
 .hero-home .cancer-card.lung h3 {
   display: inline-block;
-  max-width: 4.8ch;
+  max-width: 6.3ch;
   line-height: 1.1;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 /* Why overview hero */
@@ -1154,6 +1157,11 @@ footer {
 .accent-colon .detail-intro strong,
 .accent-lung .detail-intro strong,
 .accent-prostate .detail-intro strong,
+.accent-breast .info-panel strong,
+.accent-cervical .info-panel strong,
+.accent-colon .info-panel strong,
+.accent-lung .info-panel strong,
+.accent-prostate .info-panel strong,
 .accent-breast .info-panel h2,
 .accent-breast .info-panel h3,
 .accent-cervical .info-panel h2,
@@ -1223,6 +1231,52 @@ footer {
 .accent-prostate .learn-card p,
 .accent-prostate .learn-card li {
   color: #475569;
+}
+
+.accent-breast .info-card,
+.accent-cervical .info-card,
+.accent-colon .info-card,
+.accent-lung .info-card,
+.accent-prostate .info-card {
+  border-color: var(--accent, #0f172a);
+  background: var(--accent-soft, #f8fafc);
+}
+
+.accent-breast .info-card p,
+.accent-cervical .info-card p,
+.accent-colon .info-card p,
+.accent-lung .info-card p,
+.accent-prostate .info-card p,
+.accent-breast .screening-figure-title,
+.accent-cervical .screening-figure-title,
+.accent-colon .screening-figure-title,
+.accent-lung .screening-figure-title,
+.accent-prostate .screening-figure-title {
+  color: var(--accent-ink, #0f172a);
+}
+
+.accent-breast .info-panel a,
+.accent-cervical .info-panel a,
+.accent-colon .info-panel a,
+.accent-lung .info-panel a,
+.accent-prostate .info-panel a,
+.accent-breast .detail-card a,
+.accent-cervical .detail-card a,
+.accent-colon .detail-card a,
+.accent-lung .detail-card a,
+.accent-prostate .detail-card a,
+.accent-breast .learn-highlight a,
+.accent-cervical .learn-highlight a,
+.accent-colon .learn-highlight a,
+.accent-lung .learn-highlight a,
+.accent-prostate .learn-highlight a,
+.accent-breast .detail-note a,
+.accent-cervical .detail-note a,
+.accent-colon .detail-note a,
+.accent-lung .detail-note a,
+.accent-prostate .detail-note a {
+  color: var(--accent-ink, #0f172a);
+  text-decoration: underline;
 }
 
 .detail-intro ul {
@@ -1335,6 +1389,39 @@ footer {
 .detail-note p,
 .detail-note li {
   color: rgba(248, 250, 252, 0.9);
+}
+
+.accent-breast .detail-note,
+.accent-cervical .detail-note,
+.accent-colon .detail-note,
+.accent-lung .detail-note,
+.accent-prostate .detail-note {
+  background: #ffffff;
+  color: #475569;
+  border: 1px solid #e5e7eb;
+  border-left: 5px solid var(--accent, #0f172a);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.accent-breast .detail-note h3,
+.accent-cervical .detail-note h3,
+.accent-colon .detail-note h3,
+.accent-lung .detail-note h3,
+.accent-prostate .detail-note h3 {
+  color: var(--accent-ink, #0f172a);
+}
+
+.accent-breast .detail-note p,
+.accent-breast .detail-note li,
+.accent-cervical .detail-note p,
+.accent-cervical .detail-note li,
+.accent-colon .detail-note p,
+.accent-colon .detail-note li,
+.accent-lung .detail-note p,
+.accent-lung .detail-note li,
+.accent-prostate .detail-note p,
+.accent-prostate .detail-note li {
+  color: #475569;
 }
 
 /* Responsive */

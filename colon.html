@@ -42,8 +42,8 @@
   line-height: 1.65;
 }
 .doc-table th {
-  background: #e0f2fe;
-  color: #0f172a;
+  background: var(--accent-soft, #dbeafe);
+  color: var(--accent-ink, #1e3a8a);
   font-weight: 700;
 }
 .doc-figure {
@@ -68,11 +68,11 @@
 }
 .doc-kicker {
   font-weight: 700;
-  color: #0f172a;
+  color: var(--accent-ink, #1e3a8a);
   margin-bottom: 0.45rem;
 }
 .doc-link {
-  color: #93c5fd;
+  color: var(--accent-ink, #1e3a8a);
   text-decoration: underline;
 }
 </style>
@@ -225,11 +225,6 @@
       <p data-en="Ages 50-85 → every 3 years" data-es="Edades 50-85 → cada 3 años">Ages 50-85 → every 3 years</p>
     </div>
 
-    <div class="detail-note">
-      <h3 data-en="For More Information" data-es="Para Más Información">For More Information</h3>
-      <p><a class="doc-link" href="https://www.cancer.org/cancer/types/colon-rectal-cancer/detection-diagnosis-staging/screening-tests-used.html" target="_blank" rel="noopener" data-en="American Cancer Society" data-es="American Cancer Society">American Cancer Society</a></p>
-    </div>
-
     <div class="definition-bubble accent-colon">
       <strong data-en="An average-risk patient is someone who does NOT have:" data-es="Un paciente de riesgo promedio es alguien que NO tiene:">An average-risk patient is someone who does NOT have:</strong>
       <ul>
@@ -248,6 +243,11 @@
         <li data-en="Has a strong family history of the cancer" data-es="Tiene un fuerte antecedente familiar de este cáncer">Has a strong family history of the cancer</li>
         <li data-en="Has genetic syndromes that link them to colorectal cancer" data-es="Tiene síndromes genéticos que lo vinculan al cáncer colorrectal">Has genetic syndromes that link them to colorectal cancer</li>
       </ul>
+    </div>
+
+    <div class="detail-note">
+      <h3 data-en="Additional Information" data-es="Información Adicional">Additional Information</h3>
+      <p><a class="doc-link" href="https://www.cancer.org/cancer/types/colon-rectal-cancer/detection-diagnosis-staging/screening-tests-used.html" target="_blank" rel="noopener" data-en="American Cancer Society" data-es="American Cancer Society">American Cancer Society</a></p>
     </div>
   </div>
 </section>
