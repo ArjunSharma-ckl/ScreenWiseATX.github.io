@@ -454,7 +454,7 @@ input:checked + .slider:before {
 }
 
 .hero-prostate {
-  background: linear-gradient(120deg, #e0f2fe, #bae6fd);
+  background: linear-gradient(120deg, #ede9fe, #c4b5fd);
   padding: 3rem 2rem;
 }
 
@@ -470,22 +470,22 @@ input:checked + .slider:before {
 }
 
 .hero-cervical {
-  background: linear-gradient(120deg, #fef3c7, #fde68a);
+  background: linear-gradient(120deg, #fef9c3, #fde047);
   padding: 3rem 2rem;
 }
 
 .hero-colon {
-  background: linear-gradient(120deg, #dbeafe, #bfdbfe);
+  background: linear-gradient(120deg, #dbeafe, #93c5fd);
   padding: 3rem 2rem;
 }
 
 .hero-lung {
-  background: linear-gradient(120deg, #e0e7ff, #c7d2fe);
+  background: linear-gradient(120deg, #dcfce7, #86efac);
   padding: 3rem 2rem;
 }
 
 .hero-prostate {
-  background: linear-gradient(120deg, #e0f2fe, #bae6fd);
+  background: linear-gradient(120deg, #ede9fe, #c4b5fd);
   padding: 3rem 2rem;
 }
 
@@ -504,34 +504,34 @@ input:checked + .slider:before {
 
 .hero-cervical h1 {
   font-size: 3.4rem;
-  color: #d97706;
+  color: #a16207;
   margin-bottom: 2rem;
 }
 
 .hero-colon h1 {
   font-size: 3.4rem;
-  color: #0369a1;
+  color: #1e3a8a;
   margin-bottom: 2rem;
 }
 
 .hero-lung h1 {
   font-size: 3.4rem;
-  color: #4f46e5;
+  color: #15803d;
   margin-bottom: 2rem;
 }
 
 .hero-prostate h1 {
   font-size: 3.4rem;
-  color: #0284c7;
+  color: #7c3aed;
   margin-bottom: 2rem;
 }
 
 /* Accent tokens for learn/screening themes */
 .accent-breast { --accent: #be185d; --accent-soft: #fdf2f8; --accent-ink: #831843; }
-.accent-cervical { --accent: #7e22ce; --accent-soft: #f5f3ff; --accent-ink: #581c87; }
-.accent-colon { --accent: #0369a1; --accent-soft: #e0f2fe; --accent-ink: #0c4a6e; }
-.accent-lung { --accent: #475569; --accent-soft: #e2e8f0; --accent-ink: #111827; }
-.accent-prostate { --accent: #0284c7; --accent-soft: #e0f2fe; --accent-ink: #0f172a; }
+.accent-cervical { --accent: #ca8a04; --accent-soft: #fef9c3; --accent-ink: #854d0e; }
+.accent-colon { --accent: #1d4ed8; --accent-soft: #dbeafe; --accent-ink: #1e3a8a; }
+.accent-lung { --accent: #16a34a; --accent-soft: #dcfce7; --accent-ink: #166534; }
+.accent-prostate { --accent: #7c3aed; --accent-soft: #ede9fe; --accent-ink: #5b21b6; }
 .accent-neutral { --accent: #0f172a; --accent-soft: #f8fafc; --accent-ink: #0f172a; }
 .stats-grid .stat-number {
   display: block;
@@ -782,25 +782,25 @@ input:checked + .slider:before {
 .cancer-card.breast h3 { color: #be185d; }
 .cancer-card.breast .tag { background: #fce7f3; color: #be185d; }
 
-.cancer-card.cervical::before { background: linear-gradient(90deg, #d97706, #fbbf24); }
-.cancer-card.cervical:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(217,119,6,0.15); border-color: #d97706; }
-.cancer-card.cervical h3 { color: #d97706; }
-.cancer-card.cervical .tag { background: #fef3c7; color: #78350f; }
+.cancer-card.cervical::before { background: linear-gradient(90deg, #ca8a04, #facc15); }
+.cancer-card.cervical:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(202,138,4,0.15); border-color: #ca8a04; }
+.cancer-card.cervical h3 { color: #a16207; }
+.cancer-card.cervical .tag { background: #fef9c3; color: #854d0e; }
 
-.cancer-card.colon::before { background: linear-gradient(90deg, #0369a1, #38bdf8); }
-.cancer-card.colon:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(3,105,161,0.15); border-color: #0369a1; }
-.cancer-card.colon h3 { color: #0369a1; }
-.cancer-card.colon .tag { background: #dbeafe; color: #0369a1; }
+.cancer-card.colon::before { background: linear-gradient(90deg, #1d4ed8, #60a5fa); }
+.cancer-card.colon:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(29,78,216,0.15); border-color: #1d4ed8; }
+.cancer-card.colon h3 { color: #1e3a8a; }
+.cancer-card.colon .tag { background: #dbeafe; color: #1d4ed8; }
 
-.cancer-card.lung::before { background: linear-gradient(90deg, #475569, #94a3b8); }
-.cancer-card.lung:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(71,85,105,0.15); border-color: #475569; }
-.cancer-card.lung h3 { color: #475569; }
-.cancer-card.lung .tag { background: #f1f5f9; color: #475569; }
+.cancer-card.lung::before { background: linear-gradient(90deg, #16a34a, #4ade80); }
+.cancer-card.lung:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(22,163,74,0.15); border-color: #16a34a; }
+.cancer-card.lung h3 { color: #15803d; }
+.cancer-card.lung .tag { background: #dcfce7; color: #166534; }
 
-.cancer-card.prostate::before { background: linear-gradient(90deg, #0284c7, #38bdf8); }
-.cancer-card.prostate:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(2,132,199,0.15); border-color: #0284c7; }
-.cancer-card.prostate h3 { color: #0284c7; }
-.cancer-card.prostate .tag { background: #e0f2fe; color: #0284c7; }
+.cancer-card.prostate::before { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
+.cancer-card.prostate:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(124,58,237,0.15); border-color: #7c3aed; }
+.cancer-card.prostate h3 { color: #6d28d9; }
+.cancer-card.prostate .tag { background: #ede9fe; color: #6d28d9; }
 
 /* Why overview hero */
 .why-overview {
@@ -1188,23 +1188,23 @@ footer {
 }
 
 .detail-card.accent-cervical {
-  border-top: 4px solid #d97706;
-  background: linear-gradient(180deg, #fffdfa 0%, #fff7e6 100%);
+  border-top: 4px solid #ca8a04;
+  background: linear-gradient(180deg, #fffef2 0%, #fef9c3 100%);
 }
 
 .detail-card.accent-colon {
-  border-top: 4px solid #0369a1;
-  background: linear-gradient(180deg, #f8fbff 0%, #e6f1ff 100%);
+  border-top: 4px solid #1d4ed8;
+  background: linear-gradient(180deg, #f8fbff 0%, #dbeafe 100%);
 }
 
 .detail-card.accent-lung {
-  border-top: 4px solid #475569;
-  background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+  border-top: 4px solid #16a34a;
+  background: linear-gradient(180deg, #f7fff9 0%, #dcfce7 100%);
 }
 
 .detail-card.accent-prostate {
-  border-top: 4px solid #0284c7;
-  background: linear-gradient(180deg, #f3fbff 0%, #e0f4ff 100%);
+  border-top: 4px solid #7c3aed;
+  background: linear-gradient(180deg, #faf7ff 0%, #ede9fe 100%);
 }
 
 .detail-card.accent-neutral {
