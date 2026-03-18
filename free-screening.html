@@ -179,6 +179,50 @@
     background: #ede9fe;
     color: #5b21b6;
   }
+
+  .resource-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .resource-link {
+    text-decoration: none;
+    display: block;
+  }
+
+  .resource-card {
+    padding: 2rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(248,250,252,0.98));
+    border-radius: 18px;
+    border: 2px solid #cbd5e1;
+    box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+    height: 100%;
+    transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+  }
+
+  .resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 40px rgba(15, 23, 42, 0.12);
+    border-color: #7dd3fc;
+  }
+
+  .resource-card h3 {
+    color: #0369a1;
+    font-size: 1.3em;
+    margin-bottom: 0.5em;
+  }
+
+  .resource-card p {
+    color: #374151;
+  }
+
+  .resource-url {
+    color: #0369a1;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
 </style>
 </head>
 <body>
@@ -418,58 +462,58 @@
     <h2 data-en="Resources in Austin, Texas" data-es="Recursos en Austin, Texas">Resources in Austin, Texas</h2>
     <p data-en="Here are some local resources for cancer screening in the Austin area:" data-es="Aquí hay algunos recursos locales para la detección del cáncer en el área de Austin:">Here are some local resources for cancer screening in the Austin area:</p>
     
-    <div style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-      <a href="https://communitycaretx.org" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); height:100%;">
-          <h3 style="color: #0369a1; font-size: 1.3em; margin-bottom: 0.5em;" data-en="CommUnityCare Health Centers" data-es="Centros de Salud CommUnityCare">CommUnityCare Health Centers</h3>
-          <p style="color: #374151; margin-bottom: 1em;" data-en="Multiple locations throughout Austin providing affordable cancer screening services." data-es="Múltiples ubicaciones en Austin que ofrecen servicios asequibles de detección del cáncer.">Multiple locations throughout Austin providing affordable cancer screening services.</p>
-          <p style="color: #374151; margin: 0 0 0.35em;"><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> (512) 978-9015</p>
-          <p style="color: #0369a1; font-weight: 600;">communitycaretx.org</p>
+    <div class="resource-grid">
+      <a href="https://communitycaretx.org" target="_blank" rel="noopener" class="resource-link">
+        <div class="resource-card">
+          <h3 data-en="CommUnityCare Health Centers" data-es="Centros de Salud CommUnityCare">CommUnityCare Health Centers</h3>
+          <p style="margin-bottom: 1em;" data-en="Multiple locations throughout Austin providing affordable cancer screening services." data-es="Múltiples ubicaciones en Austin que ofrecen servicios asequibles de detección del cáncer.">Multiple locations throughout Austin providing affordable cancer screening services.</p>
+          <p style="margin: 0 0 0.35em;"><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> (512) 978-9015</p>
+          <p class="resource-url">communitycaretx.org</p>
         </div>
       </a>
 
-      <a href="https://austinpcc.org" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); height:100%;">
-          <h3 style="color: #0369a1; font-size: 1.3em; margin-bottom: 0.5em;" data-en="People's Community Clinic" data-es="Clínica Comunitaria People's">People's Community Clinic</h3>
-          <p style="color: #374151; margin-bottom: 1em;" data-en="Affordable healthcare services including cancer screening for uninsured and underinsured individuals." data-es="Servicios de salud asequibles, incluida la detección del cáncer, para personas sin seguro o con seguro insuficiente.">Affordable healthcare services including cancer screening for uninsured and underinsured individuals.</p>
-          <p style="color: #374151; margin: 0 0 0.35em;"><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> (512) 478-4939</p>
-          <p style="color: #0369a1; font-weight: 600;">austinpcc.org</p>
+      <a href="https://austinpcc.org" target="_blank" rel="noopener" class="resource-link">
+        <div class="resource-card">
+          <h3 data-en="People's Community Clinic" data-es="Clínica Comunitaria People's">People's Community Clinic</h3>
+          <p style="margin-bottom: 1em;" data-en="Affordable healthcare services including cancer screening for uninsured and underinsured individuals." data-es="Servicios de salud asequibles, incluida la detección del cáncer, para personas sin seguro o con seguro insuficiente.">Affordable healthcare services including cancer screening for uninsured and underinsured individuals.</p>
+          <p style="margin: 0 0 0.35em;"><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> (512) 478-4939</p>
+          <p class="resource-url">austinpcc.org</p>
         </div>
       </a>
 
-      <a href="https://www.hhs.texas.gov" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); height:100%;">
-          <h3 style="color: #0369a1; font-size: 1.3em; margin-bottom: 0.5em;" data-en="Texas Health and Human Services" data-es="Servicios Humanos y de Salud de Texas">Texas Health and Human Services</h3>
-          <p style="color: #374151; margin-bottom: 1em;" data-en="State screening programs including the Texas Breast and Cervical Cancer Services program." data-es="Programas estatales de detección, incluido el programa de Servicios de Cáncer de Mama y Cervical de Texas.">State screening programs including the Texas Breast and Cervical Cancer Services program.</p>
-          <p style="color: #374151; margin: 0 0 0.35em;"><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> <span data-en="2-1-1 or" data-es="2-1-1 o">2-1-1 or</span> (877) 541-7905</p>
-          <p style="color: #0369a1; font-weight: 600;">hhs.texas.gov</p>
+      <a href="https://www.hhs.texas.gov" target="_blank" rel="noopener" class="resource-link">
+        <div class="resource-card">
+          <h3 data-en="Texas Health and Human Services" data-es="Servicios Humanos y de Salud de Texas">Texas Health and Human Services</h3>
+          <p style="margin-bottom: 1em;" data-en="State screening programs including the Texas Breast and Cervical Cancer Services program." data-es="Programas estatales de detección, incluido el programa de Servicios de Cáncer de Mama y Cervical de Texas.">State screening programs including the Texas Breast and Cervical Cancer Services program.</p>
+          <p style="margin: 0 0 0.35em;"><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> <span data-en="2-1-1 or" data-es="2-1-1 o">2-1-1 or</span> (877) 541-7905</p>
+          <p class="resource-url">hhs.texas.gov</p>
         </div>
       </a>
 
-      <a href="https://www.cancer.org" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); height:100%;">
-          <h3 style="color: #0369a1; font-size: 1.3em; margin-bottom: 0.5em;" data-en="American Cancer Society" data-es="Sociedad Americana Contra el Cáncer">American Cancer Society</h3>
-          <p style="color: #374151; margin-bottom: 1em;" data-en="Information, resources, and support for cancer screening and treatment." data-es="Información, recursos y apoyo para la detección y el tratamiento del cáncer.">Information, resources, and support for cancer screening and treatment.</p>
-          <p style="color: #374151; margin: 0 0 0.35em;"><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> (800) 227-2345</p>
-          <p style="color: #0369a1; font-weight: 600;">cancer.org</p>
+      <a href="https://www.cancer.org" target="_blank" rel="noopener" class="resource-link">
+        <div class="resource-card">
+          <h3 data-en="American Cancer Society" data-es="Sociedad Americana Contra el Cáncer">American Cancer Society</h3>
+          <p style="margin-bottom: 1em;" data-en="Information, resources, and support for cancer screening and treatment." data-es="Información, recursos y apoyo para la detección y el tratamiento del cáncer.">Information, resources, and support for cancer screening and treatment.</p>
+          <p style="margin: 0 0 0.35em;"><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> (800) 227-2345</p>
+          <p class="resource-url">cancer.org</p>
         </div>
       </a>
 
-      <a href="https://cancercare.org" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); height:100%;">
-          <h3 style="color: #0369a1; font-size: 1.3em; margin-bottom: 0.5em;" data-en="CancerCare Helpline" data-es="Línea de Ayuda de CancerCare">CancerCare Helpline</h3>
-          <p style="color: #374151; margin-bottom: 1em;" data-en="Free counseling, financial navigation, and telehealth screening guidance across Texas." data-es="Consejería gratuita, orientación financiera y guía de detección por telesalud en todo Texas.">Free counseling, financial navigation, and telehealth screening guidance across Texas.</p>
-          <p style="color: #374151; margin: 0 0 0.35em;"><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> (800) 813-4673</p>
-          <p style="color: #0369a1; font-weight: 600;">cancercare.org</p>
+      <a href="https://cancercare.org" target="_blank" rel="noopener" class="resource-link">
+        <div class="resource-card">
+          <h3 data-en="CancerCare Helpline" data-es="Línea de Ayuda de CancerCare">CancerCare Helpline</h3>
+          <p style="margin-bottom: 1em;" data-en="Free counseling, financial navigation, and telehealth screening guidance across Texas." data-es="Consejería gratuita, orientación financiera y guía de detección por telesalud en todo Texas.">Free counseling, financial navigation, and telehealth screening guidance across Texas.</p>
+          <p style="margin: 0 0 0.35em;"><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> (800) 813-4673</p>
+          <p class="resource-url">cancercare.org</p>
         </div>
       </a>
 
-      <a href="https://www.cdc.gov/cancer/nbccedp" target="_blank" rel="noopener" style="text-decoration:none;">
-        <div style="padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); height:100%;">
-          <h3 style="color: #0369a1; font-size: 1.3em; margin-bottom: 0.5em;" data-en="CDC NBCCEDP" data-es="CDC NBCCEDP">CDC NBCCEDP</h3>
-          <p style="color: #374151; margin-bottom: 1em;" data-en="National Breast & Cervical Cancer Early Detection Program with referrals for Texans." data-es="Programa Nacional de Detección Temprana de Cáncer de Mama y Cervical con referencias para tejanos.">National Breast & Cervical Cancer Early Detection Program with referrals for Texans.</p>
-          <p style="color: #374151; margin: 0 0 0.35em;"><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> (800) 232-4636</p>
-          <p style="color: #0369a1; font-weight: 600;">cdc.gov/cancer/nbccedp</p>
+      <a href="https://www.cdc.gov/cancer/nbccedp" target="_blank" rel="noopener" class="resource-link">
+        <div class="resource-card">
+          <h3 data-en="CDC NBCCEDP" data-es="CDC NBCCEDP">CDC NBCCEDP</h3>
+          <p style="margin-bottom: 1em;" data-en="National Breast & Cervical Cancer Early Detection Program with referrals for Texans." data-es="Programa Nacional de Detección Temprana de Cáncer de Mama y Cervical con referencias para tejanos.">National Breast & Cervical Cancer Early Detection Program with referrals for Texans.</p>
+          <p style="margin: 0 0 0.35em;"><strong data-en="Phone:" data-es="Teléfono:">Phone:</strong> (800) 232-4636</p>
+          <p class="resource-url">cdc.gov/cancer/nbccedp</p>
         </div>
       </a>
     </div>

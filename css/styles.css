@@ -386,11 +386,50 @@ header {
   text-decoration: none;
   font-weight: 600;
   border-radius: 10px;
+  border: 1px solid transparent;
+  transition: background-color 0.22s ease, color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
 }
 
 .cancer-menu a:hover {
   background: #f8fafc;
   color: #db2777;
+}
+
+.cancer-menu a[href*="breast"]:hover,
+.cancer-menu a[href*="breast"]:focus-visible {
+  background: #fce7f3;
+  color: #831843;
+  border-color: #f3bfd7;
+}
+
+.cancer-menu a[href*="cervical"]:hover,
+.cancer-menu a[href*="cervical"]:focus-visible {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #f2d489;
+}
+
+.cancer-menu a[href*="colon"]:hover,
+.cancer-menu a[href*="colorectal"]:hover,
+.cancer-menu a[href*="colon"]:focus-visible,
+.cancer-menu a[href*="colorectal"]:focus-visible {
+  background: #dbeafe;
+  color: #1e3a8a;
+  border-color: #93c5fd;
+}
+
+.cancer-menu a[href*="lung"]:hover,
+.cancer-menu a[href*="lung"]:focus-visible {
+  background: #dcfce7;
+  color: #166534;
+  border-color: #86efac;
+}
+
+.cancer-menu a[href*="prostate"]:hover,
+.cancer-menu a[href*="prostate"]:focus-visible {
+  background: #ede9fe;
+  color: #5b21b6;
+  border-color: #c4b5fd;
 }
 
 /* Language Toggle */
@@ -1023,23 +1062,26 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  max-width: 980px;
+  max-width: 1200px;
   background: rgba(255,255,255,0.72);
   border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: 28px;
   box-shadow: var(--shadow-soft);
-  padding: 2.4rem 2.5rem;
+  padding: 2.85rem 3rem;
 }
 
 .mission-hero h1 {
-  font-size: 3rem;
+  font-size: 3.35rem;
   margin: 0;
   color: #0f172a;
+  letter-spacing: -0.04em;
 }
 
 .mission-hero p {
   margin: 0;
-  max-width: 900px;
+  max-width: none;
+  font-size: 1.12rem;
+  line-height: 1.8;
   color: #1f2937;
 }
 
