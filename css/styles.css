@@ -843,9 +843,14 @@ input:checked + .slider:before {
   height: 88px;
   border-radius: 22px;
   object-fit: cover;
+  object-position: center;
   margin-bottom: 1rem;
   border: 3px solid rgba(255, 255, 255, 0.95);
   box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
+}
+
+.team-photo-aarya {
+  object-position: center 40px;
 }
 
 .team-member h3 {
