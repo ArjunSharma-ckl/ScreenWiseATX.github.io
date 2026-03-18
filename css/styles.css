@@ -356,9 +356,21 @@ header {
 /* Dropdown menu for cancer types - VERTICAL LAYOUT */
 .tab2-wrap {
   position: relative;
+  padding-bottom: 0.7rem;
+  margin-bottom: -0.7rem;
 }
 
-.tab2-wrap:hover .cancer-menu {
+.tab2-wrap::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 0.7rem;
+}
+
+.tab2-wrap:hover .cancer-menu,
+.tab2-wrap:focus-within .cancer-menu {
   display: flex;
 }
 
