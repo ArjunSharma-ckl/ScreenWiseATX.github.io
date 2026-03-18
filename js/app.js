@@ -207,34 +207,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Add animation on scroll
-  const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.cancer-card, .stat-item, .team-member');
-    elements.forEach(element => {
-      const elementPosition = element.getBoundingClientRect().top;
-      const screenPosition = window.innerHeight / 1.3;
-      
-      if (elementPosition < screenPosition) {
-        element.style.opacity = '1';
-        element.style.transform = 'translateY(0)';
-      }
+  // Clean reveal animations for both desktop and mobile
+  const setupRevealAnimations = () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    const revealTargets = document.querySelectorAll(
+      '.cancer-card, .why-card, .info-panel, .detail-card, .learn-card, .learn-intro, .definition-bubble, .detail-note, .team-member, .stat-item'
+    );
+
+    revealTargets.forEach((element, index) => {
+      element.classList.add('reveal-ready');
+      element.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 55}ms`);
     });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: '0px 0px -8% 0px'
+    });
+
+    revealTargets.forEach((element) => revealObserver.observe(element));
   };
 
-  // Initialize animation states
   window.addEventListener('load', () => {
-    document.querySelectorAll('.cancer-card, .stat-item, .team-member').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    });
-    
-    // Trigger initial animation
-    setTimeout(animateOnScroll, 100);
+    setupRevealAnimations();
   });
-
-  // Animate on scroll
-  window.addEventListener('scroll', animateOnScroll);
 
   // Mobile menu toggle
   const mobileMenuToggle = document.createElement('button');
@@ -277,19 +281,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
-  // Add hover effect to buttons
-  document.querySelectorAll('a, button').forEach(button => {
-    button.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-2px)';
-      this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
-    });
-    
-    button.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0)';
-      this.style.boxShadow = 'none';
-    });
-  });
 
   // Initialize tooltips
   const tooltipElements = document.querySelectorAll('[data-tooltip]');

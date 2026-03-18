@@ -19,31 +19,41 @@
 <style>
   .cost-guide {
     display: grid;
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .cost-note {
-    padding: 1.4rem 1.5rem;
-    background: linear-gradient(135deg, #eff6ff, #f8fafc);
-    border: 1px solid #bfdbfe;
-    border-radius: 14px;
+    padding: 1.55rem 1.65rem;
+    background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(241,245,249,0.96));
+    border: 1px solid #dbe6f1;
+    border-radius: 20px;
     color: #334155;
     line-height: 1.7;
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
   }
 
   .cost-card {
-    padding: 1.7rem;
-    background: white;
-    border-radius: 14px;
+    padding: 1.85rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(248,250,252,0.98));
+    border-radius: 22px;
     border-left: 6px solid #0369a1;
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    border-top: 1px solid rgba(226, 232, 240, 0.92);
+    border-right: 1px solid rgba(226, 232, 240, 0.92);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.92);
+    box-shadow: 0 22px 44px rgba(15, 23, 42, 0.08);
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+  }
+
+  .cost-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 54px rgba(15, 23, 42, 0.12);
   }
 
   .cost-card h3 {
     margin: 0 0 0.9rem;
-    color: #0369a1;
+    color: #0f172a;
     font-size: 1.45rem;
+    letter-spacing: -0.02em;
   }
 
   .cost-table-wrap {
@@ -54,15 +64,17 @@
   .cost-table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #d7e0ea;
     min-width: 680px;
-    background: #fff;
+    background: rgba(255,255,255,0.98);
+    border-radius: 16px;
+    overflow: hidden;
   }
 
   .cost-table th,
   .cost-table td {
     padding: 0.8rem 0.9rem;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #dbe4ee;
     text-align: left;
     vertical-align: top;
     color: #334155;
@@ -70,9 +82,17 @@
   }
 
   .cost-table th {
-    background: #e0f2fe;
+    background: #eef4fb;
     color: #0f172a;
     font-weight: 700;
+  }
+
+  .cost-table tbody tr:nth-child(even) td {
+    background: rgba(248, 250, 252, 0.72);
+  }
+
+  .cost-table tbody tr:hover td {
+    background: rgba(241, 245, 249, 0.92);
   }
 
   .cost-card.breast {
@@ -84,7 +104,7 @@
   }
 
   .cost-card.breast .cost-table {
-    border-color: #f9a8d4;
+    border-color: #f3bfd7;
   }
 
   .cost-card.breast .cost-table th {
@@ -93,20 +113,20 @@
   }
 
   .cost-card.cervical {
-    border-left-color: #ca8a04;
+    border-left-color: #b45309;
   }
 
   .cost-card.cervical h3 {
-    color: #a16207;
+    color: #92400e;
   }
 
   .cost-card.cervical .cost-table {
-    border-color: #fcd34d;
+    border-color: #f2d489;
   }
 
   .cost-card.cervical .cost-table th {
     background: #fef3c7;
-    color: #854d0e;
+    color: #92400e;
   }
 
   .cost-card.colorectal {
