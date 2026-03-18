@@ -850,7 +850,7 @@ input:checked + .slider:before {
 }
 
 .team-photo-aarya {
-  object-position: center 40px;
+  object-position: center 10px;
 }
 
 .team-member h3 {
