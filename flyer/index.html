@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes">
 <title>ScreenWiseATX Flyer</title>
 <style>
   html, body {
@@ -27,6 +27,13 @@
 </style>
 </head>
 <body>
+<script>
+  const pdfUrl = "../ScreenWiseATXFlyer.pdf#toolbar=1&navpanes=1&scrollbar=1&view=FitH";
+  const useNativePdfViewer = window.matchMedia("(max-width: 900px), (pointer: coarse)").matches;
+  if (useNativePdfViewer) {
+    window.location.replace(pdfUrl);
+  }
+</script>
 <iframe
   class="flyer-frame"
   src="../ScreenWiseATXFlyer.pdf#toolbar=1&navpanes=1&scrollbar=1&view=FitH"
